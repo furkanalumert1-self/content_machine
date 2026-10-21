@@ -103,7 +103,7 @@ describe('bildirimler', () => {
   it('Telegram hata mesajındaki token maskelenir ve uzun metin kırpılır', async () => {
     const token = '123456:' + 'B'.repeat(35);
     const failing = async () => new Response(JSON.stringify({ ok: false, description: `bad token ${token}` }), { status: 401 });
-    const err = await new TelegramApi(token, failing as typeof fetch).sendMessage('1', 'x').catch((e) => e as Error);
+    const err = (await new TelegramApi(token, failing as typeof fetch).sendMessage('1', 'x').catch((e: unknown) => e)) as Error;
     expect(err.message).not.toContain('BBBBBBBB');
     let sent = '';
     const ok = async (_u: string, init?: RequestInit) => { sent = JSON.parse(String(init?.body)).text; return new Response(JSON.stringify({ ok: true, result: {} })); };
