@@ -5,7 +5,7 @@
 - 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI.
 - 21.10.2026 — ADIM 2 tamamlandı: brief taslağı, fikir motoru, repo/site salt okunur inceleme.
 - 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı.
-- 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı → **brief yeniden onay bekliyor**. ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü. **ADIM 5 onayı bekleniyor.**
+- 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü. **ADIM 5 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
