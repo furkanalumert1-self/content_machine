@@ -1,10 +1,9 @@
 ---
 product: callypso-engage
-status: taslak
-approved_hash:
-approved_at:
+status: onaylı
+approved_hash: 21fae10f3cc8e260
+approved_at: 2026-10-21T20:26:00.115Z
 ---
-
 # Callypso Engage — Brief
 
 ## Ürün

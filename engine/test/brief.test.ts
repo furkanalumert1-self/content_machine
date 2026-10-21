@@ -17,8 +17,8 @@ describe('Callypso Engage brief', () => {
     expect(b.unverified.length).toBeGreaterThanOrEqual(4);
   });
 
-  it('henüz onaylı değil', () => {
-    expect(isApproved(parseBrief(real))).toBe(false);
+  it('kullanıcı onayladı (21.10.2026) ve onay özeti metinle eşleşiyor', () => {
+    expect(isApproved(parseBrief(real))).toBe(true);
   });
 });
 

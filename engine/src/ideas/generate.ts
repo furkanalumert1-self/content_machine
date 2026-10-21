@@ -85,7 +85,7 @@ function candidates(input: GenerateInput): { drafts: IdeaDraft[]; notes: string[
     });
     add({
       idea: `Mini demo: ${f.title} (örnek veri)`,
-      hook: `${f.title} nasıl çalışıyor? 20 saniyede göstereyim.`,
+      hook: `20 saniyede: ${f.title}.`,
       content_type: 'mini_demo',
       source: 'audience',
       source_ref: `brief:özellik-${i + 1}`,

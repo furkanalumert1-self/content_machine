@@ -3,7 +3,8 @@
 ## Durum
 - 21.10.2026 — ADIM 0 tamamlandı → `docs/adim-0-arastirma.md`.
 - 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI.
-- 21.10.2026 — ADIM 2 tamamlandı: brief taslağı (`config/products/callypso-engage.md`), fikir motoru, repo/site salt okunur inceleme. **Brief onayı ve ADIM 3 onayı bekleniyor.**
+- 21.10.2026 — ADIM 2 tamamlandı: brief taslağı, fikir motoru, repo/site salt okunur inceleme.
+- 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı (ürün/tür/fikir/stil seçimi, senaryo, caption, hashtag, süre, gerekçe). **ADIM 4 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -28,7 +29,14 @@
 - Doğrulanmamış (videoda yok): mağaza senkronu, gerçek İYS entegrasyonu, WhatsApp (demo), gerçek SMS gönderimi.
 - Sitede rakip karşılaştırma tablosu var → videolarda rakip anılmaz. Sitedeki CTA "Canlı demoyu gör"; videoda kullanıcının istediği "Canlı demoyu dene".
 
+## Planlayıcı kuralları (ADIM 3)
+- İçerik türü: son 14 günde en uzun süredir kullanılmayan tür. Keşif günü türden önce gelir.
+- Senaryo kurala uymazsa (yasaklı ifade, uzun satır, süre, CTA, hashtag) veya son 3 videodaki bir anlatım cümlesini tekrar ederse fikir o gün atlanır; 15 denemede olmazsa plan yapılmaz.
+- Tekrar çalıştırılabilir: bugün için `daily_video_count` kadar otomatik video varsa çıkar. Eşzamanlı çalışmayı Actions concurrency engelleyecek (ADIM 7).
+- `publish_at` ADIM 6'da seçilecek; şimdilik boş.
+
 ## Bilinen sınırlamalar
+- **Fikir stoku:** yapay zekâ API'si kapalıyken onaylı brief'ten en fazla ~24 farklı fikir çıkar → günde 1 videoyla ~3,5 hafta. Sonra 60 gün tekrar yasağı dolana kadar fikir kalmaz. Çözüm seçenekleri kullanıcıya soruldu (brief'e madde eklemek / API'yi açmak / tekrar süresini kısaltmak).
 - Bu oturumun ağı eklenmemiş repolar için GitHub API'yi engelliyor (403); kuru çalıştırma `--local` ile klondan okur. Actions'ta API çalışır.
 - Yapay zekâ API'si kapalıyken fikir metinleri brief cümlelerinden kalıpla türetilir; bazıları kalıp gibi duruyor, mini demo hook'ları uzun. Senaryo aşamasında (ADIM 3) kısaltılacak.
 - Trend kaynağı yok: resmi bir arama/haber API'si (ücretsiz katmanlı) onayla eklenebilir.
