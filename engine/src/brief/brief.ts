@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 export interface Pain { title: string; desc: string; hook: string; featureIndex: number }
 export interface Feature { title: string; desc: string; tip: string }
 export interface Myth { myth: string; truth: string }
+export interface ExtraTip { featureIndex: number; tip: string }
 
 export interface Brief {
   product: string;
@@ -15,7 +16,9 @@ export interface Brief {
   pains: Pain[];
   features: Feature[];
   myths: Myth[];
+  extraTips: ExtraTip[];
   cta: string;
+  ctaUrl: string;
   forbidden: string[];
   unverified: string[];
 }
@@ -91,8 +94,17 @@ export function parseBrief(md: string): Brief {
     return m ? [{ myth: m[1], truth: m[2] }] : [];
   });
 
+  const extraTips: ExtraTip[] = numbered(sections['Ek ipuçları']).flatMap((line, i) => {
+    const m = line.match(/^Özellik\s+(\d):\s+"(.+)"$/);
+    if (!m) { problems.push(`Ek ipucu ${i + 1} biçimi hatalı (beklenen: Özellik N: "…").`); return []; }
+    if (!features[Number(m[1]) - 1]) problems.push(`Ek ipucu ${i + 1} var olmayan bir özelliğe bağlı.`);
+    return [{ featureIndex: Number(m[1]) - 1, tip: m[2] }];
+  });
+
   const ctaMatch = (sections['CTA'] ?? '').match(/"(.+?)"/);
   if (!ctaMatch) problems.push('CTA tırnak içinde yazılmalı.');
+  const ctaUrl = (sections['CTA'] ?? '').match(/^Hedef:\s+(https:\/\/\S+)/m)?.[1];
+  if (!ctaUrl) problems.push('CTA bölümünde "Hedef: https://…" satırı yok.');
 
   const status = meta.status === 'onaylı' ? 'onaylı' : 'taslak';
   if (!meta.product) problems.push('Bilgi bloğunda "product" yok.');
@@ -109,7 +121,9 @@ export function parseBrief(md: string): Brief {
     pains,
     features,
     myths,
+    extraTips,
     cta: ctaMatch![1],
+    ctaUrl: ctaUrl!,
     forbidden: bullets(sections['Yasak konular']),
     unverified: bullets(sections['Doğrulanmamış (videoda söylenmeyecek)']),
   };

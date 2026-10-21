@@ -13,6 +13,8 @@ describe('checkClaims', () => {
     ['Cold outreach için ideal', 'Cold outreach çağrışımı'],
     ['KVKK uyumunu biz hallederiz', 'Hukuki garanti'],
     ['Sadece $49', 'Fiyat'],
+    ['Dene: callypso-engage.vercel.app', 'Web adresi (yönlendirme yalnızca profil bağlantısıyla)'],
+    ['https://cal.com/furkan-alumert', 'Web adresi (yönlendirme yalnızca profil bağlantısıyla)'],
   ])('"%s" → %s', (text, rule) => {
     expect(rules(text)).toContain(rule);
   });

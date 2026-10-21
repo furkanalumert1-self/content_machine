@@ -17,7 +17,7 @@ export type Visual =
   | { type: 'before' }
   | { type: 'after'; feature: number; chips: string[] }
   | { type: 'myth' }
-  | { type: 'cta'; url: string };
+  | { type: 'cta' };
 
 export interface Scene {
   id: string;
@@ -38,7 +38,8 @@ export interface Script {
   scenes: Scene[];
   duration_sec: number;
   cta: string;
-  url: string;
+  /** Yalnızca kayıt için; ekranda/caption'da gösterilmez. Profil bağlantısı olarak kullanılır. */
+  cta_url: string;
   sample_data: boolean;
   review_notes: string[];
 }
@@ -119,8 +120,9 @@ function bodyScenes(idea: Idea, brief: Brief): { scenes: Draft[]; notes: string[
       };
     }
     case 'ipucu': {
-      const fi = feat ?? 0;
-      const tip = parts(brief.features[fi].tip);
+      const extra = refIndex(idea.source_ref, 'ipucu');
+      const fi = extra != null ? brief.extraTips[extra].featureIndex : feat ?? 0;
+      const tip = parts(extra != null ? brief.extraTips[extra].tip : brief.features[fi].tip);
       return { scenes: [...(tip[1] ? [st([end(cap(tip[1]))])] : []), featureScene(brief, fi, 'Callypso Engage\'de:')], notes };
     }
     case 'mini_demo': {
@@ -184,14 +186,15 @@ function timeline(drafts: Draft[]): Scene[] {
   });
 }
 
-export function buildScript(idea: Idea, brief: Brief, siteUrl: string): Script {
-  const url = siteUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
+export const CTA_SUBLINE = 'Link profilde';
+
+export function buildScript(idea: Idea, brief: Brief): Script {
   const { scenes: body, notes } = bodyScenes(idea, brief);
   const hook = hookFor(idea);
   const drafts: Draft[] = [
     { kind: 'hook', lines: [hook], visual: { type: 'hook' }, sample_data: false },
     ...body,
-    { kind: 'cta', lines: [brief.cta, url, 'Giriş yapmadan, demo modunda.'], visual: { type: 'cta', url }, sample_data: false },
+    { kind: 'cta', lines: [brief.cta, CTA_SUBLINE], visual: { type: 'cta' }, sample_data: false },
   ];
   const scenes = timeline(drafts);
   const last = scenes[scenes.length - 1];
@@ -203,7 +206,7 @@ export function buildScript(idea: Idea, brief: Brief, siteUrl: string): Script {
     scenes,
     duration_sec: Math.round((last.start + last.duration) * 100) / 100,
     cta: brief.cta,
-    url,
+    cta_url: brief.ctaUrl,
     sample_data: scenes.some((s) => s.sample_data),
     review_notes: notes,
   };
@@ -244,7 +247,7 @@ export function buildCaption(script: Script): string {
     '',
     ...body,
     '',
-    `👉 ${script.cta}: ${script.url} (giriş gerekmez)`,
+    `👉 ${script.cta}: link profilde.`,
     ...(script.sample_data ? ['', 'Videodaki ekranlar ve rakamlar örnek veridir.'] : []),
   ].join('\n');
 }

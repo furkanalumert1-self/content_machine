@@ -34,7 +34,7 @@ const recent: RecentVideo[] = (recentRows ?? []).map((r) => ({
   sentences: r.script?.scenes ? contentSentences(r.script) : [],
 }));
 
-const { data: products } = await db.from('products').select('id, slug, site_url').eq('status', 'active');
+const { data: products } = await db.from('products').select('id, slug').eq('status', 'active');
 const product = chooseProduct((products ?? []).map((p) => p.id), recent, settings.multi_product_enabled);
 if (!product.id) {
   await log.warn(product.reason);
@@ -56,7 +56,6 @@ for (const f of (await readdir(stylesDir)).filter((f) => f.endsWith('.json'))) {
 
 const result = planDay({
   brief: brief.brief,
-  siteUrl: p.site_url,
   ideas: await listIdeas(db, p.id),
   recent: recent.filter((r) => r.product_id === p.id),
   recentExploration: await recentExplorationFlags(db, p.id),

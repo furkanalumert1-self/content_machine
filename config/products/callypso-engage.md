@@ -1,9 +1,10 @@
 ---
 product: callypso-engage
-status: onaylı
-approved_hash: 21fae10f3cc8e260
-approved_at: 2026-10-21T20:26:00.115Z
+status: taslak
+approved_hash:
+approved_at:
 ---
+
 # Callypso Engage — Brief
 
 ## Ürün
@@ -34,12 +35,37 @@ Hepsi üründe ekran olarak var ve demo modunda çalışıyor (Kaynak: ürün re
 2. **Mit:** "Retention sadece büyük markaların işi." — **Gerçek:** Küçük markada her tekrar eden müşteri daha da değerli; tek bir akışla başlanabilir.
 3. **Mit:** "SMS herkese atılır, izin gerekmez." — **Gerçek:** Ticari ileti için alıcının izni gerekir; gönderim öncesi izin kontrolü şart.
 4. **Mit:** "Terk edilen sepet kaybedilmiş satıştır." — **Gerçek:** Sepet, müşterinin ne istediğini gösteren bir sinyaldir; hatırlatma akışıyla takip edilebilir.
+5. **Mit:** "İzin almak listeyi küçültür, bu kötü bir şey." — **Gerçek:** İzinli liste daha küçük olabilir ama ileti almak isteyen kişilerden oluşur.
+6. **Mit:** "Otomasyon kurmak büyük bir proje." — **Gerçek:** Tek bir akışla başlamak yeterli. Terk edilmiş sepet iyi bir ilk adım.
+7. **Mit:** "Kişiselleştirme, isimle hitap etmektir." — **Gerçek:** Asıl kişiselleştirme, davranışa göre doğru mesajı seçmektir.
+8. **Mit:** "Herkese aynı sıklıkta yazmak adildir." — **Gerçek:** VIP ile pasif müşterinin ihtiyacı farklı. Sıklık segmente göre değişmeli.
+9. **Mit:** "SMS sadece kampanya duyurusu içindir." — **Gerçek:** Sepet hatırlatması gibi zamanı önemli mesajlarda da kullanılır; yeter ki izin olsun.
+10. **Mit:** "Terk edilen sepete hemen indirim gönderilmeli." — **Gerçek:** Önce basit bir hatırlatma yeterli. Her seferinde indirim vermek bunu alışkanlık hâline getirebilir.
+
+## Ek ipuçları
+Her biri yukarıdaki doğrulanmış bir özelliğe bağlıdır.
+1. Özellik 1: "Churn riski segmentine haftada bir bak; kaybetmeden önce fark edersin."
+2. Özellik 1: "VIP müşterine herkesle aynı kampanyayı gönderme; onları ayrı bir segment olarak düşün."
+3. Özellik 1: "'Tekrar satın alma zamanı' segmenti, hatırlatmanın doğru anını gösterir."
+4. Özellik 2: "Akışa 'Bekle' adımı koy; mesajlar arka arkaya aynı dakikada gitmesin."
+5. Özellik 2: "Akışa 'Onay kontrolü' adımı ekle; izni olmayan kişiye ileti gitmesin."
+6. Özellik 2: "Geri kazanma akışını 'Pasif' segmentle başlat; uzun süredir alışveriş yapmayanlara ulaş."
+7. Özellik 3: "Aynı segmente email ve SMS'i aynı anda değil, sırayla gönder."
+8. Özellik 3: "Göndermeden önce test gönderimi yap; kişiselleştirme alanlarını kontrol et."
+9. Özellik 3: "SMS'i kısa tut; tek mesajda tek çağrı yeterli."
+10. Özellik 4: "Yüksek LTV'li bir müşterinin son satın alma tarihine bak; uzun süredir gelmediyse ona özel bir mesaj düşün."
+11. Özellik 4: "Ortalama sepet (AOV) değeri, müşteriye neyi önereceğin konusunda ipucu verir."
+12. Özellik 4: "Profilde kanal izinlerini gör; kişi SMS'e izin vermediyse email'le kal."
+13. Özellik 5: "Şablonlarda kişiselleştirme değişkenleri kullan; değişken doldurulmadan gönderim yapılmaz."
+14. Özellik 5: "Kayıt formunda gizlilik onayını ve pazarlama iznini ayrı kutularda tut."
+15. Özellik 5: "Her e-postada abonelikten çıkma bağlantısı olsun; kişi istediğinde kolayca ayrılabilsin."
 
 ## Ton
 Sade, net, Türkçe. Pazarlamacıya akran gibi konuşur; abartmaz, bağırmaz. Teknik terimi ilk geçtiğinde kısaca açıklar (LTV = müşterinin toplam getirdiği gelir). Kısa cümleler, ekran başına tek fikir.
 
 ## CTA
-"Canlı demoyu dene" — giriş yapmadan demo modu açılır: callypso-engage.vercel.app
+"Canlı demoyu dene" — videoda ve caption'da adres yazılmaz; izleyici profildeki bağlantıya yönlendirilir ("link profilde").
+Hedef: https://cal.com/furkan-alumert (Instagram profil bağlantısı olarak eklenir)
 
 ## Yasak konular
 - Kanıtlanmamış "%X artış" veya gelir vaadi.
@@ -49,6 +75,7 @@ Sade, net, Türkçe. Pazarlamacıya akran gibi konuşur; abartmaz, bağırmaz. T
 - Gerçek müşteri verisi, gerçek kişi adı veya e-postası.
 - KVKK/İYS uyumunu "biz hallederiz" diye garanti etmek veya hukuki tavsiye vermek.
 - Fiyat söylemek (değişebilir, doğrulanmadı).
+- Videoda veya caption'da Vercel linki ya da herhangi bir web adresi göstermek. Yönlendirme yalnızca profil bağlantısıyla.
 - Aşağıdaki doğrulanmamış özellikler.
 
 ## Doğrulanmamış (videoda söylenmeyecek)

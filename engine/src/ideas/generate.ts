@@ -93,6 +93,18 @@ function candidates(input: GenerateInput): { drafts: IdeaDraft[]; notes: string[
     });
   });
 
+  brief.extraTips.forEach((t, i) => {
+    const f = brief.features[t.featureIndex];
+    add({
+      idea: `İpucu: ${t.tip}`,
+      hook: t.tip.split(/[;.]/)[0] + '.',
+      content_type: 'ipucu',
+      source: 'audience',
+      source_ref: `brief:ipucu-${i + 1}`,
+      why: `Brief'teki ek ipucu; doğrulanmış özellik "${f.title}" ile ilgili.`,
+    });
+  });
+
   brief.myths.forEach((m, i) =>
     add({
       idea: `Mit: ${m.myth}`,

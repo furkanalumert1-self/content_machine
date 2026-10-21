@@ -4,7 +4,8 @@
 - 21.10.2026 — ADIM 0 tamamlandı → `docs/adim-0-arastirma.md`.
 - 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI.
 - 21.10.2026 — ADIM 2 tamamlandı: brief taslağı, fikir motoru, repo/site salt okunur inceleme.
-- 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı (ürün/tür/fikir/stil seçimi, senaryo, caption, hashtag, süre, gerekçe). **ADIM 4 onayı bekleniyor.**
+- 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı.
+- 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı → **brief yeniden onay bekliyor**. ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü. **ADIM 5 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -19,6 +20,18 @@
 3. Ücretli yapay zekâ API'si: KAPALI. Senaryo şablon + kurallarla üretilecek; açmak için açık onay gerekli.
 4. Bildirim: Telegram.
 5. Müzik: MVP'de yok.
+
+## CTA kararı (kullanıcı, 21.10.2026)
+- Vercel linki videoda/caption'da HİÇBİR ZAMAN gösterilmez. Hedef: https://cal.com/furkan-alumert.
+- Reels'te tıklanabilir link mümkün değil (video ve caption'daki adresler tıklanmaz) → ekranda/caption'da "link profilde"; kullanıcı cal.com linkini Instagram profil bağlantısına ekler.
+- Kalite kontrol: ekranda/caption'da herhangi bir web adresi varsa plan geçmez.
+
+## Render (ADIM 4)
+- Remotion 4.0.537, 1080×1920, 30 fps, H.264 yuv420p (bt709), AAC sessiz ses izi, faststart. Fontlar OFL, müzik yok.
+- Remotion lisansı: birey / ≤3 çalışanlı şirket için ücretsiz; daha büyük şirket olursa ücretli lisans gerekir.
+- QC: çözünürlük, fps, codec, ses, süre (±0,15 sn), boyut (50 KB–100 MB), moov başta, metin taşması (tarayıcıda ölçülür, harf çıkıntısı için 16 px tolerans), güvenli alan, altyazı kapsaması. SRT dosyası da üretilir.
+- 3 deneme (1 + 2 yeniden); metin taşması gibi içerik hatasında tekrar denenmez. Başarısız → render_failed, yayınlanamaz.
+- Bu makinede (4 çekirdek, GPU yok) ~20 sn video ≈ 3 dk render.
 
 ## Brief onayı (panel gelene kadar)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.
@@ -36,7 +49,7 @@
 - `publish_at` ADIM 6'da seçilecek; şimdilik boş.
 
 ## Bilinen sınırlamalar
-- **Fikir stoku:** yapay zekâ API'si kapalıyken onaylı brief'ten en fazla ~24 farklı fikir çıkar → günde 1 videoyla ~3,5 hafta. Sonra 60 gün tekrar yasağı dolana kadar fikir kalmaz. Çözüm seçenekleri kullanıcıya soruldu (brief'e madde eklemek / API'yi açmak / tekrar süresini kısaltmak).
+- **Fikir stoku:** Seçenek 1 sonrası 45 fikir → 90 günlük simülasyonda 41 gün kesintisiz, 42.–60. günler (19 gün) fikir yok, sonra döngü. Kalıcı çözüm: daha fazla brief maddesi veya yapay zekâ API'si.
 - Bu oturumun ağı eklenmemiş repolar için GitHub API'yi engelliyor (403); kuru çalıştırma `--local` ile klondan okur. Actions'ta API çalışır.
 - Yapay zekâ API'si kapalıyken fikir metinleri brief cümlelerinden kalıpla türetilir; bazıları kalıp gibi duruyor, mini demo hook'ları uzun. Senaryo aşamasında (ADIM 3) kısaltılacak.
 - Trend kaynağı yok: resmi bir arama/haber API'si (ücretsiz katmanlı) onayla eklenebilir.

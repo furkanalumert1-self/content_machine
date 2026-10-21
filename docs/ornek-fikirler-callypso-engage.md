@@ -1,6 +1,6 @@
 # Örnek fikirler — Callypso Engage
 
-Üretim: 2026-10-21 · kuru çalıştırma (veritabanına yazılmadı) · brief durumu: onaylı
+Üretim: 2026-10-21 · kuru çalıştırma (veritabanına yazılmadı) · brief durumu: taslak
 
 ## Okunan kaynaklar
 - Repo `furkanalumert1-self/callypso_engage` @ `9bccef1`: 7 commit, 17 sayfa (/, /analytics, /audience, /automations, /campaigns, /dashboard, /deliverability, /email, /f/[id], /forms, /login, /settings, /signup, /sms, /templates, /u/[email], /whatsapp), 0 release, docs/: 0 dosya
@@ -30,8 +30,8 @@
 | 13 | 68 | İpucu |  | Göndermeden önce onaylı alıcı sayısına bak. | İpucu: Göndermeden önce onaylı alıcı sayısına bak; izin yoksa o kişiye ileti gitmez. | Doğrulanmış özellik "Email + SMS kampanya oluşturucu" için uygulanabilir tek ipucu. |
 | 14 | 68 | İpucu |  | Kampanyadan önce bir müşterinin zaman çizelgesine bak. | İpucu: Kampanyadan önce bir müşterinin zaman çizelgesine bak; segmenti o zaman daha iyi anlarsın. | Doğrulanmış özellik "Customer 360 profili" için uygulanabilir tek ipucu. |
 | 15 | 68 | İpucu |  | Pazarlama izni kutusunu önceden işaretleme. | İpucu: Pazarlama izni kutusunu önceden işaretleme; izin, kişinin kendi tıkıdır. | Doğrulanmış özellik "Şablonlar ve izinli formlar" için uygulanabilir tek ipucu. |
-| 16 | 67 | Önce/sonra |  | Önce: ikinci alışveriş gelmiyor. Sonra? | Önce/sonra: İkinci alışveriş gelmiyor → Davranışsal segmentler | Aynı acı noktası süreç farkı olarak anlatılır; sonuç rakamı verilmez. |
-| 17 | 67 | Önce/sonra |  | Önce: herkese aynı toplu mail. Sonra? | Önce/sonra: Herkese aynı toplu mail → Davranışsal segmentler | Aynı acı noktası süreç farkı olarak anlatılır; sonuç rakamı verilmez. |
-| 18 | 67 | Önce/sonra | ✓ | Önce: terk edilmiş sepet. Sonra? | Önce/sonra: Terk edilmiş sepet → Kanal bağımsız otomasyon akışları | Aynı acı noktası süreç farkı olarak anlatılır; sonuç rakamı verilmez. [Keşif fikri: az denenen tür, sonuçtan öğrenmek için.] |
+| 16 | 68 | İpucu |  | Churn riski segmentine haftada bir bak. | İpucu: Churn riski segmentine haftada bir bak; kaybetmeden önce fark edersin. | Brief'teki ek ipucu; doğrulanmış özellik "Davranışsal segmentler" ile ilgili. |
+| 17 | 67 | Önce/sonra |  | Önce: ikinci alışveriş gelmiyor. Sonra? | Önce/sonra: İkinci alışveriş gelmiyor → Davranışsal segmentler | Aynı acı noktası süreç farkı olarak anlatılır; sonuç rakamı verilmez. |
+| 18 | 67 | Önce/sonra | ✓ | Önce: herkese aynı toplu mail. Sonra? | Önce/sonra: Herkese aynı toplu mail → Davranışsal segmentler | Aynı acı noktası süreç farkı olarak anlatılır; sonuç rakamı verilmez. [Keşif fikri: az denenen tür, sonuçtan öğrenmek için.] |
 | 19 | 66 | Mit çürütme | ✓ | "Daha çok e-posta, daha çok satış demektir." Gerçekten mi? | Mit: Daha çok e-posta, daha çok satış demektir. | Brief'teki mit; düzeltme: Önemli olan sayı değil, doğru kişiye doğru zamanda gitmesi. Segment bunun için var. [Keşif fikri: az denenen tür, sonuçtan öğrenmek için.] |
 | 20 | 66 | Mit çürütme | ✓ | "Retention sadece büyük markaların işi." Gerçekten mi? | Mit: Retention sadece büyük markaların işi. | Brief'teki mit; düzeltme: Küçük markada her tekrar eden müşteri daha da değerli; tek bir akışla başlanabilir. [Keşif fikri: az denenen tür, sonuçtan öğrenmek için.] |

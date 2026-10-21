@@ -13,12 +13,22 @@ describe('Callypso Engage brief', () => {
     expect(b.features).toHaveLength(5);
     expect(b.myths.length).toBeGreaterThanOrEqual(3);
     expect(b.cta).toBe('Canlı demoyu dene');
+    expect(b.ctaUrl).toBe('https://cal.com/furkan-alumert');
     expect(b.forbidden.join(' ')).toMatch(/örnek veri/);
     expect(b.unverified.length).toBeGreaterThanOrEqual(4);
   });
 
-  it('kullanıcı onayladı (21.10.2026) ve onay özeti metinle eşleşiyor', () => {
-    expect(isApproved(parseBrief(real))).toBe(true);
+  it('onay durumu tutarlı: dosya "onaylı" diyorsa özet metinle eşleşmeli', () => {
+    const b = parseBrief(real);
+    if (b.status === 'onaylı') expect(isApproved(b)).toBe(true);
+    else expect(b.approvedHash).toBeNull();
+  });
+
+  it('15 ek ipucu var ve hepsi geçerli bir özelliğe bağlı', () => {
+    const b = parseBrief(real);
+    expect(b.extraTips).toHaveLength(15);
+    for (const t of b.extraTips) expect(b.features[t.featureIndex]).toBeDefined();
+    expect(b.myths).toHaveLength(10);
   });
 });
 

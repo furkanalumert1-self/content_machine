@@ -9,6 +9,7 @@ const RULES: { rule: string; re: RegExp }[] = [
   { rule: 'Rakip adı', re: /\b(mailchimp|klaviyo|omnisend|brevo|sendinblue|insider|hubspot|activecampaign|netgsm|iletimerkezi)\b/gi },
   { rule: 'Cold outreach çağrışımı', re: /\b(cold (email|outreach)|soğuk (e-?posta|mail|arama)|satın alınmış liste|toplu liste satın)\b/gi },
   { rule: 'Hukuki garanti', re: /\b(kvkk|iys|İYS)\b[^.]{0,40}\b(garanti|biz hallederiz|tamamen uyumlu|%100 uyumlu)/gi },
+  { rule: 'Web adresi (yönlendirme yalnızca profil bağlantısıyla)', re: /\b(https?:\/\/\S+|www\.\S+|[a-z0-9-]+\.(vercel\.app|com|app|io|net|org|com\.tr)\b\S*)/gi },
   { rule: 'Fiyat', re: /(\$|₺|TL|USD|€)\s?\d+|\d+\s?(\$|₺|TL|USD|€)/g },
 ];
 

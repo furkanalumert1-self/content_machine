@@ -2,7 +2,7 @@
 
 Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem.
 
-> Durum: **ADIM 3 tamamlandı** (günlük planlayıcı). Brief onaylı. Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 4 tamamlandı** (video üretimi + kalite kontrolü). Brief güncellendi, yeniden onay bekliyor. Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Belgeler
 - [Mimari](docs/mimari.md)
@@ -12,7 +12,7 @@ Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, o
 
 ## Kurulum (adımlar ilerledikçe tamamlanacak)
 1. Supabase projesi açın ve `supabase/migrations/` içindeki dosyaları sırayla (0001, 0002…) SQL Editor'de çalıştırın. *(ADIM 9'da ayrıntılı anlatılacak.)*
-2. Instagram'ı hazırlayın: [rehber](docs/kurulum/instagram.md).
+2. Instagram'ı hazırlayın: [rehber](docs/kurulum/instagram.md). Profil bağlantısına `https://cal.com/furkan-alumert` ekleyin (videolar "link profilde" der).
 3. Gizli anahtarları ekleyin: değişken adları [`.env.example`](.env.example) içinde. Değerleri **sohbete veya koda yazmayın**; Vercel Environment Variables ve GitHub Secrets'a siz eklersiniz.
 
 ## Günlük kullanım · Onay · Durdurma · Hata giderme · Maliyet

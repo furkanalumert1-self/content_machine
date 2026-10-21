@@ -9,7 +9,6 @@ export const MAX_ATTEMPTS = 15;
 
 export interface PlanInput {
   brief: Brief;
-  siteUrl: string;
   ideas: Idea[];
   recent: RecentVideo[];          // son 14 gün, en yeniden eskiye
   recentExploration: boolean[];   // son seçimlerin keşif bayrakları
@@ -46,7 +45,7 @@ export function planDay(input: PlanInput): PlanResult {
     if (!sel.idea) {
       return { ok: false, reason: 'Kullanılabilir fikir yok; acil fikir araştırması gerekli.', needsEmergencyResearch: true, problems: rejected };
     }
-    const script = buildScript(sel.idea, input.brief, input.siteUrl);
+    const script = buildScript(sel.idea, input.brief);
     const caption = buildCaption(script);
     const hashtags = buildHashtags(script, input.brief);
     const problems = validatePlan(script, caption, hashtags, input.brief);
