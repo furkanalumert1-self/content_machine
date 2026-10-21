@@ -1,0 +1,31 @@
+# 15 dakikada bir, yalnızca yayın aralıklarında: zamanı gelmiş ve onaylı videoları Instagram'a gönderir.
+# Saatler İstanbul: 12:07–14:52 ve 19:07–22:52. GitHub zamanlaması yoğunlukta gecikebilir; kesin dakika garantisi yok.
+# Ayarlardaki yayın aralıklarını değiştirirseniz bu saatleri de güncelleyin (docs/kurulum/github-actions.md).
+name: Yayın kontrolü
+
+on:
+  schedule:
+    - cron: '7,22,37,52 9-11 * * *'   # 12:07–14:52 İstanbul
+    - cron: '7,22,37,52 16-19 * * *'  # 19:07–22:52 İstanbul
+  workflow_dispatch:
+
+concurrency:
+  group: publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: vars.AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      TOKEN_ENCRYPTION_KEY: ${{ secrets.TOKEN_ENCRYPTION_KEY }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: npx tsx src/jobs/publisher.ts

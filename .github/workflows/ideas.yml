@@ -1,0 +1,29 @@
+# Haftada bir: her aktif ürün için 15–20 yeni fikir (changelog, hedef kitle, performans).
+name: Fikir araştırması
+
+on:
+  schedule:
+    - cron: '23 4 * * 1' # Pazartesi 07:23 İstanbul
+  workflow_dispatch:
+
+concurrency:
+  group: idea-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    if: vars.AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GH_PRODUCT_READ_TOKEN: ${{ secrets.GH_PRODUCT_READ_TOKEN }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: npx tsx src/jobs/brief-sync.ts
+      - run: npx tsx src/jobs/idea-research.ts ${{ github.event_name == 'schedule' && 'weekly' || 'manual' }}

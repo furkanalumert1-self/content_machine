@@ -1,0 +1,43 @@
+# Render deneme: gizli anahtar veya veritabanı gerekmez. Brief'ten örnek bir video üretir, kalite kontrolünü
+# çalıştırır ve MP4 + kontak sayfasını 3 gün saklanan artifact olarak yükler. GitHub makinesindeki render süresini ölçer.
+name: Render deneme
+
+on:
+  workflow_dispatch:
+    inputs:
+      types:
+        description: 'İçerik türleri (boşlukla): problem_cozum ipucu mini_demo once_sonra mit_curutme'
+        default: problem_cozum
+  push:
+    paths: ['engine/remotion/**', 'engine/src/render/**', '.github/workflows/render-test.yml']
+
+concurrency:
+  group: render-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          ffmpeg: 'true'
+      - name: Örnek render + kalite kontrolü
+        shell: bash # pipefail: render hatası boruda kaybolmasın
+        run: |
+          mkdir -p ../out
+          start=$(date +%s)
+          npx tsx src/jobs/render-sample.ts ${{ inputs.types || 'problem_cozum' }} 2>&1 | grep -vE 'Memory reported|inadvertently|lower amount|differing memory' | tee ../out/render.log
+          echo "Toplam süre: $(( $(date +%s) - start )) sn" | tee -a ../out/render.log
+          grep -q 'BAŞARISIZ' ../out/render.log && exit 1 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ornek-render
+          path: out/
+          retention-days: 3

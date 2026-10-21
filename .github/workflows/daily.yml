@@ -1,0 +1,59 @@
+# Günde bir: brief senkronu → planlama (fikir + senaryo + saat) → render → kalite kontrolü → Storage.
+# Fikir stoku azsa aynı çalışmada acil fikir araştırması yapılır.
+name: Günlük plan ve render
+
+on:
+  schedule:
+    - cron: '41 5 * * *' # 08:41 İstanbul (saat başı yoğunluğundan kaçınmak için :41)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'plan_and_render: planla ve üret · render_only: yalnızca bekleyen videoları üret'
+        type: choice
+        options: [plan_and_render, render_only]
+        default: plan_and_render
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    # Gizli anahtarlar eklenip AUTOMATION_ENABLED=true yapılana kadar atlanır (dakika harcamaz).
+    if: vars.AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GH_PRODUCT_READ_TOKEN: ${{ secrets.GH_PRODUCT_READ_TOKEN }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          ffmpeg: 'true'
+
+      - name: Brief senkronu (onay durumu dahil)
+        if: inputs.mode != 'render_only'
+        run: npx tsx src/jobs/brief-sync.ts
+
+      - name: Planlama
+        id: plan
+        if: inputs.mode != 'render_only'
+        run: npx tsx src/jobs/planner.ts
+
+      - name: Acil fikir araştırması
+        if: steps.plan.outputs.needs_research == 'true'
+        run: npx tsx src/jobs/idea-research.ts emergency
+
+      - name: Planlama (araştırmadan sonra tekrar)
+        if: steps.plan.outputs.needs_research == 'true' && steps.plan.outputs.planned != 'true'
+        run: npx tsx src/jobs/planner.ts
+
+      - name: Render + kalite kontrolü
+        # Planlama başarısız olsa da daha önce planlanmış (veya panelden istenmiş) videolar üretilsin.
+        if: ${{ !cancelled() }}
+        run: npx tsx src/jobs/render.ts

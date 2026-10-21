@@ -1,0 +1,32 @@
+# Günde bir: Reels metrikleri (24./72. saat), takipçi aktif saatleri ve Instagram token yenileme/uyarı.
+name: Metrikler ve token
+
+on:
+  schedule:
+    - cron: '17 7 * * *' # 10:17 İstanbul
+  workflow_dispatch:
+
+concurrency:
+  group: metrics
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    if: vars.AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      TOKEN_ENCRYPTION_KEY: ${{ secrets.TOKEN_ENCRYPTION_KEY }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Token yenileme / uyarı
+        run: npx tsx src/jobs/token-refresh.ts
+      - name: Metrikler
+        if: success() || failure()
+        run: npx tsx src/jobs/metrics.ts

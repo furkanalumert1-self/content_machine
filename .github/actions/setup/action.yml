@@ -1,0 +1,18 @@
+name: Ortam kurulumu
+description: Node 22 + bağımlılıklar (önbellekli). İsteğe bağlı ffmpeg.
+inputs:
+  ffmpeg:
+    description: ffprobe/ffmpeg kurulsun mu (render için)
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: npm
+    - run: npm ci --no-audit --no-fund
+      shell: bash
+    - if: inputs.ffmpeg == 'true'
+      shell: bash
+      run: command -v ffprobe >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)

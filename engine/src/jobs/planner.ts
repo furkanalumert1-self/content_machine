@@ -4,6 +4,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { serviceClient } from '../lib/db.ts';
+import { setOutput } from '../lib/gha.ts';
 import { createLogger } from '../lib/logger.ts';
 import { approvedBrief, listIdeas, markIdeaUsed, recentExplorationFlags } from '../ideas/repo.ts';
 import { planDay } from '../plan/planner.ts';
@@ -23,7 +24,10 @@ if (se) throw se;
 const todayStart = startOfLocalDay(new Date(), settings.timezone);
 const { count: plannedToday } = await db.from('videos').select('id', { count: 'exact', head: true })
   .eq('origin', 'auto').gte('created_at', todayStart.toISOString());
+setOutput('planned', false);
+setOutput('needs_research', false);
 if ((plannedToday ?? 0) >= settings.daily_video_count) {
+  setOutput('planned', true);
   await log.info(`Bugün için ${plannedToday} video zaten planlı; çıkılıyor.`);
   process.exit(0);
 }
@@ -66,8 +70,10 @@ const result = planDay({
 
 if (!result.ok) {
   await log.error(`${p.slug}: ${result.reason}`, { problems: result.problems });
-  if (result.needsEmergencyResearch) await log.warn('Acil fikir araştırması gerekiyor (idea_research emergency).', { dispatch: 'idea_research' });
-  process.exitCode = 1;
+  if (result.needsEmergencyResearch) {
+    setOutput('needs_research', true);
+    await log.warn('Acil fikir araştırması gerekiyor; aynı iş akışında başlatılacak.');
+  } else process.exitCode = 1;
 } else {
   const { plan } = result;
   const slot = chooseSlot({ windows: settings.publish_windows, timezone: settings.timezone, now: new Date(), ...(await scheduleInputs(db)) });
@@ -89,6 +95,10 @@ if (!result.ok) {
   }).select('id').single();
   if (error) throw error;
   await markIdeaUsed(db, plan.idea.id);
+  setOutput('planned', true);
   await log.info(`${p.slug}: video planlandı (${video.id}), yayın ${slot.slot} (${slot.mode}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
-  if (plan.needsEmergencyResearch) await log.warn('Kullanılabilir fikir 10\'un altında; acil araştırma istendi.', { dispatch: 'idea_research' });
+  if (plan.needsEmergencyResearch) {
+    setOutput('needs_research', true);
+    await log.warn('Kullanılabilir fikir 10\'un altında; acil araştırma başlatılacak.');
+  }
 }
