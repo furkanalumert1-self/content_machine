@@ -1,0 +1,12 @@
+{
+  "name": "content-machine",
+  "private": true,
+  "workspaces": ["engine"],
+  "scripts": {
+    "test": "npm run test -w engine && bash supabase/tests/run.sh",
+    "typecheck": "npm run typecheck -w engine"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

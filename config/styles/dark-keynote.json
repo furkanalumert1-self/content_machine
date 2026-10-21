@@ -1,0 +1,18 @@
+{
+  "slug": "dark-keynote",
+  "name": "Koyu Teknoloji Sunumu",
+  "status": "mvp",
+  "format": { "width": 1080, "height": 1920, "fps": 30, "min_sec": 15, "max_sec": 45 },
+  "rules": [
+    "Arayüz başrolde; fiziksel ürün veya cam render yok.",
+    "Koyu gradyan sahne, 1 px ızgara çizgileri, tek marka vurgu rengi yalnızca en önemli öğede.",
+    "Her öğe ızgaraya oturur, her hareket ritme denk gelir; zıplama yok.",
+    "Ekran başına tek cümle; en fazla bir büyük sayı ve o sayı gerçek değilse 'örnek veri' etiketi.",
+    "İlk 2 saniyede hook, son 3 saniyede CTA."
+  ],
+  "attribution": {
+    "source": "https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/dark-keynote",
+    "license": "MIT",
+    "credit": "Stil kuralları LemoLab / lemo-opuscar'dan uyarlanmıştır. Kod birebir kopyalanmamış, kurallar Remotion için yeniden yazılmıştır."
+  }
+}

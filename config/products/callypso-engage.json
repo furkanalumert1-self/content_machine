@@ -1,0 +1,10 @@
+{
+  "slug": "callypso-engage",
+  "name": "Callypso Engage",
+  "site_url": "https://callypso-engage.vercel.app",
+  "github_repo": null,
+  "vercel_project": null,
+  "status": "draft",
+  "mvp": true,
+  "notes": "Brief taslağı ADIM 2'de repo ve canlı siteden çıkarılacak (config/products/callypso-engage.md). Onaylanmadan video üretilmez."
+}
