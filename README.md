@@ -2,15 +2,16 @@
 
 Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem.
 
-> Durum: **ADIM 1 tamamlandı** (proje yapısı + veritabanı şeması). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 2 tamamlandı** (brief taslağı + fikir motoru). Brief onayınızı bekliyor. Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Belgeler
 - [Mimari](docs/mimari.md)
 - [ADIM 0 araştırma özeti](docs/adim-0-arastirma.md)
 - [Instagram kurulum rehberi](docs/kurulum/instagram.md)
+- [Callypso Engage brief taslağı](config/products/callypso-engage.md) · [örnek fikirler](docs/ornek-fikirler-callypso-engage.md)
 
 ## Kurulum (adımlar ilerledikçe tamamlanacak)
-1. Supabase projesi açın ve `supabase/migrations/0001_init.sql` dosyasını SQL Editor'de çalıştırın. *(ADIM 9'da ayrıntılı anlatılacak.)*
+1. Supabase projesi açın ve `supabase/migrations/` içindeki dosyaları sırayla (0001, 0002…) SQL Editor'de çalıştırın. *(ADIM 9'da ayrıntılı anlatılacak.)*
 2. Instagram'ı hazırlayın: [rehber](docs/kurulum/instagram.md).
 3. Gizli anahtarları ekleyin: değişken adları [`.env.example`](.env.example) içinde. Değerleri **sohbete veya koda yazmayın**; Vercel Environment Variables ve GitHub Secrets'a siz eklersiniz.
 

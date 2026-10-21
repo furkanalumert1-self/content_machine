@@ -2,7 +2,8 @@
 
 ## Durum
 - 21.10.2026 — ADIM 0 tamamlandı → `docs/adim-0-arastirma.md`.
-- 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI. **ADIM 2 için onay bekleniyor.**
+- 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI.
+- 21.10.2026 — ADIM 2 tamamlandı: brief taslağı (`config/products/callypso-engage.md`), fikir motoru, repo/site salt okunur inceleme. **Brief onayı ve ADIM 3 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -18,6 +19,19 @@
 4. Bildirim: Telegram.
 5. Müzik: MVP'de yok.
 
+## Brief onayı (panel gelene kadar)
+- Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.
+- Metin sonradan değişirse özet tutmaz, onay kendiliğinden düşer; `brief-sync` yeni taslak sürüm açar.
+
+## Callypso Engage bulguları (repo @ 9bccef1)
+- Son commit 09.09.2026; son 14 günde yeni özellik yok.
+- Doğrulanmamış (videoda yok): mağaza senkronu, gerçek İYS entegrasyonu, WhatsApp (demo), gerçek SMS gönderimi.
+- Sitede rakip karşılaştırma tablosu var → videolarda rakip anılmaz. Sitedeki CTA "Canlı demoyu gör"; videoda kullanıcının istediği "Canlı demoyu dene".
+
 ## Bilinen sınırlamalar
+- Bu oturumun ağı eklenmemiş repolar için GitHub API'yi engelliyor (403); kuru çalıştırma `--local` ile klondan okur. Actions'ta API çalışır.
+- Yapay zekâ API'si kapalıyken fikir metinleri brief cümlelerinden kalıpla türetilir; bazıları kalıp gibi duruyor, mini demo hook'ları uzun. Senaryo aşamasında (ADIM 3) kısaltılacak.
+- Trend kaynağı yok: resmi bir arama/haber API'si (ücretsiz katmanlı) onayla eklenebilir.
+- DB'ye yazan işler (brief-sync, idea-research) Supabase projesi açılınca uçtan uca denenecek; şu an saf mantık birim testli, şema yerel Postgres'te testli.
 - Yerelde root ile `initdb` çalışmaz → şema testleri `runuser -u postgres` ile.
 - CI her push'ta ~1–2 Actions dakikası harcar (sadece kod değişince; .md/docs hariç).

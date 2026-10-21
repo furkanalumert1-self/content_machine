@@ -5,8 +5,9 @@ export const JOB_ENV = {
   render: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'],
   publisher: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'INSTAGRAM_APP_SECRET'],
   metrics: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'],
-  idea_research: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'GH_PRODUCT_READ_TOKEN'],
-  product_sync: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'GH_PRODUCT_READ_TOKEN'],
+  // GH_PRODUCT_READ_TOKEN isteğe bağlı: herkese açık repolarda gerekmez.
+  idea_research: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'],
+  product_sync: ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'],
 } as const;
 
 export type Job = keyof typeof JOB_ENV;

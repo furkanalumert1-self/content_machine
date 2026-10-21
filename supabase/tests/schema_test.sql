@@ -150,5 +150,13 @@ select t.expect_error('select * from claim_due_video()', 'permission denied');
 update app_settings set paused = true;
 reset role;
 do $$ begin assert (select paused from app_settings); end $$;
+\echo 'T12 aynı fikir (büyük/küçük harf ve boşluk farkıyla) iki kez eklenemez'
+insert into ideas (product_id, idea, hook, content_type, source, score, why)
+values ('10000000-0000-0000-0000-000000000001', 'İpucu:  ilk kez alanları ayır', 'h', 'ipucu', 'audience', 70, 'w');
+select t.expect_error($$insert into ideas (product_id, idea, hook, content_type, source, score, why)
+  values ('10000000-0000-0000-0000-000000000001', 'ipucu: ilk kez alanları ayır', 'h', 'ipucu', 'audience', 70, 'w')$$, 'duplicate key');
+select t.expect_error($$insert into ideas (product_id, idea, hook, content_type, source, score, why)
+  values ('10000000-0000-0000-0000-000000000001', 'x', 'h', 'ipucu', 'audience', 101, 'w')$$, 'check constraint');
+
 create table t.done (ok int);  -- run.sh bu tablonun varlığını kontrol eder
 

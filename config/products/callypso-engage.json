@@ -2,9 +2,9 @@
   "slug": "callypso-engage",
   "name": "Callypso Engage",
   "site_url": "https://callypso-engage.vercel.app",
-  "github_repo": null,
+  "github_repo": "furkanalumert1-self/callypso_engage",
   "vercel_project": null,
-  "status": "draft",
-  "mvp": true,
-  "notes": "Brief taslağı ADIM 2'de repo ve canlı siteden çıkarılacak (config/products/callypso-engage.md). Onaylanmadan video üretilmez."
+  "brand_colors": { "navy": "#0F1B33", "navy_2": "#1B2F52", "cyan": "#5FD4E6", "accent": "oklch(58% 0.16 275)" },
+  "logo": "ürün reposu: public/logo.svg",
+  "mvp": true
 }

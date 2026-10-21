@@ -8,7 +8,7 @@ root="$here/../.."
 
 run_sql() {
   psql "$1" -q -v ON_ERROR_STOP=1 -f "$here/supabase_stub.sql"
-  psql "$1" -q -v ON_ERROR_STOP=1 -f "$root/supabase/migrations/0001_init.sql"
+  for m in "$root"/supabase/migrations/*.sql; do psql "$1" -q -v ON_ERROR_STOP=1 -f "$m"; done
   psql "$1" -q -v ON_ERROR_STOP=1 -f "$here/schema_test.sql"
   # psql bazı ayrıştırma hatalarında durmaz; son testin gerçekten çalıştığını doğrula.
   [[ "$(psql "$1" -tAc "select to_regclass('t.done') is not null")" == "t" ]] || { echo "TESTLER YARIDA KALDI"; exit 1; }
@@ -23,7 +23,7 @@ fi
 PG_BIN="${PG_BIN:-$(ls -d /usr/lib/postgresql/*/bin 2>/dev/null | tail -1)}"
 tmp="$(mktemp -d)"
 trap '"$PG_BIN/pg_ctl" -D "$tmp/data" -m immediate stop >/dev/null 2>&1 || true; rm -rf "$tmp"' EXIT
-"$PG_BIN/initdb" -D "$tmp/data" -U postgres --auth=trust >/dev/null
+"$PG_BIN/initdb" -D "$tmp/data" -U postgres --auth=trust -E UTF8 --locale=C.UTF-8 >/dev/null
 "$PG_BIN/pg_ctl" -D "$tmp/data" -o "-k $tmp -c listen_addresses=''" -l "$tmp/log" start >/dev/null
 createdb -h "$tmp" -U postgres cm_test
 run_sql "postgresql://postgres@/cm_test?host=$tmp"
