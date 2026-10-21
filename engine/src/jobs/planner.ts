@@ -10,6 +10,8 @@ import { planDay } from '../plan/planner.ts';
 import { chooseProduct, type RecentVideo } from '../plan/rotation.ts';
 import { contentSentences } from '../plan/script.ts';
 import { startOfLocalDay } from '../plan/time.ts';
+import { scheduleInputs } from '../schedule/repo.ts';
+import { chooseSlot } from '../schedule/slots.ts';
 
 const db = serviceClient('planner');
 const log = createLogger('planner', db);
@@ -68,6 +70,7 @@ if (!result.ok) {
   process.exitCode = 1;
 } else {
   const { plan } = result;
+  const slot = chooseSlot({ windows: settings.publish_windows, timezone: settings.timezone, now: new Date(), ...(await scheduleInputs(db)) });
   const { data: video, error } = await db.from('videos').insert({
     product_id: p.id,
     brief_id: brief.id,
@@ -80,10 +83,12 @@ if (!result.ok) {
     caption: plan.caption,
     hashtags: plan.hashtags,
     plan_reason: `Ürün: ${product.reason}\n${plan.reason}`,
+    publish_at: slot.publishAt.toISOString(),
+    publish_at_reason: slot.reason,
     status: 'planned',
   }).select('id').single();
   if (error) throw error;
   await markIdeaUsed(db, plan.idea.id);
-  await log.info(`${p.slug}: video planlandı (${video.id}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
+  await log.info(`${p.slug}: video planlandı (${video.id}), yayın ${slot.slot} (${slot.mode}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
   if (plan.needsEmergencyResearch) await log.warn('Kullanılabilir fikir 10\'un altında; acil araştırma istendi.', { dispatch: 'idea_research' });
 }

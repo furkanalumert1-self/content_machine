@@ -6,7 +6,8 @@
 - 21.10.2026 — ADIM 2 tamamlandı: brief taslağı, fikir motoru, repo/site salt okunur inceleme.
 - 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı.
 - 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü.
-- 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme). **ADIM 6 onayı bekleniyor.**
+- 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme).
+- 21.10.2026 — ADIM 6 tamamlandı: yayın saati seçimi (keşif/kullan, gerekçeli) ve 24./72. saat metrik toplama. **ADIM 7 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -43,6 +44,16 @@
 - Yayın sırasında içerik değiştirilemez (DB kuralı). Yarıda kalan yayınlar 20 dk sonra kurtarılır.
 - Token haftada bir yenilenir; bitişe <7 gün ve yenileme başarısızsa uyarı.
 - Doğrulanmadı (gerçek hesap/Supabase yok): uçtan uca canlı yayın. Sahte Instagram API'siyle 12 senaryo testli.
+
+## Saat seçimi ve metrikler (ADIM 6)
+- Adaylar: ayarlardaki aralıklar (varsayılan 12:00–14:00, 19:00–22:00), 30 dk adım, İstanbul saati; en az 45 dk ileride.
+- Ölçülmüş video < 8 → keşif (en az denenen saat; eşitlikte takipçi aktifliği, sonra güne göre dönen sıra).
+- Yeterli veride en yüksek ortalama etkileşimli saat (en az 2 örnekli saatler); 4 günde bir yine keşif.
+- Gerekçe her zaman örnek sayısını ve "kesin değildir"/"deneme saatidir" ifadesini içerir; GitHub gecikmesi notu eklenir.
+- Etkileşim puanı = izlenme + 5×beğeni + 15×kaydetme (fikir öğrenmesiyle ortak). İzlenme yoksa puan yok.
+- Metrikler: 24. ve 72. saat (Meta verisi 48 saate kadar gecikebilir); kaçırılırsa 14 güne kadar alınır, 72 geçtiyse yalnız 72. Eksik metrik NULL + hangilerinin eksik olduğu ham kayıtta.
+- online_followers: ≥100 takipçi, son 30 gün; saatlerin UTC−7 olduğu varsayıldı (Meta belgesi, ham örnek yok) → `ONLINE_FOLLOWERS_UTC_OFFSET` ile değiştirilebilir. Instagram Login'de gelmeyebilir; gelmezse saat seçimi onsuz çalışır.
+- ig_reels_avg_watch_time birimi belgede yok → ham değer saklanır.
 
 ## Brief onayı (panel gelene kadar)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.

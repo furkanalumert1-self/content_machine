@@ -82,6 +82,14 @@ export class InstagramClient {
     return r.data;
   }
 
+  mediaInsights(mediaId: string, metrics: readonly string[]) {
+    return this.call<{ data?: { name: string; values?: { value: unknown }[]; total_value?: { value: unknown } }[] }>('GET', `${mediaId}/insights`, { metric: metrics.join(',') });
+  }
+
+  onlineFollowers(igUserId: string) {
+    return this.call<{ data?: { values?: { value?: Record<string, number>; end_time?: string }[] }[] }>('GET', `${igUserId}/insights`, { metric: 'online_followers', period: 'lifetime' });
+  }
+
   permalink(mediaId: string) { return this.call<{ permalink?: string }>('GET', mediaId, { fields: 'permalink' }); }
 }
 

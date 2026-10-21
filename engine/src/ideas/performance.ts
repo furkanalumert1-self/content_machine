@@ -1,3 +1,4 @@
+import { engagementScore } from '../metrics/insights.ts';
 import type { ContentType, VideoPerformance } from './types.ts';
 
 export const MIN_VIDEOS_FOR_LEARNING = 10;
@@ -9,9 +10,8 @@ export interface PerformanceInsight {
   typeAdjust: Partial<Record<ContentType, number>>;
 }
 
-// Etkileşim puanı: kaydetme izlenmeden daha güçlü sinyal. Eksik metrik uydurulmaz, o video hesaba katılmaz.
-const engagement = (v: VideoPerformance) =>
-  v.views == null ? null : v.views + 5 * (v.likes ?? 0) + 15 * (v.saved ?? 0);
+// Eksik metrik uydurulmaz; izlenmesi olmayan video hesaba katılmaz.
+const engagement = (v: VideoPerformance) => engagementScore(v);
 
 export function analyzePerformance(videos: VideoPerformance[]): PerformanceInsight {
   const scored = videos.map((v) => ({ v, e: engagement(v) })).filter((x): x is { v: VideoPerformance; e: number } => x.e != null);

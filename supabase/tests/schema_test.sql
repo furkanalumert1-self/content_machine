@@ -178,5 +178,13 @@ end $$;
 update videos set status='published', ig_media_id='IG9', published_at=now() where id='30000000-0000-0000-0000-000000000009';
 select t.expect_error($$insert into publish_attempts (video_id, outcome) values ('30000000-0000-0000-0000-000000000009', 'bilinmeyen')$$, 'check constraint');
 
+\echo 'T14 metrik her kontrol noktasında video başına bir kez; eksik metrik NULL kalabilir'
+insert into metrics (video_id, checkpoint, hours_after_publish, views) values ('30000000-0000-0000-0000-000000000009', 24, 25, 100);
+select t.expect_error($$insert into metrics (video_id, checkpoint, hours_after_publish, views) values ('30000000-0000-0000-0000-000000000009', 24, 26, 120)$$, 'duplicate key');
+select t.expect_error($$insert into metrics (video_id, checkpoint, hours_after_publish) values ('30000000-0000-0000-0000-000000000009', 48, 48)$$, 'check constraint');
+insert into metrics (video_id, checkpoint, hours_after_publish) values ('30000000-0000-0000-0000-000000000009', 72, 73);
+do $$ begin assert (select saved is null and likes is null from metrics where checkpoint = 72); end $$;
+select t.expect_error($$insert into audience_activity (day, hour_local, followers_online) values ('2026-10-21', 24, 1)$$, 'check constraint');
+
 create table t.done (ok int);  -- run.sh bu tablonun varlığını kontrol eder
 
