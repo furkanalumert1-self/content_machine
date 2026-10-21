@@ -7,7 +7,8 @@
 - 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı.
 - 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü.
 - 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme).
-- 21.10.2026 — ADIM 6 tamamlandı: yayın saati seçimi (keşif/kullan, gerekçeli) ve 24./72. saat metrik toplama. **ADIM 7 onayı bekleniyor.**
+- 21.10.2026 — ADIM 6 tamamlandı: yayın saati seçimi (keşif/kullan, gerekçeli) ve 24./72. saat metrik toplama.
+- 21.10.2026 — ADIM 7 tamamlandı: GitHub Actions (günlük plan+render, yayın kontrolü, metrik+token, haftalık fikir, render deneme). **ADIM 8 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -54,6 +55,14 @@
 - Metrikler: 24. ve 72. saat (Meta verisi 48 saate kadar gecikebilir); kaçırılırsa 14 güne kadar alınır, 72 geçtiyse yalnız 72. Eksik metrik NULL + hangilerinin eksik olduğu ham kayıtta.
 - online_followers: ≥100 takipçi, son 30 gün; saatlerin UTC−7 olduğu varsayıldı (Meta belgesi, ham örnek yok) → `ONLINE_FOLLOWERS_UTC_OFFSET` ile değiştirilebilir. Instagram Login'de gelmeyebilir; gelmezse saat seçimi onsuz çalışır.
 - ig_reels_avg_watch_time birimi belgede yok → ham değer saklanır.
+
+## Otomasyon (ADIM 7)
+- Repo şu an PUBLIC → Actions ücretsiz ama loglar herkese açık ve 60 gün hareketsizlikte zamanlanmış işler kapanır. Öneri: private (tahmin ~1.000 dk/ay, kota 2.000).
+- Varsayılan dal `claude/eager-curie-4lkxlk` → zamanlanmış işler bu dalda çalışır. Hepsi `vars.AUTOMATION_ENABLED == 'true'` olana kadar atlanır.
+- Render GitHub makinesinde ölçüldü: 21 sn video 40,7 sn, iş toplam 1,5 dk, 9/9 QC geçti (run 39679358834).
+- Yayın kontrolü yalnızca 12:07–14:52 ve 19:07–22:52 (İstanbul); ayarlardaki aralıklar değişirse publisher.yml cron'u da değişmeli.
+- Acil fikir araştırması günlük işin içinde (ek token gerekmez). Panel butonları için GH_DISPATCH_TOKEN ADIM 9'da.
+- actions/* v6 (v4 Node 20 uyarısı veriyordu).
 
 ## Brief onayı (panel gelene kadar)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.

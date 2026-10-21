@@ -23,7 +23,7 @@ jobs:
       run:
         working-directory: engine
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
         with:
           ffmpeg: 'true'
@@ -35,7 +35,7 @@ jobs:
           npx tsx src/jobs/render-sample.ts ${{ inputs.types || 'problem_cozum' }} 2>&1 | grep -vE 'Memory reported|inadvertently|lower amount|differing memory' | tee ../out/render.log
           echo "Toplam süre: $(( $(date +%s) - start )) sn" | tee -a ../out/render.log
           grep -q 'BAŞARISIZ' ../out/render.log && exit 1 || true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: ornek-render

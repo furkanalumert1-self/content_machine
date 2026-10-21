@@ -2,12 +2,13 @@
 
 Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem.
 
-> Durum: **ADIM 6 tamamlandı** (yayın saati seçimi + metrikler). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 7 tamamlandı** (GitHub Actions otomasyonu). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Belgeler
 - [Mimari](docs/mimari.md)
 - [ADIM 0 araştırma özeti](docs/adim-0-arastirma.md)
 - [Instagram kurulum rehberi](docs/kurulum/instagram.md)
+- [Otomasyon (GitHub Actions): kurulum, gizli anahtarlar, maliyet, gecikme](docs/kurulum/github-actions.md)
 - [Callypso Engage brief taslağı](config/products/callypso-engage.md) · [örnek fikirler](docs/ornek-fikirler-callypso-engage.md) · [örnek 7 günlük plan](docs/ornek-plan-callypso-engage.md)
 
 ## Kurulum (adımlar ilerledikçe tamamlanacak)
@@ -21,7 +22,7 @@ Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, o
 - **Gecikme:** Yayın kontrolü GitHub Actions ile 15 dakikada bir çalışır; GitHub zamanlaması yoğunlukta birkaç dakika (bazen daha fazla) gecikebilir. Kesin dakika garantisi yoktur. Onayınız seçilen saatten sonra gelirse video bir sonraki kontrolde yayınlanır.
 - **Metrikler:** Yayından 24 ve 72 saat sonra izlenme, erişim, beğeni, yorum, kaydetme, paylaşım alınır. Meta'nın vermediği metrik boş kalır, tahmin edilmez.
 - **Durdurma:** Panel > Ayarlar > `PAUSED` açıkken hiçbir video yayınlanmaz (veritabanı seviyesinde engellenir).
-- **Maliyet:** GitHub Free'de private repo için ayda 2.000 Actions dakikası var. Plan ~1.700 dk/ay. Ayrıntı: [araştırma §4](docs/adim-0-arastirma.md).
+- **Maliyet:** Repo şu an herkese açık → Actions ücretsiz. Özel yapılırsa tahmini ~1.000 dk/ay (kota 2.000). Ücretli hiçbir şey açık değil. Ayrıntı: [otomasyon rehberi](docs/kurulum/github-actions.md#maliyet).
 
 ## Geliştirici için
 ```bash

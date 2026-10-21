@@ -23,7 +23,7 @@ jobs:
       run:
         working-directory: engine
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
       - name: Token yenileme / uyarı
         run: npx tsx src/jobs/token-refresh.ts
