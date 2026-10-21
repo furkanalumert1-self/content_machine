@@ -98,7 +98,10 @@ update videos set status='ready', storage_path='v/x.mp4' where id in ('30000000-
 update videos set status='rejected' where id='30000000-0000-0000-0000-000000000002';
 update videos set status='render_failed' where id='30000000-0000-0000-0000-000000000004';
 do $$ begin assert (select count(*) from claim_due_video()) = 0, 'approval modunda onaysız video seçildi'; end $$;
+-- Test kurulumu: 7 gün kilidini (T15'te test edilir) atlamak için tetikleyiciler geçici kapatılır.
+set session_replication_role = replica;
 update app_settings set mode = 'auto';
+set session_replication_role = origin;
 do $$ declare r videos; begin
   select * into r from claim_due_video();
   assert r.id = '30000000-0000-0000-0000-000000000003', 'auto modda hazır video seçilmeli';
@@ -185,6 +188,20 @@ select t.expect_error($$insert into metrics (video_id, checkpoint, hours_after_p
 insert into metrics (video_id, checkpoint, hours_after_publish) values ('30000000-0000-0000-0000-000000000009', 72, 73);
 do $$ begin assert (select saved is null and likes is null from metrics where checkpoint = 72); end $$;
 select t.expect_error($$insert into audience_activity (day, hour_local, followers_online) values ('2026-10-21', 24, 1)$$, 'check constraint');
+
+\echo 'T15 otomatik mod: ilk yayından 7 gün geçmeden açılamaz; değişiklik kaydedilir'
+-- Test verisindeki yayınlar bugüne ait → auto reddedilmeli
+update app_settings set mode = 'approval';
+select t.expect_error($$update app_settings set mode = 'auto'$$, 'en az 7 gün');
+update videos set published_at = now() - interval '8 days' where id = '30000000-0000-0000-0000-000000000009';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+update app_settings set mode = 'auto';
+reset role;
+do $$ begin
+  assert (select mode = 'auto' and mode_changed_by = '00000000-0000-0000-0000-00000000000a' and mode_changed_at is not null from app_settings);
+end $$;
+update app_settings set mode = 'approval';
 
 create table t.done (ok int);  -- run.sh bu tablonun varlığını kontrol eder
 

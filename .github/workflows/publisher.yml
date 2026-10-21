@@ -22,10 +22,16 @@ jobs:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       TOKEN_ENCRYPTION_KEY: ${{ secrets.TOKEN_ENCRYPTION_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     defaults:
       run:
         working-directory: engine
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
-      - run: npx tsx src/jobs/publisher.ts
+      - name: Telegram onay/ret basışlarını uygula
+        run: npx tsx src/jobs/telegram-poll.ts
+      - name: Yayın
+        if: success() || failure()
+        run: npx tsx src/jobs/publisher.ts

@@ -10,6 +10,8 @@ const RULES: { rule: string; re: RegExp }[] = [
   { rule: 'Cold outreach çağrışımı', re: /\b(cold (email|outreach)|soğuk (e-?posta|mail|arama)|satın alınmış liste|toplu liste satın)\b/gi },
   { rule: 'Hukuki garanti', re: /\b(kvkk|iys|İYS)\b[^.]{0,40}\b(garanti|biz hallederiz|tamamen uyumlu|%100 uyumlu)/gi },
   { rule: 'Web adresi (yönlendirme yalnızca profil bağlantısıyla)', re: /\b(https?:\/\/\S+|www\.\S+|[a-z0-9-]+\.(vercel\.app|com|app|io|net|org|com\.tr)\b\S*)/gi },
+  { rule: 'Kişisel veri (e-posta)', re: /\b[\w.+-]+@[\w-]+\.[\w.]+\b/g },
+  { rule: 'Kişisel veri (telefon)', re: /(\+?90[\s-]?)?\(?0?5\d{2}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}\b/g },
   { rule: 'Fiyat', re: /(\$|₺|TL|USD|€)\s?\d+|\d+\s?(\$|₺|TL|USD|€)/g },
 ];
 

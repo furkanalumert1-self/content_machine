@@ -1,0 +1,20 @@
+# Telegram kurulum testi: bota bir deneme mesajı gönderir. Gizli anahtarlar eklendikten sonra elle çalıştırın.
+name: Telegram test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup
+      - run: npx tsx src/jobs/telegram-test.ts

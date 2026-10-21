@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { notify } from '../notify/telegram.ts';
 import { redact, redactDeep } from './redact.ts';
 
 type Level = 'info' | 'warn' | 'error';
@@ -13,6 +14,8 @@ export function createLogger(job: string, db?: SupabaseClient) {
       const { error } = await db.from('logs').insert({ level, job, message: msg, context: ctx });
       if (error) console.error(`Log veritabanına yazılamadı: ${redact(error.message)}`);
     }
+    // context.notify: kullanıcıya Telegram bildirimi (maskelenmiş metin; Telegram tanımlı değilse atlanır)
+    if (ctx.notify === true) await notify(`${level === 'error' ? '🚨' : '⚠️'} ${job}: ${msg}`);
   }
   return {
     info: (m: string, c?: Record<string, unknown>) => write('info', m, c),

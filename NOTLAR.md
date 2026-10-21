@@ -8,7 +8,8 @@
 - 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü.
 - 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme).
 - 21.10.2026 — ADIM 6 tamamlandı: yayın saati seçimi (keşif/kullan, gerekçeli) ve 24./72. saat metrik toplama.
-- 21.10.2026 — ADIM 7 tamamlandı: GitHub Actions (günlük plan+render, yayın kontrolü, metrik+token, haftalık fikir, render deneme). **ADIM 8 onayı bekleniyor.**
+- 21.10.2026 — ADIM 7 tamamlandı: GitHub Actions (günlük plan+render, yayın kontrolü, metrik+token, haftalık fikir, render deneme).
+- 21.10.2026 — ADIM 8 tamamlandı: Telegram onay/ret (imzalı, içeriğe bağlı, yalnızca sahip), hata bildirimleri (maskeli), auto mod 7 gün kilidi, kişisel veri kuralı, güvenlik özeti (docs/guvenlik.md). **ADIM 9 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -63,6 +64,12 @@
 - Yayın kontrolü yalnızca 12:07–14:52 ve 19:07–22:52 (İstanbul); ayarlardaki aralıklar değişirse publisher.yml cron'u da değişmeli.
 - Acil fikir araştırması günlük işin içinde (ek token gerekmez). Panel butonları için GH_DISPATCH_TOKEN ADIM 9'da.
 - actions/* v6 (v4 Node 20 uyarısı veriyordu).
+
+## Kontrol (ADIM 8)
+- Telegram onayı: getUpdates ile yayın kontrolünde işlenir (webhook ile aynı anda kullanılamaz; panelde webhook'a geçilebilir). Basışlar Telegram'da 24 saat saklanır.
+- Düğme imzası: HMAC(sha256("telegram-callback:"+TOKEN_ENCRYPTION_KEY)), veri "a|r:<uuid>:<16hex>" ≤64 bayt, içerik özetine bağlı.
+- Auto mod: DB tetikleyicisi; ilk yayından ≥7 gün; mode_changed_by/at kaydı.
+- Telegram sınırları (core.telegram.org): mesaj 4096, URL ile video 20 MB, callback_data 64 bayt.
 
 ## Brief onayı (panel gelene kadar)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.

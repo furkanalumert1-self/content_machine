@@ -4,7 +4,7 @@
 | İş | Zaman | Ne yapar | Tahmini süre |
 |---|---|---|---|
 | **Günlük plan ve render** (`daily.yml`) | Her gün 08:41 | Brief senkronu → fikir + senaryo + yayın saati → video üretimi → kalite kontrolü → depolama. Fikir azsa aynı çalışmada acil fikir araştırması. | ~3 dk |
-| **Yayın kontrolü** (`publisher.yml`) | 12:07–14:52 ve 19:07–22:52 arası 15 dk'da bir | Zamanı gelmiş, onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
+| **Yayın kontrolü** (`publisher.yml`) | 12:07–14:52 ve 19:07–22:52 arası 15 dk'da bir | Telegram onay/ret basışlarını uygular, zamanı gelmiş onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
 | **Metrikler ve token** (`metrics.yml`) | Her gün 10:17 | Token yenileme/uyarı, 24. ve 72. saat metrikleri, takipçi aktif saatleri | ~1 dk |
 | **Fikir araştırması** (`ideas.yml`) | Pazartesi 07:23 | 15–20 yeni fikir | ~1 dk |
 | **Render deneme** (`render-test.yml`) | Elle veya render kodu değişince | Gizli anahtarsız örnek video (artifact olarak indirilebilir) | ~1,5 dk |
@@ -37,7 +37,7 @@ Değerleri **sohbete yazmayın**; yalnızca GitHub'a yapıştırın. GitHub bunl
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → **API Keys** → `service_role` (gizli) | Evet |
 | `TOKEN_ENCRYPTION_KEY` | [Instagram rehberi](instagram.md#adım-10--gizli-anahtarlar-siz-eklersiniz-sohbete-yapıştırmayın) — Vercel'dekiyle **aynı** değer | Evet |
 | `GH_PRODUCT_READ_TOKEN` | Ürün reposu özelse: GitHub → Settings → Developer settings → **Fine-grained tokens** → yalnızca o repo, **Contents: Read**, **Metadata: Read** | Hayır (Callypso reposu herkese açık) |
-| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | ADIM 8'de anlatılacak | ADIM 8 |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | [Telegram rehberi](telegram.md) | Önerilir (onay düğmeleri ve hata bildirimleri) |
 
 ## Elle çalıştırma
 GitHub → **Actions** → soldan iş (ör. "Günlük plan ve render") → **Run workflow** → **Run workflow**. Panel butonları (ADIM 9) aynı şeyi sizin yerinize yapar.

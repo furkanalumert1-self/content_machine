@@ -12,6 +12,10 @@ import type { Script } from '../plan/script.ts';
 import { toSrt } from '../render/qc.ts';
 import { MAX_ATTEMPTS, renderWithRetries } from '../render/render.ts';
 import { BUCKET } from '../lib/storage.ts';
+import { buildButtons, callbackKey, readyMessage } from '../approvals/telegram-approval.ts';
+import { TelegramApi } from '../notify/telegram.ts';
+
+const PREVIEW_URL_SECONDS = 48 * 3600;
 
 export const LICENSES = [
   { asset: 'Outfit (font)', license: 'OFL-1.1', source: '@fontsource/outfit 5.3.0' },
@@ -81,5 +85,30 @@ for (const v of queue ?? []) {
     qc: { ...result.output.qc, render_ms: result.output.ms, attempts: result.attempts }, licenses: LICENSES, error: null,
   }).eq('id', v.id);
   await log.info(`Video ${v.id} hazır (${(result.output.ms / 1000).toFixed(0)} sn render, ${result.attempts}. deneme).`);
+  await sendForApproval(v.id);
 }
 if (failures) process.exitCode = 1;
+
+/** Hazır videoyu Telegram'a önizleme + imzalı Onayla/Reddet düğmeleriyle gönderir (Telegram tanımlı değilse atlar). */
+async function sendForApproval(videoId: string) {
+  const { TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chat, TOKEN_ENCRYPTION_KEY: secret } = process.env;
+  if (!token || !chat || !secret) return;
+  const { data: v } = await db.from('videos')
+    .select('id, caption, hashtags, publish_at, publish_at_reason, plan_reason, duration_sec, content_hash, storage_path, script').eq('id', videoId).single();
+  const { data: s } = await db.from('app_settings').select('mode').single();
+  if (!v) return;
+  const tg = new TelegramApi(token);
+  const text = readyMessage({ ...v, review_notes: (v.script as Script).review_notes ?? [] });
+  if (s?.mode === 'auto') {
+    await tg.sendMessage(chat, `🤖 Otomatik mod: bu video onaysız yayınlanacak.\n\n${text}`).catch(() => undefined);
+    return;
+  }
+  const buttons = buildButtons(callbackKey(secret), v.id, v.content_hash);
+  try {
+    const { data: signed } = await db.storage.from(BUCKET).createSignedUrl(v.storage_path, PREVIEW_URL_SECONDS);
+    if (signed) await tg.sendVideo(chat, signed.signedUrl, 'Önizleme', undefined);
+    await tg.sendMessage(chat, text, buttons);
+  } catch (e) {
+    await log.warn(`Onay mesajı Telegram'a gönderilemedi: ${(e as Error).message}. Panelden onaylayabilirsiniz.`);
+  }
+}

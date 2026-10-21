@@ -2,13 +2,15 @@
 
 Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem.
 
-> Durum: **ADIM 7 tamamlandı** (GitHub Actions otomasyonu). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 8 tamamlandı** (güvenlik ve kontrol, Telegram onayı). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Belgeler
 - [Mimari](docs/mimari.md)
 - [ADIM 0 araştırma özeti](docs/adim-0-arastirma.md)
 - [Instagram kurulum rehberi](docs/kurulum/instagram.md)
 - [Otomasyon (GitHub Actions): kurulum, gizli anahtarlar, maliyet, gecikme](docs/kurulum/github-actions.md)
+- [Telegram: onay ve bildirim kurulumu](docs/kurulum/telegram.md)
+- [Güvenlik kuralları ve testleri](docs/guvenlik.md)
 - [Callypso Engage brief taslağı](config/products/callypso-engage.md) · [örnek fikirler](docs/ornek-fikirler-callypso-engage.md) · [örnek 7 günlük plan](docs/ornek-plan-callypso-engage.md)
 
 ## Kurulum (adımlar ilerledikçe tamamlanacak)
@@ -21,6 +23,8 @@ Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, o
 - **Yayın saati:** Sistem her video için İstanbul saatine göre bir saat seçer ve gerekçesini yazar. İlk haftalarda 12:00–14:00 ve 19:00–22:00 arasında farklı saatleri dener; bunlar kanıtlanmış en iyi saatler değildir. Yeterli veri birikince (en az 8 ölçülmüş video) en iyi ortalamaya yönelir, 4 günde bir yeniden dener.
 - **Gecikme:** Yayın kontrolü GitHub Actions ile 15 dakikada bir çalışır; GitHub zamanlaması yoğunlukta birkaç dakika (bazen daha fazla) gecikebilir. Kesin dakika garantisi yoktur. Onayınız seçilen saatten sonra gelirse video bir sonraki kontrolde yayınlanır.
 - **Metrikler:** Yayından 24 ve 72 saat sonra izlenme, erişim, beğeni, yorum, kaydetme, paylaşım alınır. Meta'nın vermediği metrik boş kalır, tahmin edilmez.
+- **Onay:** Varsayılan mod onaylıdır: onaylamadığınız video yayınlanmaz. Video hazır olunca Telegram'a önizleme ve Onayla/Reddet düğmeleri gelir. İçeriği değiştirirseniz eski onay geçersiz olur.
+- **Otomatik mod:** İlk yayından en az 7 gün sonra ve yalnızca sizin açık tercihinizle açılabilir (ilk 1–2 hafta önerilmez).
 - **Durdurma:** Panel > Ayarlar > `PAUSED` açıkken hiçbir video yayınlanmaz (veritabanı seviyesinde engellenir).
 - **Maliyet:** Repo şu an herkese açık → Actions ücretsiz. Özel yapılırsa tahmini ~1.000 dk/ay (kota 2.000). Ücretli hiçbir şey açık değil. Ayrıntı: [otomasyon rehberi](docs/kurulum/github-actions.md#maliyet).
 
