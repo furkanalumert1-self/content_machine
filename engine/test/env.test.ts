@@ -8,7 +8,7 @@ describe('requireEnv', () => {
       throw new Error('hata bekleniyordu');
     } catch (e) {
       expect(e).toBeInstanceOf(MissingEnvError);
-      expect((e as MissingEnvError).missing).toEqual(['SUPABASE_SERVICE_ROLE_KEY', 'INSTAGRAM_APP_SECRET']);
+      expect((e as MissingEnvError).missing).toEqual(['SUPABASE_SERVICE_ROLE_KEY', 'TOKEN_ENCRYPTION_KEY']);
       expect((e as Error).message).not.toContain('supabase.co');
     }
   });

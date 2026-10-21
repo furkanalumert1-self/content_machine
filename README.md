@@ -2,7 +2,7 @@
 
 Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem.
 
-> Durum: **ADIM 4 tamamlandı** (video üretimi + kalite kontrolü). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 5 tamamlandı** (Instagram yayını). Brief onaylı (özet 047d60ce65742cf7). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Belgeler
 - [Mimari](docs/mimari.md)

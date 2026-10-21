@@ -11,8 +11,8 @@ import { createLogger } from '../lib/logger.ts';
 import type { Script } from '../plan/script.ts';
 import { toSrt } from '../render/qc.ts';
 import { MAX_ATTEMPTS, renderWithRetries } from '../render/render.ts';
+import { BUCKET } from '../lib/storage.ts';
 
-export const BUCKET = 'videos';
 export const LICENSES = [
   { asset: 'Outfit (font)', license: 'OFL-1.1', source: '@fontsource/outfit 5.3.0' },
   { asset: 'JetBrains Mono (font)', license: 'OFL-1.1', source: '@fontsource/jetbrains-mono 5.3.0' },

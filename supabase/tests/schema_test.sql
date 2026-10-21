@@ -158,5 +158,25 @@ select t.expect_error($$insert into ideas (product_id, idea, hook, content_type,
 select t.expect_error($$insert into ideas (product_id, idea, hook, content_type, source, score, why)
   values ('10000000-0000-0000-0000-000000000001', 'x', 'h', 'ipucu', 'audience', 101, 'w')$$, 'check constraint');
 
+\echo 'T13 yayın sırasında içerik değişmez; geçici hatada onay korunarak kuyruğa döner'
+update app_settings set paused = false;  -- T11 PAUSED'ı açık bıraktı
+insert into videos (id, product_id, brief_id, style, content_type, duration_sec, script, caption, hashtags, publish_at, storage_path)
+values ('30000000-0000-0000-0000-000000000009', '10000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000003',
+        'dark-keynote', 'ipucu', 20, '{"n":9}', 'c9', array['#a','#b','#c','#d','#e'], now() - interval '1 minute', 'v/9.mp4');
+update videos set status='ready' where id='30000000-0000-0000-0000-000000000009';
+update videos set status='approved' where id='30000000-0000-0000-0000-000000000009';
+do $$ declare r videos; begin
+  select * into r from claim_due_video();
+  assert r.id = '30000000-0000-0000-0000-000000000009', 'onaylı video kilitlenmeli';
+end $$;
+select t.expect_error($$update videos set caption='yayında değişti' where id='30000000-0000-0000-0000-000000000009'$$, 'yayınlanırken');
+update videos set status='approved', publish_tries = 1 where id='30000000-0000-0000-0000-000000000009';
+do $$ begin
+  assert (select status = 'approved' and approved_hash = content_hash from videos where id='30000000-0000-0000-0000-000000000009');
+  assert (select count(*) from claim_due_video()) = 1, 'geri dönen video tekrar kilitlenebilmeli';
+end $$;
+update videos set status='published', ig_media_id='IG9', published_at=now() where id='30000000-0000-0000-0000-000000000009';
+select t.expect_error($$insert into publish_attempts (video_id, outcome) values ('30000000-0000-0000-0000-000000000009', 'bilinmeyen')$$, 'check constraint');
+
 create table t.done (ok int);  -- run.sh bu tablonun varlığını kontrol eder
 

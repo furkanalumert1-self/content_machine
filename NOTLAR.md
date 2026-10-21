@@ -5,7 +5,8 @@
 - 21.10.2026 — Kullanıcı "başla" dedi. ADIM 1 tamamlandı: klasör yapısı, Supabase şeması + RLS, motor temel kütüphaneleri (env, log maskeleme), CI.
 - 21.10.2026 — ADIM 2 tamamlandı: brief taslağı, fikir motoru, repo/site salt okunur inceleme.
 - 21.10.2026 — Kullanıcı brief'i onayladı (özet 21fae10f3cc8e260). ADIM 3 tamamlandı: günlük planlayıcı.
-- 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü. **ADIM 5 onayı bekleniyor.**
+- 21.10.2026 — Fikir stoku için Seçenek 1: brief'e 6 mit + 15 ek ipucu eklendi; CTA hedefi cal.com yapıldı; kullanıcı brief'i yeniden onayladı (özet 047d60ce65742cf7). ADIM 4 tamamlandı: Remotion render + otomatik kalite kontrolü.
+- 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme). **ADIM 6 onayı bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
@@ -32,6 +33,16 @@
 - QC: çözünürlük, fps, codec, ses, süre (±0,15 sn), boyut (50 KB–100 MB), moov başta, metin taşması (tarayıcıda ölçülür, harf çıkıntısı için 16 px tolerans), güvenli alan, altyazı kapsaması. SRT dosyası da üretilir.
 - 3 deneme (1 + 2 yeniden); metin taşması gibi içerik hatasında tekrar denenmez. Başarısız → render_failed, yayınlanamaz.
 - Bu makinede (4 çekirdek, GPU yok) ~20 sn video ≈ 3 dk render.
+
+## Instagram yayını (ADIM 5)
+- API: graph.instagram.com, sürüm `IG_API_VERSION` (varsayılan v26.0 — Ekim 2026 belgelerindeki örnek sürüm).
+- Token AES-256-GCM ile şifreli (TOKEN_ENCRYPTION_KEY, Vercel + GitHub'da aynı). Tabloya yalnızca service role erişir.
+- Video Meta'ya özel bucket'tan 6 saatlik imzalı URL ile verilir.
+- Mükerrer koruma: DB kilidi (claim_due_video) + container kimliği hemen kaydedilir + publish_requested_at + belirsiz durumda container durumu sorulur (PUBLISHED → kurtar, tekrar paylaşma).
+- Hata sınıfları Meta hata kodu tablosundan: limit→ertele, not_ready→bekle, container süresi doldu→yenisi, geçici→en fazla 3 deneme, token/izin→yeniden bağlan, içerik/hesap→kalıcı hata.
+- Yayın sırasında içerik değiştirilemez (DB kuralı). Yarıda kalan yayınlar 20 dk sonra kurtarılır.
+- Token haftada bir yenilenir; bitişe <7 gün ve yenileme başarısızsa uyarı.
+- Doğrulanmadı (gerçek hesap/Supabase yok): uçtan uca canlı yayın. Sahte Instagram API'siyle 12 senaryo testli.
 
 ## Brief onayı (panel gelene kadar)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.
