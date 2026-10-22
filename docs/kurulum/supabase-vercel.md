@@ -13,10 +13,13 @@ Sıra önemli. Toplam ~30–45 dk. Gizli değerleri **sohbete yazmayın**; yaln�
 2. **New project** → Ad: `content-machine` · Region: **Central EU (Frankfurt)** (Türkiye'ye en yakın) · **Database password**: güçlü bir şifre üretin ve şifre yöneticinize kaydedin (sisteme lazım değil).
 3. **Create new project** → ~2 dk bekleyin.
 
-### 1.2 Veritabanı tablolarını kurun
+### 1.2 Veritabanı tablolarını kurun (tek seferde)
 1. Sol menü → **SQL Editor** → **New query**.
-2. GitHub'da `supabase/migrations/0001_init.sql` dosyasını açın → **Raw** → tümünü kopyalayın → SQL Editor'e yapıştırın → **Run**. "Success" görmelisiniz.
-3. Aynısını sırayla `0002_…`, `0003_…`, `0004_…`, `0005_…` için yapın. **Sırayı atlamayın.**
+2. GitHub'da [`supabase/kurulum.sql`](../../supabase/kurulum.sql) dosyasını açın → sağ üstte **Copy raw file** (kopyala simgesi) → SQL Editor'e yapıştırın → **Run**.
+3. Altta **KURULUM TAMAM** yazısını görmelisiniz. Hata çıkarsa hiçbir değişiklik kaydedilmez; hata mesajını (şifre içermez) bana iletin.
+4. Supabase "destructive operation" / "RLS" uyarısı gösterirse **Run this query** ile onaylayın (dosya yalnızca bu projenin tablolarını oluşturur).
+
+> Bu dosya `supabase/migrations/` içindeki 5 dosyanın birleşimidir; testlerde de aynısı çalıştırılır. Bir kez çalıştırmanız yeterli; ikinci kez çalıştırırsanız "already exists" hatası verir ve hiçbir şey değişmez.
 
 ### 1.3 Giriş ayarları (yalnızca siz)
 1. Sol menü → **Authentication** → **Sign In / Providers**:

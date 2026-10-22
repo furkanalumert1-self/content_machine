@@ -104,3 +104,8 @@
 - DB'ye yazan işler (brief-sync, idea-research) Supabase projesi açılınca uçtan uca denenecek; şu an saf mantık birim testli, şema yerel Postgres'te testli.
 - Yerelde root ile `initdb` çalışmaz → şema testleri `runuser -u postgres` ile.
 - CI her push'ta ~1–2 Actions dakikası harcar (sadece kod değişince; .md/docs hariç).
+
+## Canlı kurulum (başladı)
+- Supabase projesi oluşturuldu (URL erişilebilir; tablolar henüz yok — 404). Tablolar `supabase/kurulum.sql` ile SQL Editor'den kurulur.
+- `supabase/kurulum.sql` = migration'ların birleşimi (tek işlem). `scripts/build-supabase-setup.sh` üretir; şema testi dosyanın güncel olduğunu kontrol eder ve aynısını çalıştırır.
+- Sohbete veritabanı şifresi yazıldı → kullanılmadı; kullanıcıya şifreyi sıfırlaması önerildi.

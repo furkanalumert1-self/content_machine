@@ -6,9 +6,16 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 root="$here/../.."
 
+# supabase/kurulum.sql, migration'larla birebir aynı olmalı.
+expected="$(mktemp)"
+bash "$root/scripts/build-supabase-setup.sh" "$expected" >/dev/null
+cmp -s "$expected" "$root/supabase/kurulum.sql" || { rm -f "$expected"; echo "supabase/kurulum.sql güncel değil: bash scripts/build-supabase-setup.sh çalıştırıp commit edin"; exit 1; }
+rm -f "$expected"
+
 run_sql() {
   psql "$1" -q -v ON_ERROR_STOP=1 -f "$here/supabase_stub.sql"
-  for m in "$root"/supabase/migrations/*.sql; do psql "$1" -q -v ON_ERROR_STOP=1 -f "$m"; done
+  # Kullanıcının SQL Editor'e yapıştıracağı birleşik dosyanın aynısı test edilir.
+  psql "$1" -q -v ON_ERROR_STOP=1 -f "$root/supabase/kurulum.sql" >/dev/null
   psql "$1" -q -v ON_ERROR_STOP=1 -f "$here/schema_test.sql"
   # psql bazı ayrıştırma hatalarında durmaz; son testin gerçekten çalıştığını doğrula.
   [[ "$(psql "$1" -tAc "select to_regclass('t.done') is not null")" == "t" ]] || { echo "TESTLER YARIDA KALDI"; exit 1; }
