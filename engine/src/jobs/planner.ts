@@ -1,8 +1,7 @@
 // Günlük planlayıcı: ürün, içerik türü, fikir ve stil seçer; senaryoyu "planned" video olarak kaydeder.
 // Tekrar çalıştırılabilir: bugün için zaten yeterli otomatik video planlandıysa hiçbir şey yapmaz.
 // Çalıştırma: npx tsx src/jobs/planner.ts
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { activeStyles as listActiveStyles } from '../config/styles.ts';
 import { serviceClient } from '../lib/db.ts';
 import { setOutput } from '../lib/gha.ts';
 import { createLogger } from '../lib/logger.ts';
@@ -16,7 +15,6 @@ import { chooseSlot } from '../schedule/slots.ts';
 
 const db = serviceClient('planner');
 const log = createLogger('planner', db);
-const stylesDir = join(import.meta.dirname, '../../../config/styles');
 
 const { data: settings, error: se } = await db.from('app_settings').select('*').single();
 if (se) throw se;
@@ -54,11 +52,7 @@ if (!brief) {
   process.exit(0);
 }
 
-const activeStyles: string[] = [];
-for (const f of (await readdir(stylesDir)).filter((f) => f.endsWith('.json'))) {
-  const s = JSON.parse(await readFile(join(stylesDir, f), 'utf8'));
-  if (s.status === 'mvp' || s.status === 'active') activeStyles.push(s.slug);
-}
+const activeStyles = listActiveStyles().map((x) => x.slug);
 
 const result = planDay({
   brief: brief.brief,

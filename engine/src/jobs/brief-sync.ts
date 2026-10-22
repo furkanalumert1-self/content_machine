@@ -1,5 +1,6 @@
-// config/products/*.{json,md} → Supabase. Brief metni değiştiyse yeni sürüm açılır;
-// yalnızca dosyadaki onay özeti metinle eşleşiyorsa sürüm "approved" olur. Onaylı brief varsa MVP ürünü aktifleşir.
+// İlk kurulum: config/products/*.{json,md} → Supabase. Panel kurulduktan sonra brief'in asıl yeri veritabanıdır:
+// ürünün veritabanında brief'i varsa dosya YÜKLENMEZ (paneldeki düzenlemelerin üzerine yazılmasın).
+// Dosyadaki onay özeti metinle eşleşiyorsa ilk sürüm "approved" yüklenir ve MVP ürünü aktifleşir.
 // Çalıştırma: npx tsx src/jobs/brief-sync.ts
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -13,39 +14,34 @@ const log = createLogger('brief_sync', db);
 
 for (const file of (await readdir(dir)).filter((f) => f.endsWith('.json'))) {
   const meta = JSON.parse(await readFile(join(dir, file), 'utf8'));
-  const brief = parseBrief(await readFile(join(dir, file.replace(/\.json$/, '.md')), 'utf8'));
 
-  const { data: product, error } = await db
-    .from('products')
-    .upsert({ slug: meta.slug, name: meta.name, site_url: meta.site_url, github_repo: meta.github_repo,
-      vercel_project: meta.vercel_project, brand_colors: meta.brand_colors ?? {} }, { onConflict: 'slug' })
-    .select('id, status').single();
+  // Ürün yoksa oluştur; varsa paneldeki bilgilere dokunma.
+  await db.from('products').upsert(
+    { slug: meta.slug, name: meta.name, site_url: meta.site_url, github_repo: meta.github_repo, vercel_project: meta.vercel_project, brand_colors: meta.brand_colors ?? {} },
+    { onConflict: 'slug', ignoreDuplicates: true },
+  );
+  const { data: product, error } = await db.from('products').select('id, status').eq('slug', meta.slug).single();
   if (error) throw error;
 
-  const { data: latest } = await db.from('product_briefs').select('version')
-    .eq('product_id', product.id).order('version', { ascending: false }).limit(1).maybeSingle();
-  const { data: sameText } = await db.from('product_briefs').select('id')
-    .eq('product_id', product.id).eq('content_hash', brief.hash).maybeSingle();
+  const { count } = await db.from('product_briefs').select('id', { count: 'exact', head: true }).eq('product_id', product.id);
+  if (count) {
+    console.log(`${meta.slug}: brief panelden yönetiliyor; dosya yüklenmedi.`);
+    continue;
+  }
 
+  const brief = parseBrief(await readFile(join(dir, file.replace(/\.json$/, '.md')), 'utf8'));
   const approved = isApproved(brief);
-  if (!sameText) {
-    await db.from('product_briefs').insert({
-      product_id: product.id, version: (latest?.version ?? 0) + 1, content_md: `---\nproduct: ${brief.product}\n---\n${brief.body}`,
-      content_hash: brief.hash, status: 'draft', sources: [{ file: `config/products/${file}` }],
-    });
-    await log.info(`${meta.slug}: brief sürüm ${(latest?.version ?? 0) + 1} eklendi (taslak).`);
-  }
-  if (approved) {
-    const { error: e } = await db.from('product_briefs').update({ status: 'approved', approved_at: brief.approvedAt })
-      .eq('product_id', product.id).eq('content_hash', brief.hash).neq('status', 'approved');
-    if (e) throw e;
-  } else if (brief.status === 'onaylı') {
-    await log.warn(`${meta.slug}: brief onaydan sonra değiştirilmiş; onay geçersiz, yeniden onay gerekli.`);
-  }
+  const { error: e1 } = await db.from('product_briefs').insert({
+    product_id: product.id, version: 1, content_md: `---\nproduct: ${brief.product}\n---\n${brief.body}`, content_hash: brief.hash,
+    status: approved ? 'approved' : 'draft', approved_at: approved ? brief.approvedAt : null, sources: [{ file: `config/products/${file}` }],
+  });
+  if (e1) throw e1;
+  await log.info(`${meta.slug}: brief ilk kez yüklendi (${approved ? 'onaylı' : 'taslak — panelden onaylayın'}).`);
+  if (!approved && brief.status === 'onaylı') await log.warn(`${meta.slug}: dosyadaki onay metinle eşleşmiyor; panelden yeniden onaylayın.`);
 
   if (approved && meta.mvp && product.status !== 'active') {
-    const { error: e } = await db.from('products').update({ status: 'active' }).eq('id', product.id);
-    if (e) await log.error(`${meta.slug}: aktif edilemedi: ${e.message}`);
+    const { error: e2 } = await db.from('products').update({ status: 'active' }).eq('id', product.id);
+    if (e2) await log.error(`${meta.slug}: aktif edilemedi: ${e2.message}`);
     else await log.info(`${meta.slug}: ürün aktif.`);
   }
 }

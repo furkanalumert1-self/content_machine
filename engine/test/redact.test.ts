@@ -15,6 +15,7 @@ describe('redact', () => {
       'github_pat_' + 'b'.repeat(40),
       'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoic2VydmljZSJ9.c2lnbmF0dXJlLXZhbHVl',
       '123456789:' + 'Q'.repeat(35),
+      'sb_secret_' + 'k'.repeat(30),
     ];
     for (const s of samples) expect(redact(`x ${s} y`, {})).toBe('x [GİZLİ] y');
   });

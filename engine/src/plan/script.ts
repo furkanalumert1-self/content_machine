@@ -98,8 +98,14 @@ function bodyScenes(idea: Idea, brief: Brief): { scenes: Draft[]; notes: string[
   const st = (lines: string[], visual: Visual = { type: 'statement' }, sample_data = false): Draft => ({ kind: 'body', lines: lines.flatMap(lineify), visual, sample_data });
 
   if (idea.source === 'changelog' || idea.source === 'trend' || idea.source === 'manual' || idea.source === 'deployment') {
-    notes.push('Bu fikir brief dışından geldi (commit/trend/elle). Metni yayından önce gözden geçirip Türkçeleştirin; özelliğin canlıda olduğunu doğrulayın.');
-    return { scenes: [st([end(idea.idea)]), st(['Callypso Engage\'de.'])], notes };
+    notes.push(idea.source === 'manual'
+      ? 'Elle verilen talimattan üretildi: metni yayından önce gözden geçirin.'
+      : 'Bu fikir brief dışından geldi (commit/trend/elle). Metni yayından önce gözden geçirip Türkçeleştirin; özelliğin canlıda olduğunu doğrulayın.');
+    // Talimat cümleleri (hook hariç) en fazla 3 anlatım sahnesine bölünür.
+    const sentences = idea.idea.split(/(?<=[.!?])\s+/).map((x) => x.trim()).filter(Boolean)
+      .filter((x) => x.replace(/[.!?…]$/, '') !== idea.hook.replace(/[.!?…]$/, ''));
+    const body = sentences.length ? sentences.slice(0, 3).map((x) => st([end(cap(x))])) : [st([end(idea.idea)])];
+    return { scenes: idea.source === 'manual' ? body : [...body, st(['Callypso Engage\'de.'])], notes };
   }
 
   switch (idea.content_type) {
@@ -160,21 +166,24 @@ function hookFor(idea: Idea): string {
 const readSec = (lines: string[]) => 1.2 + lines.join(' ').length / 15; // büyük ekran metni, ~15 karakter/sn
 const toFrames = (s: number) => Math.round(s * FPS);
 
-function timeline(drafts: Draft[]): Scene[] {
+function timeline(drafts: Draft[], targetSec?: number): Scene[] {
   const d = drafts.map((s) =>
     s.kind === 'hook' ? Math.min(3, Math.max(2, readSec(s.lines)))
     : s.kind === 'cta' ? 3.5
     : Math.min(6, Math.max(2.2, readSec(s.lines)) + (s.visual.type === 'feature' || s.visual.type === 'after' ? 1 : 0)),
   );
   let total = d.reduce((a, b) => a + b, 0);
-  if (total < MIN_SEC) {
-    // Kısa senaryoda gövde sahneleri eşit uzatılır (en fazla 7 sn), yetmezse CTA 5 sn'ye kadar uzar.
+  // İstenen süre (panelden) 15–45 aralığına sıkıştırılır; istenmediyse en az 15 sn.
+  const target = Math.min(MAX_SEC, Math.max(MIN_SEC, targetSec ?? MIN_SEC));
+  const cap = targetSec ? 12 : 7; // sahne başına en fazla uzama
+  if (total < target) {
+    // Kısa senaryoda gövde sahneleri eşit uzatılır, yetmezse CTA 5 sn'ye kadar uzar.
     const body = d.map((_, i) => i).filter((i) => drafts[i].kind === 'body');
-    let missing = MIN_SEC - total;
-    const room = body.reduce((s, i) => s + (7 - d[i]), 0);
-    for (const i of body) d[i] += room > 0 ? Math.min(7 - d[i], (missing * (7 - d[i])) / room) : 0;
+    let missing = target - total;
+    const room = body.reduce((s, i) => s + (cap - d[i]), 0);
+    for (const i of body) d[i] += room > 0 ? Math.min(cap - d[i], (missing * (cap - d[i])) / room) : 0;
     total = d.reduce((a, b) => a + b, 0);
-    missing = MIN_SEC - total;
+    missing = target - total;
     if (missing > 0) d[d.length - 1] += Math.min(1.5, missing);
   }
   let t = 0;
@@ -188,7 +197,7 @@ function timeline(drafts: Draft[]): Scene[] {
 
 export const CTA_SUBLINE = 'Link profilde';
 
-export function buildScript(idea: Idea, brief: Brief): Script {
+export function buildScript(idea: Idea, brief: Brief, opts: { targetSec?: number } = {}): Script {
   const { scenes: body, notes } = bodyScenes(idea, brief);
   const hook = hookFor(idea);
   const drafts: Draft[] = [
@@ -196,7 +205,7 @@ export function buildScript(idea: Idea, brief: Brief): Script {
     ...body,
     { kind: 'cta', lines: [brief.cta, CTA_SUBLINE], visual: { type: 'cta' }, sample_data: false },
   ];
-  const scenes = timeline(drafts);
+  const scenes = timeline(drafts, opts.targetSec);
   const last = scenes[scenes.length - 1];
   return {
     version: 1,

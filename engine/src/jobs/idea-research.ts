@@ -25,8 +25,12 @@ for (const p of products ?? []) {
     const notes: string[] = [];
     let commits: Awaited<ReturnType<typeof inspectRepo>>['commits'] = [];
     if (p.github_repo) {
-      const report = await inspectRepo(p.github_repo, process.env.GH_PRODUCT_READ_TOKEN);
-      commits = commitsSince(report.commits, 14);
+      try {
+        commits = commitsSince((await inspectRepo(p.github_repo, process.env.GH_PRODUCT_READ_TOKEN)).commits, 14);
+      } catch (e) {
+        if (e instanceof LeakSuspectedError) throw e; // sızıntı şüphesinde tamamen dur
+        notes.push(`GitHub reposu okunamadı (${(e as Error).message}); changelog kaynağı bu çalışmada atlandı.`);
+      }
     } else notes.push('GitHub reposu tanımlı değil; changelog kaynağı atlandı.');
 
     const existing = await listIdeas(db, p.id);

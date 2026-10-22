@@ -15,6 +15,7 @@ const PATTERNS: RegExp[] = [
   /\bgh[pousr]_[A-Za-z0-9]{20,}/g, // GitHub token
   /\bgithub_pat_[A-Za-z0-9_]{20,}/g,
   /\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}/g, // JWT (Supabase anahtarları)
+  /\bsb_(?:secret|publishable)_[A-Za-z0-9_-]{10,}/g, // Supabase yeni anahtar biçimi
   /\b\d{6,}:[A-Za-z0-9_-]{30,}/g, // Telegram bot token
   /([?&](access_token|client_secret|token)=)[^&\s"]+/gi,
   /(authorization:\s*(bearer|token)\s+)[^\s"]+/gi,
