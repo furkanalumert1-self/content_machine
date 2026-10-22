@@ -68,7 +68,7 @@ Videolar ve caption'lar "link profilde" der; Reels'te video veya caption içinde
 | `INSTAGRAM_REDIRECT_URI` | Panel adresi + `/api/instagram/callback` | Vercel |
 | `TOKEN_ENCRYPTION_KEY` | Kendiniz üretin (aşağıda) | **Hem** Vercel **hem** GitHub Secrets — ikisinde aynı değer |
 
-`TOKEN_ENCRYPTION_KEY` üretmek: Supabase → **SQL Editor** → `select encode(gen_random_bytes(32), 'hex');` yazıp **Run** → çıkan 64 karakteri kopyalayın. (Terminal kullanıyorsanız: `openssl rand -hex 32`.) Bu değeri hiçbir yere kaydetmeyin, doğrudan Vercel ve GitHub'a yapıştırın. Bu anahtar kaybolursa Instagram'ı yeniden bağlamanız yeterli; başka veri kaybolmaz.
+`TOKEN_ENCRYPTION_KEY` üretmek: Supabase → **SQL Editor** → `select encode(gen_random_bytes(32), 'hex');` yazıp **Run** → çıkan 64 karakteri kopyalayın. (Terminal kullanıyorsanız: `openssl rand -hex 32`.) Değeri şifre yöneticinize kaydedin (GitHub adımında tekrar lazım olacak; Vercel gizli değeri sonradan göstermez), sonra Vercel ve GitHub'a yapıştırın. Sohbete yazmayın. Bu anahtar kaybolursa Instagram'ı yeniden bağlamanız yeterli; başka veri kaybolmaz.
 
 - **Vercel:** Proje → **Settings** → **Environment Variables** → Ad ve değer → **Save** → sonra **Deployments** → son dağıtım → **Redeploy**.
 - **GitHub:** `content_machine` reposu → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**.

@@ -109,3 +109,4 @@
 - Supabase projesi oluşturuldu (URL erişilebilir; tablolar henüz yok — 404). Tablolar `supabase/kurulum.sql` ile SQL Editor'den kurulur.
 - `supabase/kurulum.sql` = migration'ların birleşimi (tek işlem). `scripts/build-supabase-setup.sh` üretir; şema testi dosyanın güncel olduğunu kontrol eder ve aynısını çalıştırır.
 - Sohbete veritabanı şifresi yazıldı → kullanılmadı; kullanıcıya şifreyi sıfırlaması önerildi.
+- Supabase canlı kontrol (publishable key ile): 11 tablo var, RLS dışarıya boş döner, instagram_connection reddedilir, claim_due_video çağrılamaz, kayıt kapalı (signup 422), admins satırı kullanıcı tarafından doğrulandı. Sıradaki: Vercel.
