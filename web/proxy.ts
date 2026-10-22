@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 // İyimser kontrol: Supabase oturum çerezini tazeler, oturumu olmayanı girişe yönlendirir.
 // Asıl yetki kontrolü lib/dal.ts ve veritabanı RLS'sindedir.
-const PUBLIC = ['/giris', '/auth/callback'];
+const PUBLIC = ['/giris'];
 
 export default async function proxy(req: NextRequest) {
   let res = NextResponse.next({ request: req });

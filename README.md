@@ -34,7 +34,7 @@ Gizli değerleri **sohbete veya koda yazmayın**; Vercel Environment Variables v
 ## Onay ve güvenlik
 - Varsayılan **onaylı mod**: onaylamadığınız video yayınlanmaz. **Otomatik mod** ilk yayından en az 7 gün sonra ve yalnızca sizin açık tercihinizle açılabilir.
 - Videolarda yasaklar otomatik denetlenir: kanıtlanmamış % vaadi, demo rakamı, rakip adı, fiyat, web adresi, kişisel veri, doğrulanmamış özellik. Demo ekranları "örnek veri" etiketlidir.
-- Panele yalnızca sizin hesabınız girer (kayıt kapalı; şifresiz e-posta bağlantısı). Ayrıntı: [docs/guvenlik.md](docs/guvenlik.md).
+- Panele yalnızca sizin hesabınız girer (kayıt kapalı; e-posta + şifre). Ayrıntı: [docs/guvenlik.md](docs/guvenlik.md).
 
 ## Durdurma
 - **Panel → Ayarlar → Tüm yayınları durdur (PAUSED):** hiçbir video yayınlanmaz; yayından hemen önce de kontrol edilir. Üretim sürer.

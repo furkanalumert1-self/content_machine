@@ -4,7 +4,6 @@ import { LoginForm } from './form';
 const REASONS: Record<string, string> = {
   'yetkisiz hesap': 'Bu hesabın panele erişim yetkisi yok.',
   'yönetici değil': 'Bu hesap yönetici olarak tanımlı değil (kurulum rehberi: admins tablosu).',
-  'bağlantı geçersiz': 'Giriş bağlantısı geçersiz veya süresi dolmuş. Yeni bağlantı isteyin.',
 };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ neden?: string }> }) {
@@ -17,7 +16,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <span className="font-semibold">İçerik Makinesi</span>
         </div>
         <h1 className="text-xl font-semibold">Giriş</h1>
-        <p className="mb-5 mt-1 text-sm text-muted">Şifre yok: e-postanıza tek kullanımlık bir giriş bağlantısı gelir. Yalnızca yönetici hesabı girebilir.</p>
+        <p className="mb-5 mt-1 text-sm text-muted">E-posta ve şifrenizle girin. Yalnızca yönetici hesabı girebilir.</p>
         {neden && neden !== 'oturum yok' && <div className="mb-4"><Notice tone="warn">{REASONS[neden] ?? 'Lütfen tekrar giriş yapın.'}</Notice></div>}
         <LoginForm />
       </div>

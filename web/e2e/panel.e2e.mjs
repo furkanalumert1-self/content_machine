@@ -5,33 +5,34 @@ import { chromium } from 'playwright-core';
 
 const BASE = process.env.E2E_BASE ?? 'http://127.0.0.1:3000';
 const BASE_NOADMIN = process.env.E2E_BASE_NOADMIN ?? 'http://127.0.0.1:3001';
-const MAILPIT = process.env.E2E_MAILPIT ?? 'http://127.0.0.1:54324';
 const { E2E_DB, SUPABASE_URL, ANON_KEY, SERVICE_ROLE_KEY } = process.env;
 const sql = (q) => execFileSync('psql', [E2E_DB, '-qAtc', q], { encoding: 'utf8' }).trim();
 
 let failed = 0;
 const check = (name, ok, detail = '') => { console.log(`${ok ? '✓' : '✗'} ${name}${detail ? ` — ${detail}` : ''}`); if (!ok) failed++; };
 
-async function magicLink(email, since) {
-  for (let i = 0; i < 30; i++) {
-    const { messages = [] } = await (await fetch(`${MAILPIT}/api/v1/messages`)).json();
-    const m = messages.find((x) => x.To?.some((t) => t.Address === email) && new Date(x.Created) > since);
-    if (m) {
-      const full = await (await fetch(`${MAILPIT}/api/v1/message/${m.ID}`)).json();
-      return full.Text.match(/https?:\/\/\S+verify\S+/)?.[0];
-    }
-    await new Promise((r) => setTimeout(r, 500));
-  }
-  return null;
+const ADMIN_PW = 'Yonetici-Test-Sifre-123';
+const STRANGER_PW = 'Gecici-Test-Sifre-123';
+async function setPassword(email, password) {
+  const uid = sql(`select id from auth.users where email='${email}'`);
+  const r = await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${uid}`, { method: 'PUT', headers: { apikey: SERVICE_ROLE_KEY, Authorization: `Bearer ${SERVICE_ROLE_KEY}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ password }) });
+  if (!r.ok) throw new Error(`Şifre ayarlanamadı: ${email}`);
 }
 
-async function login(page, base, email) {
-  const since = new Date(Date.now() - 1000);
+// Giriş formunu doldurur; sonuç: bulunulan adres + (varsa) hata mesajı.
+async function login(page, base, email, password) {
   await page.goto(`${base}/giris`);
   await page.fill('input[name=email]', email);
+  await page.fill('input[name=password]', password);
   await page.click('button[type=submit]');
-  await page.getByText('giriş bağlantısı e-postanıza gönderildi').waitFor();
-  return magicLink(email, since);
+  for (let i = 0; i < 60; i++) { // sonuç: hata mesajı ya da girişten çıkış (veya ?neden= ile geri dönüş)
+    const u = new URL(page.url());
+    if (!u.pathname.startsWith('/giris') || u.search.includes('neden')) break;
+    if (await page.locator('form [role=alert]').count().catch(() => 0)) break;
+    await page.waitForTimeout(250);
+  }
+  await page.waitForLoadState().catch(() => {});
+  return { url: decodeURIComponent(page.url()), error: (await page.locator('form [role=alert]').textContent().catch(() => '')) ?? '' };
 }
 
 // İşlem sonucu mesajı, düğmenin bulunduğu formun içinde (veya verilen kapsamda) görünür.
@@ -67,22 +68,20 @@ try {
   const signup = await fetch(`${SUPABASE_URL}/auth/v1/signup`, { method: 'POST', headers: { apikey: ANON_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'yeni-biri@example.com', password: 'Uzun-Bir-Sifre-123' }) });
   check('Herkese açık kayıt kapalı (yeni hesap açılamaz)', signup.status >= 400 && sql(`select count(*) from auth.users where email='yeni-biri@example.com'`) === '0', `HTTP ${signup.status}`);
 
-  // Yönetici olmayan hesap: ADMIN_EMAIL eşleşmediği için bağlantı gönderilmez (yanıt aynı görünür)
-  const before = sql(`select count(*) from auth.users where email='yabanci@example.com' and last_sign_in_at is not null`);
-  const strangerLink = await login(anon, BASE, 'yabanci@example.com').catch(() => null);
-  check('ADMIN_EMAIL dışındaki hesaba giriş bağlantısı gönderilmez', !strangerLink);
-  // ADMIN_EMAIL tanımsız örnekte bağlantı gelir ama veritabanındaki yönetici kontrolü (admins) engeller
+  await setPassword('sahip@example.com', ADMIN_PW);
+  await setPassword('yabanci@example.com', STRANGER_PW);
+  // Yönetici olmayan hesap: ADMIN_EMAIL eşleşmediği için doğru şifreyle bile giremez (mesaj aynı)
+  const s1 = await login(anon, BASE, 'yabanci@example.com', STRANGER_PW);
+  check('ADMIN_EMAIL dışındaki hesap doğru şifreyle de giremez', s1.url.includes('/giris') && s1.error.includes('E-posta veya şifre hatalı'), s1.url);
+  // ADMIN_EMAIL tanımsız örnekte oturum açılır ama veritabanındaki yönetici kontrolü (admins) engeller
   const stranger = await browser.newContext();
   const sp = await stranger.newPage();
-  const link2 = await login(sp, BASE_NOADMIN, 'yabanci@example.com');
-  if (link2) { await sp.goto(link2); await sp.goto(`${BASE_NOADMIN}/kuyruk`); }
+  await login(sp, BASE_NOADMIN, 'yabanci@example.com', STRANGER_PW);
+  await sp.goto(`${BASE_NOADMIN}/kuyruk`);
   check('Yönetici olmayan hesap oturum açsa bile panele giremez', sp.url().includes('/giris') && decodeURIComponent(sp.url()).includes('yönetici değil'), sp.url());
-  void before;
 
   // Yönetici olmayan JWT ile doğrudan REST: hiçbir şey göremez/değiştiremez
-  const pw = 'Gecici-Test-Sifre-123';
-  const uid = sql(`select id from auth.users where email='yabanci@example.com'`);
-  await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${uid}`, { method: 'PUT', headers: { apikey: SERVICE_ROLE_KEY, Authorization: `Bearer ${SERVICE_ROLE_KEY}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw }) });
+  const pw = STRANGER_PW;
   const tok = await (await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, { method: 'POST', headers: { apikey: ANON_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'yabanci@example.com', password: pw }) })).json();
   const h = { apikey: ANON_KEY, Authorization: `Bearer ${tok.access_token}`, 'Content-Type': 'application/json', Prefer: 'return=representation' };
   check('Yönetici olmayan JWT video göremez', JSON.stringify(await (await fetch(`${SUPABASE_URL}/rest/v1/videos?select=id`, { headers: h })).json()) === '[]');
@@ -92,11 +91,11 @@ try {
   // ---------------------------------------------------------------- yönetici akışı
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
-  const link = await login(page, BASE, 'sahip@example.com');
-  check('Yöneticiye e-posta ile giriş bağlantısı gelir', !!link);
-  await page.goto(link);
+  const bad = await login(page, BASE, 'sahip@example.com', 'yanlis-sifre');
+  check('Yanlış şifreyle giriş yapılamaz', bad.url.includes('/giris') && bad.error.includes('E-posta veya şifre hatalı'));
+  await login(page, BASE, 'sahip@example.com', ADMIN_PW);
   await page.waitForURL(/\/kuyruk/);
-  check('Bağlantıyla giriş → Kuyruk sayfası', page.url().includes('/kuyruk'));
+  check('E-posta + şifreyle giriş → Kuyruk sayfası', page.url().includes('/kuyruk'));
 
   const vid = sql(`select id from videos where status='ready' limit 1`);
   const card = page.locator('section', { has: page.getByText('Onay bekliyor') }).first();

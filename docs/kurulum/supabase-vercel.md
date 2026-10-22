@@ -21,21 +21,21 @@ Sıra önemli. Toplam ~30–45 dk. Gizli değerleri **sohbete yazmayın**; yaln�
 
 > Bu dosya `supabase/migrations/` içindeki 5 dosyanın birleşimidir; testlerde de aynısı çalıştırılır. Bir kez çalıştırmanız yeterli; ikinci kez çalıştırırsanız "already exists" hatası verir ve hiçbir şey değişmez.
 
-### 1.3 Giriş ayarları (yalnızca siz)
+### 1.3 Giriş ayarları (yalnızca siz; e-posta + şifre)
 1. Sol menü → **Authentication** → **Sign In / Providers**:
    - **Allow new users to sign up** → **KAPALI** (herkese açık kayıt yok).
-   - **Email** sağlayıcısı → **AÇIK** kalmalı (kapatırsanız e-posta bağlantısıyla giriş de kapanır).
-2. **Authentication** → **Users** → **Add user** → **Create new user** → kendi e-postanız → **Auto Confirm User** işaretli → **Create user**.
-3. **SQL Editor** → yeni sorgu (e-postayı kendi adresinizle değiştirin) → **Run**:
+   - **Email** sağlayıcısı → **AÇIK** kalmalı (kapatırsanız e-posta + şifreyle giriş de kapanır).
+2. **Authentication** → **Users** → **Add user** → **Create new user**:
+   - **Email**: kendi e-postanız · **Password**: şifre yöneticinizin ürettiği **en az 16 karakterlik** rastgele bir şifre (başka yerde kullanmadığınız) · **Auto Confirm User** işaretli → **Create user**.
+   - Şifreyi sohbete veya koda yazmayın; yalnızca bu ekrana ve panel giriş sayfasına girin.
+3. **SQL Editor** → yeni sorgu (e-postayı kendi adresinizle değiştirin) → **Run**, sonra `select email from admins;` ile e-postanızın göründüğünü kontrol edin:
    ```sql
    insert into admins (user_id, email)
    select id, email from auth.users where email = 'sizin@eposta.com';
    ```
-4. **Authentication** → **URL Configuration** (Vercel adresi belli olunca, 2.4'te):
-   - **Site URL**: `https://PANEL-ADINIZ.vercel.app`
-   - **Redirect URLs** → **Add URL**: `https://PANEL-ADINIZ.vercel.app/auth/callback`
 
-> Supabase'in kendi e-posta gönderimi saatte birkaç e-postayla sınırlıdır; tek kişilik giriş için yeterli. Bağlantı gelmezse birkaç dakika bekleyip tekrar deneyin.
+> **Hesabınızı şifresiz açtıysanız / şifreyi unuttuysanız:** Users listesinde hesabınızın satırı → **⋯** → **Delete user** → adım 2 ve 3'ü yeniden yapın (silme, yönetici kaydını da siler; videolar ve ayarlar etkilenmez).
+> Supabase art arda yanlış denemeleri sınırlar; yine de şifrenin uzun ve rastgele olması asıl korumadır.
 
 ### 1.4 Anahtarları not edin (bir sonraki adımda yapıştıracaksınız)
 **Project Settings** → **API Keys**:
@@ -80,7 +80,6 @@ Instagram değerleri henüz yoksa boş geçin; panel bunu Ayarlar'da "Yok" olara
 **Deploy** → bitince **Visit**. Adres `https://….vercel.app` biçimindedir; bu sizin **panel adresiniz**.
 
 ### 2.4 Adresi her yere yazın
-- Supabase → 1.3 adım 4 (Site URL + Redirect URL).
 - Vercel → `INSTAGRAM_REDIRECT_URI` → `https://PANEL-ADRESİNİZ/api/instagram/callback`.
 - Meta → [Instagram rehberi Adım 4](instagram.md) → OAuth redirect URI (aynı adres, birebir).
 - Değişken değiştirdikten sonra: Vercel → **Deployments** → son dağıtım → **⋯** → **Redeploy**.
@@ -98,7 +97,7 @@ Instagram değerleri henüz yoksa boş geçin; panel bunu Ayarlar'da "Yok" olara
 ---
 
 ## 3. İlk çalıştırma
-1. Panel adresinize gidin → e-postanızı yazın → gelen bağlantıya tıklayın → **Kuyruk** açılır.
+1. Panel adresinize gidin → e-postanızı ve şifrenizi yazın → **Giriş yap** → **Kuyruk** açılır.
 2. GitHub → **Settings → Secrets and variables → Actions → Variables** → `AUTOMATION_ENABLED` = `true` ([ayrıntı](github-actions.md)).
 3. GitHub → **Actions** → **Fikir araştırması** → **Run workflow** (ilk fikirler; brief dosyadan bir kez yüklenir ve ürün aktifleşir).
 4. GitHub → **Actions** → **Günlük plan ve render** → **Run workflow** → ~3 dk sonra panelde **Kuyruk**'ta video "Onay bekliyor" görünür; Telegram kuruluysa önizleme oraya da gelir.
@@ -108,9 +107,9 @@ Instagram değerleri henüz yoksa boş geçin; panel bunu Ayarlar'da "Yok" olara
 ## Sorun giderme
 | Belirti | Çözüm |
 |---|---|
-| Giriş bağlantısı gelmiyor | Gereksiz klasörüne bakın; birkaç dakika bekleyin (Supabase e-posta sınırı). Supabase → Authentication → Users'ta e-postanız var mı? |
+| "E-posta veya şifre hatalı" | Vercel'deki `ADMIN_EMAIL` girdiğiniz e-postayla aynı mı? Şifreyi unuttuysanız 1.3'teki notla hesabı yeniden oluşturun. |
 | "Bu hesap yönetici olarak tanımlı değil" | 1.3 adım 3'teki SQL'i kendi e-postanızla çalıştırın. |
-| Bağlantıya tıklayınca tekrar giriş sayfası | Supabase Redirect URL'de `…/auth/callback` eksik veya panel adresi farklı. |
+| "Çok fazla deneme yapıldı" | Birkaç dakika bekleyin (Supabase güvenlik sınırı). |
 | "Eksik ortam değişkeni: …" | Vercel'de o adı ekleyip **Redeploy**. |
 | "GitHub tetikleme yapılandırılmamış" | `GH_DISPATCH_TOKEN` ve `GH_AUTOMATION_REPO` ekleyin; iş yine de zamanında (08:41) çalışır. |
 | "GitHub işi başlatılamadı (HTTP 403/404)" | Token yalnızca `content_machine` için ve **Actions: Read and write** olmalı. |

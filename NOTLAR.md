@@ -110,3 +110,5 @@
 - `supabase/kurulum.sql` = migration'ların birleşimi (tek işlem). `scripts/build-supabase-setup.sh` üretir; şema testi dosyanın güncel olduğunu kontrol eder ve aynısını çalıştırır.
 - Sohbete veritabanı şifresi yazıldı → kullanılmadı; kullanıcıya şifreyi sıfırlaması önerildi.
 - Supabase canlı kontrol (publishable key ile): 11 tablo var, RLS dışarıya boş döner, instagram_connection reddedilir, claim_due_video çağrılamaz, kayıt kapalı (signup 422), admins satırı kullanıcı tarafından doğrulandı. Sıradaki: Vercel.
+- Kullanıcı isteğiyle giriş e-posta bağlantısı yerine **e-posta + şifre** oldu (bağlantı canlıda açılmadı; ayrıca başka tarayıcıda açılınca PKCE nedeniyle çalışmaz). `/auth/callback` kaldırıldı. ADMIN_EMAIL dışı e-posta Supabase'e sorulmaz; tek hata mesajı ("E-posta veya şifre hatalı"). Hesap Supabase → Users → Create new user (şifreli) ile açılır.
+- Panel: https://contentmachine-web-azure.vercel.app (yönlendirme, güvenlik başlıkları, JS'te gizli anahtar yok — canlı kontrol edildi).

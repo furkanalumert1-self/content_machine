@@ -1,30 +1,32 @@
 'use server';
-import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
 import { userClient } from '@/lib/supabase/server';
 import { redact } from '@content-machine/engine/lib/redact.ts';
 import { optional } from '@/lib/env';
 
 export type LoginState = { ok: boolean; message: string } | undefined;
 
-// Şifresiz giriş: e-postaya tek kullanımlık bağlantı. Kayıt kapalıdır (shouldCreateUser: false);
-// var olmayan hesaba bağlantı gönderilmez. Yanıt, hesabın var olup olmadığını ele vermez.
-export async function sendMagicLink(_: LoginState, form: FormData): Promise<LoginState> {
+// E-posta + şifre ile giriş. Kayıt kapalıdır; hesap Supabase panelinden elle açılır.
+// Hata mesajı tektir: hesabın var olup olmadığını veya hangi alanın yanlış olduğunu ele vermez.
+const WRONG = { ok: false, message: 'E-posta veya şifre hatalı.' };
+
+export async function signIn(_: LoginState, form: FormData): Promise<LoginState> {
   const email = String(form.get('email') ?? '').trim().toLowerCase();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200) return { ok: false, message: 'Geçerli bir e-posta adresi girin.' };
+  const password = String(form.get('password') ?? '');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200 || !password || password.length > 200) return WRONG;
 
+  // ADMIN_EMAIL dışındaki hesaplar Supabase'e hiç sorulmaz.
   const admin = optional('ADMIN_EMAIL')?.toLowerCase();
-  const generic = { ok: true, message: 'Hesap yetkiliyse giriş bağlantısı e-postanıza gönderildi. Gelen kutunuzu (ve gereksiz klasörünü) kontrol edin.' };
-  if (admin && email !== admin) return generic;
+  if (admin && email !== admin) return WRONG;
 
-  const h = await headers();
-  const origin = `${h.get('x-forwarded-proto') ?? 'https'}://${h.get('x-forwarded-host') ?? h.get('host')}`;
   const db = await userClient();
-  const { error } = await db.auth.signInWithOtp({ email, options: { shouldCreateUser: false, emailRedirectTo: `${origin}/auth/callback` } });
-  if (error && !/signups not allowed|user not found/i.test(error.message)) {
-    console.error(`Giriş bağlantısı gönderilemedi: ${redact(error.message)}`);
-    return { ok: false, message: 'Bağlantı gönderilemedi. Birkaç dakika sonra tekrar deneyin.' };
+  const { error } = await db.auth.signInWithPassword({ email, password });
+  if (error) {
+    if (/rate limit|too many/i.test(error.message)) return { ok: false, message: 'Çok fazla deneme yapıldı. Birkaç dakika sonra tekrar deneyin.' };
+    if (!/invalid login credentials|email not confirmed/i.test(error.message)) console.error(`Giriş başarısız: ${redact(error.message)}`);
+    return WRONG;
   }
-  return generic;
+  redirect('/kuyruk');
 }
 
 export async function signOut() {
