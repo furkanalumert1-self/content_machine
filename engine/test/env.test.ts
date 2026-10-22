@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MissingEnvError, requireEnv } from '../src/lib/env.ts';
+import { MissingEnvError, requireEnv, serviceKeyProblem, WrongKeyError } from '../src/lib/env.ts';
 
 describe('requireEnv', () => {
   it('eksik değişkenlerin yalnızca adını bildirir', () => {
@@ -14,7 +14,23 @@ describe('requireEnv', () => {
   });
 
   it('tamamsa yalnızca o işin değişkenlerini döndürür', () => {
-    const env = { SUPABASE_URL: 'u', SUPABASE_SERVICE_ROLE_KEY: 'k', VERCEL_TOKEN: 'v' };
-    expect(requireEnv('planner', env)).toEqual({ SUPABASE_URL: 'u', SUPABASE_SERVICE_ROLE_KEY: 'k' });
+    const env = { SUPABASE_URL: ' u ', SUPABASE_SERVICE_ROLE_KEY: 'sb_secret_k\n', VERCEL_TOKEN: 'v' };
+    expect(requireEnv('planner', env)).toEqual({ SUPABASE_URL: 'u', SUPABASE_SERVICE_ROLE_KEY: 'sb_secret_k' });
+  });
+
+  it('service role yerine herkese açık anahtar verilirse değeri yazmadan açıkça söyler', () => {
+    const jwt = (role: string) => `x.${Buffer.from(JSON.stringify({ role })).toString('base64url')}.y`;
+    expect(serviceKeyProblem('sb_secret_abc')).toBeNull();
+    expect(serviceKeyProblem(jwt('service_role'))).toBeNull();
+    expect(serviceKeyProblem('sb_publishable_abc')).toContain('Publishable');
+    expect(serviceKeyProblem(jwt('anon'))).toContain('anon');
+    expect(serviceKeyProblem('rastgele')).toContain('Tanınmayan');
+    try {
+      requireEnv('planner', { SUPABASE_URL: 'u', SUPABASE_SERVICE_ROLE_KEY: 'sb_publishable_GIZLI123' });
+      throw new Error('hata bekleniyordu');
+    } catch (e) {
+      expect(e).toBeInstanceOf(WrongKeyError);
+      expect((e as Error).message).not.toContain('GIZLI123');
+    }
   });
 });

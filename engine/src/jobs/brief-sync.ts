@@ -16,12 +16,14 @@ for (const file of (await readdir(dir)).filter((f) => f.endsWith('.json'))) {
   const meta = JSON.parse(await readFile(join(dir, file), 'utf8'));
 
   // Ürün yoksa oluştur; varsa paneldeki bilgilere dokunma.
-  await db.from('products').upsert(
+  const { error: e0 } = await db.from('products').upsert(
     { slug: meta.slug, name: meta.name, site_url: meta.site_url, github_repo: meta.github_repo, vercel_project: meta.vercel_project, brand_colors: meta.brand_colors ?? {} },
     { onConflict: 'slug', ignoreDuplicates: true },
   );
-  const { data: product, error } = await db.from('products').select('id, status').eq('slug', meta.slug).single();
+  if (e0) throw new Error(`${meta.slug}: ürün kaydı yazılamadı: ${e0.message}`);
+  const { data: product, error } = await db.from('products').select('id, status').eq('slug', meta.slug).maybeSingle();
   if (error) throw error;
+  if (!product) throw new Error(`${meta.slug}: ürün veritabanında görünmüyor (anahtar service role değilse RLS gizler).`);
 
   const { count } = await db.from('product_briefs').select('id', { count: 'exact', head: true }).eq('product_id', product.id);
   if (count) {
