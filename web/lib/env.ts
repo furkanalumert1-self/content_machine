@@ -3,6 +3,7 @@ import 'server-only';
 // Sunucu tarafı ortam değişkenleri. Eksikse değerini değil adını söyler.
 // NEXT_PUBLIC_ önekli olanlar dışında hiçbiri tarayıcıya gitmez.
 import { parseAdminEmails } from './admin-emails';
+import { serviceKeyProblem } from '@content-machine/engine/lib/env.ts';
 
 const read = (name: string) => process.env[name]?.trim() || undefined;
 
@@ -25,6 +26,8 @@ export function integrationStatus() {
     githubProductRead: has('GH_PRODUCT_READ_TOKEN'),
     vercel: has('VERCEL_TOKEN'),
     telegram: has('TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID'),
+    // Değer değil, yalnızca türü: publishable key verilirse panelin servis işleri sessizce boş döner.
+    serviceKey: read('SUPABASE_SERVICE_ROLE_KEY') ? serviceKeyProblem(read('SUPABASE_SERVICE_ROLE_KEY')!) === null : false,
   };
 }
 

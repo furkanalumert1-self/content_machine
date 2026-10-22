@@ -81,8 +81,10 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
         </Card>
 
         <Card title="Entegrasyonlar" className="lg:col-span-2">
+          {!env.serviceKey && <div className="mb-3"><Notice tone="error">Vercel&apos;deki SUPABASE_SERVICE_ROLE_KEY eksik veya yanlış türde (ör. Publishable key). Supabase → Project Settings → API Keys → Secret key (sb_secret_…) girip Redeploy edin.</Notice></div>}
           <ul className="grid gap-2 text-sm sm:grid-cols-2">
             {[
+              ['Supabase Secret key (sb_secret_…)', env.serviceKey],
               ['Instagram ayarları', env.instagram],
               ['Telegram bildirim/onay (Vercel tarafında isteğe bağlı)', env.telegram],
               ['GitHub iş tetikleme (Hemen üret, Fikir araştır)', env.githubDispatch],

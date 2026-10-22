@@ -113,3 +113,4 @@
 - Kullanıcı isteğiyle giriş e-posta bağlantısı yerine **e-posta + şifre** oldu (bağlantı canlıda açılmadı; ayrıca başka tarayıcıda açılınca PKCE nedeniyle çalışmaz). `/auth/callback` kaldırıldı. ADMIN_EMAIL dışı e-posta Supabase'e sorulmaz; tek hata mesajı ("E-posta veya şifre hatalı"). Hesap Supabase → Users → Create new user (şifreli) ile açılır.
 - Panel: https://contentmachine-web-azure.vercel.app (yönlendirme, güvenlik başlıkları, JS'te gizli anahtar yok — canlı kontrol edildi).
 - ADMIN_EMAIL artık virgülle birden çok e-posta alır (her biri admins tablosunda da olmalı). Onaylanmamış hesap için ayrı mesaj (Supabase bunu yalnızca şifre doğruysa döndürür — yerelde doğrulandı).
+- İlk Fikir araştırması: GitHub secret SUPABASE_SERVICE_ROLE_KEY yerine publishable key girilmişti → RLS sessizce gizledi. Motor ve panel artık anahtar türünü (değeri yazmadan) denetleyip açık hata verir; Ayarlar > Entegrasyonlar satırı.
