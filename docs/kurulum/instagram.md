@@ -24,9 +24,9 @@ Yöntem: **Instagram API with Instagram Login** (Facebook Sayfası gerekmez).
 ## Adım 4 — Instagram Login ayarları
 1. Sol menü: **Use cases / Kullanım durumları** → Instagram satırında **Customize / Özelleştir**.
 2. **API setup with Instagram login** sayfasını açın.
-3. Sayfanın üstünde **Instagram app ID** ve **Instagram app secret** görünür. Bunlar Facebook App ID'den **farklıdır**. Şimdilik sadece nerede olduklarını not edin; ADIM 9'da Vercel'e nasıl ekleyeceğinizi anlatacağım. **Sohbete yapıştırmayın.**
+3. Sayfanın üstünde **Instagram app ID** ve **Instagram app secret** görünür. Bunlar Facebook App ID'den **farklıdır**. Bunları Adım 10'da Vercel'e eklersiniz. **Sohbete yapıştırmayın.**
 4. **"Set up Instagram business login"** bölümü → **Business login settings**:
-   - **OAuth redirect URI**: Panel yayına alınınca size vereceğim adres (örn. `https://<panel-adı>.vercel.app/api/instagram/callback`).
+   - **OAuth redirect URI**: `https://contentmachine-web-azure.vercel.app/api/instagram/callback` (panel adresiniz + `/api/instagram/callback`, birebir).
    - Kaydedin.
 5. Webhooks bölümünü atlayın (gerekmiyor).
 
