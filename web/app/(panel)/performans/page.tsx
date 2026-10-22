@@ -59,7 +59,7 @@ export default async function PerformancePage() {
           </div>
           <Card title="Videolar">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[720px] text-left text-sm">
+              <table className="w-full min-w-[720px] text-left text-sm [&_td]:px-2 [&_th]:px-2 [&_td:first-child]:pl-0 [&_th:first-child]:pl-0">
                 <thead className="text-xs text-muted"><tr><th className="py-2">Yayın</th><th>Tür</th><th className="text-right">İzlenme 24s / 72s</th><th className="text-right">Beğeni</th><th className="text-right">Kaydetme</th><th className="text-right">Paylaşım</th><th className="text-right">Puan</th><th>Saat gerekçesi</th></tr></thead>
                 <tbody>
                   {rows.map((r) => (

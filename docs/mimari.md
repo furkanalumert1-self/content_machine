@@ -22,7 +22,7 @@
 | `config/products/` | Ürün kimliği (`.json`) ve brief (`.md`) |
 | `config/styles/` | Stil kuralları + lisans/kaynak |
 | `engine/` | Node.js + Remotion: planner, render, publisher, metrics, idea_research |
-| `web/` | Yönetim paneli (ADIM 9) |
+| `web/` | Yönetim paneli: Next.js 16 + Tailwind, Türkçe; proxy + DAL + RLS ile yalnızca yönetici |
 | `supabase/` | Şema (migrations) ve şema testleri |
 
 ## Veritabanında zorlanan kurallar (`supabase/migrations/0001_init.sql`)

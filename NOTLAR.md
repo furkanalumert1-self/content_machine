@@ -9,14 +9,15 @@
 - 21.10.2026 — ADIM 5 tamamlandı: Instagram yayını (Instagram Login, şifreli token, container→durum→publish, mükerrer yayın koruması, limit/hata yönetimi, token yenileme).
 - 21.10.2026 — ADIM 6 tamamlandı: yayın saati seçimi (keşif/kullan, gerekçeli) ve 24./72. saat metrik toplama.
 - 21.10.2026 — ADIM 7 tamamlandı: GitHub Actions (günlük plan+render, yayın kontrolü, metrik+token, haftalık fikir, render deneme).
-- 21.10.2026 — ADIM 8 tamamlandı: Telegram onay/ret (imzalı, içeriğe bağlı, yalnızca sahip), hata bildirimleri (maskeli), auto mod 7 gün kilidi, kişisel veri kuralı, güvenlik özeti (docs/guvenlik.md). **ADIM 9 onayı bekleniyor.**
+- 21.10.2026 — ADIM 8 tamamlandı: Telegram onay/ret (imzalı, içeriğe bağlı, yalnızca sahip), hata bildirimleri (maskeli), auto mod 7 gün kilidi, kişisel veri kuralı, güvenlik özeti (docs/guvenlik.md).
+- 22.10.2026 — ADIM 9 tamamlandı: Türkçe yönetim paneli (web/), yerel Supabase ile uçtan uca test 35/35. **MVP kabul kontrolü ve kullanıcının hesap kurulumları bekleniyor.**
 
 ## Kararlar
 - Instagram yöntemi: Instagram API with Instagram Login (Facebook Sayfası yok). İzinler: `instagram_business_basic`, `instagram_business_content_publish`, `instagram_business_manage_insights`.
 - Gizli değerler sohbette istenmez/alınmaz; kullanıcı izin verdi ama güvenlik için reddedildi. Kullanıcı Vercel env ve GitHub Secrets'a kendisi ekler. Instagram bağlantısı OAuth butonu ile.
 - Instagram token'ı veritabanında `TOKEN_ENCRYPTION_KEY` ile şifreli tutulacak (ADIM 5); tabloya yalnızca service role erişir.
 - Kullanılmayacaklar: JohnHeibel/PDoomVideo ve joeseesun/opus-video-prompts (lisans yok), Clawd karakteri (marka), pdoom ses dosyası.
-- Panel (web/) ADIM 9'da kurulacak; ADIM 1'de sadece yer tutucu.
+- Panel (web/): brief'in asıl kaynağı veritabanı; config/products/*.md yalnızca ilk kurulumda bir kez yüklenir.
 
 ## Varsayılanlar (kullanıcı cevap vermedi, "başla" dedi — değiştirilebilir)
 1. MVP stili: Dark Tech Keynote.
@@ -71,7 +72,16 @@
 - Auto mod: DB tetikleyicisi; ilk yayından ≥7 gün; mode_changed_by/at kaydı.
 - Telegram sınırları (core.telegram.org): mesaj 4096, URL ile video 20 MB, callback_data 64 bayt.
 
-## Brief onayı (panel gelene kadar)
+## Panel (ADIM 9)
+- Next.js 16.4: `middleware` → `proxy.ts` (Node runtime). params/searchParams Promise. next-env.d.ts git'e girmez (`next typegen`).
+- Yetki: proxy (iyimser) + `lib/dal.ts` (her sayfa/eylem: oturum + ADMIN_EMAIL + admins) + RLS. Service role yalnızca token kaydı ve imzalı URL için.
+- Supabase Auth: `[auth] enable_signup=false` (kayıt kapalı) ama `[auth.email] enable_signup=true` OLMALI — bu ikincisi e-posta girişini tamamen kapatıyor (yerel testte yakalandı).
+- Yönlendirmeler isteğin Host/x-forwarded-* başlığından (`lib/origin.ts`); `req.nextUrl.origin` localhost verip oturumu kaybettiriyordu.
+- Vercel Hobby = ticari olmayan kişisel kullanım; panel gri alanda → kullanıcı kararı (Hobby/Pro/başka host).
+- Supabase Free: 500 MB DB, 1 GB dosya, 5 GB egress, 7 gün hareketsizlikte duraklatma.
+- E2E: web/e2e/panel.e2e.mjs (yerel Supabase + iki panel örneği); başta yerel veriyi sıfırlar, canlıda çalışmaz.
+
+## Brief onayı (panel gelene kadar — artık panelden)
 - Kullanıcı sohbette onaylar → `npx tsx engine/src/jobs/brief-approve.ts <slug>` dosyaya metnin özetini yazar → commit.
 - Metin sonradan değişirse özet tutmaz, onay kendiliğinden düşer; `brief-sync` yeni taslak sürüm açar.
 

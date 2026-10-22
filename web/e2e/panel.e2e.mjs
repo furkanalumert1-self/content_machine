@@ -174,6 +174,20 @@ try {
   await page.goto(`${BASE}/api/instagram/connect`);
   check('Instagram ayarları eksikse "Instagram\'ı bağla" anlaşılır uyarı verir', page.url().includes('instagram=ayar') && await page.getByText('Instagram ayarları').first().isVisible());
 
+  // Performans: yayınlanmış (test) videonun 24/72. saat metrikleri ve saat gerekçesi görünür; eksik metrik "—"
+  sql(`with b as (select id, product_id from product_briefs where status='approved' limit 1)
+       insert into videos (id, product_id, brief_id, origin, style, content_type, duration_sec, script, caption, hashtags, publish_at, publish_at_reason, storage_path)
+       select '40000000-0000-0000-0000-000000000001', product_id, id, 'manual', 'dark-keynote', 'mit_curutme', 20, '{"scenes":[]}', 'Test yayını', array['#a','#b','#c','#d','#e'], now() - interval '3 days', 'Test gerekçesi: deneme saati.', 'x/test.mp4' from b;
+       update videos set status='ready' where id='40000000-0000-0000-0000-000000000001';
+       update videos set status='approved' where id='40000000-0000-0000-0000-000000000001';
+       update videos set status='publishing' where id='40000000-0000-0000-0000-000000000001';
+       update videos set status='published', ig_media_id='TEST-MEDIA-1', published_at=now() - interval '3 days' where id='40000000-0000-0000-0000-000000000001';
+       insert into metrics (video_id, checkpoint, hours_after_publish, views, likes, saved, shares) values
+         ('40000000-0000-0000-0000-000000000001', 24, 25, 1200, 45, 12, 3), ('40000000-0000-0000-0000-000000000001', 72, 73, 2100, 70, null, 5);`);
+  await page.goto(`${BASE}/performans`);
+  const perf = await page.locator('table').innerText();
+  check('Performans: 24/72. saat izlenme, eksik metrik "—", saat gerekçesi görünür', perf.includes('1.200 / 2.100') && perf.includes('—') && perf.includes('Test gerekçesi'), perf.split('\n')[1]);
+
   // Diğer sayfalar hatasız açılır
   for (const p of ['/takvim', '/performans', '/fikirler', '/urunler', '/video-iste', '/ayarlar']) {
     const res = await page.goto(`${BASE}${p}`);
