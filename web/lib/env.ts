@@ -2,6 +2,8 @@ import 'server-only';
 
 // Sunucu tarafı ortam değişkenleri. Eksikse değerini değil adını söyler.
 // NEXT_PUBLIC_ önekli olanlar dışında hiçbiri tarayıcıya gitmez.
+import { parseAdminEmails } from './admin-emails';
+
 const read = (name: string) => process.env[name]?.trim() || undefined;
 
 export function need(name: string): string {
@@ -25,3 +27,6 @@ export function integrationStatus() {
     telegram: has('TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID'),
   };
 }
+
+/** Panele girebilecek e-postalar (ADMIN_EMAIL). Boş liste = kısıt yok, yalnızca veritabanındaki admins tablosu geçerli. */
+export const adminEmails = () => parseAdminEmails(process.env.ADMIN_EMAIL);

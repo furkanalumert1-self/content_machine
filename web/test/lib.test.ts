@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { STATUS, toLocalInput } from '../lib/format';
 import { fail, text, uuid } from '../lib/validate';
 import { originOf } from '../lib/origin';
+import { parseAdminEmails } from '../lib/admin-emails';
 
 const fd = (o: Record<string, string>) => { const f = new FormData(); for (const [k, v] of Object.entries(o)) f.set(k, v); return f; };
 
@@ -39,5 +40,14 @@ describe('originOf', () => {
   });
   it('Vercel arkasında x-forwarded-* başlıklarını kullanır', () => {
     expect(originOf(req({ host: 'internal', 'x-forwarded-host': 'panel.vercel.app', 'x-forwarded-proto': 'https' }))).toBe('https://panel.vercel.app');
+  });
+});
+
+describe('ADMIN_EMAIL', () => {
+  it('tek veya çok e-posta; büyük harf/boşluk fark etmez', () => {
+    expect(parseAdminEmails(' Sahip@Ornek.com ')).toEqual(['sahip@ornek.com']);
+    expect(parseAdminEmails('a@x.com, b@y.com;c@z.com  d@w.com')).toEqual(['a@x.com', 'b@y.com', 'c@z.com', 'd@w.com']);
+    expect(parseAdminEmails('')).toEqual([]);
+    expect(parseAdminEmails(undefined)).toEqual([]);
   });
 });

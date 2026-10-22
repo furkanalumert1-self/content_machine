@@ -1,7 +1,7 @@
 import 'server-only';
 import { redirect } from 'next/navigation';
 import { cache } from 'react';
-import { optional } from './env';
+import { adminEmails } from './env';
 import { userClient } from './supabase/server';
 
 export class Unauthorized extends Error {}
@@ -9,14 +9,14 @@ export class Unauthorized extends Error {}
 /**
  * Yetki kontrolünün asıl yeri (Data Access Layer). Her sayfa, sunucu eylemi ve route handler çağırır.
  * Proxy yalnızca hızlı yönlendirme yapar; güvenlik burada ve veritabanı RLS'sinde.
- * Koşullar: geçerli oturum + admins tablosunda kayıt + (tanımlıysa) ADMIN_EMAIL ile eşleşme.
+ * Koşullar: geçerli oturum + admins tablosunda kayıt + (tanımlıysa) ADMIN_EMAIL listesinde olma.
  */
 async function check() {
   const db = await userClient();
   const { data: { user } } = await db.auth.getUser();
   if (!user) return { ok: false as const, reason: 'oturum yok' };
-  const adminEmail = optional('ADMIN_EMAIL')?.toLowerCase();
-  if (adminEmail && user.email?.toLowerCase() !== adminEmail) return { ok: false as const, reason: 'yetkisiz hesap' };
+  const allowed = adminEmails();
+  if (allowed.length && !allowed.includes(user.email?.toLowerCase() ?? '')) return { ok: false as const, reason: 'yetkisiz hesap' };
   const { data: isAdmin } = await db.rpc('is_admin');
   if (!isAdmin) return { ok: false as const, reason: 'yönetici değil' };
   return { ok: true as const, db, user: { id: user.id, email: user.email ?? '' } };

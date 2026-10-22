@@ -31,7 +31,7 @@ Sıra önemli. Toplam ~30–45 dk. Gizli değerleri **sohbete yazmayın**; yaln�
 3. **SQL Editor** → yeni sorgu (e-postayı kendi adresinizle değiştirin) → **Run**, sonra `select email from admins;` ile e-postanızın göründüğünü kontrol edin:
    ```sql
    insert into admins (user_id, email)
-   select id, email from auth.users where email = 'sizin@eposta.com';
+   select id, email from auth.users where email in ('sizin@eposta.com');  -- birden fazlaysa: in ('a@x.com', 'b@y.com')
    ```
 
 > **Hesabınızı şifresiz açtıysanız / şifreyi unuttuysanız:** Users listesinde hesabınızın satırı → **⋯** → **Delete user** → adım 2 ve 3'ü yeniden yapın (silme, yönetici kaydını da siler; videolar ve ayarlar etkilenmez).
@@ -64,7 +64,7 @@ Aynı ekranda **Environment Variables** bölümüne (veya sonradan **Settings �
 | `NEXT_PUBLIC_SUPABASE_URL` | 1.4 Project URL | Hayır |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | 1.4 Publishable key | Hayır |
 | `SUPABASE_SERVICE_ROLE_KEY` | 1.4 Secret key | **Evet** |
-| `ADMIN_EMAIL` | Kendi e-postanız (1.3'teki) | Hayır |
+| `ADMIN_EMAIL` | Panele girecek e-posta(lar) (1.3'teki). Birden fazlaysa virgülle: `a@x.com,b@y.com` | Hayır |
 | `TOKEN_ENCRYPTION_KEY` | [Instagram rehberi Adım 10](instagram.md) ile üretin; GitHub'daki ile **aynı** | **Evet** |
 | `INSTAGRAM_APP_ID` | Meta → Instagram app ID | Hayır |
 | `INSTAGRAM_APP_SECRET` | Meta → Instagram app secret | **Evet** |
@@ -107,7 +107,8 @@ Instagram değerleri henüz yoksa boş geçin; panel bunu Ayarlar'da "Yok" olara
 ## Sorun giderme
 | Belirti | Çözüm |
 |---|---|
-| "E-posta veya şifre hatalı" | Vercel'deki `ADMIN_EMAIL` girdiğiniz e-postayla aynı mı? Şifreyi unuttuysanız 1.3'teki notla hesabı yeniden oluşturun. |
+| "E-posta veya şifre hatalı" | (1) E-posta Vercel'deki `ADMIN_EMAIL` listesinde mi? Değiştirdiyseniz **Redeploy**. (2) Şifre doğru mu? Unuttuysanız 1.3'teki notla hesabı yeniden oluşturun. |
+| "Hesap onaylanmamış" | Hesap "Auto Confirm User" işaretsiz açılmış: silip işaretli olarak yeniden oluşturun, `admins` kaydını tekrar ekleyin. |
 | "Bu hesap yönetici olarak tanımlı değil" | 1.3 adım 3'teki SQL'i kendi e-postanızla çalıştırın. |
 | "Çok fazla deneme yapıldı" | Birkaç dakika bekleyin (Supabase güvenlik sınırı). |
 | "Eksik ortam değişkeni: …" | Vercel'de o adı ekleyip **Redeploy**. |
