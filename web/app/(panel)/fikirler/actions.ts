@@ -1,7 +1,8 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { checkClaims } from '@content-machine/engine/content/claims.ts';
-import { CONTENT_TYPES, type ContentType } from '@content-machine/engine/ideas/types.ts';
+import { ALL_CONTENT_TYPES, type ContentType } from '@content-machine/engine/ideas/types.ts';
+import { MAX_HOOK_WORDS } from '@content-machine/engine/topics/channel.ts';
 import { requireAdmin } from '@/lib/dal';
 import { dispatch } from '@/lib/github';
 import { fail, text, uuid, type ActionResult } from '@/lib/validate';
@@ -13,8 +14,8 @@ export async function addIdea(_: ActionResult, form: FormData): Promise<ActionRe
     const hook = text(form, 'hook', { required: true, max: 90 });
     const why = text(form, 'why', { max: 300 }) || 'Elle eklendi.';
     const type = String(form.get('content_type'));
-    if (!CONTENT_TYPES.includes(type as ContentType)) throw new Error('Geçersiz içerik türü.');
-    if (hook.split(/\s+/).length > 10) return { ok: false, message: 'Hook en fazla 10 kelime olmalı (ilk 2 saniye).' };
+    if (!ALL_CONTENT_TYPES.includes(type as ContentType)) throw new Error('Geçersiz içerik türü.');
+    if (hook.split(/\s+/).length > MAX_HOOK_WORDS) return { ok: false, message: `Kanca en fazla ${MAX_HOOK_WORDS} kelime olmalı (ilk 2 saniye).` };
     const issues = checkClaims(`${idea} ${hook}`);
     if (issues.length) return { ok: false, message: `Kabul edilmedi:\n• ${issues.map((i) => `${i.rule}: "${i.match}"`).join('\n• ')}` };
     const { db } = await requireAdmin();

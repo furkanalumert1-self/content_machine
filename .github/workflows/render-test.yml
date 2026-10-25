@@ -32,7 +32,7 @@ jobs:
         run: |
           mkdir -p ../out
           start=$(date +%s)
-          npx tsx src/jobs/render-sample.ts ${{ inputs.types || 'problem_cozum' }} 2>&1 | grep -vE 'Memory reported|inadvertently|lower amount|differing memory' | tee ../out/render.log
+          npx tsx src/jobs/render-sample.ts ${{ inputs.types || 'starbucks-yildiz' }} 2>&1 | grep -vE 'Memory reported|inadvertently|lower amount|differing memory' | tee ../out/render.log
           echo "Toplam süre: $(( $(date +%s) - start )) sn" | tee -a ../out/render.log
           grep -q 'BAŞARISIZ' ../out/render.log && exit 1 || true
       - uses: actions/upload-artifact@v6

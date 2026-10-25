@@ -7,9 +7,9 @@ import { CONTENT_TYPES, type Commit, type ContentType, type IdeaDraft } from './
 // Brief dışında bilgi eklenmez; böylece doğrulanmamış iddia üretilemez.
 
 const BASE_SCORE: Record<IdeaDraft['source'], number> = {
-  changelog: 80, audience: 65, trend: 60, performance: 70, manual: 75, deployment: 55,
+  changelog: 80, audience: 65, trend: 60, performance: 70, manual: 75, deployment: 55, topic_bank: 70,
 };
-const TYPE_BONUS: Record<ContentType, number> = { problem_cozum: 6, mini_demo: 4, ipucu: 3, once_sonra: 2, mit_curutme: 1 };
+const TYPE_BONUS: Partial<Record<ContentType, number>> = { problem_cozum: 6, mini_demo: 4, ipucu: 3, once_sonra: 2, mit_curutme: 1 };
 
 const FEATURE_COMMIT = /^(add|feat|new|ekle|yeni)\b/i;
 
@@ -35,7 +35,7 @@ function candidates(input: GenerateInput): { drafts: IdeaDraft[]; notes: string[
   const out: IdeaDraft[] = [];
   const notes: string[] = [];
   const add = (d: Omit<IdeaDraft, 'score' | 'is_exploration'>) =>
-    out.push({ ...d, score: BASE_SCORE[d.source] + TYPE_BONUS[d.content_type], is_exploration: false });
+    out.push({ ...d, score: BASE_SCORE[d.source] + (TYPE_BONUS[d.content_type] ?? 0), is_exploration: false });
 
   // 1) Son 14 günün commit'leri → duyuru fikri adayı (yalnızca özellik ekleyen commit'ler)
   const featureCommits = commits.filter((c) => FEATURE_COMMIT.test(c.message.split('\n')[0]));

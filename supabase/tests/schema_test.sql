@@ -203,5 +203,17 @@ do $$ begin
 end $$;
 update app_settings set mode = 'approval';
 
+\echo 'T16 Sepet Röntgeni: konu bankası kaynağı, huni varsayılanı, konu anahtarı tekil, içerik fazı 1'
+do $$ begin assert (select content_phase = 1 from app_settings); end $$;
+select t.expect_error($$update app_settings set content_phase = 4$$, 'check constraint');
+insert into ideas (product_id, idea, hook, content_type, source, source_ref, score, why, topic)
+  select product_id, '[test-konu] Marka: mekanizma', 'Kanca', 'marka_rontgeni', 'topic_bank', 'test-konu', 70, 'test', '{"key":"test-konu"}' from ideas limit 1;
+do $$ begin assert (select funnel = 'TOF' from ideas where source_ref = 'test-konu'); end $$;
+select t.expect_error($$insert into ideas (product_id, idea, hook, content_type, source, source_ref, score, why)
+  select product_id, '[test-konu] başka metin', 'Kanca', 'marka_rontgeni', 'topic_bank', 'test-konu', 70, 'test' from ideas limit 1$$, 'duplicate key');
+select t.expect_error($$update ideas set funnel = 'XYZ' where source_ref = 'test-konu'$$, 'check constraint');
+do $$ begin assert (select pg_get_constraintdef(oid) like '%15%58%' from pg_constraint where conname = 'videos_duration_sec_check'); end $$;
+do $$ begin assert (select pg_get_constraintdef(oid) like '%>= 3)%<= 10)%' from pg_constraint where conname = 'videos_hashtags_check'); end $$;
+
 create table t.done (ok int);  -- run.sh bu tablonun varlığını kontrol eder
 

@@ -132,7 +132,7 @@ describe('validatePlan yakalar', () => {
 describe('planDay', () => {
   const now = new Date('2026-10-22T06:00:00Z');
   it('gerekçeyi kaydeder: 14 gün özeti, tür, fikir, stil', () => {
-    const r = planDay({ brief, ideas, recent: [], recentExploration: [], activeStyles: ['dark-keynote'], now });
+    const r = planDay({ brief, ideas, recent: [], recentExploration: [], activeStyles: ['dark-keynote'], phase: 3, now });
     expect(r.ok).toBe(true);
     if (!r.ok) return;
     expect(r.plan.reason).toMatch(/Son 14 günde video yok/);
@@ -143,17 +143,17 @@ describe('planDay', () => {
   });
 
   it('son 3 videodaki cümleyi tekrar eden fikri atlar', () => {
-    const first = planDay({ brief, ideas, recent: [], recentExploration: [], activeStyles: ['dark-keynote'], now });
+    const first = planDay({ brief, ideas, recent: [], recentExploration: [], activeStyles: ['dark-keynote'], phase: 3, now });
     if (!first.ok) throw new Error();
     const recent = [rv('ipucu', { sentences: contentSentences(first.plan.script) })];
-    const second = planDay({ brief, ideas: ideas.filter((i) => i.id !== first.plan.idea.id), recent, recentExploration: [false], activeStyles: ['dark-keynote'], now });
+    const second = planDay({ brief, ideas: ideas.filter((i) => i.id !== first.plan.idea.id), recent, recentExploration: [false], activeStyles: ['dark-keynote'], phase: 3, now });
     if (!second.ok) throw new Error();
     const overlap = contentSentences(second.plan.script).filter((l) => contentSentences(first.plan.script).includes(l));
     expect(overlap).toEqual([]);
   });
 
   it('fikir yoksa plan yapmaz ve acil araştırma ister', () => {
-    expect(planDay({ brief, ideas: [], recent: [], recentExploration: [], activeStyles: ['dark-keynote'], now }))
+    expect(planDay({ brief, ideas: [], recent: [], recentExploration: [], activeStyles: ['dark-keynote'], phase: 3, now }))
       .toMatchObject({ ok: false, needsEmergencyResearch: true });
   });
 });

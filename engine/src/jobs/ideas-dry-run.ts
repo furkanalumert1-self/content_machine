@@ -45,7 +45,7 @@ const lines = [
   '| # | Puan | Tür | Keşif | Hook (ilk 2 sn) | Fikir | Neden |',
   '|---|---|---|---|---|---|---|',
   ...result.ideas.map((i, n) =>
-    `| ${n + 1} | ${i.score} | ${TYPE_TR[i.content_type]} | ${i.is_exploration ? '✓' : ''} | ${i.hook} | ${i.idea} | ${i.why} |`.replace(/\n/g, ' '),
+    `| ${n + 1} | ${i.score} | ${TYPE_TR[i.content_type as keyof typeof TYPE_TR] ?? i.content_type} | ${i.is_exploration ? '✓' : ''} | ${i.hook} | ${i.idea} | ${i.why} |`.replace(/\n/g, ' '),
   ),
 ];
 const out = join(root, 'docs', `ornek-fikirler-${slug}.md`);

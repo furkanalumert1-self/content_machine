@@ -32,7 +32,7 @@ const out: string[] = [`# Örnek ${days} günlük plan — ${meta.name}`, '', 'K
 for (let d = 0; d < days; d++) {
   const now = new Date(Date.UTC(2026, 9, 22 + d, 6));
   if (d % 7 === 0) summary.push(`Gün ${d + 1}: haftalık araştırma +${research()} fikir (toplam ${ideas.length})`);
-  const r = planDay({ brief, ideas, recent, recentExploration: exploration, activeStyles: ['dark-keynote'], now });
+  const r = planDay({ brief, ideas, recent, recentExploration: exploration, activeStyles: ['dark-keynote'], phase: 3, now });
   out.push(`## Gün ${d + 1} — ${now.toISOString().slice(0, 10)}`, '');
   if (!r.ok) { out.push(`**Plan yapılamadı:** ${r.reason}`, ''); summary.push(`Gün ${d + 1}: PLAN YOK — ${r.reason}`); continue; }
   const { plan } = r;

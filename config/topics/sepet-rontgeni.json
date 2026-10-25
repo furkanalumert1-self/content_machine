@@ -1,0 +1,809 @@
+{
+  "version": 1,
+  "channel": "Sepet Röntgeni",
+  "product": "callypso-engage",
+  "topics": [
+    {
+      "key": "damga-karti-hazir-ilerleme",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Sadakat kartı",
+      "mechanism": "Hazır ilerleme etkisi",
+      "callypso_feature": "Otomasyon akışları + Customer 360 (puan durumu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "İki bedava damga, kartı doldurtuyor",
+        "Boş kart kimseyi geri getirmez",
+        "Yarısı dolu kart neden bitirilir?"
+      ],
+      "cover": {
+        "line1": "Boş kart.",
+        "line2": "Kimseyi geri getirmez.",
+        "object": "iki damgası basılı sadakat kartı"
+      },
+      "fact": "Bir araba yıkamacısında aynı ödül için 8 yıkama gerekiyordu, ama kartların yarısında 2 damga hazır basılıydı.",
+      "mechanism_lines": [
+        "Hazır damgalı kartı alanlar kartı daha sık ve daha hızlı doldurdu.",
+        "Yolun bir kısmı bitmiş görünen hedef daha ulaşılabilir hissettirir.",
+        "Başlamış bir işi yarım bırakmak kayıp gibi gelir."
+      ],
+      "action": [
+        "İlk siparişten sonra müşterinin puan kartını boş bırakma.",
+        "İlk adımları hediye olarak doldur ve mesajda kalan adımı göster."
+      ],
+      "insight": "Başı dolu görünen hedef daha çok bitirilir.",
+      "question": "Senin sadakat programında müşteri sıfırdan mı başlıyor? 👇",
+      "tags": [
+        "#sadakatprogramı",
+        "#tüketicipsikolojisi"
+      ],
+      "facts": [
+        {
+          "text": "Nunes & Drèze (2006): 8 adımlı görev, 2 adımı hazır tamamlanmış 10 adımlı görev olarak sunulunca tamamlanma olasılığı arttı ve tamamlama süresi kısaldı; araba yıkama saha deneyinde iki kart da aynı ödül için 8 yıkama gerektiriyordu.",
+          "source_label": "Nunes & Drèze (2006)",
+          "source_url": "https://doi.org/10.1086/500480",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Makale özeti ve künyesi doğrulandı. Sık alıntılanan %34 / %19 oranları tam metinden doğrulanamadığı için kullanılmaz."
+        }
+      ],
+      "score": 80
+    },
+    {
+      "key": "duolingo-seri",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Duolingo",
+      "mechanism": "Kayıptan kaçınma",
+      "callypso_feature": "SMS kampanyaları (puan hatırlatma)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Duolingo seni dersle değil, seriyle tutuyor",
+        "Serini kaybetmemek için açıyorsun",
+        "Yedi gün, bırakmayı zorlaştırıyor"
+      ],
+      "cover": {
+        "line1": "Ders değil.",
+        "line2": "Seri tutuyor.",
+        "object": "alev simgeli seri sayacı"
+      },
+      "fact": "Duolingo'ya göre 7 günlük seri yapanların kursu bitirme ihtimali 3,6 kat daha yüksek.",
+      "big_number": "3,6 kat",
+      "mechanism_lines": [
+        "Serin büyüdükçe kaybedecek bir şeyin oluyor.",
+        "Kazanmaktan çok kaybetmemek için geri dönüyorsun.",
+        "Duolingo bu yüzden seriyi koruyan bir dondurma hakkı da veriyor."
+      ],
+      "action": [
+        "Müşterine süresi dolmak üzere olan puanını hatırlat: Puanların yarın siliniyor.",
+        "Bunu sadece puan gerçekten silinecekse gönder."
+      ],
+      "insight": "Biriken bir şeyi kaybetme düşüncesi, müşteriyi geri getirir.",
+      "question": "Senin müşterinin kaybetmek istemeyeceği bir şeyi var mı? 👇",
+      "tags": [
+        "#duolingo",
+        "#kayıptankaçınma"
+      ],
+      "facts": [
+        {
+          "text": "Duolingo: sadece 7 günlük seriye ulaşan kullanıcıların kursu tamamlama olasılığı 3,6 kat daha yüksek.",
+          "source_label": "Duolingo Blog (2022)",
+          "source_url": "https://blog.duolingo.com/how-duolingo-streak-builds-habit",
+          "source_type": "official",
+          "checked_at": "2026-10-25",
+          "note": "İlişki, nedensellik değil."
+        },
+        {
+          "text": "Duolingo'da seriyi koruyan \"Streak Freeze\" (seri dondurma) özelliği var.",
+          "source_label": "Duolingo Blog (2022)",
+          "source_url": "https://blog.duolingo.com/how-duolingo-streak-builds-habit",
+          "source_type": "official",
+          "checked_at": "2026-10-25"
+        }
+      ],
+      "score": 84
+    },
+    {
+      "key": "kayip-musteri-zamanlama",
+      "pillar": "C",
+      "funnel": "MOF",
+      "brand": "Türk e-ticareti",
+      "mechanism": "Geri kazanma zamanlaması",
+      "callypso_feature": "Segmentasyon (son sipariş tarihi) + otomasyon akışı",
+      "status": "dogrulandi",
+      "hooks": [
+        "Kayıp müşterinin de son kullanma tarihi var",
+        "Sessiz müşteri her ay biraz uzaklaşıyor",
+        "Geri çağırmak için geç kalma"
+      ],
+      "cover": {
+        "line1": "Sessiz müşteri.",
+        "line2": "Her ay uzaklaşıyor.",
+        "object": "tozlanmış alışveriş poşeti"
+      },
+      "fact": "Türkiye'de bir e-ticaret şirketinde, 6–9 ay önce kaybedilen müşterilerin %47,3'ü geri kazanıldı.",
+      "big_number": "%47,3",
+      "mechanism_lines": [
+        "15 aydan uzun süredir alışveriş yapmayanlarda bu oran %16,8'e düştü.",
+        "Müşteri ne kadar uzun sessiz kalırsa geri dönmesi o kadar zorlaştı.",
+        "Yani geri çağırma mesajının zamanı, içeriği kadar önemli."
+      ],
+      "action": [
+        "Son siparişinden 90 gün geçen müşterileri listele.",
+        "Onlara indirimden önce son aldıkları ürünle ilgili bir hatırlatma gönder."
+      ],
+      "insight": "Bu veride erken ulaşılan kayıp müşteri çok daha fazla geri döndü.",
+      "question": "Senin mağazanda son sipariş üzerinden kaç gün geçen müşteri kayıp sayılıyor? 👇",
+      "tags": [
+        "#gerikazanma",
+        "#müşterikaybı"
+      ],
+      "facts": [
+        {
+          "text": "Altan (2015), İTÜ yüksek lisans tezi: Türkiye'de bir e-ticaret şirketinin 1.174 kayıp müşterisinde geri kazanma oranı 6–9 ay grubunda %47,3, 9–12 ayda %30,5, 12–15 ayda %25,9, 15 aydan uzunda %16,8.",
+          "source_label": "Altan (2015), İTÜ tezi",
+          "source_url": "https://polen.itu.edu.tr/items/db4f238b-ca92-4520-9497-14df143b20b5",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Tek şirket, hakemli yayın değil. Getir/Yemeksepeti bildirimleri hakkında güvenilir kaynak bulunamadı; marka adı kullanılmaz."
+        }
+      ],
+      "score": 77
+    },
+    {
+      "key": "amazon-prime-batik-maliyet",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Amazon Prime",
+      "mechanism": "Batık maliyet",
+      "callypso_feature": "Segmentasyon (sık alan müşteriler)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Prime üyeleri neden iki kat harcıyor?",
+        "Kargoyu peşin ödeyen daha çok alıyor",
+        "Amazon Prime sadece bir abonelik değil"
+      ],
+      "cover": {
+        "line1": "Peşin ödedin.",
+        "line2": "Şimdi kullanmalısın.",
+        "object": "üzerinde mavi bant olan kargo kutusu"
+      },
+      "fact": "Tahminlere göre ABD'de Prime üyeleri Amazon'da yılda yaklaşık 1.170 dolar, üye olmayanlar 570 dolar harcıyor.",
+      "big_number": "2 kat",
+      "mechanism_lines": [
+        "Bir üyeliğe peşin para ödediysen onu değerlendirmek istersin.",
+        "Ödenmiş kargo hakkı, bir sonraki siparişi daha kolay hale getirir.",
+        "Ama dikkat: çok alışveriş yapanlar zaten üye olmaya daha yatkın."
+      ],
+      "action": [
+        "Sık alan müşterin için küçük bir yıllık kargo üyeliği dene.",
+        "Her siparişte üyeliğin ona ne kazandırdığını göster."
+      ],
+      "insight": "Önceden ödenmiş bir ayrıcalık, müşteriye onu kullanmak için sebep verir.",
+      "question": "Senin mağazanda müşterinin önceden kazandığı bir ayrıcalık var mı? 👇",
+      "tags": [
+        "#amazonprime",
+        "#batıkmaliyet"
+      ],
+      "facts": [
+        {
+          "text": "CIRP tahmini: ABD'de Prime üyeleri 2024'te Amazon'da yılda yaklaşık 1.170 dolar, üye olmayanlar 570 dolar harcadı (yaklaşık 2 katı).",
+          "source_label": "CIRP (2025)",
+          "source_url": "https://cirpamazon.substack.com/p/amazon-prime-member-spending-is-even",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Anket tabanlı tahmin, Amazon verisi değil; nedensellik iddia edilmez."
+        }
+      ],
+      "score": 80
+    },
+    {
+      "key": "starbucks-yildiz",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Starbucks",
+      "mechanism": "Oyunlaştırma ve kademeler",
+      "callypso_feature": "Customer 360 (puan) + otomasyon akışları",
+      "status": "dogrulandi",
+      "hooks": [
+        "Starbucks sana yıldız vermiyor. Seni geri çağırıyor.",
+        "Kahve değil, yıldız topluyorsun",
+        "Harcamanın yarısından fazlası tek programdan"
+      ],
+      "cover": {
+        "line1": "Yıldız değil.",
+        "line2": "Geri çağırma.",
+        "object": "yeşil kahve bardağı ve altın yıldız"
+      },
+      "fact": "Starbucks'ın ABD'deki şirket mağazalarında harcamanın %59'unu Rewards üyeleri yapıyor.",
+      "big_number": "%59",
+      "mechanism_lines": [
+        "Her alışverişte yıldız topluyorsun.",
+        "Yıldızlar biriktikçe ödüle yaklaştığını görüyorsun.",
+        "Ödüle yaklaştıkça bir sonraki kahveyi başka yerden almak istemiyorsun."
+      ],
+      "action": [
+        "Puanı tek büyük ödül yerine küçük ve yakın ödüllere böl.",
+        "Her siparişten sonra ödüle kaç adım kaldığını yaz."
+      ],
+      "insight": "Görünür ilerleme, müşteriyi bir sonraki alışverişe çeker.",
+      "question": "Senin müşterin bir sonraki ödülüne ne kadar uzak, biliyor mu? 👇",
+      "tags": [
+        "#starbucks",
+        "#oyunlaştırma"
+      ],
+      "facts": [
+        {
+          "text": "Starbucks FY26 3. çeyrek: ABD'de 35,8 milyon 90 günlük aktif Rewards üyesi; Rewards üyeleri ABD şirket mağazalarındaki harcamanın %59'unu yaptı.",
+          "source_label": "Starbucks FY26 Q3 yatırımcı sunumu",
+          "source_url": "https://s203.q4cdn.com/326826266/files/doc_financials/2026/q3/Q3-FY26-Digital-IR-Dashboard.pdf",
+          "source_type": "official",
+          "checked_at": "2026-10-25",
+          "note": "Yayından önce yeni çeyrek verisi kontrol edilmeli."
+        }
+      ],
+      "score": 85
+    },
+    {
+      "key": "spotify-wrapped",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Spotify Wrapped",
+      "mechanism": "Müşteriye kendi verisini geri vermek",
+      "callypso_feature": "Customer 360 + e-posta kampanyası (yıl sonu özeti)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Spotify sana kendi yılını hediye ediyor",
+        "Wrapped bir reklam, ama sen paylaşıyorsun",
+        "En iyi reklam müşterinin kendi verisi"
+      ],
+      "cover": {
+        "line1": "Senin yılın.",
+        "line2": "Onların reklamı.",
+        "object": "renkli müzik özet kartı"
+      },
+      "fact": "Spotify Wrapped 2025 ilk 24 saatte 200 milyonun üzerinde kullanıcıya ulaştı.",
+      "big_number": "200 milyon",
+      "mechanism_lines": [
+        "Wrapped sana yeni bir şey satmıyor.",
+        "Senin bir yıllık dinleme geçmişini sana hikâye olarak geri veriyor.",
+        "Kampanya boyunca 600 milyonu aşkın kez paylaşıldı."
+      ],
+      "action": [
+        "Yıl sonunda müşterine kendi alışveriş özetini gönder.",
+        "En çok aldığı ürün ve kazandığı puan gibi."
+      ],
+      "insight": "Müşteriye kendi hikâyesini anlatan içerik, kendiliğinden paylaşılır.",
+      "question": "Müşterine hiç kendi alışveriş yılını gösterdin mi? 👇",
+      "tags": [
+        "#spotifywrapped",
+        "#kişiselleştirme"
+      ],
+      "facts": [
+        {
+          "text": "Spotify: Wrapped 2025 ilk 24 saatte 200 milyonun üzerinde kullanıcıya ulaştı.",
+          "source_label": "Spotify Newsroom",
+          "source_url": "https://newsroom.spotify.com/spotify-timeline/",
+          "source_type": "official",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "text": "Spotify 2025 4. çeyrek: Wrapped 2025 kampanya boyunca 300 milyonun üzerinde kullanıcıya ulaştı ve sosyal medyada 600 milyonu aşkın kez (630 milyon) paylaşıldı.",
+          "source_label": "Spotify Newsroom (2026)",
+          "source_url": "https://newsroom.spotify.com/2026-02-10/spotify-q4-2025-earnings/",
+          "source_type": "official",
+          "checked_at": "2026-10-25",
+          "note": "Yatırımcı gününde 620 milyon dendiği için \"600 milyonu aşkın\" kullanılır."
+        }
+      ],
+      "score": 78
+    },
+    {
+      "key": "ucretsiz-kargo-esigi",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Amazon",
+      "mechanism": "Ücretsiz kargo eşiği",
+      "callypso_feature": "Kampanyalar (eşik hatırlatması)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Eşik düşünce sepet küçüldü",
+        "Kargo bedava değil, sepeti büyütüyor",
+        "Bedava kargo sepeti büyütür, ama dikkat"
+      ],
+      "cover": {
+        "line1": "Bedava kargo.",
+        "line2": "Dolu sepet.",
+        "object": "eşik çizgisi olan alışveriş sepeti"
+      },
+      "fact": "Amazon ücretsiz kargo eşiğini 49 dolardan 25 dolara indirdiğinde, sipariş başına ürün sayısı 3,31'den 2,53'e düştü.",
+      "big_number": "3,31 → 2,53",
+      "mechanism_lines": [
+        "Eşik yüksekken insanlar sepeti eşiğe kadar dolduruyor.",
+        "Araştırmalar insanların kargo ücretine çok duyarlı olduğunu gösteriyor.",
+        "Ama dikkat: bir çalışmada ücretsiz kargo satışı artırdı, kârı artırmadı."
+      ],
+      "action": [
+        "Ücretsiz kargo eşiğini ortalama sepetinin biraz üstüne koy.",
+        "Sepet sayfasında eşiğe ne kadar kaldığını göster."
+      ],
+      "insight": "Doğru yere konan kargo eşiği, sepete bir ürün daha ekletir.",
+      "question": "Senin ücretsiz kargo eşiğin ortalama sepetinin neresinde? 👇",
+      "tags": [
+        "#ücretsizkargo",
+        "#sepetortalaması"
+      ],
+      "facts": [
+        {
+          "text": "Amazon'un ücretsiz kargo eşiği 49 dolarken ortalama siparişte 3,31 ürün vardı; eşik 25 dolara inince 2,53'e düştü (2002 verisi).",
+          "source_label": "Knowledge at Wharton (2006)",
+          "source_url": "https://knowledge.wharton.upenn.edu/?p=5310",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Eski ABD verisi."
+        },
+        {
+          "text": "Lewis, Singh & Fay (2006): tüketiciler kargo ücretine çok duyarlı; ücretsiz kargo ve eşik üstü ücretsiz kargo ek satış yarattı ama o perakendeci için kârlı olmadı.",
+          "source_label": "Lewis, Singh & Fay (2006)",
+          "source_url": "https://doi.org/10.1287/mksc.1050.0150",
+          "source_type": "academic",
+          "checked_at": "2026-10-25"
+        }
+      ],
+      "score": 76
+    },
+    {
+      "key": "kitlik-kurabiye",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Son ürünler uyarısı",
+      "mechanism": "Kıtlık etkisi",
+      "callypso_feature": "Kampanyalar (stok azaldı bildirimi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Son ürünler yazısı neden işe yarıyor?",
+        "Az kalan şey daha değerli görünür",
+        "Kurabiye aynı, kavanoz farklı"
+      ],
+      "cover": {
+        "line1": "Az kaldı.",
+        "line2": "Daha değerli.",
+        "object": "içinde iki kurabiye kalan cam kavanoz"
+      },
+      "fact": "1975'teki bir deneyde aynı kurabiye, 2'lik kavanozdan alınınca 10'luk kavanozdakinden daha çekici bulundu.",
+      "mechanism_lines": [
+        "Kavanoz 10'dan 2'ye düşünce değer algısı daha da arttı.",
+        "Hele azalmanın sebebi herkes çok istedi olunca.",
+        "Ama tadına verilen puan değişmedi; değişen sadece algıydı."
+      ],
+      "action": [
+        "Stok gerçekten azaldığında bunu açıkça göster.",
+        "Gerçek olmayan kıtlık yazma; hem güveni hem yasayı çiğner."
+      ],
+      "insight": "Gerçekten az kalan ürün gözümüzde daha değerli olur.",
+      "question": "Sen stok azaldığında müşterine haber veriyor musun? 👇",
+      "tags": [
+        "#kıtlıketkisi",
+        "#tüketicipsikolojisi"
+      ],
+      "facts": [
+        {
+          "text": "Worchel, Lee & Adewole (1975): 2 kurabiyelik kavanozdaki kurabiye 10'luk kavanozdakinden daha çekici bulundu; 10'dan 2'ye düşen ve sebebi yüksek talep olan kurabiye en çok değer gördü; tat puanı anlamlı değişmedi.",
+          "source_label": "Worchel, Lee & Adewole (1975)",
+          "source_url": "https://doi.org/10.1037/0022-3514.32.5.906",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Küçük öğrenci örneklemi; ölçülen beğeni, satın alma değil. Sahte kıtlık yanıltıcı reklamdır."
+        }
+      ],
+      "score": 74
+    },
+    {
+      "key": "yeni-musteri-5-kat-mi",
+      "pillar": "D",
+      "funnel": "TOF",
+      "brand": "Pazarlama klişesi",
+      "mechanism": "Mit kırma: tek bir oran yok",
+      "callypso_feature": "Segmentasyon + kampanyalar",
+      "status": "dogrulandi",
+      "hooks": [
+        "5 kat daha pahalı. Gerçekten mi?",
+        "Herkesin tekrarladığı rakam aslında bir aralık",
+        "Yeni müşteri pahalı, ama kaç kat?"
+      ],
+      "cover": {
+        "line1": "5 kat mı?",
+        "line2": "Aslında bir aralık.",
+        "object": "iki ucu farklı uzunlukta cetvel"
+      },
+      "fact": "HBR'a göre yeni müşteri kazanmak, mevcut müşteriyi tutmaktan 5 ile 25 kat arası daha pahalı.",
+      "big_number": "5–25 kat",
+      "mechanism_lines": [
+        "Makale bu aralık için tek bir çalışma göstermiyor; hangi çalışmaya baktığına göre değişiyor.",
+        "Yani 5 kat kesin bir kural değil, aralığın en alt ucu.",
+        "Asıl ders şu: rakam ne olursa olsun, elindeki müşteriyi ucuza kaybetme."
+      ],
+      "action": [
+        "Bu ay reklam bütçenin küçük bir kısmını eski müşterilerine ayır.",
+        "Son 6 ayda alışveriş yapmayanlara bir hatırlatma gönder ve sonucu ölç."
+      ],
+      "insight": "Popüler rakam kesin bir kural değil, ama işaret ettiği yön doğru.",
+      "question": "Sen bir müşteriyi kazanmak için ne kadar harcadığını biliyor musun? 👇",
+      "tags": [
+        "#müşteriedinme",
+        "#pazarlamamitleri"
+      ],
+      "facts": [
+        {
+          "text": "Gallo (HBR, 2014): yeni müşteri kazanmak, hangi çalışmaya baktığınıza bağlı olarak mevcut müşteriyi tutmaktan 5 ile 25 kat arası daha pahalı; makale tek bir çalışma göstermiyor.",
+          "source_label": "Harvard Business Review (2014)",
+          "source_url": "https://hbr.org/2014/10/the-value-of-keeping-the-right-customers",
+          "source_type": "press",
+          "checked_at": "2026-10-25"
+        }
+      ],
+      "score": 76
+    },
+    {
+      "key": "sephora-numune",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Sephora",
+      "mechanism": "Karşılıklılık ilkesi",
+      "callypso_feature": "Otomasyon akışları (sipariş sonrası teşekkür)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Numune bedava değil. Bir borç.",
+        "Sephora sana neden numune veriyor?",
+        "Küçük hediye, büyük karşılık"
+      ],
+      "cover": {
+        "line1": "Bedava değil.",
+        "line2": "Bir borç bırakıyor.",
+        "object": "küçük numune şişesi"
+      },
+      "fact": "Sephora yıllardır online siparişlere ücretsiz numune ekliyor ve numuneyi sen seçiyorsun.",
+      "mechanism_lines": [
+        "1971'deki klasik bir deneyde, karşılıksız içecek ikram edilenler ikram edenden daha çok çekiliş bileti aldı.",
+        "Üstelik o kişiyi sevip sevmemeleri sonucu belirlemedi.",
+        "Beklemediğin bir iyilik, içinde küçük bir karşılık verme isteği bırakır."
+      ],
+      "action": [
+        "Siparişe beklenmedik küçük bir hediye ekle.",
+        "Yanına kısa bir not koy: Bunu senin için seçtik."
+      ],
+      "insight": "Beklenmedik bir hediye, müşteride karşılık verme isteği doğurur.",
+      "question": "Senin kargo kutunda müşteriyi şaşırtan bir şey var mı? 👇",
+      "tags": [
+        "#sephora",
+        "#karşılıklılık"
+      ],
+      "facts": [
+        {
+          "text": "Sephora online siparişlere ücretsiz numune ekliyor; müşteri numuneyi kendisi seçiyor (adet ve koşullar döneme göre değişiyor).",
+          "source_label": "Refinery29 (2017)",
+          "source_url": "https://refinery29.com/en-us/sephora-free-samples-reviews",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Güncel numune adedi doğrulanamadı; adet söylenmez."
+        },
+        {
+          "text": "Regan (1971): karşılıksız içecek ikram edilen katılımcılar ikram edenden daha çok çekiliş bileti aldı; kişiyi sevmek sonucu belirlemedi.",
+          "source_label": "Regan (1971)",
+          "source_url": "https://doi.org/10.1016/0022-1031(71)90025-4",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Künye Crossref ile doğrulandı; yayıncı sayfası erişilemedi, bulgu ikincil özetle teyit edildi. Çarpan (\"iki kat\") kullanılmaz."
+        }
+      ],
+      "score": 72
+    },
+    {
+      "key": "migros-money-kisisel",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Migros Money",
+      "mechanism": "Segmentleme ve kişiselleştirme",
+      "callypso_feature": "Segmentasyon",
+      "status": "dogrulandi",
+      "hooks": [
+        "Senin indirimin komşununkiyle aynı değil",
+        "Herkese aynı indirim artık işe yaramıyor",
+        "Migros sana özel teklif yapıyor. Neden?"
+      ],
+      "cover": {
+        "line1": "Senin indirimin.",
+        "line2": "Sadece senin.",
+        "object": "kişiye özel kupon kartı"
+      },
+      "fact": "Migros Money'nin 14 milyon aktif üyesi var.",
+      "big_number": "14 milyon",
+      "mechanism_lines": [
+        "Migros, izin veren üyelerin alışveriş alışkanlıklarını analiz ediyor.",
+        "Sonra Tam Bana Göre gibi kampanyalarla kişiye özel teklif sunuyor.",
+        "Sana göre hazırlanmış teklif, herkese giden indirimden daha anlamlı görünür."
+      ],
+      "action": [
+        "Müşterilerini son aldıkları kategoriye göre ayır.",
+        "Kedi maması alana köpek maması indirimi gönderme."
+      ],
+      "insight": "Kişiye özel teklif, herkese aynı indirimden daha anlamlı görünür.",
+      "question": "Sen bütün müşterilerine aynı kampanyayı mı gönderiyorsun? 👇",
+      "tags": [
+        "#migros",
+        "#segmentasyon"
+      ],
+      "facts": [
+        {
+          "text": "Migros 2025 faaliyet raporu: Money'nin 2025 sonu itibarıyla 14 milyon tekil aktif üyesi var.",
+          "source_label": "Migros 2025 Entegre Faaliyet Raporu",
+          "source_url": "https://migroskurumsalstr.blob.core.windows.net/migroskurumsalstr/-migros-tr2025-interaktif-639088646656876356.pdf",
+          "source_type": "official",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "text": "Aynı rapor: açık rıza veren müşterilerin alışveriş alışkanlıkları analiz edilerek \"Tam Bana Göre\" gibi kampanyalarla kişiye özel öneriler sunuluyor.",
+          "source_label": "Migros 2025 Entegre Faaliyet Raporu",
+          "source_url": "https://migroskurumsalstr.blob.core.windows.net/migroskurumsalstr/-migros-tr2025-interaktif-639088646656876356.pdf",
+          "source_type": "official",
+          "checked_at": "2026-10-25",
+          "note": "Farklı müşteriye farklı fiyat denmez; yalnızca kişiye özel teklif/kampanya."
+        }
+      ],
+      "score": 74
+    },
+    {
+      "key": "zara-az-reklam",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Zara",
+      "mechanism": "Az ama sık yenilik",
+      "callypso_feature": "Kampanyalar (yeni ürün duyurusu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Zara neredeyse hiç reklam vermiyor",
+        "Reklam yok, müşteri yine geliyor",
+        "Zara'nın reklamı rafın kendisi"
+      ],
+      "cover": {
+        "line1": "Reklam yok.",
+        "line2": "Raf var.",
+        "object": "boş askılı elbise rafı"
+      },
+      "fact": "Bain'in analizine göre Zara satışlarının %0,5'inden azını reklama harcıyor.",
+      "big_number": "%0,5",
+      "mechanism_lines": [
+        "Mağazalara haftada iki kez yeni ürün sevkiyatı yapılıyor.",
+        "Rafta gördüğün şey birkaç gün sonra orada olmayabiliyor.",
+        "Bain'e göre düşük reklam harcamasını mümkün kılan şey müşteri sadakati."
+      ],
+      "action": [
+        "Her hafta aynı gün küçük bir yeni ürün grubu çıkar.",
+        "Bunu önce eski müşterilerine haber ver."
+      ],
+      "insight": "Sık ve küçük yenilikler, müşteriye tekrar uğramak için sebep verir.",
+      "question": "Senin mağazanda müşteri en son ne zaman yeni bir şey gördü? 👇",
+      "tags": [
+        "#zara",
+        "#kıtlıketkisi"
+      ],
+      "facts": [
+        {
+          "text": "Bain & Company: müşteri sadakati Zara'nın satışlarının %0,5'inden azını reklama harcamasını sağlıyor (H&M'de %4).",
+          "source_label": "Bain & Company",
+          "source_url": "https://media.bain.com/faster-fashion/speed/",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Danışmanlık analizi, Inditex açıklaması değil; tarih belirtilmemiş."
+        },
+        {
+          "text": "Inditex ürünleri dağıtım merkezlerinden mağazalara haftada iki kez teslim ediliyor.",
+          "source_label": "Georgetown McDonough (2024)",
+          "source_url": "https://msb.georgetown.edu/?p=59588",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "\"Yeni tasarım\" değil \"sevkiyat\" denir."
+        }
+      ],
+      "score": 76
+    },
+    {
+      "key": "netflix-kolay-donus",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Netflix",
+      "mechanism": "Kolay çıkış, kolay dönüş",
+      "callypso_feature": "Customer 360 profili + geri kazanma akışı",
+      "status": "dogrulandi",
+      "hooks": [
+        "Netflix seni kapıda tutmuyor",
+        "İptal ettin ama geçmişin seni bekliyor",
+        "Netflix'ten çıkmak kolay, dönmek daha kolay"
+      ],
+      "cover": {
+        "line1": "Çıkış kolay.",
+        "line2": "Dönüş daha kolay.",
+        "object": "kumanda ve kırmızı geri ok"
+      },
+      "fact": "Antenna tahminlerine göre Netflix'te aylık iptal oranı yaklaşık %2.",
+      "big_number": "%2",
+      "mechanism_lines": [
+        "İptal edince dönem sonuna kadar izlemeye devam ediyorsun.",
+        "İzleme geçmişin ve önerilerin 24 ay saklanıyor.",
+        "Geri döndüğünde kaldığın yerden başlıyorsun; dönmenin önünde engel yok."
+      ],
+      "action": [
+        "Ayrılan müşterinin tercihlerini ve geçmişini silme.",
+        "Geri döndüğünde onu kaldığı yerden karşıla."
+      ],
+      "insight": "Çıkışı zorlaştırmak yerine dönüşü kolaylaştırmak, kapıyı açık bırakır.",
+      "question": "Senden ayrılan müşteri geri döndüğünde sıfırdan mı başlıyor? 👇",
+      "tags": [
+        "#netflix",
+        "#müşterikaybı"
+      ],
+      "facts": [
+        {
+          "text": "Netflix Yardım Merkezi: iptal sonrası dönem sonuna kadar kullanım sürer; izleme geçmişi, hesap bilgileri ve öneriler hesap kapandıktan sonra 24 ay saklanır.",
+          "source_label": "Netflix Yardım Merkezi",
+          "source_url": "https://help.netflix.com/en/node/407",
+          "source_type": "official",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "text": "Antenna verisi (ABD, tahmin): Netflix'in aylık iptal oranı yaklaşık %2 ile büyük yayın platformları arasında en düşük.",
+          "source_label": "MediaPost / Antenna (2026)",
+          "source_url": "https://www.mediapost.com/publications/article/416128/",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Üçüncü taraf tahmini; düşük oranın iptal akışından kaynaklandığı söylenmez."
+        }
+      ],
+      "score": 73
+    },
+    {
+      "key": "apple-kutu-acilisi",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Apple",
+      "mechanism": "Kutu açılışı ve ilk izlenim",
+      "callypso_feature": "Otomasyon akışları (teslimat sonrası)",
+      "status": "beklemede",
+      "hooks": [
+        "Apple kutuyu da tasarlıyor",
+        "Kutuyu açtığın an satış bitmiyor",
+        "Yüzlerce kutu, tek bir an için"
+      ],
+      "cover": {
+        "line1": "Kutu da ürün.",
+        "line2": "İlk an önemli.",
+        "object": "beyaz minimal ürün kutusu"
+      },
+      "fact": "Bir kitaba göre Apple'da bir tasarımcı yüzlerce iPod kutusu prototipini tek tek açıp test etti.",
+      "mechanism_lines": [
+        "Satın almanın ardından gelen ilk an, deneyimin nasıl hatırlanacağını etkiler."
+      ],
+      "action": [
+        "Kutuyu açan müşterinin ilk gördüğü şeyi tasarla."
+      ],
+      "insight": "Teslimat anı da satış deneyiminin parçası.",
+      "question": "Senin kutunu açan müşteri ilk ne görüyor? 👇",
+      "tags": [
+        "#apple",
+        "#müşterideneyimi"
+      ],
+      "facts": [
+        {
+          "text": "Lashinsky (Inside Apple, 2012): Apple'da bir ambalaj tasarımcısı yüzlerce iPod kutusu prototipini açarak test etti.",
+          "source_label": "Lashinsky, Inside Apple (2012)",
+          "source_url": "https://9to5mac.com/2012/01/24/inside-apple-offers-a-glimpse-into-apples-secret-unboxing-room/",
+          "source_type": "press",
+          "checked_at": "2026-10-25",
+          "note": "Kutu deneyiminin tekrar satın almayı artırdığına dair güvenilir kaynak bulunamadı; konu beklemede."
+        }
+      ],
+      "score": 60
+    },
+    {
+      "key": "ikea-etkisi",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "IKEA",
+      "mechanism": "IKEA etkisi",
+      "callypso_feature": "Formlar (tercih toplama)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Kendi kurduğun dolap daha değerli",
+        "IKEA'da montaj neden sende?",
+        "Emek verdiğin şeyi bırakamazsın"
+      ],
+      "cover": {
+        "line1": "Montaj sende.",
+        "line2": "Bağlılık da.",
+        "object": "yarı kurulmuş karton kutu ve alyan anahtarı"
+      },
+      "fact": "Bir deneyde kutuyu kendi kuranlar, hazır kurulmuşuna %63 daha fazla ödemeye razı oldu.",
+      "big_number": "%63",
+      "mechanism_lines": [
+        "Emek verdiğin şeye daha çok değer biçersin.",
+        "Ama bir şart var: işi bitirmiş olman gerekiyor.",
+        "Yarım kalan emek aynı etkiyi yaratmıyor."
+      ],
+      "action": [
+        "Müşteriye ürünü kişiselleştirebileceği küçük bir adım ver.",
+        "Adım kısa olsun ki bitirebilsin."
+      ],
+      "insight": "İnsan emek verip tamamladığı şeye daha çok bağlanır.",
+      "question": "Müşterin senin ürününe hiç emek veriyor mu? 👇",
+      "tags": [
+        "#ikea",
+        "#ikeaetkisi"
+      ],
+      "facts": [
+        {
+          "text": "Norton, Mochon & Ariely (2012), Deney 1: IKEA kutusunu kendi kuranlar, aynı kutunun hazır kurulmuş hâli için kurmayanların verdiğinden %63 daha yüksek teklif verdi; görev tamamlanmayınca etki kayboldu (Deney 4).",
+          "source_label": "Norton, Mochon & Ariely (2012)",
+          "source_url": "https://doi.org/10.1016/j.jcps.2011.08.002",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Tam metin Harvard DASH üzerinden kontrol edildi; tutarlar küçük, örneklem küçük."
+        }
+      ],
+      "score": 75
+    },
+    {
+      "key": "sepet-terki-erken-hatirlatma",
+      "pillar": "C",
+      "funnel": "MOF",
+      "brand": "Terk edilen sepet",
+      "mechanism": "Erken hatırlatma",
+      "callypso_feature": "Otomasyon akışları (terk edilen sepet)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Sepetlerin çoğu ödemeye hiç ulaşmıyor",
+        "Terk edilen sepet bir ret değil",
+        "Hatırlatmayı yarına bırakma"
+      ],
+      "cover": {
+        "line1": "%70 terk ediyor.",
+        "line2": "Erken hatırlat.",
+        "object": "yarı dolu alışveriş sepeti"
+      },
+      "fact": "50 çalışmanın ortalamasına göre online sepetlerin yaklaşık %70'i ödemeye ulaşmıyor.",
+      "big_number": "%70",
+      "mechanism_lines": [
+        "Bir saha deneyinde hatırlatma reklamlarının ilk haftalık etkisinin yarısı ilk iki günde görüldü.",
+        "İlgi en sıcakken yapılan hatırlatma daha çok işe yarıyor.",
+        "Bekledikçe etki azalıyor."
+      ],
+      "action": [
+        "Sepeti terk edene ilk hatırlatmayı aynı gün gönder.",
+        "Mesajda sepetteki ürünü göster, indirimle başlama."
+      ],
+      "insight": "Erken hatırlatma, ilginin en sıcak olduğu anı yakalar.",
+      "question": "Sen terk edilen sepete ilk mesajı ne zaman gönderiyorsun? 👇",
+      "tags": [
+        "#terkedilmişsepet",
+        "#sepetterki"
+      ],
+      "facts": [
+        {
+          "text": "Baymard Institute: 50 farklı çalışmaya göre ortalama belgelenmiş sepet terk oranı %70,22 (yaklaşık %70).",
+          "source_label": "Baymard Institute",
+          "source_url": "https://baymard.com/lists/cart-abandonment-rate",
+          "source_type": "academic",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "text": "Sahni, Narayanan & Kalyanam (2019): saha deneyinde yeniden hedefleme reklamlarının ilk haftalık etkisinin yaklaşık üçte biri ilk gün, yarısı ilk iki gün içinde görüldü.",
+          "source_label": "Sahni, Narayanan & Kalyanam (2019)",
+          "source_url": "https://www.gsb.stanford.edu/insights/retargeted-advertising-sooner-better-later",
+          "source_type": "academic",
+          "checked_at": "2026-10-25",
+          "note": "Reklam hatırlatması üzerine; e-posta için \"ilk saat\" iddiası doğrulanamadığından kullanılmaz."
+        }
+      ],
+      "score": 78
+    }
+  ]
+}

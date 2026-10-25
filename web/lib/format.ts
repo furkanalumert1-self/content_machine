@@ -27,5 +27,6 @@ export const STATUS: Record<string, { label: string; tone: 'gray' | 'blue' | 'am
 };
 
 export const CONTENT_TYPE_TR: Record<string, string> = {
-  problem_cozum: 'Problem → çözüm', ipucu: 'İpucu', mini_demo: 'Mini demo', once_sonra: 'Önce / sonra', mit_curutme: 'Mit çürütme',
+  marka_rontgeni: 'A · Marka röntgeni', fiyat_psikolojisi: 'B · Fiyat/sepet psikolojisi', magazana_kur: 'C · Mağazana kur', mit_curutme: 'D · Mit kırma',
+  problem_cozum: 'Ürün: problem → çözüm', ipucu: 'Ürün: ipucu', mini_demo: 'Ürün: mini demo', once_sonra: 'Ürün: önce / sonra',
 };

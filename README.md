@@ -1,8 +1,8 @@
 # content_machine
 
-Callypso Engage için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem. Yönetim paneli Türkçedir; bilgisayarınız kapalıyken GitHub Actions'ta çalışır.
+**Sepet Röntgeni** (Callypso Engage'in medya markası) için her gün kodla üretilen 9:16 Reels videosu hazırlayan, onayınızla Instagram'a paylaşan ve performanstan öğrenen kişisel sistem. İçerik planı: [docs/icerik-plani.md](docs/icerik-plani.md); konular ve kaynakları: [config/topics/sepet-rontgeni.json](config/topics/sepet-rontgeni.json). Yönetim paneli Türkçedir; bilgisayarınız kapalıyken GitHub Actions'ta çalışır.
 
-> Durum: **ADIM 9 tamamlandı** (yönetim paneli). Brief onaylı. Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
+> Durum: **ADIM 10 sürüyor** (Sepet Röntgeni: konu bankası ve senaryo formatı hazır; görsel kimlik ve ses sırada). Ayrıntı: [`NOTLAR.md`](NOTLAR.md)
 
 ## Nasıl çalışır?
 ```

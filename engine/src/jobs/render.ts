@@ -50,7 +50,7 @@ for (const v of queue ?? []) {
   const script = v.script as Script;
   const props = {
     script,
-    brand: { name: product.name, navy: product.brand_colors.navy, navy2: product.brand_colors.navy_2, accent: product.brand_colors.cyan },
+    brand: { name: (v.script as Script).channel ?? product.name, navy: product.brand_colors.navy, navy2: product.brand_colors.navy_2, accent: product.brand_colors.cyan },
     featureTitles: brief.features.map((f) => f.title),
   };
 

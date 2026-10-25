@@ -2,6 +2,9 @@
 import { revalidatePath } from 'next/cache';
 import { checkClaims, mentionsUnverified } from '@content-machine/engine/content/claims.ts';
 import { parseBrief } from '@content-machine/engine/brief/brief.ts';
+import { numbersIn } from '@content-machine/engine/topics/bank.ts';
+import { CTA_KEYWORD, MAX_TAGS, MIN_TAGS, productNameAllowed, type Phase } from '@content-machine/engine/topics/channel.ts';
+import type { Topic } from '@content-machine/engine/topics/types.ts';
 import { requireAdmin } from '@/lib/dal';
 import { dispatch } from '@/lib/github';
 import { fail, text, uuid, type ActionResult } from '@/lib/validate';
@@ -30,16 +33,26 @@ export async function editCaption(_: ActionResult, form: FormData): Promise<Acti
     const caption = text(form, 'caption', { max: 2000, required: true });
     const hashtags = text(form, 'hashtags', { max: 400 }).split(/\s+/).filter(Boolean);
     const { db } = await requireAdmin();
-    const { data: v } = await db.from('videos').select('status, script, product_briefs(content_md)').eq('id', id).single();
+    const { data: v } = await db.from('videos').select('status, script, ideas(topic), product_briefs(content_md)').eq('id', id).single();
     if (!v) return { ok: false, message: 'Video bulunamadı.' };
     if (['publishing', 'published'].includes(v.status)) return { ok: false, message: 'Yayınlanan/yayınlanmakta olan video düzenlenemez.' };
 
     const problems: string[] = [];
-    if (hashtags.length < 5 || hashtags.length > 10) problems.push(`Hashtag sayısı ${hashtags.length}; 5–10 olmalı.`);
+    // Sepet Röntgeni videoları: 3–5 hashtag, konunun kaynaklı rakamları serbest, Faz 1–2'de ürün adı yok.
+    const channel = !!(v.script as { channel?: string }).channel;
+    const ideaRow = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: Topic | null } | null;
+    const sourcedNumbers = channel ? new Set((ideaRow?.topic?.facts ?? []).flatMap((f) => numbersIn(f.text))) : undefined;
+    const [minTags, maxTags] = channel ? [MIN_TAGS, MAX_TAGS] : [5, 10];
+    if (hashtags.length < minTags || hashtags.length > maxTags) problems.push(`Hashtag sayısı ${hashtags.length}; ${minTags}–${maxTags} olmalı.`);
+    if (channel) {
+      const { data: st } = await db.from('app_settings').select('content_phase').single();
+      if (!productNameAllowed((st?.content_phase ?? 1) as Phase) && /callypso/i.test(`${caption} ${hashtags.join(' ')}`)) problems.push('Faz 1–2: ürün adı geçmemeli.');
+      if (!caption.includes(CTA_KEYWORD)) problems.push(`Açıklamada CTA anahtar kelimesi (${CTA_KEYWORD}) kalmalı.`);
+    }
     if (new Set(hashtags).size !== hashtags.length) problems.push('Tekrarlanan hashtag var.');
     for (const h of hashtags) if (!/^#[\p{L}\p{N}_]+$/u.test(h)) problems.push(`Geçersiz hashtag: ${h}`);
     const all = `${caption}\n${hashtags.join(' ')}`;
-    for (const i of checkClaims(all)) problems.push(`${i.rule}: "${i.match}"`);
+    for (const i of checkClaims(all, { sourcedNumbers })) problems.push(`${i.rule}: "${i.match}"`);
     const briefRow = (Array.isArray(v.product_briefs) ? v.product_briefs[0] : v.product_briefs) as { content_md: string } | null;
     if (briefRow) for (const u of mentionsUnverified(all, parseBrief(briefRow.content_md).unverified)) problems.push(`Doğrulanmamış özellik: ${u}`);
     if ((v.script as { sample_data?: boolean }).sample_data && !/örnek veri/i.test(caption)) problems.push('Videoda örnek veri var; caption\'da "örnek veri" notu kalmalı.');

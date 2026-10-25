@@ -1,7 +1,9 @@
 import type { Brief } from '../brief/brief.ts';
 import { selectIdea } from '../ideas/select.ts';
 import type { Idea } from '../ideas/types.ts';
-import { chooseContentType, chooseStyle, summarizeRecent, type RecentVideo } from './rotation.ts';
+import { allowedFunnels, pillarTargets, type Phase } from '../topics/channel.ts';
+import { buildManualChannelScript, buildTopicCaption, buildTopicHashtags, buildTopicScript, validateTopicPlan } from '../topics/script.ts';
+import { chooseContentType, choosePillar, chooseStyle, summarizeRecent, type RecentVideo } from './rotation.ts';
 import { buildCaption, buildHashtags, buildScript, contentSentences, validatePlan, type Script } from './script.ts';
 
 export const NO_REPEAT_LAST_VIDEOS = 3;
@@ -13,7 +15,30 @@ export interface PlanInput {
   recent: RecentVideo[];          // son 14 gün, en yeniden eskiye
   recentExploration: boolean[];   // son seçimlerin keşif bayrakları
   activeStyles: string[];
+  /** İçerik fazı (app_settings.content_phase): 1 trafik, 2 lead, 3 dönüşüm. */
+  phase: Phase;
   now?: Date;
+}
+
+export interface Built { script: Script; caption: string; hashtags: string[]; problems: string[] }
+
+/**
+ * Fikirden senaryo + açıklama + hashtag kurar ve kurallara göre denetler.
+ * Konu bankası fikri → Sepet Röntgeni formatı; Faz 1–2'de diğer fikirler (elle) → kanal formatı;
+ * ürün tanıtımı (BOF) → brief formatı.
+ */
+export function buildForIdea(idea: Idea, ctx: { brief: Brief; phase: Phase; targetSec?: number }): Built {
+  const topic = idea.topic ?? null;
+  if (topic || (ctx.phase < 3 && (idea.funnel ?? 'BOF') !== 'BOF')) {
+    const script = topic ? buildTopicScript(idea, topic, ctx) : buildManualChannelScript(idea, ctx);
+    const caption = buildTopicCaption(script, topic);
+    const hashtags = buildTopicHashtags(topic);
+    return { script, caption, hashtags, problems: validateTopicPlan(script, caption, hashtags, topic, ctx.phase) };
+  }
+  const script = buildScript(idea, ctx.brief, ctx);
+  const caption = buildCaption(script);
+  const hashtags = buildHashtags(script, ctx.brief);
+  return { script, caption, hashtags, problems: validatePlan(script, caption, hashtags, ctx.brief) };
 }
 
 export interface Plan {
@@ -35,9 +60,10 @@ export type PlanResult = { ok: true; plan: Plan } | { ok: false; reason: string;
  */
 export function planDay(input: PlanInput): PlanResult {
   const now = input.now ?? new Date();
-  const type = chooseContentType(input.recent);
+  const type = input.phase < 3 ? choosePillar(input.recent, pillarTargets(input.phase)) : chooseContentType(input.recent);
   const style = chooseStyle(input.activeStyles, input.recent);
-  let pool = input.ideas;
+  const funnels = allowedFunnels(input.phase);
+  let pool = input.ideas.filter((i) => funnels.includes(i.funnel ?? 'BOF'));
   const rejected: string[] = [];
 
   for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
@@ -45,10 +71,7 @@ export function planDay(input: PlanInput): PlanResult {
     if (!sel.idea) {
       return { ok: false, reason: 'Kullanılabilir fikir yok; acil fikir araştırması gerekli.', needsEmergencyResearch: true, problems: rejected };
     }
-    const script = buildScript(sel.idea, input.brief);
-    const caption = buildCaption(script);
-    const hashtags = buildHashtags(script, input.brief);
-    const problems = validatePlan(script, caption, hashtags, input.brief);
+    const { script, caption, hashtags, problems } = buildForIdea(sel.idea, { brief: input.brief, phase: input.phase });
     const recentSentences = new Set(input.recent.slice(0, NO_REPEAT_LAST_VIDEOS).flatMap((r) => r.sentences ?? []));
     const repeated = contentSentences(script).filter((l) => recentSentences.has(l));
     if (repeated.length) problems.push(`Son ${NO_REPEAT_LAST_VIDEOS} videoda geçen cümle tekrar ediyor: "${repeated[0]}"`);
@@ -60,7 +83,8 @@ export function planDay(input: PlanInput): PlanResult {
           needsEmergencyResearch: sel.needsEmergencyResearch,
           reason: [
             summarizeRecent(input.recent),
-            `İçerik türü: ${type.reason}`,
+            `Faz ${input.phase} (izinli huni: ${funnels.join('/')}). İçerik türü: ${type.reason}`,
+            ...(sel.idea.topic ? [`Kanca adayları: ${(script.hook_candidates ?? []).map((h) => `"${h.hook}" (${h.score})`).join(', ')}`] : []),
             `Fikir: ${sel.reason} Neden bu fikir: ${sel.idea.why}`,
             `Stil: ${style.style} — ${style.reason}`,
             ...(rejected.length ? [`Atlanan fikirler: ${rejected.join(' | ')}`] : []),

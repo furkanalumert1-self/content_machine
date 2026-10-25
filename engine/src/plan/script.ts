@@ -17,6 +17,7 @@ export type Visual =
   | { type: 'before' }
   | { type: 'after'; feature: number; chips: string[] }
   | { type: 'myth' }
+  | { type: 'fact'; number?: string }
   | { type: 'cta' };
 
 export interface Scene {
@@ -42,6 +43,12 @@ export interface Script {
   cta_url: string;
   sample_data: boolean;
   review_notes: string[];
+  /** Videonun üst bandında görünen ad (Faz 1: kanal adı; yoksa ürün adı). */
+  channel?: string;
+  funnel?: import('../ideas/types.ts').Funnel;
+  /** Konu bankasından: 3 kanca adayı ve puanları, kaynaklar. */
+  hook_candidates?: { hook: string; score: number }[];
+  sources?: { label: string; url: string }[];
 }
 
 // ---------------------------------------------------------------- metin yardımcıları
@@ -50,14 +57,20 @@ const end = (s: string) => (/[.!?…]$/.test(s.trim()) ? s.trim() : `${s.trim()}
 const parts = (s: string) => s.split(';').map((p) => p.trim().replace(/\.$/, '')).filter(Boolean);
 const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
 
-/** Uzun cümleyi önce ";" sonra ortaya en yakın virgülden ekran satırlarına böler. */
+/** Uzun cümleyi önce ";", sonra ortaya en yakın virgül, yoksa boşluktan ekran satırlarına böler. */
 export function lineify(text: string): string[] {
   const t = text.trim();
   if (t.length <= MAX_LINE_CHARS) return [t];
   const semi = t.split(/;\s+/);
   if (semi.length > 1) return semi.flatMap((part, i) => lineify(i === semi.length - 1 ? cap(part) : end(cap(part))));
   const commas = [...t.matchAll(/,\s+/g)].map((m) => m.index!);
-  if (!commas.length) return [t];
+  if (!commas.length) {
+    // Virgül yoksa ortaya en yakın boşluktan bölünür.
+    const spaces = [...t.matchAll(/\s+/g)].map((m) => m.index!);
+    if (!spaces.length) return [t];
+    const at = spaces.sort((a, b) => Math.abs(a - t.length / 2) - Math.abs(b - t.length / 2))[0];
+    return [...lineify(t.slice(0, at)), ...lineify(t.slice(at).trim())];
+  }
   const mid = commas.sort((a, b) => Math.abs(a - t.length / 2) - Math.abs(b - t.length / 2))[0];
   return [...lineify(t.slice(0, mid + 1)), ...lineify(t.slice(mid + 1).trim())];
 }
@@ -88,7 +101,7 @@ const refIndex = (ref: string | null, kind: string) => {
   return m ? Number(m[1]) - 1 : null;
 };
 
-type Draft = Omit<Scene, 'start' | 'duration' | 'frames' | 'id'>;
+export type Draft = Omit<Scene, 'start' | 'duration' | 'frames' | 'id'>;
 
 function bodyScenes(idea: Idea, brief: Brief): { scenes: Draft[]; notes: string[] } {
   const notes: string[] = [];
@@ -152,6 +165,9 @@ function bodyScenes(idea: Idea, brief: Brief): { scenes: Draft[]; notes: string[
         notes,
       };
     }
+    default:
+      // Sütun türleri konu bankasından kurulur (topics/script.ts); buraya yalnızca hatalı kayıtla düşülür.
+      return { scenes: [st([end(idea.idea)])], notes: ['Bu içerik türü için brief şablonu yok.'] };
   }
 }
 
@@ -166,15 +182,15 @@ function hookFor(idea: Idea): string {
 const readSec = (lines: string[]) => 1.2 + lines.join(' ').length / 15; // büyük ekran metni, ~15 karakter/sn
 const toFrames = (s: number) => Math.round(s * FPS);
 
-function timeline(drafts: Draft[], targetSec?: number): Scene[] {
+export function timeline(drafts: Draft[], targetSec?: number, bounds: { min: number; max: number } = { min: MIN_SEC, max: MAX_SEC }): Scene[] {
   const d = drafts.map((s) =>
     s.kind === 'hook' ? Math.min(3, Math.max(2, readSec(s.lines)))
     : s.kind === 'cta' ? 3.5
     : Math.min(6, Math.max(2.2, readSec(s.lines)) + (s.visual.type === 'feature' || s.visual.type === 'after' ? 1 : 0)),
   );
   let total = d.reduce((a, b) => a + b, 0);
-  // İstenen süre (panelden) 15–45 aralığına sıkıştırılır; istenmediyse en az 15 sn.
-  const target = Math.min(MAX_SEC, Math.max(MIN_SEC, targetSec ?? MIN_SEC));
+  // İstenen süre (panelden) izin verilen aralığa sıkıştırılır; istenmediyse en az alt sınır.
+  const target = Math.min(bounds.max, Math.max(bounds.min, targetSec ?? bounds.min));
   const cap = targetSec ? 12 : 7; // sahne başına en fazla uzama
   if (total < target) {
     // Kısa senaryoda gövde sahneleri eşit uzatılır, yetmezse CTA 5 sn'ye kadar uzar.
@@ -222,7 +238,7 @@ export function buildScript(idea: Idea, brief: Brief, opts: { targetSec?: number
 }
 
 // ---------------------------------------------------------------- caption ve hashtag
-const TYPE_TAGS: Record<ContentType, string[]> = {
+const TYPE_TAGS: Partial<Record<ContentType, string[]>> = {
   problem_cozum: ['#müşterisadakati', '#tekrarsatış'],
   once_sonra: ['#müşterisadakati', '#eticaretpazarlama'],
   ipucu: ['#pazarlamaipuçları', '#eticaretipuçları'],
@@ -239,7 +255,7 @@ const FEATURE_TAGS: [RegExp, string[]][] = [
 
 export function buildHashtags(script: Script, brief: Brief): string[] {
   const featureTitles = script.scenes.flatMap((s) => ('feature' in s.visual ? [brief.features[s.visual.feature].title] : [])).join(' ');
-  const tags = ['#eticaret', '#retention', ...TYPE_TAGS[script.content_type], ...FEATURE_TAGS.flatMap(([re, t]) => (re.test(featureTitles) ? t : [])), '#CallypsoEngage'];
+  const tags = ['#eticaret', '#retention', ...(TYPE_TAGS[script.content_type] ?? []), ...FEATURE_TAGS.flatMap(([re, t]) => (re.test(featureTitles) ? t : [])), '#CallypsoEngage'];
   const fillers = ['#dijitalpazarlama', '#eticaretpazarlama', '#emailpazarlama'];
   const unique = [...new Set(tags)];
   for (const f of fillers) if (unique.length < 7 && !unique.includes(f)) unique.push(f);
@@ -264,7 +280,7 @@ export function buildCaption(script: Script): string {
 /** Tekrar kontrolü için senaryodaki anlamlı cümleler (etiket ve CTA hariç). */
 export function contentSentences(script: Pick<Script, 'scenes'>): string[] {
   // Özellik başlıkları (feature/after sahneleri) doğal olarak tekrar eder; yalnızca anlatım cümleleri sayılır.
-  return script.scenes.filter((s) => ['hook', 'statement', 'myth', 'before'].includes(s.visual.type)).flatMap((s) => s.lines)
+  return script.scenes.filter((s) => ['hook', 'statement', 'myth', 'before', 'fact'].includes(s.visual.type)).flatMap((s) => s.lines)
     .filter((l) => l.length > 20).map((l) => l.toLocaleLowerCase('tr'));
 }
 

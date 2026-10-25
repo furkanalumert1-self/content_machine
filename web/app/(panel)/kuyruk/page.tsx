@@ -11,7 +11,7 @@ type Row = {
   id: string; status: string; content_type: string; style: string; duration_sec: number; caption: string; hashtags: string[];
   publish_at: string | null; publish_at_reason: string | null; plan_reason: string | null; storage_path: string | null;
   error: string | null; qc: { checks?: QcCheck[] } | null; created_at: string; origin: string; request_instruction: string | null;
-  script: { review_notes?: string[]; hook?: string }; ig_permalink: string | null; published_at: string | null;
+  script: { review_notes?: string[]; hook?: string; channel?: string }; ig_permalink: string | null; published_at: string | null;
 };
 
 const FILTERS = {
@@ -114,7 +114,7 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
                             <Field label="Caption" hint="Web adresi, rakip adı, % vaadi ve kişisel veri kabul edilmez.">
                               <Textarea name="caption" rows={7} defaultValue={v.caption} />
                             </Field>
-                            <Field label="Hashtag'ler (boşlukla, 5–10)"><Input name="hashtags" defaultValue={v.hashtags.join(' ')} /></Field>
+                            <Field label={`Hashtag'ler (boşlukla, ${v.script?.channel ? '3–5' : '5–10'})`}><Input name="hashtags" defaultValue={v.hashtags.join(' ')} /></Field>
                           </div>
                         </ActionForm>
                         <ActionForm action={changeTime} label="Saati kaydet" variant="secondary" hidden={{ id: v.id }}>

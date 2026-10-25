@@ -114,3 +114,14 @@
 - Panel: https://contentmachine-web-azure.vercel.app (yönlendirme, güvenlik başlıkları, JS'te gizli anahtar yok — canlı kontrol edildi).
 - ADMIN_EMAIL artık virgülle birden çok e-posta alır (her biri admins tablosunda da olmalı). Onaylanmamış hesap için ayrı mesaj (Supabase bunu yalnızca şifre doğruysa döndürür — yerelde doğrulandı).
 - İlk Fikir araştırması: GitHub secret SUPABASE_SERVICE_ROLE_KEY yerine publishable key girilmişti → RLS sessizce gizledi. Motor ve panel artık anahtar türünü (değeri yazmadan) denetleyip açık hata verir; Ayarlar > Entegrasyonlar satırı.
+- Canlı: Instagram bağlandı (@callypso_engage); metrics işi token'ı çözüp API'ye ulaştı (anahtarlar Vercel=GitHub). İlk otomatik video (eski format) kuyrukta, onaylanmadı.
+
+## ADIM 10 — Sepet Röntgeni içerik planı (docs/icerik-plani.md) — 1. kısım: konu bankası + senaryo formatı
+Kararlar (kullanıcı, 25.10): hesap callypso_engage → Sepet Röntgeni olarak yeniden adlandırılacak (kullanıcı yapar); CTA "yorumlara REHBER yaz" — PDF'i kullanıcı elle/ManyChat ile gönderir (otomatik DM yok); seslendirme için ElevenLabs fiyatı soruldu (karar bekliyor).
+- Konu bankası `config/topics/sepet-rontgeni.json`: 16 konu, 15 "dogrulandi", Apple "beklemede" (tekrar satın alma iddiası kaynaksız). Her olgu kaynak URL'li; kaynaklar 25.10.2026'da açılıp kontrol edildi (ayrıntı ve uyarılar her olgunun `note` alanında).
+  - Damga kartı: %34/%19 tam metinden doğrulanamadı → rakam kullanılmadı. Getir/Yemeksepeti "Seni özledik": kaynak yok → yerine İTÜ tezi (Türk e-ticaret geri kazanma). "Sepet terki ilk saat": kaynak yok → "aynı gün/erken". Starbucks: yeni çeyrek verisi çıkınca güncellenmeli.
+  - Sütun dağılımı: A 10, B 2, C 2, D 1 → B ve D için yeni konu gerekli. Stok ~15 gün (60 gün tekrar yasağı).
+- Kurallar kodda (`engine/src/topics/`): kanca ≤8 kelime, 3 aday + puan (merak+somutluk+kısalık); 45–58 sn; KANCA→OLGU (büyük rakam)→MEKANİZMA→SENİN MAĞAZAN İÇİN→CTA (REHBER); açıklama şablonu + "Kaynak:" satırı; 3–5 hashtag; kaynak kapısı (olgu/mekanizma/kanca/kapaktaki her rakam bir kaynaklı olguda geçmeli); Faz 1'de ürün adı yasak, BOF feed'e girmez; sütun karması Faz 1: A %55, B %25, C %10 (MOF ≤%10), D %10; markayı suçlayan dil yasak.
+- DB (0006): içerik türüne sütunlar, `ideas.funnel/topic`, `app_settings.content_phase` (1), video süresi 15–58, hashtag 3–10. Eski brief fikirleri BOF → Faz 1–2'de kullanılmaz (Faz 3'te geri gelir).
+- Video üst bandında kanal adı (Sepet Röntgeni); Türkçe büyük harf (İ) düzeltildi.
+- Henüz yapılmadı (planın sonraki adımları): açık renkli Sepet Röntgeni görsel kimliği + kapak (cover_url) + 3:4 grid testi; seslendirme (-14 LUFS) ve kelime kelime altyazı; yayın saatleri 12:30/20:30; 48. saat metrikleri, skor formülü, haftalık rapor; huni altyapısı (lead puanı, e-posta serisi, faz geçişi). PDF ("25 taktik") kullanıcıda olmalı — ilk yayından önce.

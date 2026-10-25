@@ -1,4 +1,5 @@
-// Haftalık (veya acil) fikir araştırması: her aktif ürün için 15–20 fikir ekler.
+// Haftalık (veya acil) fikir işi: Sepet Röntgeni konu bankasını (kaynakları doğrulanmış) fikir tablosuna senkronlar.
+// Faz 3'te ayrıca ürün brief'inden ürün tanıtımı (BOF) fikirleri üretir.
 // Çalıştırma: npx tsx src/jobs/idea-research.ts [weekly|emergency|manual]
 import { serviceClient } from '../lib/db.ts';
 import { createLogger } from '../lib/logger.ts';
@@ -6,12 +7,16 @@ import { generateIdeas } from '../ideas/generate.ts';
 import { analyzePerformance } from '../ideas/performance.ts';
 import { approvedBrief, insertIdeas, listIdeas, performanceRows } from '../ideas/repo.ts';
 import { commitsSince, inspectRepo, LeakSuspectedError } from '../sync/github.ts';
+import { loadBank } from '../topics/bank.ts';
+import { syncTopics } from '../topics/sync.ts';
 
 const trigger = (process.argv[2] ?? 'weekly') as 'weekly' | 'emergency' | 'manual';
 const db = serviceClient('idea_research');
 const log = createLogger('idea_research', db);
 
-const { data: settings } = await db.from('app_settings').select('timezone').single();
+const { data: settings } = await db.from('app_settings').select('timezone, content_phase').single();
+const phase = settings?.content_phase ?? 1;
+const bank = loadBank();
 const { data: products, error } = await db.from('products').select('id, slug, github_repo').eq('status', 'active');
 if (error) throw error;
 if (!products?.length) await log.warn('Aktif ürün yok; araştırma yapılmadı.');
@@ -23,6 +28,19 @@ for (const p of products ?? []) {
     if (!brief) { await log.warn(`${p.slug}: onaylı brief yok, atlandı.`); continue; }
 
     const notes: string[] = [];
+    let bankAdded = 0;
+    if (p.slug === bank.product) {
+      const r = await syncTopics(db, p.id, bank);
+      bankAdded = r.added;
+      notes.push(`Konu bankası: ${r.added} yeni, ${r.updated} güncellendi, ${r.removed} çıkarıldı.`);
+      for (const x of r.rejected) await log.warn(`Konu "${x.key}" kurallara uymadığı için alınmadı: ${x.problems.join('; ')}`);
+    }
+    if (phase < 3) {
+      // Faz 1–2: ürün tanıtımı feed'e girmez; brief'ten fikir üretilmez.
+      await db.from('research_runs').insert({ product_id: p.id, trigger, added: bankAdded, notes });
+      await log.info(`${p.slug}: ${notes.join(' ')}`, { trigger, phase });
+      continue;
+    }
     let commits: Awaited<ReturnType<typeof inspectRepo>>['commits'] = [];
     if (p.github_repo) {
       try {
@@ -36,7 +54,7 @@ for (const p of products ?? []) {
     const existing = await listIdeas(db, p.id);
     const performance = analyzePerformance(await performanceRows(db, p.id, settings?.timezone ?? 'Europe/Istanbul'));
     const result = generateIdeas({ brief: brief.brief, commits, existing, performance });
-    const added = await insertIdeas(db, p.id, result.ideas);
+    const added = await insertIdeas(db, p.id, result.ideas.map((i) => ({ ...i, funnel: 'BOF' as const })));
     notes.push(...result.notes);
 
     await db.from('research_runs').insert({ product_id: p.id, trigger, added, notes });

@@ -11,6 +11,7 @@ import { chooseProduct, type RecentVideo } from '../plan/rotation.ts';
 import { contentSentences } from '../plan/script.ts';
 import { startOfLocalDay } from '../plan/time.ts';
 import { scheduleInputs } from '../schedule/repo.ts';
+import type { Phase } from '../topics/channel.ts';
 import { chooseSlot } from '../schedule/slots.ts';
 
 const db = serviceClient('planner');
@@ -60,13 +61,14 @@ const result = planDay({
   recent: recent.filter((r) => r.product_id === p.id),
   recentExploration: await recentExplorationFlags(db, p.id),
   activeStyles,
+  phase: (settings.content_phase ?? 1) as Phase,
 });
 
 if (!result.ok) {
   await log.error(`${p.slug}: ${result.reason}`, { problems: result.problems });
   if (result.needsEmergencyResearch) {
     setOutput('needs_research', true);
-    await log.warn('Acil fikir araştırması gerekiyor; aynı iş akışında başlatılacak.');
+    await log.warn('Kullanılabilir konu kalmadı: config/topics/sepet-rontgeni.json\'a kaynakları doğrulanmış yeni konular eklenmeli.', { notify: true });
   } else process.exitCode = 1;
 } else {
   const { plan } = result;
@@ -93,6 +95,7 @@ if (!result.ok) {
   await log.info(`${p.slug}: video planlandı (${video.id}), yayın ${slot.slot} (${slot.mode}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
   if (plan.needsEmergencyResearch) {
     setOutput('needs_research', true);
-    await log.warn('Kullanılabilir fikir 10\'un altında; acil araştırma başlatılacak.');
+    // Konu bankası elle araştırılıp doğrulanır (kaynak kapısı); otomatik iş yalnızca dosyayı senkronlar.
+    await log.warn('Kullanılabilir konu 10\'un altında: config/topics/sepet-rontgeni.json\'a kaynakları doğrulanmış yeni konular eklenmeli.', { notify: true });
   }
 }

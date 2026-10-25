@@ -1,4 +1,5 @@
 import { CONTENT_TYPES, type ContentType } from '../ideas/types.ts';
+import { PILLAR_TYPE, type Pillar } from '../topics/types.ts';
 
 export interface RecentVideo {
   product_id: string;
@@ -48,4 +49,23 @@ export function summarizeRecent(recent: RecentVideo[]): string {
     return [...m.entries()].map(([key, n]) => `${key}×${n}`).join(', ');
   };
   return `Son 14 gün: ${recent.length} video; türler: ${count('content_type')}; stiller: ${count('style')}.`;
+}
+
+/**
+ * Sepet Röntgeni sütun karması: son videolarda hedef orana en çok gerisinde kalan sütun seçilir
+ * (eşitlikte hedefi büyük olan). Yalnızca sütun türündeki videolar sayılır.
+ */
+export function choosePillar(recent: RecentVideo[], targets: Record<Pillar, number>, window = 20): { type: ContentType; pillar: Pillar; reason: string } {
+  const pillars = Object.keys(targets) as Pillar[];
+  const counts = Object.fromEntries(pillars.map((p) => [p, 0])) as Record<Pillar, number>;
+  const seen = recent.filter((v) => pillars.some((p) => PILLAR_TYPE[p] === v.content_type)).slice(0, window);
+  for (const v of seen) counts[pillars.find((p) => PILLAR_TYPE[p] === v.content_type)!]++;
+  const n = seen.length + 1;
+  const deficit = (p: Pillar) => targets[p] * n - counts[p];
+  const pillar = [...pillars].sort((a, b) => deficit(b) - deficit(a) || targets[b] - targets[a])[0];
+  const pct = (x: number) => `%${Math.round(x * 100)}`;
+  return {
+    pillar, type: PILLAR_TYPE[pillar],
+    reason: `Sütun ${pillar} (${PILLAR_TYPE[pillar]}): son ${seen.length} videoda ${counts[pillar]} kez, hedef ${pct(targets[pillar])}; en çok geride kalan sütun.`,
+  };
 }

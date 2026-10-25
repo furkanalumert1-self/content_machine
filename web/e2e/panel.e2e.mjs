@@ -132,10 +132,13 @@ try {
   await page.fill('textarea[name=instruction]', 'Mailchimp yerine bizi kullanın.');
   msg = await submit(page, page.locator('form'), 'Kuyruğa ekle', page.locator('main section'));
   check('Rakip adı içeren talimat reddedilir', msg.includes('Rakip adı'), msg.slice(0, 60));
-  await page.fill('textarea[name=instruction]', 'Sepet bir sinyaldir. Terk edilen ürünü unutma. Hatırlatma akışıyla takip edilebilir.');
-  await page.selectOption('select[name=duration]', '30');
+  await page.fill('textarea[name=instruction]', 'Sepet unutulmaz. Callypso ile hatırlat. Bir şey araya girdi. Ona hatırlatma gönder.');
   msg = await submit(page, page.locator('form'), 'Kuyruğa ekle', page.locator('main section'));
-  check('Talimattan video planlanır (30 sn, saat ve gerekçesiyle)', msg.includes('Kuyruğa eklendi') && sql(`select count(*) from videos where origin='manual' and status='planned' and duration_sec=30 and publish_at is not null and publish_at_reason is not null`) === '1', msg.slice(0, 60));
+  check('Faz 1: ürün adı geçen talimat reddedilir (fikir kaydedilmez)', msg.includes('ürün adı') && sql(`select count(*) from ideas where idea ilike '%callypso ile%'`) === '0', msg.slice(0, 80));
+  await page.fill('textarea[name=instruction]', 'Sepeti terk eden müşteri seni unutmadı. Sepete ürün ekleyen müşteri karar vermek üzereydi. Bir şey araya girdi ve sayfayı kapattı. Ona suçlama değil, hatırlatma gönder. Mesajda sepetteki ürünü göster. İlk hatırlatmayı aynı gün içinde gönder.');
+  await page.selectOption('select[name=duration]', '50');
+  msg = await submit(page, page.locator('form'), 'Kuyruğa ekle', page.locator('main section'));
+  check('Talimattan Sepet Röntgeni videosu planlanır (50 sn, REHBER CTA, saat ve gerekçesiyle)', msg.includes('Kuyruğa eklendi') && sql(`select count(*) from videos where origin='manual' and status='planned' and duration_sec between 45 and 58 and caption like '%REHBER%' and script->>'channel' = 'Sepet Röntgeni' and publish_at is not null and publish_at_reason is not null`) === '1', msg.slice(0, 60));
 
   // ---------------------------------------------------------------- Fikir bankası
   await page.goto(`${BASE}/fikirler`);

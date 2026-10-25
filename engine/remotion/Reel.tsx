@@ -57,8 +57,9 @@ function Enter({ delay = 0, children, style }: { delay?: number; children: React
 
 function Label({ text, color }: { text: string; color: string }) {
   return (
-    <div style={{ fontFamily: FONT.mono, fontWeight: 500, fontSize: 34, letterSpacing: 4, color, textTransform: 'uppercase', marginBottom: 28 }}>
-      {text.replace(/:$/, '')}
+    <div style={{ fontFamily: FONT.mono, fontWeight: 500, fontSize: 34, letterSpacing: 4, color, marginBottom: 28 }}>
+      {/* CSS uppercase Türkçe İ/ı'yı bozar; tr yerel ayarıyla büyütülür. */}
+      {text.replace(/:$/, '').toLocaleUpperCase('tr')}
     </div>
   );
 }
@@ -186,6 +187,7 @@ function BodyScene({ scene, brand, featureTitles }: SceneProps) {
   return (
     <div style={columnStyle(useFadeOut(scene))}>
       {v.type === 'before' && <Scattered />}
+      {v.type === 'fact' && v.number && <BigNumber id={`${scene.id}-num`} text={v.number} color={brand.accent} />}
       {textLines.length > 0 && (
         <TextBlock id={scene.id} lines={textLines} size={64} maxHeight={hasCard ? 160 : 820} labelColor={v.type === 'before' ? MUTED : brand.accent} />
       )}
@@ -203,6 +205,18 @@ function SceneView(props: SceneProps) {
   if (props.scene.visual.type === 'hook') return <HookScene {...props} />;
   if (props.scene.visual.type === 'cta') return <CtaScene {...props} />;
   return <BodyScene {...props} />;
+}
+
+/** Olgu sahnesinde rakam büyük ve tek başına görünür. */
+function BigNumber({ id, text, color }: { id: string; text: string; color: string }) {
+  const ref = useTextQc<HTMLDivElement>(id, SETTLE);
+  return (
+    <Enter>
+      <div ref={ref} style={{ maxHeight: 320, overflow: 'hidden', marginBottom: 36 }}>
+        <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: 220, lineHeight: 1.25, color, letterSpacing: -6, whiteSpace: 'nowrap' }}>{text}</div>
+      </div>
+    </Enter>
+  );
 }
 
 function FeatureTitle({ id, text }: { id: string; text: string }) {

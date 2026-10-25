@@ -1,7 +1,9 @@
 // Render sonrası otomatik kalite kontrolü. Herhangi bir kontrol başarısızsa video "ready" olamaz.
 import { execFileSync } from 'node:child_process';
 import { openSync, readSync, closeSync, statSync } from 'node:fs';
+import { MAX_SEC as SCRIPT_MAX, MIN_SEC as SCRIPT_MIN } from '../plan/script.ts';
 import type { Script } from '../plan/script.ts';
+import { MAX_SEC as CHANNEL_MAX, MIN_SEC as CHANNEL_MIN } from '../topics/channel.ts';
 
 export const MAX_BYTES = 100 * 1024 * 1024; // Meta sınırının (üçüncü taraf kaynaklara göre 300 MB) çok altında
 export const MIN_BYTES = 50 * 1024;
@@ -80,12 +82,14 @@ export function runQc(p: Probe, script: Script, textReports: TextReport[]): QcRe
   const missing = expectedIds.filter((id) => !reported.has(id));
   const bad = textReports.filter((r) => !r.ok);
   const subs = subtitleCoverage(script);
+  // Kanal (Sepet Röntgeni) videoları 45–58 sn, ürün videoları 15–45 sn.
+  const bounds = script.channel ? { min: CHANNEL_MIN, max: CHANNEL_MAX } : { min: SCRIPT_MIN, max: SCRIPT_MAX };
   const checks = [
     { name: 'Çözünürlük 1080×1920', ok: p.width === 1080 && p.height === 1920, detail: `${p.width}×${p.height}` },
     { name: '30 fps', ok: Math.abs(p.fps - 30) < 0.01, detail: `${p.fps}` },
     { name: 'H.264 + yuv420p', ok: p.videoCodec === 'h264' && p.pixFmt === 'yuv420p', detail: `${p.videoCodec}/${p.pixFmt}` },
     { name: 'AAC ses izi', ok: p.audioCodec === 'aac', detail: p.audioCodec ?? 'yok' },
-    { name: 'Süre', ok: Math.abs(p.duration - script.duration_sec) <= DURATION_TOLERANCE && p.duration >= 15 && p.duration <= 45, detail: `${p.duration.toFixed(2)} sn (beklenen ${script.duration_sec})` },
+    { name: 'Süre', ok: Math.abs(p.duration - script.duration_sec) <= DURATION_TOLERANCE && p.duration >= bounds.min && p.duration <= bounds.max, detail: `${p.duration.toFixed(2)} sn (beklenen ${script.duration_sec})` },
     { name: 'Dosya boyutu', ok: p.bytes >= MIN_BYTES && p.bytes <= MAX_BYTES, detail: `${(p.bytes / 1024 / 1024).toFixed(2)} MB` },
     { name: 'moov başta (faststart)', ok: p.moovFirst, detail: p.moovFirst ? 'evet' : 'hayır' },
     { name: 'Metin taşması yok', ok: bad.length === 0 && missing.length === 0, detail: bad.length ? bad.map((b) => `${b.id}: ${b.problems.join(', ')}`).join('; ') : missing.length ? `ölçülmeyen sahne: ${missing.join(', ')}` : `${textReports.length} metin kutusu ölçüldü` },
