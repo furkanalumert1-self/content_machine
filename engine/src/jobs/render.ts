@@ -17,6 +17,7 @@ import { TelegramApi } from '../notify/telegram.ts';
 import { produceStory } from '../story/produce.ts';
 import { storySrt } from '../story/render.ts';
 import type { StoryScript } from '../story/types.ts';
+import { VOICE_ID } from '../topics/channel.ts';
 
 const PREVIEW_URL_SECONDS = 48 * 3600;
 
@@ -103,7 +104,9 @@ for (const v of queue ?? []) {
 if (failures) process.exitCode = 1;
 
 /** Hikâye formatı: seslendir → zamanla → render → yükle. Hata olursa true döner. */
-async function renderStoryVideo(id: string, plan: StoryScript, slug: string, attempts: number): Promise<boolean> {
+async function renderStoryVideo(id: string, stored: StoryScript, slug: string, attempts: number): Promise<boolean> {
+  // Kanal sesi değişirse yeniden üretilen videolar da güncel sesle seslendirilir.
+  const plan: StoryScript = { ...stored, voice: { ...stored.voice, voice_id: VOICE_ID } };
   if (attempts >= MAX_ATTEMPTS) {
     await db.from('videos').update({ status: 'render_failed', error: 'Deneme hakkı doldu.' }).eq('id', id);
     return true;
