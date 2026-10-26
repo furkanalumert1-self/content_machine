@@ -14,6 +14,9 @@ import { MAX_ATTEMPTS, renderWithRetries } from '../render/render.ts';
 import { BUCKET } from '../lib/storage.ts';
 import { buildButtons, callbackKey, readyMessage } from '../approvals/telegram-approval.ts';
 import { TelegramApi } from '../notify/telegram.ts';
+import { produceStory } from '../story/produce.ts';
+import { storySrt } from '../story/render.ts';
+import type { StoryScript } from '../story/types.ts';
 
 const PREVIEW_URL_SECONDS = 48 * 3600;
 
@@ -24,6 +27,12 @@ export const LICENSES = [
   { asset: 'Remotion (render motoru)', license: 'Remotion Free License (birey / ≤3 çalışan)', source: 'remotion.dev/license' },
   { asset: 'Görseller', license: 'Kendi üretimimiz (kodla çizildi)', source: 'engine/remotion' },
   { asset: 'Müzik', license: 'Yok (sessiz ses izi)', source: '-' },
+];
+
+const STORY_LICENSES = [
+  ...LICENSES.filter((l) => !['Müzik', 'Dark Tech Keynote stil kuralları'].includes(l.asset)),
+  { asset: 'Seslendirme', license: 'ElevenLabs ücretli plan ticari lisansı (yapay zekâ sesi)', source: 'elevenlabs.io/terms-of-use' },
+  { asset: 'Müzik', license: 'Yok', source: '-' },
 ];
 
 const db = serviceClient('render');
@@ -47,6 +56,10 @@ for (const v of queue ?? []) {
   const product = (Array.isArray(v.products) ? v.products[0] : v.products) as { slug: string; name: string; brand_colors: Record<string, string> };
   const briefRow = (Array.isArray(v.product_briefs) ? v.product_briefs[0] : v.product_briefs) as { content_md: string };
   const brief = parseBrief(briefRow.content_md);
+  if ((v.script as { format?: string }).format === 'story') {
+    if (await renderStoryVideo(v.id, v.script as StoryScript, product.slug, v.render_attempts)) failures++;
+    continue;
+  }
   const script = v.script as Script;
   const props = {
     script,
@@ -88,6 +101,49 @@ for (const v of queue ?? []) {
   await sendForApproval(v.id);
 }
 if (failures) process.exitCode = 1;
+
+/** Hikâye formatı: seslendir → zamanla → render → yükle. Hata olursa true döner. */
+async function renderStoryVideo(id: string, plan: StoryScript, slug: string, attempts: number): Promise<boolean> {
+  if (attempts >= MAX_ATTEMPTS) {
+    await db.from('videos').update({ status: 'render_failed', error: 'Deneme hakkı doldu.' }).eq('id', id);
+    return true;
+  }
+  if (!process.env.ELEVENLABS_API_KEY) {
+    await db.from('videos').update({ status: 'render_failed', error: 'ELEVENLABS_API_KEY tanımlı değil (GitHub Secrets).' }).eq('id', id);
+    await log.error(`Video ${id}: seslendirme anahtarı yok; GitHub Secrets'a ELEVENLABS_API_KEY ekleyin.`, { notify: true });
+    return true;
+  }
+  await db.from('videos').update({ status: 'rendering', render_attempts: attempts + 1 }).eq('id', id);
+  let r;
+  try {
+    r = await produceStory(plan, join(tmpdir(), 'cm-render'), id);
+  } catch (e) {
+    await db.from('videos').update({ status: attempts + 1 >= MAX_ATTEMPTS ? 'render_failed' : 'planned', error: (e as Error).message }).eq('id', id);
+    await log.error(`Video ${id} seslendirilemedi: ${(e as Error).message}`, { notify: attempts + 1 >= MAX_ATTEMPTS });
+    return true;
+  }
+  if (!r.ok || !r.output || !r.script) {
+    await db.from('videos').update({ status: 'render_failed', error: r.errors.join('\n'), qc: r.output?.qc ?? null }).eq('id', id);
+    await log.error(`Video ${id} üretilemedi; yayınlanmayacak.`, { errors: r.errors, notify: true });
+    return true;
+  }
+  const path = `${slug}/${id}.mp4`;
+  const up = await db.storage.from(BUCKET).upload(path, readFileSync(r.output.file), { contentType: 'video/mp4', upsert: true });
+  if (up.error) {
+    await db.from('videos').update({ status: 'render_failed', error: `Yükleme hatası: ${up.error.message}` }).eq('id', id);
+    await log.error(`Video ${id} yüklenemedi.`, { error: up.error.message, notify: true });
+    return true;
+  }
+  await db.storage.from(BUCKET).upload(`${slug}/${id}.srt`, storySrt(r.script), { contentType: 'text/plain', upsert: true });
+  // Zamanlanmış senaryo ve gerçek süre kaydedilir (ses verisi kaydedilmez).
+  await db.from('videos').update({
+    status: 'ready', storage_path: path, file_size_bytes: r.output.qc.probe.bytes, script: r.script, duration_sec: r.script.duration_sec,
+    qc: { ...r.output.qc, render_ms: r.output.ms, attempts: r.attempts }, licenses: STORY_LICENSES, error: null,
+  }).eq('id', id);
+  await log.info(`Video ${id} hazır (hikâye, ${r.script.duration_sec} sn, ${(r.output.ms / 1000).toFixed(0)} sn render).`);
+  await sendForApproval(id);
+  return false;
+}
 
 /** Hazır videoyu Telegram'a önizleme + imzalı Onayla/Reddet düğmeleriyle gönderir (Telegram tanımlı değilse atlar). */
 async function sendForApproval(videoId: string) {

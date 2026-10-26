@@ -59,4 +59,6 @@ jobs:
       - name: Render + kalite kontrolü
         # Planlama başarısız olsa da daha önce planlanmış (veya panelden istenmiş) videolar üretilsin.
         if: ${{ !cancelled() }}
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }} # hikâye formatı seslendirmesi
         run: npx tsx src/jobs/render.ts

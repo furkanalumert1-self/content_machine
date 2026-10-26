@@ -278,9 +278,14 @@ export function buildCaption(script: Script): string {
 }
 
 /** Tekrar kontrolü için senaryodaki anlamlı cümleler (etiket ve CTA hariç). */
-export function contentSentences(script: Pick<Script, 'scenes'>): string[] {
+export function contentSentences(script: Pick<Script, 'scenes'> | { format: 'story'; segments?: { say: string; show: { type: string } }[]; scenes?: { say: string; show: { type: string } }[] }): string[] {
+  if ('format' in script && script.format === 'story') {
+    // Hikâye: sabit cümleler (röntgen geçişi, kapanış) her videoda bilerek tekrar eder; sayılmaz.
+    return (script.segments ?? script.scenes ?? []).filter((s) => !['xray', 'outro'].includes(s.show.type))
+      .flatMap((s) => s.say.split(/(?<=[.!?])\s+/)).filter((l) => l.length > 20).map((l) => l.toLocaleLowerCase('tr'));
+  }
   // Özellik başlıkları (feature/after sahneleri) doğal olarak tekrar eder; yalnızca anlatım cümleleri sayılır.
-  return script.scenes.filter((s) => ['hook', 'statement', 'myth', 'before', 'fact'].includes(s.visual.type)).flatMap((s) => s.lines)
+  return (script as Pick<Script, 'scenes'>).scenes.filter((s) => ['hook', 'statement', 'myth', 'before', 'fact'].includes(s.visual.type)).flatMap((s) => s.lines)
     .filter((l) => l.length > 20).map((l) => l.toLocaleLowerCase('tr'));
 }
 

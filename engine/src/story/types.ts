@@ -46,6 +46,8 @@ export interface StoryScript {
   case_no: number;
   case_label: string;
   hook: string;
+  /** Planlanan anlatı (seslendirme render sırasında yapılır; o zamana kadar scenes/captions boştur). */
+  segments: StorySegment[];
   scenes: StoryScene[];
   captions: CaptionChunk[];
   duration_sec: number;

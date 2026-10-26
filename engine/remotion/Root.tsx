@@ -34,7 +34,7 @@ function StoryWithFonts(props: StoryProps) {
 
 const storyPlaceholder: StoryProps = {
   script: {
-    version: 2, format: 'story', product: 'x', channel: 'Sepet Röntgeni', content_type: 'marka_rontgeni', case_no: 1, case_label: 'örnek', hook: 'Örnek',
+    version: 2, format: 'story', product: 'x', channel: 'Sepet Röntgeni', content_type: 'marka_rontgeni', case_no: 1, case_label: 'örnek', hook: 'Örnek', segments: [],
     scenes: [{ id: 's0', start: 0, duration: 5, frames: 150, say: 'Örnek', show: { type: 'title', text: 'Örnek' }, mode: 'light' }],
     captions: [], duration_sec: 5, voice: { provider: 'elevenlabs', voice_id: '', model: '', lufs: null },
     cta: '', cta_url: '', sample_data: false, review_notes: [], sources: [],

@@ -8,9 +8,10 @@ import type { Beat, StoryScript } from './types.ts';
 import { VOICE_MODEL, type Alignment } from './voice.ts';
 
 export const XRAY_LINE = 'Hadi röntgenini çekelim.';
-/** Türkçe anlatım ~2,5 kelime/sn: 45–58 sn için 105–150 kelime. */
-export const MIN_WORDS = 105;
-export const MAX_WORDS = 150;
+/** Ölçülen hız (1.1x): ~2,27 kelime/sn + 1,2 sn kapanış → 45–58 sn için 103–128 kelime. */
+export const MIN_WORDS = 103;
+export const MAX_WORDS = 128;
+export const WORDS_PER_SEC = 2.27;
 
 const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
 // Saat ve kaynak notu süs/künyedir, iddia değil; rakam denetimine girmez.
@@ -40,21 +41,31 @@ export function validateStory(topic: Topic, phase: Phase = 1): string[] {
   return p;
 }
 
-export function buildStoryScript(topic: Topic, caseNo: number, speech: { alignment: Alignment; audioSrc?: string; durationSec: number; voiceId: string; lufs: number | null }, contentType: string): StoryScript {
-  const segs = topic.story!.segments.map((s) => (s.show.type === 'outro' ? { ...s, show: { ...s.show, caseNo } } : s));
-  const { ranges, replacements } = narration(segs);
-  const w = restoreOriginals(wordsFrom(speech.alignment), replacements);
-  const scenes = storyScenes(segs, ranges, w, speech.durationSec);
-  const last = scenes.at(-1)!;
+/** Planlama: seslendirmesiz hikâye planı (süre tahmini). Seslendirme ve sahne zamanlaması render işinde yapılır. */
+export function planStory(topic: Topic, caseNo: number, contentType: string, voiceId: string): StoryScript {
+  const segments = topic.story!.segments.map((s) => (s.show.type === 'outro' ? { ...s, show: { ...s.show, caseNo } } : s));
+  const est = Math.min(58, Math.max(45, Math.round((words(narration(segments).text) / WORDS_PER_SEC + 1.2) * 100) / 100));
   return {
     version: 2, format: 'story', product: CHANNEL_NAME, channel: CHANNEL_NAME, content_type: contentType,
-    case_no: caseNo, case_label: topic.story!.label, hook: segs[0].say.split(/(?<=[.!?])\s+/)[0],
-    scenes, captions: captionChunks(w.map(({ w: t, start, end }) => ({ w: t, start, end }))),
-    duration_sec: Math.round((last.start + last.duration) * 100) / 100,
-    audio_src: speech.audioSrc,
-    voice: { provider: 'elevenlabs', voice_id: speech.voiceId, model: VOICE_MODEL, lufs: speech.lufs },
-    cta: last.say, cta_url: '', sample_data: false, review_notes: [],
+    case_no: caseNo, case_label: topic.story!.label, hook: segments[0].say.split(/(?<=[.!?])\s+/)[0],
+    segments, scenes: [], captions: [], duration_sec: est,
+    voice: { provider: 'elevenlabs', voice_id: voiceId, model: VOICE_MODEL, lufs: null },
+    cta: segments.at(-1)!.say, cta_url: '', sample_data: false, review_notes: [],
     sources: [...new Map(topic.facts.map((f) => [f.source_url, { label: f.source_label, url: f.source_url }])).values()],
     funnel: topic.funnel,
+  };
+}
+
+/** Render: seslendirme zamanlamasıyla sahne ve altyazı çizelgesini doldurur. */
+export function timeStory(plan: StoryScript, speech: { alignment: Alignment; audioSrc?: string; durationSec: number; lufs: number | null }): StoryScript {
+  const { ranges, replacements } = narration(plan.segments);
+  const w = restoreOriginals(wordsFrom(speech.alignment), replacements);
+  const scenes = storyScenes(plan.segments, ranges, w, speech.durationSec);
+  const last = scenes.at(-1)!;
+  return {
+    ...plan, scenes, captions: captionChunks(w.map(({ w: t, start, end }) => ({ w: t, start, end }))),
+    duration_sec: Math.round((last.start + last.duration) * 100) / 100,
+    audio_src: speech.audioSrc,
+    voice: { ...plan.voice, lufs: speech.lufs },
   };
 }
