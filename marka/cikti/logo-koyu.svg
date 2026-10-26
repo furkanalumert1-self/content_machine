@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="1080" height="1080">
+  <rect width="100" height="100" fill="#0D1B2C"/>
+  <g opacity="0.10" stroke="#5FD4E6" stroke-width="0.3"><path d="M0 0 V100 M0 0 H100"/><path d="M10 0 V100 M0 10 H100"/><path d="M20 0 V100 M0 20 H100"/><path d="M30 0 V100 M0 30 H100"/><path d="M40 0 V100 M0 40 H100"/><path d="M50 0 V100 M0 50 H100"/><path d="M60 0 V100 M0 60 H100"/><path d="M70 0 V100 M0 70 H100"/><path d="M80 0 V100 M0 80 H100"/><path d="M90 0 V100 M0 90 H100"/><path d="M100 0 V100 M0 100 H100"/></g>
+  <path d="M17 24 V17 H24" fill="none" stroke="#5FD4E6" stroke-width="2.2" stroke-linecap="round"/><path d="M83 24 V17 H76" fill="none" stroke="#5FD4E6" stroke-width="2.2" stroke-linecap="round"/><path d="M17 76 V83 H24" fill="none" stroke="#5FD4E6" stroke-width="2.2" stroke-linecap="round"/><path d="M83 76 V83 H76" fill="none" stroke="#5FD4E6" stroke-width="2.2" stroke-linecap="round"/>
+  <g filter="url(#glow)">
+  <path d="M33 44 Q50 20 67 44" fill="none" stroke="#5FD4E6" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M20 44 H80" stroke="#5FD4E6" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M24 50 L30 76 Q31 79 34 79 H66 Q69 79 70 76 L76 50 Z" fill="none" stroke="#5FD4E6" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M38 55 L40 73 M50 55 V73 M62 55 L60 73" stroke="#5FD4E6" stroke-width="2.5600000000000005" stroke-linecap="round" opacity="0.85"/></g>
+  <rect x="12" y="60.2" width="76" height="2.6" rx="1.3" fill="#E8402A"/>
+  <rect x="12" y="56" width="76" height="11" fill="#E8402A" opacity="0.12"/>
+  <defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+</svg>
