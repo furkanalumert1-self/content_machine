@@ -64,7 +64,8 @@ export async function requestVideo(_: ActionResult, form: FormData): Promise<Act
       await db.from('ideas').update({ used: true, last_used_at: new Date().toISOString() }).eq('id', idea.id);
     }
 
-    const { script, caption, hashtags, problems } = buildForIdea(idea, { brief: brief.brief, phase, targetSec });
+    const { count: stories } = await db.from('videos').select('id', { count: 'exact', head: true }).eq('script->>format', 'story').neq('status', 'rejected');
+    const { script, caption, hashtags, problems } = buildForIdea(idea, { brief: brief.brief, phase, targetSec, caseNo: (stories ?? 0) + 1 });
     if (problems.length) return { ok: false, message: `Senaryo kurallara uymadı:\n• ${problems.join('\n• ')}` };
 
     const slot = chooseSlot({ windows: s!.publish_windows, timezone: s!.timezone, now: new Date(), ...(await scheduleInputs(db)) });

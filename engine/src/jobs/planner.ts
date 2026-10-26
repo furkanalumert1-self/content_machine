@@ -62,6 +62,7 @@ const result = planDay({
   recentExploration: await recentExplorationFlags(db, p.id),
   activeStyles,
   phase: (settings.content_phase ?? 1) as Phase,
+  caseNo: await nextCaseNo(),
 });
 
 if (!result.ok) {
@@ -98,4 +99,10 @@ if (!result.ok) {
     // Konu bankası elle araştırılıp doğrulanır (kaynak kapısı); otomatik iş yalnızca dosyayı senkronlar.
     await log.warn('Kullanılabilir konu 10\'un altında: config/topics/sepet-rontgeni.json\'a kaynakları doğrulanmış yeni konular eklenmeli.', { notify: true });
   }
+}
+
+/** Hikâye videolarının vaka numarası: şimdiye kadar planlanan (reddedilmemiş) hikâye videosu sayısı + 1. */
+async function nextCaseNo(): Promise<number> {
+  const { count } = await db.from('videos').select('id', { count: 'exact', head: true }).eq('script->>format', 'story').neq('status', 'rejected');
+  return (count ?? 0) + 1;
 }

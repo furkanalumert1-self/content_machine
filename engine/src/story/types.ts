@@ -42,7 +42,7 @@ export interface StoryScript {
   format: 'story';
   product: string;
   channel: string;
-  content_type: string;
+  content_type: import('../ideas/types.ts').ContentType;
   case_no: number;
   case_label: string;
   hook: string;

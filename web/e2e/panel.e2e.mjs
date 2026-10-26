@@ -47,7 +47,7 @@ async function submit(page, scope, label, noticeScope = scope) {
 
 // Yerel test veritabanını bilinen başlangıç durumuna getir (yalnızca yerel test; canlı veritabanında ÇALIŞTIRMAYIN).
 if (!/127\.0\.0\.1|localhost/.test(E2E_DB ?? '')) throw new Error('E2E yalnızca yerel veritabanında çalışır.');
-sql(`delete from videos where origin='manual';
+sql(`delete from videos where origin='manual' or script->>'format' = 'story' or brief_id in (select id from product_briefs where version > 1);
      delete from ideas where source='manual';
      delete from product_briefs where version > 1;
      update product_briefs set status='approved' where version = 1;

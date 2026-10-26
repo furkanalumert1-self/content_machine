@@ -7,6 +7,7 @@ import { hookScore, loadBank, numbersIn, pickHook, topicToIdea, validateTopic } 
 import { pillarTargets } from '../src/topics/channel.ts';
 import type { Topic } from '../src/topics/types.ts';
 import { parseBrief } from '../src/brief/brief.ts';
+import type { Script } from '../src/plan/script.ts';
 import { readFileSync } from 'node:fs';
 
 const brief = parseBrief(readFileSync(new URL('../../config/products/callypso-engage.md', import.meta.url), 'utf8'));
@@ -62,7 +63,9 @@ describe('konu bankası', () => {
 
 describe('Sepet Röntgeni senaryosu', () => {
   it('KANCA → OLGU → MEKANİZMA → MAĞAZAN İÇİN → CTA, 45–58 sn, Faz 1 kurallarına uyar', () => {
-    const { script, caption, hashtags, problems } = buildForIdea(ideaOf(topic()), { brief, phase: 1 });
+    const built = buildForIdea(ideaOf(topic()), { brief, phase: 1 });
+    const { caption, hashtags, problems } = built;
+    const script = built.script as Script;
     expect(problems).toEqual([]);
     expect(script.hook_candidates).toHaveLength(3);
     expect(script.scenes[0]).toMatchObject({ kind: 'hook', start: 0 });

@@ -2,6 +2,7 @@
 import { checkClaims } from '../content/claims.ts';
 import { numbersIn } from '../topics/bank.ts';
 import { CHANNEL_NAME, CTA_KEYWORD, MAX_HOOK_WORDS, productNameAllowed, type Phase } from '../topics/channel.ts';
+import type { ContentType } from '../ideas/types.ts';
 import type { Topic } from '../topics/types.ts';
 import { captionChunks, narration, restoreOriginals, storyScenes, wordsFrom } from './timeline.ts';
 import type { Beat, StoryScript } from './types.ts';
@@ -42,7 +43,7 @@ export function validateStory(topic: Topic, phase: Phase = 1): string[] {
 }
 
 /** Planlama: seslendirmesiz hikâye planı (süre tahmini). Seslendirme ve sahne zamanlaması render işinde yapılır. */
-export function planStory(topic: Topic, caseNo: number, contentType: string, voiceId: string): StoryScript {
+export function planStory(topic: Topic, caseNo: number, contentType: ContentType, voiceId: string): StoryScript {
   const segments = topic.story!.segments.map((s) => (s.show.type === 'outro' ? { ...s, show: { ...s.show, caseNo } } : s));
   const est = Math.min(58, Math.max(45, Math.round((words(narration(segments).text) / WORDS_PER_SEC + 1.2) * 100) / 100));
   return {

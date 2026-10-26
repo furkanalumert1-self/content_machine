@@ -47,7 +47,102 @@
           "note": "Makale özeti ve künyesi doğrulandı. Sık alıntılanan %34 / %19 oranları tam metinden doğrulanamadığı için kullanılmaz."
         }
       ],
-      "score": 80
+      "score": 80,
+      "story": {
+        "label": "Sadakat kartı",
+        "segments": [
+          {
+            "say": "Boş kart kimseyi geri getirmez.",
+            "show": {
+              "type": "title",
+              "text": "Boş kart, boş dönüş."
+            }
+          },
+          {
+            "say": "Bir araba yıkamacısında iki tür sadakat kartı dağıtıldı. Birinde sekiz boş kutu vardı.",
+            "show": {
+              "type": "stamps",
+              "total": 8,
+              "filled": 0,
+              "label": "Kart A · sekiz yıkama"
+            }
+          },
+          {
+            "say": "Diğerinde on kutu vardı, ama ilk ikisi hazır damgalıydı. İkisinde de ödül için yine sekiz yıkama gerekiyordu.",
+            "show": {
+              "type": "stamps",
+              "total": 10,
+              "filled": 2,
+              "label": "Kart B · iki damga hediye"
+            }
+          },
+          {
+            "say": "Sonuç? Hazır damgalı kartı alanlar kartı daha sık doldurdu. Hem de daha hızlı.",
+            "show": {
+              "type": "rule",
+              "text": "Daha çok bitiren.",
+              "strike": "Aynı ödül"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İkinci kart sıfırdan başlamıyordu. Yolun bir kısmı zaten bitmiş görünüyordu.",
+            "show": {
+              "type": "stamps",
+              "total": 10,
+              "filled": 2,
+              "label": "Başlangıç sıfır değil",
+              "highlight": 2
+            }
+          },
+          {
+            "say": "Hedefe yakın olduğunu hisseden insan daha çok çabalar. Başladığın bir işi yarım bırakmak, kayıp gibi gelir.",
+            "show": {
+              "type": "rule",
+              "text": "Bir işi bitirmek.",
+              "strike": "Bir işe başlamak"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Yarısı dolu bir profil. İlk adımı hediye eden üyelik. Dolmaya başlamış ilerleme çubuğu.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Yarısı dolu profil",
+                "İlk adımı hediye üyelik",
+                "Dolmaya başlamış çubuk"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir şey satıyorsan, müşterini asla sıfırdan başlatma. İlk siparişten sonra ilk adımları sen doldur.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kartına iki damga hediye",
+              "body": "Ödülüne başladın bile.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "duolingo-seri",
@@ -262,7 +357,108 @@
           "note": "Tek şirket, hakemli yayın değil. Getir/Yemeksepeti bildirimleri hakkında güvenilir kaynak bulunamadı; marka adı kullanılmaz."
         }
       ],
-      "score": 77
+      "score": 77,
+      "story": {
+        "label": "Geri kazanma",
+        "segments": [
+          {
+            "say": "Kayıp müşterinin de son kullanma tarihi var.",
+            "show": {
+              "type": "title",
+              "text": "Kayıp müşterinin son kullanma tarihi."
+            }
+          },
+          {
+            "say": "Türkiye'de bir e-ticaret şirketi, bir süredir alışveriş yapmayan 1.174 müşteriyi geri çağırdı.",
+            "show": {
+              "type": "stat",
+              "value": "1.174",
+              "label": "kayıp müşteri geri çağrıldı",
+              "note": "KAYNAK: İTÜ YÜKSEK LİSANS TEZİ (2015)"
+            }
+          },
+          {
+            "say": "6 ila 9 ay önce kaybedilenlerin %47,3'ü geri döndü.",
+            "show": {
+              "type": "stat",
+              "value": "%47,3",
+              "label": "6–9 ay önce kaybedilenler geri döndü",
+              "bar": 0.473
+            }
+          },
+          {
+            "say": "15 aydan uzun süredir sessiz olanlarda bu oran %16,8'e düştü.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "15+ ay sessiz",
+                "value": "%16,8",
+                "bar": 0.168
+              },
+              "right": {
+                "label": "6–9 ay sessiz",
+                "value": "%47,3",
+                "bar": 0.473
+              },
+              "caption": "Geri dönme oranı"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Müşteri her ay biraz daha uzaklaşıyor. Alışkanlığı yavaş yavaş başka bir yere taşınıyor.",
+            "show": {
+              "type": "rule",
+              "text": "Her ay biraz daha geç.",
+              "strike": "Sonra hallederim"
+            }
+          },
+          {
+            "say": "Yani geri çağırma mesajında asıl soru ne yazacağın değil, ne zaman yazacağın.",
+            "show": {
+              "type": "title",
+              "text": "Ne değil. Ne zaman."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Seni özledik bildirimleri. Sessiz üyeye gelen hatırlatma. Uzun süre sonra gelen kampanya.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Seni özledik bildirimi",
+                "Sessiz üyeye hatırlatma",
+                "Geri dönüş kampanyası"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, son siparişinden 90 gün geçen müşterileri listele. İndirimden önce, son aldığı ürünle ilgili bir hatırlatma gönder.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Seni bir süredir görmedik",
+              "body": "Son aldığın ürünün yenisi geldi.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "amazon-prime-batik-maliyet",
@@ -309,7 +505,100 @@
           "note": "Anket tabanlı tahmin, Amazon verisi değil; nedensellik iddia edilmez."
         }
       ],
-      "score": 80
+      "score": 80,
+      "story": {
+        "label": "Üyelik",
+        "segments": [
+          {
+            "say": "Kargoyu peşin ödeyen daha çok alıyor.",
+            "show": {
+              "type": "title",
+              "text": "Peşin ödedin. Şimdi kullan."
+            }
+          },
+          {
+            "say": "Amazon Prime'da yıllık bir ücret ödüyorsun ve kargo bedava oluyor.",
+            "show": {
+              "type": "phone",
+              "app": "Alışveriş",
+              "title": "Üyeliğin aktif",
+              "body": "Bu siparişte kargo ücreti yok.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Tahminlere göre ABD'de Prime üyeleri Amazon'da yılda yaklaşık 1.170 dolar harcıyor. Üye olmayanlar ise 570 dolar.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Üye değil · dolar",
+                "value": "570",
+                "bar": 0.49
+              },
+              "right": {
+                "label": "Prime üyesi · dolar",
+                "value": "1.170",
+                "bar": 1
+              },
+              "caption": "Yıllık harcama · CIRP tahmini"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Bir şeye peşin para ödediysen, onu değerlendirmek istersin. Ödenmiş kargo hakkı, bir sonraki siparişi kolaylaştırır.",
+            "show": {
+              "type": "rule",
+              "text": "Zaten ödendi.",
+              "strike": "Kargo ücreti"
+            }
+          },
+          {
+            "say": "Ama dikkat: çok alışveriş yapanlar zaten üye olmaya daha yatkın. Yani bu fark tek başına üyelikten gelmiyor olabilir.",
+            "show": {
+              "type": "title",
+              "text": "Sebep mi, sonuç mu?"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Yıllık spor salonu üyeliği. Önceden ödenen kahve kartı. Ücretli sadakat programları.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Yıllık spor salonu üyeliği",
+                "Önceden ödenen kahve kartı",
+                "Ücretli sadakat programı"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir şey satıyorsan, sık alan müşterine küçük bir yıllık kargo üyeliği dene. Ve her siparişte, üyeliğin ona ne kazandırdığını göster.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Üyeliğin bu ay kazandırdı",
+              "body": "Üç siparişte kargo ödemedin.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "starbucks-yildiz",
@@ -356,7 +645,103 @@
           "note": "Yayından önce yeni çeyrek verisi kontrol edilmeli."
         }
       ],
-      "score": 85
+      "score": 85,
+      "story": {
+        "label": "Sadakat programı",
+        "segments": [
+          {
+            "say": "Starbucks sana yıldız vermiyor. Seni geri çağırıyor.",
+            "show": {
+              "type": "title",
+              "text": "Yıldız değil. Geri çağırma."
+            }
+          },
+          {
+            "say": "Her kahvede telefonuna birkaç yıldız düşüyor. Yıldızlar birikince bedava bir içecek geliyor.",
+            "show": {
+              "type": "phone",
+              "app": "Kahve",
+              "title": "Yıldız kazandın ⭐",
+              "body": "Ödülüne birkaç yıldız kaldı.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Starbucks'ın kendi verisine göre ABD'de son 90 günde aktif 35,8 milyon Rewards üyesi var.",
+            "show": {
+              "type": "stat",
+              "value": "35,8 milyon",
+              "label": "son 90 günde aktif üye (ABD)",
+              "note": "KAYNAK: STARBUCKS FY26 3. ÇEYREK"
+            }
+          },
+          {
+            "say": "Ve şirket mağazalarındaki harcamanın %59'unu bu üyeler yapıyor.",
+            "show": {
+              "type": "stat",
+              "value": "%59",
+              "label": "harcamanın üyelerden gelen payı",
+              "bar": 0.59
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Her alışverişte ödüle biraz daha yaklaştığını görüyorsun.",
+            "show": {
+              "type": "stamps",
+              "total": 10,
+              "filled": 7,
+              "label": "Ödüle kalan"
+            }
+          },
+          {
+            "say": "Ödüle yaklaştıkça, bir sonraki kahveyi başka yerden almak istemiyorsun. Biriken yıldızlar boşa gidecekmiş gibi geliyor.",
+            "show": {
+              "type": "rule",
+              "text": "Yıldızlar boşa gitmesin.",
+              "strike": "Başka bir kahveci"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Havayolu milleri. Market puanları. Kademeli üyelik seviyeleri.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Havayolu milleri",
+                "Market puanları",
+                "Kademeli üyelik"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir şey satıyorsan, puanı tek büyük ödül yerine küçük ve yakın ödüllere böl. Her siparişten sonra, ödüle kaç adım kaldığını yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ödülüne iki sipariş kaldı",
+              "body": "Bir sonraki siparişte yaklaşıyorsun.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "spotify-wrapped",
@@ -410,7 +795,100 @@
           "note": "Yatırımcı gününde 620 milyon dendiği için \"600 milyonu aşkın\" kullanılır."
         }
       ],
-      "score": 78
+      "score": 78,
+      "story": {
+        "label": "Kişiselleştirme",
+        "segments": [
+          {
+            "say": "En iyi reklam, müşterinin kendi verisi.",
+            "show": {
+              "type": "title",
+              "text": "En iyi reklam: senin verin."
+            }
+          },
+          {
+            "say": "Her yıl sonunda Spotify sana kendi yılını gösteriyor. En çok dinlediğin şarkılar, sanatçılar, türler.",
+            "show": {
+              "type": "phone",
+              "app": "Müzik",
+              "title": "Senin yılın hazır",
+              "body": "En çok dinlediğin şarkıyı gör.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Spotify'a göre Wrapped 2025, ilk 24 saatte 200 milyonun üzerinde kullanıcıya ulaştı.",
+            "show": {
+              "type": "stat",
+              "value": "200 milyon",
+              "label": "ilk 24 saatte kullanıcı",
+              "note": "KAYNAK: SPOTIFY NEWSROOM"
+            }
+          },
+          {
+            "say": "Kampanya boyunca da sosyal medyada 600 milyonu aşkın kez paylaşıldı.",
+            "show": {
+              "type": "stat",
+              "value": "600 milyon+",
+              "label": "sosyal medyada paylaşım"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Wrapped sana yeni bir şey satmıyor. Senin kendi geçmişini, sana bir hikâye olarak geri veriyor.",
+            "show": {
+              "type": "title",
+              "text": "Ürün değil. Hikâye."
+            }
+          },
+          {
+            "say": "Kendini anlatan bir içerik, paylaşmak için iyi bir sebep. Ve her paylaşım, markanın ücretsiz reklamına dönüşüyor.",
+            "show": {
+              "type": "rule",
+              "text": "Paylaşılmak.",
+              "strike": "Reklam vermek"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Yıl sonu alışveriş özeti. Kazandığın puanların listesi. Üyelik yıl dönümü mesajı.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Yıl sonu alışveriş özeti",
+                "Kazanılan puanlar",
+                "Üyelik yıl dönümü"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, yıl sonunda müşterine kendi alışveriş özetini gönder. En çok aldığı ürün, kazandığı puan, seninle geçen yılı.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Seninle geçen yılımız",
+              "body": "En çok aldığın ürünü hatırlıyor musun?",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "ucretsiz-kargo-esigi",
@@ -464,7 +942,101 @@
           "checked_at": "2026-10-25"
         }
       ],
-      "score": 76
+      "score": 76,
+      "story": {
+        "label": "Kargo eşiği",
+        "segments": [
+          {
+            "say": "Eşik düşünce sepet küçüldü.",
+            "show": {
+              "type": "title",
+              "text": "Eşik düştü. Sepet küçüldü."
+            }
+          },
+          {
+            "say": "Amazon'da ücretsiz kargo için sepetin 49 doları geçmesi gerekiyordu. Ortalama siparişte 3,31 ürün vardı.",
+            "show": {
+              "type": "stat",
+              "value": "3,31",
+              "label": "sipariş başına ürün · eşik 49 dolar",
+              "note": "KAYNAK: KNOWLEDGE AT WHARTON"
+            }
+          },
+          {
+            "say": "Sonra eşik 25 dolara indi. Sipariş başına ürün sayısı 2,53'e düştü.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Eşik 25 dolar",
+                "value": "2,53",
+                "bar": 0.76
+              },
+              "right": {
+                "label": "Eşik 49 dolar",
+                "value": "3,31",
+                "bar": 1
+              },
+              "caption": "Sipariş başına ürün · 2002"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Eşik yüksekken insanlar sepeti eşiğe kadar dolduruyordu. Kargo ücreti ödememek için bir ürün daha ekliyorlardı.",
+            "show": {
+              "type": "scale",
+              "heavy": "Kargo ücreti",
+              "light": "Bir ürün daha",
+              "caption": "Hangisi daha ağır?"
+            }
+          },
+          {
+            "say": "Araştırmalar insanların kargo ücretine çok duyarlı olduğunu gösteriyor. Ama dikkat: bir çalışmada ücretsiz kargo satışı artırdı, kârı artırmadı.",
+            "show": {
+              "type": "rule",
+              "text": "Her zaman daha çok kâr değil.",
+              "strike": "Daha çok satış"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Şu kadar daha ekle, kargo bedava. Sepetteki eşik çubuğu. İkinci ürüne indirim.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Şu kadar daha ekle",
+                "Sepetteki eşik çubuğu",
+                "İkinci ürüne indirim"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, ücretsiz kargo eşiğini ortalama sepetinin biraz üstüne koy. Ve sepet sayfasında eşiğe ne kadar kaldığını göster.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kargo bedava olmasına az kaldı",
+              "body": "Bir ürün daha ekle.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "kitlik-kurabiye",
@@ -510,7 +1082,98 @@
           "note": "Küçük öğrenci örneklemi; ölçülen beğeni, satın alma değil. Sahte kıtlık yanıltıcı reklamdır."
         }
       ],
-      "score": 74
+      "score": 74,
+      "story": {
+        "label": "Kıtlık",
+        "segments": [
+          {
+            "say": "Kurabiye aynı, kavanoz farklı.",
+            "show": {
+              "type": "title",
+              "text": "Aynı kurabiye.",
+              "sub": "Farklı kavanoz."
+            }
+          },
+          {
+            "say": "1975'te bir deneyde katılımcılara aynı kurabiyeyi verdiler. Bir grup 10 kurabiyelik kavanozdan aldı, diğeri sadece 2 kurabiye kalan kavanozdan.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Dolu kavanoz",
+                "value": "10",
+                "bar": 1
+              },
+              "right": {
+                "label": "Az kalan",
+                "value": "2",
+                "bar": 0.2
+              },
+              "caption": "Kavanozdaki kurabiye · 1975"
+            }
+          },
+          {
+            "say": "Az kalan kavanozdaki kurabiye daha çekici bulundu.",
+            "show": {
+              "type": "title",
+              "text": "Az kalan, daha değerli."
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Kavanoz 10'dan 2'ye düşünce değer algısı daha da arttı. Hele azalmanın sebebi, herkes çok istedi olunca.",
+            "show": {
+              "type": "stamps",
+              "total": 10,
+              "filled": 2,
+              "label": "Kalan kurabiye"
+            }
+          },
+          {
+            "say": "Ama tadına verilen puan değişmedi. Değişen sadece algıydı.",
+            "show": {
+              "type": "rule",
+              "text": "Algısı daha değerli.",
+              "strike": "Tadı daha güzel"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Son birkaç ürün yazısı. Sınırlı sayıda üretim. Stokta azaldı etiketi.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Son birkaç ürün",
+                "Sınırlı üretim",
+                "Stokta azaldı"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir şey satıyorsan, stok gerçekten azaldığında bunu açıkça göster. Ama gerçek olmayan kıtlık yazma; hem güveni zedeler hem yanıltıcı reklam sayılabilir.",
+            "show": {
+              "type": "rule",
+              "text": "Gerçek stok bilgisi.",
+              "strike": "Sahte kıtlık"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "yeni-musteri-5-kat-mi",
@@ -556,7 +1219,100 @@
           "checked_at": "2026-10-25"
         }
       ],
-      "score": 76
+      "score": 76,
+      "story": {
+        "label": "Mit",
+        "segments": [
+          {
+            "say": "5 kat daha pahalı. Gerçekten mi?",
+            "show": {
+              "type": "title",
+              "text": "5 kat mı?",
+              "sub": "Gerçekten mi?"
+            }
+          },
+          {
+            "say": "Pazarlamada herkes aynı cümleyi tekrarlıyor: yeni müşteri kazanmak, eskisini tutmaktan 5 kat pahalı.",
+            "show": {
+              "type": "title",
+              "text": "Herkes aynı rakamı söylüyor."
+            }
+          },
+          {
+            "say": "Harvard Business Review'daki bir yazıya göre bu oran, hangi çalışmaya baktığına göre 5 ile 25 kat arasında değişiyor.",
+            "show": {
+              "type": "stat",
+              "value": "5–25 kat",
+              "label": "yeni müşteri, eskisini tutmaktan pahalı",
+              "note": "KAYNAK: HARVARD BUSINESS REVIEW (2014)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Yazı bu aralık için tek bir çalışma göstermiyor. Yani 5 kat kesin bir kural değil, aralığın en alt ucu.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Alt uç",
+                "value": "5 kat",
+                "bar": 0.2
+              },
+              "right": {
+                "label": "Üst uç",
+                "value": "25 kat",
+                "bar": 1
+              },
+              "caption": "Aynı iddia, farklı çalışmalar"
+            }
+          },
+          {
+            "say": "Rakam değişiyor ama yön değişmiyor: elindeki müşteri, yenisinden daha ucuz.",
+            "show": {
+              "type": "rule",
+              "text": "Ama yön doğru.",
+              "strike": "Tek bir sihirli rakam"
+            }
+          },
+          {
+            "say": "Bu tür rakamlar her yerde. Kaynağı belli olmayan istatistikler. Sunumlarda dolaşan yuvarlak sayılar.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde",
+              "items": [
+                "Kaynaksız istatistik",
+                "Yuvarlak sayılar",
+                "Kimsenin okumadığı rapor"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, bu ay reklam bütçenin küçük bir kısmını eski müşterilerine ayır. Son 6 ayda alışveriş yapmayanlara bir hatırlatma gönder ve sonucu kendin ölç.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Seni özledik",
+              "body": "Son aldığın ürünün yenisi geldi.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "sephora-numune",
@@ -610,7 +1366,109 @@
           "note": "Künye Crossref ile doğrulandı; yayıncı sayfası erişilemedi, bulgu ikincil özetle teyit edildi. Çarpan (\"iki kat\") kullanılmaz."
         }
       ],
-      "score": 72
+      "score": 72,
+      "story": {
+        "label": "Karşılıklılık",
+        "segments": [
+          {
+            "say": "Küçük hediye, büyük karşılık.",
+            "show": {
+              "type": "title",
+              "text": "Küçük hediye.",
+              "sub": "Büyük karşılık."
+            }
+          },
+          {
+            "say": "Sephora'dan online sipariş verdiğinde, kutuya ücretsiz numune ekleniyor. Hem de numuneyi sen seçiyorsun.",
+            "show": {
+              "type": "phone",
+              "app": "Kozmetik",
+              "title": "Numuneni seç",
+              "body": "Siparişine ücretsiz numune ekle.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "1971'de bir deneyde, katılımcılardan bazılarına beklemedikleri bir içecek ikram edildi.",
+            "show": {
+              "type": "title",
+              "text": "Beklenmedik bir ikram.",
+              "sub": "1971 · Regan deneyi"
+            }
+          },
+          {
+            "say": "İkram edilenler, ikram eden kişiden daha çok çekiliş bileti aldı.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "İkram yok",
+                "value": "Az",
+                "bar": 0.4
+              },
+              "right": {
+                "label": "İkram var",
+                "value": "Çok",
+                "bar": 0.85
+              },
+              "caption": "Satın alınan çekiliş bileti"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Üstelik o kişiyi sevip sevmemeleri sonucu belirlemedi. Belirleyen, karşılık verme isteğiydi.",
+            "show": {
+              "type": "scale",
+              "heavy": "Borç hissi",
+              "light": "Sevgi",
+              "caption": "Hangisi ağır bastı?"
+            }
+          },
+          {
+            "say": "Beklemediğin bir iyilik, içinde küçük bir borç bırakır.",
+            "show": {
+              "type": "rule",
+              "text": "Küçük bir borç.",
+              "strike": "Bedava"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Kasada ikram edilen kahve. Hesaba eklenen tatlı. Kargo kutusundaki el yazısı not.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "İkram edilen kahve",
+                "Hesaba eklenen tatlı",
+                "El yazısı not"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, siparişe beklenmedik küçük bir hediye ekle. Yanına da kısa bir not koy: Bunu senin için seçtik.",
+            "show": {
+              "type": "rule",
+              "text": "Ürün ve küçük bir sürpriz.",
+              "strike": "Sadece ürün"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "migros-money-kisisel",
@@ -664,7 +1522,94 @@
           "note": "Farklı müşteriye farklı fiyat denmez; yalnızca kişiye özel teklif/kampanya."
         }
       ],
-      "score": 74
+      "score": 74,
+      "story": {
+        "label": "Segmentleme",
+        "segments": [
+          {
+            "say": "Senin indirimin komşununkiyle aynı değil.",
+            "show": {
+              "type": "title",
+              "text": "Senin indirimin.",
+              "sub": "Sadece senin."
+            }
+          },
+          {
+            "say": "Migros Money'nin 2025 sonu itibarıyla 14 milyon aktif üyesi var. Ama herkes aynı kampanyayı görmüyor.",
+            "show": {
+              "type": "stat",
+              "value": "14 milyon",
+              "label": "aktif üye · 2025 sonu",
+              "note": "KAYNAK: MIGROS 2025 FAALİYET RAPORU"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Migros, izin veren üyelerin alışveriş alışkanlıklarını analiz ediyor. Sonra Tam Bana Göre gibi kampanyalarla kişiye özel teklif sunuyor.",
+            "show": {
+              "type": "phone",
+              "app": "Market",
+              "title": "Tam sana göre",
+              "body": "Sık aldığın ürünlerde sana özel teklif.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sana göre hazırlanmış bir teklif, herkese giden indirimden daha anlamlı görünür. Çünkü senin alışkanlığına dokunuyor.",
+            "show": {
+              "type": "rule",
+              "text": "Sana özel teklif.",
+              "strike": "Herkese aynı indirim"
+            }
+          },
+          {
+            "say": "Burada önemli bir ayrıntı var: bu analiz, üyenin izniyle yapılıyor.",
+            "show": {
+              "type": "title",
+              "text": "Önce izin.",
+              "sub": "Sonra kişiselleştirme."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Sana önerilen ürünler. Doğum gününde gelen kupon. Sık aldığın ürünün indirimi.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Sana önerilen ürünler",
+                "Doğum günü kuponu",
+                "Sık aldığın ürüne indirim"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, müşterilerini son aldıkları kategoriye göre ayır. Kedi maması alana köpek maması indirimi gönderme.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kedin için yeni mama",
+              "body": "Son aldığın markanın yenisi geldi.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "zara-az-reklam",
@@ -719,7 +1664,99 @@
           "note": "\"Yeni tasarım\" değil \"sevkiyat\" denir."
         }
       ],
-      "score": 76
+      "score": 76,
+      "story": {
+        "label": "Az ama sık",
+        "segments": [
+          {
+            "say": "Zara neredeyse hiç reklam vermiyor.",
+            "show": {
+              "type": "title",
+              "text": "Reklam yok.",
+              "sub": "Müşteri yine geliyor."
+            }
+          },
+          {
+            "say": "Bain'in analizine göre Zara, satışlarının %0,5'inden azını reklama harcıyor. H&M'de bu oran %4.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "H&M",
+                "value": "%4",
+                "bar": 1
+              },
+              "right": {
+                "label": "Zara",
+                "value": "%0,5",
+                "bar": 0.12
+              },
+              "caption": "Satışın reklama giden payı · Bain"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Zara'nın reklamı, mağazanın kendisi. Mağazalara haftada iki kez yeni ürün sevkiyatı yapılıyor.",
+            "show": {
+              "type": "title",
+              "text": "Reklam yok.",
+              "sub": "Raf var."
+            }
+          },
+          {
+            "say": "Rafta gördüğün şey birkaç gün sonra orada olmayabilir. Erteledikçe kaçırma ihtimalin artıyor.",
+            "show": {
+              "type": "rule",
+              "text": "Şimdi ya da hiç.",
+              "strike": "Sonra alırım"
+            }
+          },
+          {
+            "say": "Bain'e göre bu düşük reklam harcamasını mümkün kılan şey, müşteri sadakati.",
+            "show": {
+              "type": "title",
+              "text": "Sadakat, reklamın yerini tutuyor."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Her hafta yeni ürün günü. Sınırlı süreli koleksiyonlar. Yeni gelenler sayfası.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Haftalık yeni ürün günü",
+                "Sınırlı koleksiyon",
+                "Yeni gelenler sayfası"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, her hafta aynı gün küçük bir yeni ürün grubu çıkar. Ve bunu önce eski müşterilerine haber ver.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bu haftanın yenileri geldi",
+              "body": "Önce sana haber veriyoruz.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "netflix-kolay-donus",
@@ -773,7 +1810,102 @@
           "note": "Üçüncü taraf tahmini; düşük oranın iptal akışından kaynaklandığı söylenmez."
         }
       ],
-      "score": 73
+      "score": 73,
+      "story": {
+        "label": "Geri dönüş",
+        "segments": [
+          {
+            "say": "Netflix seni kapıda tutmuyor.",
+            "show": {
+              "type": "title",
+              "text": "Seni kapıda tutmuyor."
+            }
+          },
+          {
+            "say": "Netflix'te aboneliğini iptal ettiğinde, dönem sonuna kadar izlemeye devam ediyorsun.",
+            "show": {
+              "type": "phone",
+              "app": "Dizi",
+              "title": "Üyeliğin iptal edildi",
+              "body": "Dönem sonuna kadar izlemeye devam et.",
+              "time": "21:00"
+            }
+          },
+          {
+            "say": "İzleme geçmişin ve önerilerin de 24 ay saklanıyor.",
+            "show": {
+              "type": "stat",
+              "value": "24 ay",
+              "label": "izleme geçmişi saklanıyor",
+              "note": "KAYNAK: NETFLIX YARDIM MERKEZİ"
+            }
+          },
+          {
+            "say": "Antenna tahminlerine göre Netflix'in aylık iptal oranı yaklaşık %2. Büyük platformlar arasında en düşüğü.",
+            "show": {
+              "type": "stat",
+              "value": "%2",
+              "label": "aylık iptal oranı · tahmin",
+              "bar": 0.02,
+              "note": "KAYNAK: ANTENNA / MEDIAPOST"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Ayrılmak kolay. Ama geri dönmek daha da kolay. Kaldığın yerden devam ediyorsun.",
+            "show": {
+              "type": "rule",
+              "text": "Dönüşü kolaylaştır.",
+              "strike": "Çıkışı zorlaştır"
+            }
+          },
+          {
+            "say": "Dikkat: düşük iptal oranının sebebi bu akış diyemeyiz. Ama dönüşün önünde hiçbir engel yok.",
+            "show": {
+              "type": "title",
+              "text": "Kapı açık kalıyor."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Kayıtlı sepet. Saklanan tercihler. Tek tıkla yeniden üyelik.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Kayıtlı sepet",
+                "Saklanan tercihler",
+                "Tek tıkla geri dönüş"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, ayrılan müşterinin tercihlerini silme. Geri döndüğünde, onu kaldığı yerden karşıla.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Tekrar hoş geldin",
+              "body": "Sepetin ve beden bilgin seni bekliyor.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "apple-kutu-acilisi",
@@ -863,7 +1995,103 @@
           "note": "Tam metin Harvard DASH üzerinden kontrol edildi; tutarlar küçük, örneklem küçük."
         }
       ],
-      "score": 75
+      "score": 75,
+      "story": {
+        "label": "Emek",
+        "segments": [
+          {
+            "say": "IKEA'da montaj neden sende?",
+            "show": {
+              "type": "title",
+              "text": "Montaj sende.",
+              "sub": "Bir sebebi var."
+            }
+          },
+          {
+            "say": "Bir deneyde insanlar basit bir IKEA kutusunu ya kendileri kurdu, ya da hazır kurulmuş hâlini gördü.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Hazır kurulmuş",
+                "value": "Hazır",
+                "bar": 0.6
+              },
+              "right": {
+                "label": "Kendin kurduğun",
+                "value": "Senin",
+                "bar": 1
+              },
+              "caption": "Aynı kutu, iki grup"
+            }
+          },
+          {
+            "say": "Kendi kuranlar, aynı kutu için %63 daha fazla ödemeye razı oldu.",
+            "show": {
+              "type": "stat",
+              "value": "%63",
+              "label": "daha fazla ödeme isteği",
+              "bar": 0.63,
+              "note": "NORTON, MOCHON & ARIELY (2012)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Emek verdiğin şeye daha çok değer biçersin. Buna IKEA etkisi deniyor.",
+            "show": {
+              "type": "rule",
+              "text": "Senin emeğin.",
+              "strike": "Sadece bir kutu"
+            }
+          },
+          {
+            "say": "Ama bir şart var: işi bitirmen gerekiyor. Yarım kalan emek aynı etkiyi yaratmıyor.",
+            "show": {
+              "type": "stamps",
+              "total": 6,
+              "filled": 6,
+              "label": "Tamamlanan iş"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Kendi tasarladığın ürün. Kendin oluşturduğun profil. Adım adım kurulan uygulama.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Kendi tasarladığın ürün",
+                "Kendi oluşturduğun profil",
+                "Adım adım kurulum"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, müşterine ürünü kişiselleştirebileceği küçük bir adım ver. Ama adım kısa olsun ki bitirebilsin. Yarım kalırsa etkisi kaybolur.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kutunu kişiselleştir",
+              "body": "İsmini ekle, rengini seç.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "sepet-terki-erken-hatirlatma",
@@ -917,7 +2145,94 @@
           "note": "Reklam hatırlatması üzerine; e-posta için \"ilk saat\" iddiası doğrulanamadığından kullanılmaz."
         }
       ],
-      "score": 78
+      "score": 78,
+      "story": {
+        "label": "Sepet terki",
+        "segments": [
+          {
+            "say": "Terk edilen sepet bir ret değil.",
+            "show": {
+              "type": "title",
+              "text": "Terk edilen sepet.",
+              "sub": "Bir ret değil."
+            }
+          },
+          {
+            "say": "50 çalışmanın ortalamasına göre, online sepetlerin yaklaşık %70'i ödemeye hiç ulaşmıyor.",
+            "show": {
+              "type": "stat",
+              "value": "%70",
+              "label": "sepet ödemeye ulaşmıyor",
+              "bar": 0.7,
+              "note": "KAYNAK: BAYMARD INSTITUTE"
+            }
+          },
+          {
+            "say": "Ama sepete ürün ekleyen biri, karar vermek üzere olan biri.",
+            "show": {
+              "type": "title",
+              "text": "Karar vermek üzereydi."
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Bir saha deneyinde hatırlatma reklamlarının ilk haftalık etkisinin yarısı, ilk iki gün içinde görüldü.",
+            "show": {
+              "type": "stat",
+              "value": "Yarısı",
+              "label": "etkinin ilk iki günde görülen kısmı",
+              "bar": 0.5,
+              "note": "SAHNI, NARAYANAN & KALYANAM (2019)"
+            }
+          },
+          {
+            "say": "İlgi en sıcakken yapılan hatırlatma daha çok işe yarıyor. Bekledikçe etki azalıyor.",
+            "show": {
+              "type": "rule",
+              "text": "Bugün hatırlat.",
+              "strike": "Yarın hatırlatırım"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Sepetinde ürün kaldı bildirimi. Fiyatı düşen ürün uyarısı. Stoğu azalan ürün haberi.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Sepette ürün kaldı",
+                "Fiyatı düştü uyarısı",
+                "Stok azaldı haberi"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir mağazan varsa, sepeti terk edene ilk hatırlatmayı aynı gün gönder. Mesajda sepetteki ürünü göster ve indirimle başlama.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Sepetinde bir şey unuttun",
+              "body": "Beğendiğin ürün hâlâ seni bekliyor.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     }
   ]
 }

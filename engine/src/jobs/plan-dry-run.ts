@@ -8,7 +8,7 @@ import { generateIdeas } from '../ideas/generate.ts';
 import { analyzePerformance } from '../ideas/performance.ts';
 import type { Idea } from '../ideas/types.ts';
 import { planDay } from '../plan/planner.ts';
-import { contentSentences } from '../plan/script.ts';
+import { contentSentences, type Script } from '../plan/script.ts';
 import type { RecentVideo } from '../plan/rotation.ts';
 
 const slug = process.argv[2] ?? 'callypso-engage';
@@ -42,7 +42,7 @@ for (let d = 0; d < days; d++) {
 
   out.push(`**Tür:** ${plan.script.content_type} · **Süre:** ${plan.script.duration_sec} sn · **Stil:** ${plan.style}${plan.idea.is_exploration ? ' · keşif' : ''}`, '');
   out.push('| Zaman | Sahne | Ekran metni | Görsel |', '|---|---|---|---|');
-  for (const s of plan.script.scenes) {
+  for (const s of (plan.script as Script).scenes) { // ürün videoları (Faz 3); hikâye formatı story-sample ile denenir
     const visual = s.visual.type + ('chips' in s.visual && s.visual.chips.length ? ` (${s.visual.chips.join(' · ')})` : '') + (s.sample_data ? ' · örnek veri' : '');
     out.push(`| ${s.start.toFixed(1)}–${(s.start + s.duration).toFixed(1)} sn | ${s.kind} | ${s.lines.join(' / ')} | ${visual} |`);
   }

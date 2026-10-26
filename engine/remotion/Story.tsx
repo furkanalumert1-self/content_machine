@@ -166,7 +166,8 @@ function Stat({ b, p, id }: { b: Extract<Beat, { type: 'stat' }>; p: Pal; id: st
   return (
     <Enter>
       <div ref={ref} style={{ ...cardStyle(p, { padding: '56px 56px 60px' }), maxHeight: 780, overflow: 'hidden' }}>
-        <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: 200, lineHeight: 1.05, color: p.accent, letterSpacing: -6, whiteSpace: 'nowrap' }}>{b.value}</div>
+        {/* Uzun değer ("35,8 milyon") tek satırda kalsın diye yazı boyu uzunluğa göre küçülür. */}
+        <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: b.value.length <= 5 ? 200 : b.value.length <= 8 ? 150 : 112, lineHeight: 1.05, color: p.accent, letterSpacing: -4, whiteSpace: 'nowrap' }}>{b.value}</div>
         <div style={{ fontFamily: FONT.sans, fontWeight: 600, fontSize: 50, lineHeight: 1.18, color: p.ink, marginTop: 18 }}>{b.label}</div>
         {b.bar != null && (
           <div style={{ height: 22, borderRadius: 11, background: p.line, marginTop: 44, overflow: 'hidden' }}>
@@ -189,7 +190,7 @@ function Compare({ b, p, id }: { b: Extract<Beat, { type: 'compare' }>; p: Pal; 
         <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end' }}>
           <div style={{ width: '100%', height: `${g * 100}%`, borderRadius: 16, background: win ? p.accent : p.line }} />
         </div>
-        <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: 92, color: win ? p.accent : p.ink, marginTop: 22, whiteSpace: 'nowrap' }}>{x.value}</div>
+        <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: x.value.length <= 5 ? 92 : 72, color: win ? p.accent : p.ink, marginTop: 22, whiteSpace: 'nowrap' }}>{x.value}</div>
         <div style={{ fontFamily: FONT.sans, fontWeight: 500, fontSize: 36, color: p.muted }}>{x.label}</div>
       </div>
     );
@@ -211,7 +212,7 @@ function Stamps({ b, p, id }: { b: Extract<Beat, { type: 'stamps' }>; p: Pal; id
     <Enter>
       <div ref={ref} style={{ ...cardStyle(p, { padding: 48 }), maxHeight: 640, overflow: 'hidden' }}>
         <div style={{ fontFamily: FONT.mono, fontSize: 30, letterSpacing: 4, color: p.ink, marginBottom: 34 }}>{b.label.toLocaleUpperCase('tr')}</div>
-        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.ceil(b.total / 2)}, 1fr)`, gap: 22 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${b.total <= 6 ? b.total : Math.ceil(b.total / 2)}, 1fr)` /* az kutu tek satırda */, gap: 22 }}>
           {Array.from({ length: b.total }, (_, i) => {
             const on = i < b.filled && ease((f - 10 - i * 3) / 6) > 0.5;
             return <div key={i} style={{ aspectRatio: '1', borderRadius: '50%', border: `4px solid ${i === b.highlight ? p.accent : p.line}`, background: on ? p.accent : 'transparent' }} />;

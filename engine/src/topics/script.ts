@@ -116,3 +116,18 @@ export function validateTopicPlan(script: Script, caption: string, hashtags: str
   return p;
 }
 
+
+/** Açıklama + hashtag kuralları (hikâye formatında senaryo ayrıca validateStory ile denetlenir). */
+export function captionProblems(caption: string, hashtags: string[], topic: Topic, phase: Phase): string[] {
+  const p: string[] = [];
+  const text = `${caption}\n${hashtags.join(' ')}`;
+  if (!productNameAllowed(phase) && /callypso/i.test(text)) p.push('Faz 1: ürün adı açıklamada geçmemeli.');
+  if (!caption.includes(CTA_KEYWORD)) p.push(`Açıklamada ${CTA_KEYWORD} olmalı.`);
+  if (!/\nKaynak: /.test(caption)) p.push('Açıklamada kaynak satırı yok.');
+  const sourced = new Set([...topic.facts.flatMap((f) => numbersIn(f.text)), ...topic.action.flatMap(numbersIn), ...numbersIn(CTA_LINES.join(' '))]);
+  for (const n of new Set(numbersIn(caption.split('\nKaynak:')[0]))) if (!sourced.has(n)) p.push(`Açıklamada kaynaksız rakam: ${n}`);
+  for (const i of checkClaims(text, { sourcedNumbers: sourced })) p.push(`Yasaklı ifade (${i.rule}): "${i.match}"`);
+  if (hashtags.length < MIN_TAGS || hashtags.length > MAX_TAGS) p.push(`Hashtag sayısı ${hashtags.length}; ${MIN_TAGS}–${MAX_TAGS} olmalı.`);
+  if (caption.length + hashtags.join(' ').length + 2 > 2200) p.push('Açıklama + hashtag 2200 karakteri aşıyor.');
+  return p;
+}
