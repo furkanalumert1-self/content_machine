@@ -133,5 +133,6 @@ Kararlar (kullanıcı, 25.10): hesap callypso_engage → Sepet Röntgeni olarak 
 - Ses: eleven_multilingual_v2, hız 1.1; 5 ses denendi, hepsi Türkçe STT'de %100. Ondalıklar "virgül" ile okunur (aksi hâlde "nokta" diyordu), altyazıda özgün hâli. -14 LUFS son dosyada ölçülür (Remotion yeniden kodladığı için render sonrası loudnorm).
 - Kalan: kullanıcı ses seçimi ve onayı → diğer 14 konunun hikâyeleri → planlayıcı/render işine bağlama (GitHub'da ELEVENLABS_API_KEY) → kapak (cover_url).
 - 26.10: Kullanıcı formatı onayladı, **kadın sesi** seçildi (ElevenLabs hazır ses Matilda `XrExE9yKIg1WjnnlVkGX`, hız 1.1; `ELEVENLABS_VOICE_ID` ile değişir). `ELEVENLABS_API_KEY` GitHub Secrets'ta; "Ses testi" iş akışıyla doğrulandı.
+- 26.10 (sonra): kanal sesi kullanıcının Ses Kütüphanesi'nden seçtiği Türkçe sesle değiştirildi (`uvU9jrgGLWNPeNA4NgNT`); Türkçe STT %98, ~2,4 kelime/sn, Duolingo örneği 51,8 sn ve QC geçti. Röntgen #01 (onaylı) eski sesle kaldı.
 - Akış: planlayıcı hikâye planı kaydeder (seslendirme yok, süre tahmini, vaka no) → render işi seslendirir, zamanlar, render eder, -14 LUFS → zamanlanmış senaryo + gerçek süre kaydedilir. Ses 58 sn'yi aşarsa bir kez hızlandırılır (en fazla 1.2x).
 - 15 doğrulanmış konunun hepsine hikâye yazıldı (103–128 kelime). Apple beklemede. Amazon'da "batık maliyet" yorum olarak geçer (Arkes & Blumer özeti açılamadığı için atıf yok).

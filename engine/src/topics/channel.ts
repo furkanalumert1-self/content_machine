@@ -33,6 +33,6 @@ export function pillarTargets(phase: Phase): Record<Pillar, number> {
 /** Faz 1'de ürün adı hiçbir yerde geçmez. */
 export const productNameAllowed = (phase: Phase) => phase >= 2;
 
-/** Kanalın sabit anlatıcı sesi (ElevenLabs hazır ses "Matilda"; kullanıcı 26.10'da kadın sesini seçti). */
-export const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'XrExE9yKIg1WjnnlVkGX';
+/** Kanalın sabit anlatıcı sesi: kullanıcının ElevenLabs Ses Kütüphanesi'nden seçtiği Türkçe ses (26.10). */
+export const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'uvU9jrgGLWNPeNA4NgNT';
 export const VOICE_SPEED = 1.1;
