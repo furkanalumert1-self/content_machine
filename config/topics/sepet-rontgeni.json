@@ -99,9 +99,123 @@
           "source_url": "https://blog.duolingo.com/how-duolingo-streak-builds-habit",
           "source_type": "official",
           "checked_at": "2026-10-25"
+        },
+        {
+          "text": "Kahneman & Tversky (1979), Beklenti Teorisi: kayıplar, aynı büyüklükteki kazançlardan daha güçlü hissedilir (kayıptan kaçınma).",
+          "source_label": "Kahneman & Tversky (1979)",
+          "source_url": "https://doi.org/10.2307/1914185",
+          "source_type": "academic",
+          "checked_at": "2026-10-26",
+          "note": "Künye Crossref ile doğrulandı (Econometrica 47(2), 263–291)."
         }
       ],
-      "score": 84
+      "score": 84,
+      "story": {
+        "label": "Seri",
+        "segments": [
+          {
+            "say": "Duolingo seni dersle değil, seriyle tutuyor.",
+            "show": {
+              "type": "title",
+              "text": "Ders değil. Seri."
+            }
+          },
+          {
+            "say": "Gece on bir. Telefon titriyor: serin bitmek üzere.",
+            "show": {
+              "type": "phone",
+              "app": "Dil uygulaması",
+              "title": "Serin bitmek üzere 🔥",
+              "body": "Bugünkü dersi yapmadın.",
+              "time": "23:00"
+            }
+          },
+          {
+            "say": "Ders yapmak istemiyorsun. Ama yedi günlük seriyi bozmak da istemiyorsun.",
+            "show": {
+              "type": "counter",
+              "value": 7,
+              "label": "günlük seri",
+              "icon": "flame"
+            }
+          },
+          {
+            "say": "Duolingo'nun kendi verisine göre, yedi günlük seri yapanların kursu bitirme ihtimali 3,6 kat daha yüksek.",
+            "show": {
+              "type": "stat",
+              "value": "3,6 kat",
+              "label": "7 günlük seri yapanların kursu bitirme ihtimali",
+              "note": "KAYNAK: DUOLINGO BLOG (2022)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Seri büyüdükçe yeni bir şey kazanmıyorsun. Ama kaybedecek bir şeyin oluyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Kaybetmek",
+              "light": "Kazanmak",
+              "caption": "Aynı büyüklük, farklı ağırlık"
+            }
+          },
+          {
+            "say": "Psikologlar buna kayıptan kaçınma diyor. Kaybetmek, aynı büyüklükte bir kazançtan daha güçlü hissediliyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Kazanmak için",
+              "text": "Kaybetmemek için geri dönüyoruz."
+            }
+          },
+          {
+            "say": "Duolingo bunu biliyor. O yüzden seriyi koruyan bir dondurma hakkı bile veriyor.",
+            "show": {
+              "type": "stamps",
+              "total": 7,
+              "filled": 6,
+              "label": "Seri dondurma",
+              "highlight": 6
+            }
+          },
+          {
+            "say": "Bu her yerde var. Süresi dolmak üzere olan puanlar. Yarım kalan profil. Sepette bekleyen ürün.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Süresi dolan puanlar",
+                "Yarım kalan profil",
+                "Sepette bekleyen ürün"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir şey satıyorsan, müşterine kaybedeceği şeyi göster. Puanların yarın siliniyor. Ama sadece gerçekten siliniyorsa.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Puanların yarın siliniyor",
+              "body": "Biriken puanlarını kullanmayı unutma.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 1,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     },
     {
       "key": "kayip-musteri-zamanlama",

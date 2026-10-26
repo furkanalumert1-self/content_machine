@@ -45,6 +45,8 @@ export interface Topic {
   tags: string[];
   facts: Fact[];
   score: number;
+  /** Hikâye formatı (seslendirmeli): cümle cümle anlatı + her cümlenin çizimi. Yoksa konu henüz hikâyeye çevrilmemiştir. */
+  story?: { label: string; segments: import('../story/types.ts').StorySegment[] };
 }
 
 export interface TopicBank {

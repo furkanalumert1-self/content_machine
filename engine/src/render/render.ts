@@ -11,12 +11,12 @@ import { probe, runQc, type QcResult, type TextReport } from './qc.ts';
 export const MAX_ATTEMPTS = 3; // ilk deneme + 2 yeniden deneme
 
 let bundled: string | null = null;
-async function getBundle() {
+export async function getBundle() {
   bundled ??= await bundle({ entryPoint: join(import.meta.dirname, '../../remotion/Root.tsx') });
   return bundled;
 }
 
-const browserOptions = () => ({
+export const browserOptions = () => ({
   browserExecutable: process.env.CHROME_PATH || null,
   chromiumOptions: { gl: 'swangle' as const },
 });
