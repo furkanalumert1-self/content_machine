@@ -64,7 +64,8 @@ for (const v of queue ?? []) {
     // Kapak özelliğinden önce planlanan videolarda kapak tanımı konunun kaydından alınır.
     const idea = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: { cover?: StoryScript['cover'] } | null } | null;
     const stored = v.script as StoryScript;
-    const plan = stored.cover || !idea?.topic?.cover ? stored : { ...stored, cover: coverSpec(idea.topic.cover) };
+    let plan = stored;
+    try { if (!stored.cover && idea?.topic?.cover) plan = { ...stored, cover: coverSpec(idea.topic.cover) }; } catch (e) { await log.warn(`Video ${v.id}: ${(e as Error).message}`); }
     if (await renderStoryVideo(v.id, plan, product.slug, v.render_attempts)) failures++;
     continue;
   }
@@ -115,7 +116,8 @@ for (const v of noCover ?? []) {
   const slug = ((Array.isArray(v.products) ? v.products[0] : v.products) as { slug: string }).slug;
   const idea = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: { cover?: StoryScript['cover'] } | null } | null;
   const script = v.script as StoryScript;
-  const cover = script.cover ?? (idea?.topic?.cover ? coverSpec(idea.topic.cover) : undefined);
+  let cover = script.cover;
+  try { cover ??= idea?.topic?.cover ? coverSpec(idea.topic.cover) : undefined; } catch (e) { await log.warn(`Video ${v.id}: ${(e as Error).message}`); }
   if (!cover) continue;
   const coverPath = await makeCover(v.id, { ...script, cover }, slug);
   if (!coverPath) continue;

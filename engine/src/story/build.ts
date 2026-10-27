@@ -74,5 +74,6 @@ export function timeStory(plan: StoryScript, speech: { alignment: Alignment; aud
 
 /** Konu kapağından render kapağı (açıklama alanı "object" taşınmaz). */
 export function coverSpec(c: NonNullable<StoryScript['cover']> & { object?: string }): NonNullable<StoryScript['cover']> {
+  if (!c.icon || !c.theme) throw new Error('Konu kaydında kapak nesnesi/teması yok; konu bankasını senkronlayın (Fikir araştırması).');
   return { line1: c.line1, line2: c.line2, icon: c.icon, theme: c.theme, ...(c.number ? { number: c.number } : {}) };
 }
