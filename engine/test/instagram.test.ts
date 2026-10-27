@@ -131,6 +131,34 @@ describe('publishClaimed', () => {
     expect(caption).toBe('Hook\n\nGövde\n\n#a #b');
   });
 
+  it('kapak varsa imzalı adresiyle cover_url olarak gönderilir', async () => {
+    const h = harness();
+    const covers: (string | undefined)[] = [];
+    h.deps.ig.createReelContainer = async (_u, _v, _c, cover) => { covers.push(cover); return { id: 'C1' }; };
+    await publishClaimed(video({ cover_path: 'p/v1-kapak.jpg' }), h.deps);
+    expect(covers).toEqual(['https://signed/p/v1-kapak.jpg']);
+  });
+
+  it('kapak reddedilirse aynı çalışmada kapaksız denenir ve yayın sürer; yetki hatası kapaksız denenmez', async () => {
+    const h = harness();
+    const covers: (string | undefined)[] = [];
+    h.deps.ig.createReelContainer = async (_u, _v, _c, cover) => {
+      covers.push(cover);
+      if (cover) throw new IgError(400, 100, null, 'Invalid cover');
+      return { id: 'C1' };
+    };
+    const out = await publishClaimed(video({ cover_path: 'p/v1-kapak.jpg' }), h.deps);
+    expect(out).toEqual({ result: 'published', mediaId: 'M1' });
+    expect(covers).toEqual(['https://signed/p/v1-kapak.jpg', undefined]);
+
+    const a = harness();
+    let calls = 0;
+    a.deps.ig.createReelContainer = async () => { calls++; throw new IgError(401, 190, null, 'bad token'); };
+    const out2 = await publishClaimed(video({ cover_path: 'p/v1-kapak.jpg' }), a.deps);
+    expect(out2.result).toBe('failed');
+    expect(calls).toBe(1);
+  });
+
   it('PAUSED yayından hemen önce açıldıysa yayınlamaz, kuyruğa döner (container korunur)', async () => {
     const h = harness({ paused: true });
     expect(await publishClaimed(video(), h.deps)).toMatchObject({ result: 'released' });

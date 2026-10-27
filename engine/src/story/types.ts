@@ -60,4 +60,7 @@ export interface StoryScript {
   review_notes: string[];
   sources: { label: string; url: string }[];
   funnel?: 'TOF' | 'MOF' | 'BOF';
+  /** Reels kapağı tanımı (konu bankasından) ve üretilen kapağın depolama yolu. */
+  cover?: import('../../remotion/Cover.tsx').CoverSpec;
+  cover_path?: string;
 }

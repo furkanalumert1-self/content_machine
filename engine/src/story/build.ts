@@ -54,6 +54,7 @@ export function planStory(topic: Topic, caseNo: number, contentType: ContentType
     cta: segments.at(-1)!.say, cta_url: '', sample_data: false, review_notes: [],
     sources: [...new Map(topic.facts.map((f) => [f.source_url, { label: f.source_label, url: f.source_url }])).values()],
     funnel: topic.funnel,
+    cover: { line1: topic.cover.line1, line2: topic.cover.line2, icon: topic.cover.icon, theme: topic.cover.theme, ...(topic.cover.number ? { number: topic.cover.number } : {}) },
   };
 }
 

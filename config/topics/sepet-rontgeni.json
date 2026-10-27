@@ -18,8 +18,10 @@
       ],
       "cover": {
         "line1": "Boş kart.",
-        "line2": "Kimseyi geri getirmez.",
-        "object": "iki damgası basılı sadakat kartı"
+        "line2": "Boş dönüş.",
+        "object": "iki damgası basılı sadakat kartı",
+        "icon": "stamp-card",
+        "theme": "light"
       },
       "fact": "Bir araba yıkamacısında aynı ödül için 8 yıkama gerekiyordu, ama kartların yarısında 2 damga hazır basılıydı.",
       "mechanism_lines": [
@@ -160,7 +162,10 @@
       "cover": {
         "line1": "Ders değil.",
         "line2": "Seri tutuyor.",
-        "object": "alev simgeli seri sayacı"
+        "object": "alev simgeli seri sayacı",
+        "icon": "phone-streak",
+        "theme": "dark",
+        "number": "3,6 kat"
       },
       "fact": "Duolingo'ya göre 7 günlük seri yapanların kursu bitirme ihtimali 3,6 kat daha yüksek.",
       "big_number": "3,6 kat",
@@ -328,7 +333,10 @@
       "cover": {
         "line1": "Sessiz müşteri.",
         "line2": "Her ay uzaklaşıyor.",
-        "object": "tozlanmış alışveriş poşeti"
+        "object": "tozlanmış alışveriş poşeti",
+        "icon": "hourglass",
+        "theme": "warm",
+        "number": "%47,3"
       },
       "fact": "Türkiye'de bir e-ticaret şirketinde, 6–9 ay önce kaybedilen müşterilerin %47,3'ü geri kazanıldı.",
       "big_number": "%47,3",
@@ -475,8 +483,11 @@
       ],
       "cover": {
         "line1": "Peşin ödedin.",
-        "line2": "Şimdi kullanmalısın.",
-        "object": "üzerinde mavi bant olan kargo kutusu"
+        "line2": "Şimdi kullan.",
+        "object": "üzerinde mavi bant olan kargo kutusu",
+        "icon": "parcel",
+        "theme": "warm",
+        "number": "2 kat"
       },
       "fact": "Tahminlere göre ABD'de Prime üyeleri Amazon'da yılda yaklaşık 1.170 dolar, üye olmayanlar 570 dolar harcıyor.",
       "big_number": "2 kat",
@@ -616,7 +627,10 @@
       "cover": {
         "line1": "Yıldız değil.",
         "line2": "Geri çağırma.",
-        "object": "yeşil kahve bardağı ve altın yıldız"
+        "object": "yeşil kahve bardağı ve altın yıldız",
+        "icon": "coffee",
+        "theme": "green",
+        "number": "%59"
       },
       "fact": "Starbucks'ın ABD'deki şirket mağazalarında harcamanın %59'unu Rewards üyeleri yapıyor.",
       "big_number": "%59",
@@ -759,7 +773,9 @@
       "cover": {
         "line1": "Senin yılın.",
         "line2": "Onların reklamı.",
-        "object": "renkli müzik özet kartı"
+        "object": "renkli müzik özet kartı",
+        "icon": "music-cards",
+        "theme": "dark"
       },
       "fact": "Spotify Wrapped 2025 ilk 24 saatte 200 milyonun üzerinde kullanıcıya ulaştı.",
       "big_number": "200 milyon",
@@ -904,9 +920,12 @@
         "Bedava kargo sepeti büyütür, ama dikkat"
       ],
       "cover": {
-        "line1": "Bedava kargo.",
-        "line2": "Dolu sepet.",
-        "object": "eşik çizgisi olan alışveriş sepeti"
+        "line1": "Eşik düştü.",
+        "line2": "Sepet küçüldü.",
+        "object": "eşik çizgisi olan alışveriş sepeti",
+        "icon": "cart",
+        "theme": "light",
+        "number": "2,53"
       },
       "fact": "Amazon ücretsiz kargo eşiğini 49 dolardan 25 dolara indirdiğinde, sipariş başına ürün sayısı 3,31'den 2,53'e düştü.",
       "big_number": "3,31 → 2,53",
@@ -1054,7 +1073,9 @@
       "cover": {
         "line1": "Az kaldı.",
         "line2": "Daha değerli.",
-        "object": "içinde iki kurabiye kalan cam kavanoz"
+        "object": "içinde iki kurabiye kalan cam kavanoz",
+        "icon": "cookie-jar",
+        "theme": "warm"
       },
       "fact": "1975'teki bir deneyde aynı kurabiye, 2'lik kavanozdan alınınca 10'luk kavanozdakinden daha çekici bulundu.",
       "mechanism_lines": [
@@ -1191,7 +1212,10 @@
       "cover": {
         "line1": "5 kat mı?",
         "line2": "Aslında bir aralık.",
-        "object": "iki ucu farklı uzunlukta cetvel"
+        "object": "iki ucu farklı uzunlukta cetvel",
+        "icon": "ruler",
+        "theme": "light",
+        "number": "5–25"
       },
       "fact": "HBR'a göre yeni müşteri kazanmak, mevcut müşteriyi tutmaktan 5 ile 25 kat arası daha pahalı.",
       "big_number": "5–25 kat",
@@ -1329,8 +1353,10 @@
       ],
       "cover": {
         "line1": "Bedava değil.",
-        "line2": "Bir borç bırakıyor.",
-        "object": "küçük numune şişesi"
+        "line2": "Bir borç.",
+        "object": "küçük numune şişesi",
+        "icon": "gift",
+        "theme": "dark"
       },
       "fact": "Sephora yıllardır online siparişlere ücretsiz numune ekliyor ve numuneyi sen seçiyorsun.",
       "mechanism_lines": [
@@ -1486,7 +1512,9 @@
       "cover": {
         "line1": "Senin indirimin.",
         "line2": "Sadece senin.",
-        "object": "kişiye özel kupon kartı"
+        "object": "kişiye özel kupon kartı",
+        "icon": "tag",
+        "theme": "warm"
       },
       "fact": "Migros Money'nin 14 milyon aktif üyesi var.",
       "big_number": "14 milyon",
@@ -1627,7 +1655,10 @@
       "cover": {
         "line1": "Reklam yok.",
         "line2": "Raf var.",
-        "object": "boş askılı elbise rafı"
+        "object": "boş askılı elbise rafı",
+        "icon": "hanger",
+        "theme": "light",
+        "number": "%0,5"
       },
       "fact": "Bain'in analizine göre Zara satışlarının %0,5'inden azını reklama harcıyor.",
       "big_number": "%0,5",
@@ -1774,7 +1805,9 @@
       "cover": {
         "line1": "Çıkış kolay.",
         "line2": "Dönüş daha kolay.",
-        "object": "kumanda ve kırmızı geri ok"
+        "object": "kumanda ve kırmızı geri ok",
+        "icon": "remote",
+        "theme": "dark"
       },
       "fact": "Antenna tahminlerine göre Netflix'te aylık iptal oranı yaklaşık %2.",
       "big_number": "%2",
@@ -1923,7 +1956,9 @@
       "cover": {
         "line1": "Kutu da ürün.",
         "line2": "İlk an önemli.",
-        "object": "beyaz minimal ürün kutusu"
+        "object": "beyaz minimal ürün kutusu",
+        "icon": "flatpack",
+        "theme": "light"
       },
       "fact": "Bir kitaba göre Apple'da bir tasarımcı yüzlerce iPod kutusu prototipini tek tek açıp test etti.",
       "mechanism_lines": [
@@ -1966,7 +2001,10 @@
       "cover": {
         "line1": "Montaj sende.",
         "line2": "Bağlılık da.",
-        "object": "yarı kurulmuş karton kutu ve alyan anahtarı"
+        "object": "yarı kurulmuş karton kutu ve alyan anahtarı",
+        "icon": "flatpack",
+        "theme": "light",
+        "number": "%63"
       },
       "fact": "Bir deneyde kutuyu kendi kuranlar, hazır kurulmuşuna %63 daha fazla ödemeye razı oldu.",
       "big_number": "%63",
@@ -2107,9 +2145,12 @@
         "Hatırlatmayı yarına bırakma"
       ],
       "cover": {
-        "line1": "%70 terk ediyor.",
-        "line2": "Erken hatırlat.",
-        "object": "yarı dolu alışveriş sepeti"
+        "line1": "Terk etmedi.",
+        "line2": "Hatırlat.",
+        "object": "yarı dolu alışveriş sepeti",
+        "icon": "basket",
+        "theme": "light",
+        "number": "%70"
       },
       "fact": "50 çalışmanın ortalamasına göre online sepetlerin yaklaşık %70'i ödemeye ulaşmıyor.",
       "big_number": "%70",

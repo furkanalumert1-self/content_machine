@@ -14,6 +14,7 @@ import { MAX_ATTEMPTS, renderWithRetries } from '../render/render.ts';
 import { BUCKET } from '../lib/storage.ts';
 import { buildButtons, callbackKey, readyMessage } from '../approvals/telegram-approval.ts';
 import { TelegramApi } from '../notify/telegram.ts';
+import { renderCover } from '../story/cover.ts';
 import { produceStory } from '../story/produce.ts';
 import { storySrt } from '../story/render.ts';
 import type { StoryScript } from '../story/types.ts';
@@ -34,6 +35,7 @@ const STORY_LICENSES = [
   ...LICENSES.filter((l) => !['Müzik', 'Dark Tech Keynote stil kuralları'].includes(l.asset)),
   { asset: 'Seslendirme', license: 'ElevenLabs ücretli plan ticari lisansı (yapay zekâ sesi)', source: 'elevenlabs.io/terms-of-use' },
   { asset: 'Müzik', license: 'Yok', source: '-' },
+  { asset: 'Instrument Serif (kapak yazı tipi)', license: 'OFL-1.1', source: '@fontsource/instrument-serif 5.3.0' },
 ];
 
 const db = serviceClient('render');
@@ -138,6 +140,20 @@ async function renderStoryVideo(id: string, stored: StoryScript, slug: string, a
     return true;
   }
   await db.storage.from(BUCKET).upload(`${slug}/${id}.srt`, storySrt(r.script), { contentType: 'text/plain', upsert: true });
+  // Kapak: üretilemezse video yine hazır olur; Instagram ilk kareyi kapak yapar.
+  if (r.script.cover) {
+    try {
+      const file = join(tmpdir(), 'cm-render', `${id}-kapak.jpg`);
+      const c = await renderCover(r.script.cover, r.script.channel, r.script.case_no, file);
+      if (!c.ok) throw new Error(c.problems.join('; '));
+      const coverPath = `${slug}/${id}-kapak.jpg`;
+      const cu = await db.storage.from(BUCKET).upload(coverPath, readFileSync(file), { contentType: 'image/jpeg', upsert: true });
+      if (cu.error) throw new Error(cu.error.message);
+      r.script.cover_path = coverPath;
+    } catch (e) {
+      await log.warn(`Video ${id}: kapak üretilemedi (${(e as Error).message}); ilk kare kullanılacak.`);
+    }
+  }
   // Zamanlanmış senaryo ve gerçek süre kaydedilir (ses verisi kaydedilmez).
   await db.from('videos').update({
     status: 'ready', storage_path: path, file_size_bytes: r.output.qc.probe.bytes, script: r.script, duration_sec: r.script.duration_sec,

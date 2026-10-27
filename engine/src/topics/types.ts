@@ -29,7 +29,8 @@ export interface Topic {
   status: 'dogrulandi' | 'beklemede';
   /** 3 kanca adayı; en iyisi puanla seçilir. */
   hooks: string[];
-  cover: { line1: string; line2: string; object: string };
+  /** Reels kapağı: 2 satır (≤8 kelime), çizim nesne, isteğe bağlı büyük rakam, renk teması (remotion/Cover.tsx). */
+  cover: { line1: string; line2: string; object: string; icon: import('../../remotion/Cover.tsx').CoverIcon; theme: import('../../remotion/Cover.tsx').CoverTheme; number?: string };
   /** OLGU: marka + tek rakam, tek cümle. */
   fact: string;
   /** Ekranda büyük ve tek başına gösterilecek rakam (ör. "%34"). */

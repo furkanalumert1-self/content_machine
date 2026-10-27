@@ -58,8 +58,9 @@ export class InstagramClient {
 
   me() { return this.call<{ user_id: string; username: string }>('GET', 'me', { fields: 'user_id,username' }); }
 
-  createReelContainer(igUserId: string, videoUrl: string, caption: string) {
-    return this.call<{ id: string }>('POST', `${igUserId}/media`, { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' });
+  /** coverUrl: Reels kapağı (JPEG, ≤8 MB, 9:16, herkese açık adres; Meta: ig-user/media › cover_url). */
+  createReelContainer(igUserId: string, videoUrl: string, caption: string, coverUrl?: string) {
+    return this.call<{ id: string }>('POST', `${igUserId}/media`, { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true', ...(coverUrl ? { cover_url: coverUrl } : {}) });
   }
 
   containerStatus(containerId: string) {

@@ -16,7 +16,7 @@ const topic = (over: Partial<Topic> = {}): Topic => ({
   key: 'damga-karti', pillar: 'A', funnel: 'TOF', brand: 'Araba yıkama', mechanism: 'Hazır ilerleme etkisi',
   callypso_feature: 'Otomasyon akışları', status: 'dogrulandi',
   hooks: ['İki damga hediye, kart dolmaya başlar', 'Bedava damga değil, geri çağırma', 'Kartı yarısı dolu verince ne olur?'],
-  cover: { line1: 'Bedava değil.', line2: 'Geri çağırıyor.', object: 'damga kartı' },
+  cover: { line1: 'Bedava değil.', line2: 'Geri çağırıyor.', object: 'damga kartı', icon: 'stamp-card', theme: 'light' },
   fact: 'Bir deneyde 2 damgası hazır basılı kartı tamamlayanların oranı %34 oldu.',
   big_number: '%34',
   mechanism_lines: ['Hedefe yakın olduğunu hisseden insan bırakmak istemez.', 'Başlamış bir işi yarım bırakmak kayıp gibi gelir.'],

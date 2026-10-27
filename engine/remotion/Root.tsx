@@ -5,14 +5,16 @@ import '@fontsource/outfit/700.css';
 import '@fontsource/outfit/800.css';
 import '@fontsource/outfit/300.css';
 import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/instrument-serif/400-italic.css';
 import { useEffect, useState } from 'react';
-import { Composition, continueRender, delayRender, registerRoot } from 'remotion';
+import { Composition, continueRender, delayRender, registerRoot, Still } from 'remotion';
 import { FPS } from '../src/plan/script.ts';
 import { Reel, type ReelProps } from './Reel.tsx';
 import { Story, type StoryProps } from './Story.tsx';
+import { Cover, type CoverProps } from './Cover.tsx';
 import { H, W } from './theme.ts';
 
-const FONTS = ['300 40px Outfit', '800 40px Outfit', '400 40px Outfit', '500 40px Outfit', '600 40px Outfit', '700 40px Outfit', '500 40px "JetBrains Mono"'];
+const FONTS = ['italic 400 40px "Instrument Serif"', '300 40px Outfit', '800 40px Outfit', '400 40px Outfit', '500 40px Outfit', '600 40px Outfit', '700 40px Outfit', '500 40px "JetBrains Mono"'];
 
 function useFonts() {
   // Fontlar yüklenmeden kare çekilmesin; aksi hâlde metin ölçümü ve görüntü yanlış olur.
@@ -26,6 +28,13 @@ function WithFonts(props: ReelProps) {
   useFonts();
   return <Reel {...props} />;
 }
+
+function CoverWithFonts(props: CoverProps) {
+  useFonts();
+  return <Cover {...props} />;
+}
+
+const coverPlaceholder: CoverProps = { cover: { line1: 'Ders değil.', line2: 'Seri tutuyor.', icon: 'phone-streak', number: '3,6 kat', theme: 'dark' }, channel: 'Sepet Röntgeni', caseNo: 1 };
 
 function StoryWithFonts(props: StoryProps) {
   useFonts();
@@ -70,6 +79,7 @@ function Root() {
       defaultProps={storyPlaceholder}
       calculateMetadata={({ props }) => ({ durationInFrames: props.script.scenes.reduce((s, x) => s + x.frames, 0) })}
     />
+    <Still id="Cover" component={CoverWithFonts} width={W} height={H} defaultProps={coverPlaceholder} />
     </>
   );
 }

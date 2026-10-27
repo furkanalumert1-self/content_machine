@@ -17,6 +17,8 @@ export interface ClaimedVideo {
   caption: string;
   hashtags: string[];
   storage_path: string;
+  /** Kapak (JPEG) depolama yolu; yoksa Instagram ilk kareyi kullanır. */
+  cover_path?: string | null;
   ig_container_id: string | null;
   publish_requested_at: string | null;
   publish_tries: number;
@@ -79,7 +81,15 @@ export async function publishClaimed(v: ClaimedVideo, d: PublishDeps): Promise<O
     // ---- 3) Container oluştur ve hemen kaydet
     if (!containerId) {
       const url = await d.signedUrl(v.storage_path, SIGNED_URL_SECONDS);
-      containerId = (await d.ig.createReelContainer(d.igUserId, url, fullCaption(v))).id;
+      const cover = v.cover_path ? await d.signedUrl(v.cover_path, SIGNED_URL_SECONDS).catch(() => undefined) : undefined;
+      try {
+        containerId = (await d.ig.createReelContainer(d.igUserId, url, fullCaption(v), cover)).id;
+      } catch (e) {
+        // Kapak reddedilirse yayın kapaksız denenir (Instagram ilk kareyi kapak yapar); yetki/limit hataları aynen yükselir.
+        if (!cover || !(e instanceof IgError) || ['auth', 'limit'].includes(e.kind)) throw e;
+        await d.attempt(v.id, 'retry', `${e.code ?? ''}/${e.subcode ?? ''}`, `Kapak kabul edilmedi, kapaksız deneniyor: ${e.message}`);
+        containerId = (await d.ig.createReelContainer(d.igUserId, url, fullCaption(v))).id;
+      }
       await d.save(v.id, { ig_container_id: containerId });
     }
 

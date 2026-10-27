@@ -59,7 +59,7 @@ const deps: PublishDeps = {
 };
 
 const toClaimed = (v: Record<string, any>): ClaimedVideo => ({
-  id: v.id, caption: v.caption, hashtags: v.hashtags, storage_path: v.storage_path, ig_container_id: v.ig_container_id,
+  id: v.id, caption: v.caption, hashtags: v.hashtags, storage_path: v.storage_path, cover_path: v.script?.cover_path ?? null, ig_container_id: v.ig_container_id,
   publish_requested_at: v.publish_requested_at, publish_tries: v.publish_tries, approved: !!v.approved_hash && v.approved_hash === v.content_hash,
 });
 

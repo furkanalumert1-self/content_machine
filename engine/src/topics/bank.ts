@@ -47,7 +47,7 @@ export function validateTopic(t: Topic): string[] {
   // Kaynak kapısı: olgu/mekanizma/içgörü/kanca/kapak metnindeki her rakam bir kaynaklı olguda geçmeli.
   // "Senin mağazan için" önerileri (ör. "45 gün") iddia değil tavsiyedir; onlar yüzde/kat vaadi denetiminden geçer.
   const sourced = new Set(t.facts.flatMap((f) => numbersIn(f.text)));
-  const claimed = [t.fact, ...t.mechanism_lines, t.insight, ...t.hooks, t.cover.line1, t.cover.line2, t.big_number ?? ''];
+  const claimed = [t.fact, ...t.mechanism_lines, t.insight, ...t.hooks, t.cover.line1, t.cover.line2, t.cover.number ?? '', t.big_number ?? ''];
   for (const n of new Set(claimed.flatMap(numbersIn))) if (!sourced.has(n)) p.push(`Kaynaksız rakam: ${n}`);
   const { callypso_feature: _, ...content } = t;
   if (/callypso/i.test(JSON.stringify(content))) p.push('Konu metninde ürün adı geçiyor.');

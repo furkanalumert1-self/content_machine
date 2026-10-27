@@ -11,7 +11,7 @@ type Row = {
   id: string; status: string; content_type: string; style: string; duration_sec: number; caption: string; hashtags: string[];
   publish_at: string | null; publish_at_reason: string | null; plan_reason: string | null; storage_path: string | null;
   error: string | null; qc: { checks?: QcCheck[] } | null; created_at: string; origin: string; request_instruction: string | null;
-  script: { review_notes?: string[]; hook?: string; channel?: string }; ig_permalink: string | null; published_at: string | null;
+  script: { review_notes?: string[]; hook?: string; channel?: string; cover_path?: string }; ig_permalink: string | null; published_at: string | null;
 };
 
 const FILTERS = {
@@ -28,7 +28,7 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
     .select('id, status, content_type, style, duration_sec, caption, hashtags, publish_at, publish_at_reason, plan_reason, storage_path, error, qc, created_at, origin, request_instruction, script, ig_permalink, published_at')
     .in('status', [...filter.statuses]).order('publish_at', { ascending: filter === FILTERS.bekleyen, nullsFirst: false }).limit(40);
   const rows = (data ?? []) as Row[];
-  const urls = await previewUrls(rows.map((r) => r.storage_path).filter((p): p is string => !!p));
+  const urls = await previewUrls(rows.flatMap((r) => [r.storage_path, r.script?.cover_path]).filter((p): p is string => !!p));
   const waiting = rows.filter((r) => r.status === 'ready').length;
 
   return (
@@ -63,6 +63,13 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
                   ) : (
                     <div className="flex aspect-[9/16] w-full items-center justify-center rounded-xl bg-navy p-4 text-center text-sm text-white/70">
                       {v.status === 'render_failed' ? 'Üretim başarısız' : 'Video henüz üretilmedi'}
+                    </div>
+                  )}
+                  {v.script?.cover_path && urls[v.script.cover_path] && (
+                    <div className="mt-3">
+                      <p className="mb-1 text-xs font-medium text-muted">Kapak (profil ızgarasında 3:4 kırpılır)</p>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={urls[v.script.cover_path]} alt="Reels kapağı" className="aspect-[9/16] w-28 rounded-lg object-cover ring-1 ring-line" />
                     </div>
                   )}
                 </div>
