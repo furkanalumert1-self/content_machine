@@ -2,7 +2,7 @@
 // Başarısızsa en fazla 2 yeniden deneme; sonra "render_failed" (yayınlanamaz) ve hata kaydı.
 // Tekrar çalıştırılabilir: yalnızca "planned" ve 30 dakikadan uzun süredir takılı "rendering" videoları alır.
 // Çalıştırma: npx tsx src/jobs/render.ts
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parseBrief } from '../brief/brief.ts';
@@ -15,6 +15,7 @@ import { BUCKET } from '../lib/storage.ts';
 import { buildButtons, callbackKey, readyMessage } from '../approvals/telegram-approval.ts';
 import { TelegramApi } from '../notify/telegram.ts';
 import { renderCover } from '../story/cover.ts';
+import { coverSpec } from '../story/build.ts';
 import { produceStory } from '../story/produce.ts';
 import { storySrt } from '../story/render.ts';
 import type { StoryScript } from '../story/types.ts';
@@ -49,7 +50,7 @@ if (!buckets?.some((b) => b.name === BUCKET)) {
 
 const staleBefore = new Date(Date.now() - 30 * 60_000).toISOString();
 const { data: queue, error } = await db.from('videos')
-  .select('id, product_id, brief_id, script, render_attempts, status, products(slug, name, brand_colors), product_briefs(content_md)')
+  .select('id, product_id, brief_id, script, render_attempts, status, products(slug, name, brand_colors), product_briefs(content_md), ideas(topic)')
   .or(`status.eq.planned,and(status.eq.rendering,updated_at.lt.${staleBefore})`)
   .order('created_at');
 if (error) throw error;
@@ -60,7 +61,11 @@ for (const v of queue ?? []) {
   const briefRow = (Array.isArray(v.product_briefs) ? v.product_briefs[0] : v.product_briefs) as { content_md: string };
   const brief = parseBrief(briefRow.content_md);
   if ((v.script as { format?: string }).format === 'story') {
-    if (await renderStoryVideo(v.id, v.script as StoryScript, product.slug, v.render_attempts)) failures++;
+    // Kapak özelliğinden önce planlanan videolarda kapak tanımı konunun kaydından alınır.
+    const idea = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: { cover?: StoryScript['cover'] } | null } | null;
+    const stored = v.script as StoryScript;
+    const plan = stored.cover || !idea?.topic?.cover ? stored : { ...stored, cover: coverSpec(idea.topic.cover) };
+    if (await renderStoryVideo(v.id, plan, product.slug, v.render_attempts)) failures++;
     continue;
   }
   const script = v.script as Script;
@@ -103,7 +108,41 @@ for (const v of queue ?? []) {
   await log.info(`Video ${v.id} hazır (${(result.output.ms / 1000).toFixed(0)} sn render, ${result.attempts}. deneme).`);
   await sendForApproval(v.id);
 }
+// Kapağı olmayan hazır hikâye videoları (kapak özelliğinden önce üretilenler): yalnızca kapak üretilir, video yeniden seslendirilmez.
+const { data: noCover } = await db.from('videos')
+  .select('id, script, products(slug), ideas(topic)').eq('status', 'ready').eq('script->>format', 'story').is('script->>cover_path', null);
+for (const v of noCover ?? []) {
+  const slug = ((Array.isArray(v.products) ? v.products[0] : v.products) as { slug: string }).slug;
+  const idea = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: { cover?: StoryScript['cover'] } | null } | null;
+  const script = v.script as StoryScript;
+  const cover = script.cover ?? (idea?.topic?.cover ? coverSpec(idea.topic.cover) : undefined);
+  if (!cover) continue;
+  const coverPath = await makeCover(v.id, { ...script, cover }, slug);
+  if (!coverPath) continue;
+  const { error: ue } = await db.from('videos').update({ script: { ...script, cover, cover_path: coverPath } }).eq('id', v.id).eq('status', 'ready');
+  if (ue) await log.warn(`Video ${v.id}: kapak kaydedilemedi (${ue.message}).`);
+  else await log.info(`Video ${v.id}: kapak eklendi.`);
+}
+
 if (failures) process.exitCode = 1;
+
+/** Kapak üretip yükler; başarısızsa uyarı yazar ve null döner. */
+async function makeCover(id: string, script: StoryScript, slug: string): Promise<string | null> {
+  if (!script.cover) return null;
+  try {
+    const file = join(tmpdir(), 'cm-render', `${id}-kapak.jpg`);
+    mkdirSync(join(tmpdir(), 'cm-render'), { recursive: true });
+    const c = await renderCover(script.cover, script.channel, script.case_no, file);
+    if (!c.ok) throw new Error(c.problems.join('; '));
+    const path = `${slug}/${id}-kapak.jpg`;
+    const cu = await db.storage.from(BUCKET).upload(path, readFileSync(file), { contentType: 'image/jpeg', upsert: true });
+    if (cu.error) throw new Error(cu.error.message);
+    return path;
+  } catch (e) {
+    await log.warn(`Video ${id}: kapak üretilemedi (${(e as Error).message}); ilk kare kullanılacak.`);
+    return null;
+  }
+}
 
 /** Hikâye formatı: seslendir → zamanla → render → yükle. Hata olursa true döner. */
 async function renderStoryVideo(id: string, stored: StoryScript, slug: string, attempts: number): Promise<boolean> {
@@ -141,19 +180,8 @@ async function renderStoryVideo(id: string, stored: StoryScript, slug: string, a
   }
   await db.storage.from(BUCKET).upload(`${slug}/${id}.srt`, storySrt(r.script), { contentType: 'text/plain', upsert: true });
   // Kapak: üretilemezse video yine hazır olur; Instagram ilk kareyi kapak yapar.
-  if (r.script.cover) {
-    try {
-      const file = join(tmpdir(), 'cm-render', `${id}-kapak.jpg`);
-      const c = await renderCover(r.script.cover, r.script.channel, r.script.case_no, file);
-      if (!c.ok) throw new Error(c.problems.join('; '));
-      const coverPath = `${slug}/${id}-kapak.jpg`;
-      const cu = await db.storage.from(BUCKET).upload(coverPath, readFileSync(file), { contentType: 'image/jpeg', upsert: true });
-      if (cu.error) throw new Error(cu.error.message);
-      r.script.cover_path = coverPath;
-    } catch (e) {
-      await log.warn(`Video ${id}: kapak üretilemedi (${(e as Error).message}); ilk kare kullanılacak.`);
-    }
-  }
+  const coverPath = await makeCover(id, r.script, slug);
+  if (coverPath) r.script.cover_path = coverPath;
   // Zamanlanmış senaryo ve gerçek süre kaydedilir (ses verisi kaydedilmez).
   await db.from('videos').update({
     status: 'ready', storage_path: path, file_size_bytes: r.output.qc.probe.bytes, script: r.script, duration_sec: r.script.duration_sec,
