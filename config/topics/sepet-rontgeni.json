@@ -2274,6 +2274,2794 @@
           }
         ]
       }
+    },
+    {
+      "key": "economist-tuzak-secenek",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "The Economist",
+      "mechanism": "Tuzak seçenek (decoy etkisi)",
+      "callypso_feature": "Kampanyalar (paket teklifleri)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Kimsenin seçmediği seçenek satışı yapıyordu",
+        "Bu abonelik sayfasında bir tuzak var",
+        "Ortadaki seçenek satmak için orada değil"
+      ],
+      "cover": {
+        "line1": "Kimse seçmedi.",
+        "line2": "Ama satışı yaptı.",
+        "object": "üç seçenekli abonelik sayfası",
+        "icon": "newspaper",
+        "theme": "light",
+        "number": "84/100"
+      },
+      "fact": "Ariely'nin deneyinde aynı fiyatlı 'yalnız basılı' seçeneği eklenince 100 öğrenciden 84'ü pahalı paketi seçti.",
+      "big_number": "84/100",
+      "mechanism_lines": [
+        "Kimsenin almadığı seçenek, yanındaki paketi fırsat gibi gösteriyor.",
+        "Kıyas kolaylaşınca karar da kolaylaşıyor."
+      ],
+      "action": [
+        "Bir paket öne çıkarmak istiyorsan yanına aynı fiyata daha az şey veren bir seçenek koy.",
+        "Seçeneklerin hepsi gerçek olsun; satın alınabilir ve açıkça yazılı."
+      ],
+      "insight": "Bazı seçenekler satılmak için değil, kıyas için vardır.",
+      "question": "Senin fiyat sayfanda kaç seçenek var? 👇",
+      "tags": [
+        "#theeconomist",
+        "#tuzakseçenek"
+      ],
+      "facts": [
+        {
+          "text": "Ariely'nin deneyi (100 MIT öğrencisi): yalnız dijital 59 dolar, yalnız basılı 125 dolar, basılı + dijital 125 dolar. Seçimler: 16 dijital, 0 basılı, 84 basılı + dijital.",
+          "source_label": "Ariely, Predictably Irrational (2008), kitap alıntısı",
+          "source_url": "https://www.iberlibro.com/Predictably-Irrational-Hidden-Forces-Shape-Decisions/30743740473/bd",
+          "source_type": "official",
+          "checked_at": "2026-10-28",
+          "note": "Sınıf deneyi; The Economist'in satış verisi değil."
+        },
+        {
+          "text": "Yalnız basılı seçenek kaldırılınca 100 öğrenciden 68'i dijitali, 32'si basılı + dijitali seçti.",
+          "source_label": "Business Today (2009), kitap incelemesi",
+          "source_url": "https://www.businesstoday.in/magazine/book/story/consumer-follies-245374-2009-04-02",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "Ariely TED konuşmasında tersine dönüşü doğruluyor."
+        },
+        {
+          "text": "Huber, Payne & Puto (1982): hedef ürünün açıkça daha kötü bir kopyasını eklemek hedefin seçilme payını artırabilir.",
+          "source_label": "Huber, Payne & Puto (1982), JCR",
+          "source_url": "https://doi.org/10.1086/208899",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Künye Crossref ile doğrulandı."
+        }
+      ],
+      "score": 86,
+      "story": {
+        "label": "Tuzak",
+        "segments": [
+          {
+            "say": "Kimsenin seçmediği seçenek, satışı yapıyordu.",
+            "show": {
+              "type": "title",
+              "text": "Kimse seçmedi.",
+              "sub": "Ama satışı yaptı."
+            }
+          },
+          {
+            "say": "Bir dergi aboneliği. Üç seçenek: sadece dijital 59 dolar. Sadece basılı 125 dolar. Basılı artı dijital, yine 125 dolar.",
+            "show": {
+              "type": "chips",
+              "title": "Abonelik",
+              "items": [
+                "Dijital · 59 dolar",
+                "Basılı · 125 dolar",
+                "Basılı + dijital · 125 dolar"
+              ]
+            }
+          },
+          {
+            "say": "Dan Ariely bunu 100 öğrenciye sordu. 84'ü pahalı paketi seçti. Sadece basılıyı seçen kimse yoktu.",
+            "show": {
+              "type": "stat",
+              "value": "84/100",
+              "label": "basılı + dijital paketi seçti",
+              "note": "KAYNAK: ARIELY (2008)"
+            }
+          },
+          {
+            "say": "Sonra o işe yaramaz seçeneği sildi. Bu sefer 68 kişi ucuz olanı aldı. Pahalı paket 32'ye düştü.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Tuzak varken",
+                "value": "84",
+                "bar": 0.84
+              },
+              "right": {
+                "label": "Tuzak yokken",
+                "value": "32",
+                "bar": 0.32
+              },
+              "caption": "Pahalı paketi seçen · 100 kişide"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Ortadaki seçenek satmak için orada değildi. Kıyas için oradaydı. Aynı fiyata daha azını görünce, paket birden bedava ek gibi duruyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Satmak için",
+              "text": "Kıyas için orada."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Orta boy patlamış mısır. Üç kademeli abonelik. Sinemada büyük menü.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Orta boy mısır",
+                "Üç kademeli abonelik",
+                "Büyük menü"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir paketi öne çıkarmak istiyorsan, yanına aynı fiyata daha az veren bir seçenek koy. Ama hepsi gerçek ve alınabilir olsun.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Paketini seç",
+              "body": "Tekli · İkili · İkili + hediye",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "fiyat-9-ile-biter",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Kadın giyim kataloğu",
+      "mechanism": "9'la biten fiyat (sol basamak etkisi)",
+      "callypso_feature": "Kampanyalar (fiyat testleri)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Daha pahalı fiyat daha çok sattı",
+        "49, 44'ten daha çok sattı",
+        "Fiyatın son rakamı satışı değiştiriyor"
+      ],
+      "cover": {
+        "line1": "Daha pahalı.",
+        "line2": "Daha çok sattı.",
+        "object": "üç fiyat etiketi",
+        "icon": "tag",
+        "theme": "dark",
+        "number": "49"
+      },
+      "fact": "Aynı ürün 44, 49 ve 54 dolardan satıldığında en çok 49 dolar sattı.",
+      "big_number": "49",
+      "mechanism_lines": [
+        "Göz fiyatı soldan okuyor; ilk rakam algıyı belirliyor.",
+        "9'la biten fiyat 'indirimli' sinyali de veriyor."
+      ],
+      "action": [
+        "Fiyatlarını 9 ile bitirmeyi küçük bir ürün grubunda dene ve satışları karşılaştır.",
+        "Zaten indirim etiketi olan ürünlerde etki zayıflayabilir."
+      ],
+      "insight": "Müşteri fiyatı soldan okur.",
+      "question": "Sen fiyatlarını nasıl bitiriyorsun? 👇",
+      "tags": [
+        "#fiyatpsikolojisi",
+        "#sağbasamak"
+      ],
+      "facts": [
+        {
+          "text": "Anderson & Simester (2003): kadın giyim kataloglarında üç saha deneyinin üçünde de 9'la biten fiyat talebi artırdı; etki yeni ürünlerde daha güçlü.",
+          "source_label": "Anderson & Simester (2003), Quantitative Marketing and Economics",
+          "source_url": "https://www.kellogg.northwestern.edu/academics-research/research/detail/2003/effects-of-9-price-endings-on-retail-sales-evidence/",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "'İndirim' etiketi varken etki zayıflıyor."
+        },
+        {
+          "text": "Aynı ürün 44, 49 ve 54 dolardan satıldı; 44 ve 54 dolarda talep neredeyse aynı, 49 dolarda belirgin şekilde yüksekti.",
+          "source_label": "Chicago Booth Review, 'Yours for only $19.99'",
+          "source_url": "https://www.chicagobooth.edu/review/yours-only-1999",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "Thomas & Morwitz (2005): 9'la biten fiyat, yalnızca en soldaki rakam değiştiğinde bir kuruş fazlasından belirgin şekilde küçük algılanıyor (ör. 2,99 ile 3).",
+          "source_label": "Thomas & Morwitz (2005), JCR",
+          "source_url": "https://ideas.repec.org/a/oup/jconrs/v32y2005i1p54-64.html",
+          "source_type": "academic",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 82,
+      "story": {
+        "label": "Son rakam",
+        "segments": [
+          {
+            "say": "Daha pahalı fiyat, daha çok sattı.",
+            "show": {
+              "type": "title",
+              "text": "Daha pahalı.",
+              "sub": "Daha çok sattı."
+            }
+          },
+          {
+            "say": "Bir kadın giyim kataloğu. Aynı elbise, üç farklı katalogda, üç farklı fiyatla basılıyor.",
+            "show": {
+              "type": "chips",
+              "title": "Aynı elbise",
+              "items": [
+                "44 dolar",
+                "49 dolar",
+                "54 dolar"
+              ]
+            }
+          },
+          {
+            "say": "44 dolar ile 54 dolar neredeyse aynı satıyor. Ama 49 dolar, ikisinden de belirgin şekilde fazla satıyor.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "44 dolar",
+                "value": "44",
+                "bar": 0.55
+              },
+              "right": {
+                "label": "49 dolar",
+                "value": "49",
+                "bar": 1
+              },
+              "caption": "Hangisi daha çok sattı?"
+            }
+          },
+          {
+            "say": "Araştırmacılar bunu üç ayrı deneyde denedi. Üçünde de 9'la biten fiyat kazandı.",
+            "show": {
+              "type": "stamps",
+              "total": 3,
+              "filled": 3,
+              "label": "Üç deneyin üçü"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Göz fiyatı soldan okuyor. 2,99 ile 3 lira arasında bir kuruş var, ama ilk rakam değişince fark büyük hissediliyor.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Bir kuruş fazlası",
+                "value": "3",
+                "bar": 1
+              },
+              "right": {
+                "label": "9'la biten",
+                "value": "2,99",
+                "bar": 0.7
+              },
+              "caption": "Fark bir kuruş"
+            }
+          },
+          {
+            "say": "Bir de sinyal var. 9'la biten fiyat, beynimize indirimdeymiş gibi geliyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Normal fiyat",
+              "text": "İndirimdeymiş gibi."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Market rafı. Benzin fiyatı. Abonelik ücretleri.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Market rafı",
+                "Benzin",
+                "Abonelik"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani bir ürün grubunda fiyatları 9'la bitir, iki hafta satışlara bak. Zaten indirim etiketi olan üründe etki zayıflayabilir.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Fiyat testi",
+              "body": "Bir ürün grubu, iki hafta.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "recel-secim-yuku",
+      "pillar": "D",
+      "funnel": "TOF",
+      "brand": "Reçel standı (Iyengar & Lepper)",
+      "mechanism": "Seçim yükü",
+      "callypso_feature": "Segmentasyon (öne çıkan ürünler)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Çok çeşit seni satıştan uzaklaştırabilir",
+        "Daha çok çeşit, daha az satış mı?",
+        "Kalabalık stant daha az sattı"
+      ],
+      "cover": {
+        "line1": "Çok çeşit",
+        "line2": "satış getirmedi.",
+        "object": "reçel kavanozları",
+        "icon": "jars",
+        "theme": "warm",
+        "number": "%3"
+      },
+      "fact": "24 çeşit reçel gören ziyaretçilerin %3'ü, 6 çeşit görenlerin yaklaşık %30'u reçel aldı.",
+      "big_number": "%3",
+      "mechanism_lines": [
+        "Çok seçenek ilgiyi artırıyor ama kararı zorlaştırıyor.",
+        "Karar zorlaşınca müşteri 'sonra bakarım' diyor."
+      ],
+      "action": [
+        "Kategori sayfanın başında her şeyi değil, öne çıkan birkaç ürünü göster.",
+        "Filtre ve 'en çok satan' etiketiyle seçimi kolaylaştır."
+      ],
+      "insight": "Fazla seçenek kararı erteletir.",
+      "question": "Senin mağazanda bir kategoride kaç ürün var? 👇",
+      "tags": [
+        "#seçimyükü",
+        "#eticaret"
+      ],
+      "facts": [
+        {
+          "text": "Iyengar & Lepper (2000): 24 çeşitli standın önünden geçenlerin %60'ı durdu, 6 çeşitlide %40'ı.",
+          "source_label": "Iyengar & Lepper (2000), JPSP",
+          "source_url": "https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20&%20Lepper%20(2000).pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "Duranlardan 6 çeşitte yaklaşık %30'u, 24 çeşitte yalnızca %3'ü reçel aldı.",
+          "source_label": "Iyengar & Lepper (2000), JPSP",
+          "source_url": "https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20&%20Lepper%20(2000).pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Tekrar çalışmalarının sonuçları karışık; 'bu deneyde' denir, genelleme yapılmaz."
+        }
+      ],
+      "score": 84,
+      "story": {
+        "label": "Reçel",
+        "segments": [
+          {
+            "say": "Çok çeşit seni satıştan uzaklaştırabilir.",
+            "show": {
+              "type": "title",
+              "text": "Çok çeşit",
+              "sub": "Az satış?"
+            }
+          },
+          {
+            "say": "Bir markette tadım standı kuruluyor. Bir gün 24 çeşit reçel var. Başka bir gün sadece 6.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Kalabalık stant",
+                "value": "24",
+                "bar": 1
+              },
+              "right": {
+                "label": "Sade stant",
+                "value": "6",
+                "bar": 0.25
+              },
+              "caption": "Reçel çeşidi"
+            }
+          },
+          {
+            "say": "Kalabalık stant daha çok ilgi çekiyor. Önünden geçenlerin %60'ı duruyor. Sade standa duran %40.",
+            "show": {
+              "type": "stat",
+              "value": "%60",
+              "label": "24 çeşitte duranlar",
+              "bar": 0.6,
+              "note": "KAYNAK: IYENGAR & LEPPER (2000)"
+            }
+          },
+          {
+            "say": "Ama kasaya gelince tablo dönüyor. 6 çeşit görenlerin yaklaşık %30'u reçel alıyor. 24 çeşit görenlerin sadece %3'ü.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "24 çeşit",
+                "value": "%3",
+                "bar": 0.1
+              },
+              "right": {
+                "label": "6 çeşit",
+                "value": "%30",
+                "bar": 1
+              },
+              "caption": "Satın alanlar"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Seçenek çoğaldıkça karar ağırlaşıyor. Ya yanlış olanı seçersem? Sonra bakarım deyip gidiyorsun.",
+            "show": {
+              "type": "scale",
+              "heavy": "Karar vermek",
+              "light": "Bakmak",
+              "caption": "Çok seçenek, ağır karar"
+            }
+          },
+          {
+            "say": "Yani çok çeşit her zaman çok satış demek değil. Bu deneyde tam tersiydi.",
+            "show": {
+              "type": "rule",
+              "strike": "Çok çeşit, çok satış",
+              "text": "Kolay karar, çok satış."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Mağazanda kategori sayfasını aç. En başta her şeyi değil, öne çıkan birkaç ürünü göster. Filtre ve en çok satan etiketiyle seçimi kolaylaştır.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "En çok satan 3 ürün",
+              "body": "Kararsız kalanlar için seçtik.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "bedava-etkisi",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Lindt ve Hershey's",
+      "mechanism": "Sıfır fiyat (bedava) etkisi",
+      "callypso_feature": "Kampanyalar (hediye ürün)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Bir sentlik indirim tercihi tersine çevirdi",
+        "Bedava, ucuzdan çok daha güçlü",
+        "Fark aynı kaldı, seçim değişti"
+      ],
+      "cover": {
+        "line1": "Bir sent indi.",
+        "line2": "Seçim tersine döndü.",
+        "object": "çikolata ve şeker",
+        "icon": "candy",
+        "theme": "warm",
+        "number": "%73 → %31"
+      },
+      "fact": "Lindt 15, Kiss 1 sentken %73'ü Lindt'i seçti; ikisi de 1 sent inip Kiss bedava olunca Lindt'i seçenler %31'e düştü.",
+      "big_number": "%31",
+      "mechanism_lines": [
+        "'Bedava' sadece daha ucuz değil; duygusal olarak farklı bir kategori.",
+        "Bedava olanın riski yokmuş gibi geliyor."
+      ],
+      "action": [
+        "Küçük bir indirim yerine eşiği geçene bedava bir ürün ya da bedava kargo dene.",
+        "Bedavanın şartını açıkça yaz."
+      ],
+      "insight": "Bedava, en küçük indirimden bile güçlüdür.",
+      "question": "Sen hiç bedava bir şey verdin mi? 👇",
+      "tags": [
+        "#bedavaetkisi",
+        "#lindt"
+      ],
+      "facts": [
+        {
+          "text": "Ariely'nin deneyi: Lindt trüf 15 sent, Hershey's Kiss 1 sentken katılımcıların %73'ü Lindt'i seçti. İkisi de 1 sent indirilip (Lindt 14 sent, Kiss bedava) fark aynı kalınca Lindt'i seçenler %31'e düştü.",
+          "source_label": "TIME (2007), yazar Dan Ariely",
+          "source_url": "https://content.time.com/time/specials/2007/article/0,28804,1623143_1720583_1720579,00.html",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "Shampanier, Mazar & Ariely (2007): fiyat farkı sabitken ucuz ürünü bedava yapmak onun seçilme payını belirgin artırıyor; en olası açıklama duygusal.",
+          "source_label": "Shampanier, Mazar & Ariely (2007), Marketing Science",
+          "source_url": "https://ideas.repec.org/a/inm/ormksc/v26y2007i6p742-757.html",
+          "source_type": "academic",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 85,
+      "story": {
+        "label": "Bedava",
+        "segments": [
+          {
+            "say": "Bir sentlik indirim, tercihi tersine çevirdi.",
+            "show": {
+              "type": "title",
+              "text": "Bir sent.",
+              "sub": "Tersine döndü."
+            }
+          },
+          {
+            "say": "Bir masa. Bir yanda Lindt trüf, 15 sent. Öbür yanda küçük bir Hershey's şekeri, 1 sent.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Şeker · sent",
+                "value": "1",
+                "bar": 0.1
+              },
+              "right": {
+                "label": "Lindt · sent",
+                "value": "15",
+                "bar": 1
+              },
+              "caption": "Fiyatlar"
+            }
+          },
+          {
+            "say": "Dan Ariely'nin deneyinde insanların %73'ü Lindt'i seçiyor. Mantıklı. Daha kaliteli, fark küçük.",
+            "show": {
+              "type": "stat",
+              "value": "%73",
+              "label": "Lindt'i seçti",
+              "bar": 0.73,
+              "note": "KAYNAK: ARIELY, TIME (2007)"
+            }
+          },
+          {
+            "say": "Sonra ikisini de 1 sent indiriyor. Lindt 14 sent, şeker bedava. Fark hâlâ aynı. Ama Lindt'i seçenler %31'e düşüyor.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Önce",
+                "value": "%73",
+                "bar": 0.73
+              },
+              "right": {
+                "label": "Şeker bedava",
+                "value": "%31",
+                "bar": 0.31
+              },
+              "caption": "Lindt'i seçenler"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Bedava, ucuzun bir adım ötesi değil. Bambaşka bir duygu. Kaybedecek bir şey yokmuş gibi geliyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Biraz daha ucuz",
+              "text": "Bedava bambaşka."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Bedava kargo. Bedava deneme. Yanında bedava hediye.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Bedava kargo",
+                "Bedava deneme",
+                "Yanında hediye"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani küçük bir indirim yerine bedava bir şey dene. Şu tutarı geçene minik bir hediye. Ama şartını açıkça yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Hediyen sepette 🎁",
+              "body": "Sepetin hediye eşiğini geçti.",
+              "time": "14:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "capa-etkisi-cark",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Tversky & Kahneman",
+      "mechanism": "Çapalama (ilk görülen sayı)",
+      "callypso_feature": "Kampanyalar (fiyat sunumu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Rastgele bir sayı tahminini değiştiriyor",
+        "İlk gördüğün sayı seni bırakmıyor",
+        "Bir çark, insanların tahminini kaydırdı"
+      ],
+      "cover": {
+        "line1": "İlk sayı",
+        "line2": "aklında kalıyor.",
+        "object": "talih çarkı",
+        "icon": "wheel",
+        "theme": "dark",
+        "number": "10 → 65"
+      },
+      "fact": "Çark 10'da durunca tahmin %25, 65'te durunca %45 oldu.",
+      "big_number": "%45",
+      "mechanism_lines": [
+        "İlk görülen sayı, sonraki tahminlere çapa oluyor.",
+        "Sayı tamamen alakasız olsa bile."
+      ],
+      "action": [
+        "Ürün sayfasında önce paketin ya da setin gerçek fiyatını, sonra tekli seçeneği göster.",
+        "Gösterdiğin her fiyat gerçek olsun; uydurma eski fiyat yazma."
+      ],
+      "insight": "Müşterinin gördüğü ilk sayı, kararının ölçüsü olur.",
+      "question": "Senin müşterin ilk hangi fiyatı görüyor? 👇",
+      "tags": [
+        "#çapalama",
+        "#fiyatpsikolojisi"
+      ],
+      "facts": [
+        {
+          "text": "Tversky & Kahneman (1974): hileli çark 10'da ya da 65'te durdu; BM'deki Afrika ülkeleri oranı için ortanca tahminler 10 grubunda %25, 65 grubunda %45 oldu.",
+          "source_label": "Tversky & Kahneman (1974), Science; UCD ders notları",
+          "source_url": "https://bsp.ucd.ie/wp-content/uploads/2019/11/3.pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Rakamlar makaleyi alıntılayan University College Dublin ders notundan; ortanca."
+        }
+      ],
+      "score": 80,
+      "story": {
+        "label": "Çapa",
+        "segments": [
+          {
+            "say": "Rastgele bir sayı, tahminini değiştiriyor.",
+            "show": {
+              "type": "title",
+              "text": "Rastgele bir sayı.",
+              "sub": "Tahminini değiştiriyor."
+            }
+          },
+          {
+            "say": "Bir deney. Önünde bir çark dönüyor. Bazılarında 10'da duruyor, bazılarında 65'te.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Birinci grup",
+                "value": "10",
+                "bar": 0.15
+              },
+              "right": {
+                "label": "İkinci grup",
+                "value": "65",
+                "bar": 1
+              },
+              "caption": "Çarkın durduğu sayı"
+            }
+          },
+          {
+            "say": "Sonra soruyorlar: Birleşmiş Milletler'deki ülkelerin yüzde kaçı Afrika'dan? Çarkla hiçbir ilgisi yok.",
+            "show": {
+              "type": "phone",
+              "app": "Soru",
+              "title": "Sence yüzde kaç?",
+              "body": "BM'deki Afrika ülkelerinin oranı",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Çark 10'da durunca tahmin %25. 65'te durunca %45.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Çark 10",
+                "value": "%25",
+                "bar": 0.25
+              },
+              "right": {
+                "label": "Çark 65",
+                "value": "%45",
+                "bar": 0.45
+              },
+              "caption": "Ortanca tahmin · 1974"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Psikologlar buna çapalama diyor. İlk gördüğün sayı aklına bir çapa atıyor. Sonraki her tahmin, o çapanın etrafında dolaşıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Kendi tahminim",
+              "text": "İlk sayının etrafında."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Menünün başındaki pahalı yemek. Üstü çizili fiyat. Önce gösterilen büyük paket.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Pahalı ilk yemek",
+                "Üstü çizili fiyat",
+                "Önce büyük paket"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani ürün sayfanda önce seti, sonra tekli ürünü göster. Ama her fiyat gerçek olsun. Uydurma eski fiyat yazma.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Üçlü set",
+              "body": "Önce set, sonra tekli seçenek.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "kart-odeme-acisi",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Celtics bileti / BKM",
+      "mechanism": "Ödeme acısı",
+      "callypso_feature": "Kampanyalar (taksit seçeneği duyurusu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Kartla ödeyince aynı bilete iki kat verdiler",
+        "Nakit acıtıyor, kart acıtmıyor",
+        "Ödeme şekli, ödeyeceğin tutarı değiştiriyor"
+      ],
+      "cover": {
+        "line1": "Nakit acıtır.",
+        "line2": "Kart acıtmaz.",
+        "object": "kredi kartı",
+        "icon": "credit-card",
+        "theme": "dark",
+        "number": "29 → 61"
+      },
+      "fact": "Celtics bileti için nakit grubunun ortalama teklifi 29, kart grubunun 61 dolar oldu.",
+      "big_number": "61",
+      "mechanism_lines": [
+        "Para elden çıkarken bir tür acı hissediyoruz.",
+        "Kart ve taksit bu acıyı uzaklaştırıyor."
+      ],
+      "action": [
+        "Ürün sayfanda taksit seçeneklerini fiyatın hemen altında göster.",
+        "Taksitli toplam tutarı da açıkça yaz."
+      ],
+      "insight": "Ödeme ne kadar az acıtırsa, karar o kadar kolaylaşır.",
+      "question": "Senin mağazanda taksit nerede görünüyor? 👇",
+      "tags": [
+        "#ödemeacısı",
+        "#taksit"
+      ],
+      "facts": [
+        {
+          "text": "Prelec & Simester (2001): gerçek para ile yapılan deneylerde kredi kartıyla ödeyeceğini bilenlerin ödeme isteği arttı.",
+          "source_label": "Prelec & Simester (2001), Marketing Letters",
+          "source_url": "https://doi.org/10.1023/A:1008196717017",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Künye Crossref ile doğrulandı."
+        },
+        {
+          "text": "MIT MBA öğrencileriyle Celtics bileti açık artırması: nakit ödeyecek grubun ortalama teklifi 29 dolar, kartla ödeyecek grubun 61 dolar.",
+          "source_label": "MIT OpenCourseWare 15.821 ders notu (Prelec & Simester, 2001)",
+          "source_url": "https://ocw.mit.edu/courses/15-821-listening-to-the-customer-fall-2002/5cc52570803b6e1bbea64585acdce779_redblack20copy.pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Küçük öğrenci örneklemi; genelleme yapılmaz."
+        },
+        {
+          "text": "2025'te Türkiye'de kredi kartıyla yapılan e-ticaret harcamalarının %34,4'ü taksitli; tüm kredi kartı harcamalarında bu oran %19,5.",
+          "source_label": "Bloomberg HT, GÖSAŞ 'Türkiye'de Kartlı Ödemeler 2025' (BKM verisi)",
+          "source_url": "https://www.bloomberght.com/banka-ve-kredi-kartlariyla-yapilan-harcama-yuzde-62-artti-3766565",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "Taksit payı GÖSAŞ hesabı; toplam harcama BKM 2025 faaliyet raporuyla tutarlı."
+        }
+      ],
+      "score": 85,
+      "story": {
+        "label": "Ödeme acısı",
+        "segments": [
+          {
+            "say": "Kartla ödeyince, aynı bilete iki kat verdiler.",
+            "show": {
+              "type": "title",
+              "text": "Aynı bilet.",
+              "sub": "İki kat teklif."
+            }
+          },
+          {
+            "say": "MIT'de bir açık artırma. Ödül, bir basketbol maçına bilet. Yarısına nakit ödeyeceksiniz deniyor, yarısına kartla.",
+            "show": {
+              "type": "chips",
+              "title": "Açık artırma",
+              "items": [
+                "Nakit ödeyecekler",
+                "Kartla ödeyecekler"
+              ]
+            }
+          },
+          {
+            "say": "Nakit grubunun ortalama teklifi 29 dolar. Kart grubunun ortalaması 61 dolar. Aynı bilet, iki katından fazla.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Nakit · dolar",
+                "value": "29",
+                "bar": 0.48
+              },
+              "right": {
+                "label": "Kart · dolar",
+                "value": "61",
+                "bar": 1
+              },
+              "caption": "Ortalama teklif · 2001"
+            }
+          },
+          {
+            "say": "Türkiye'de bunun bir adı var: taksit. Kredi kartıyla yapılan e-ticaret harcamasında taksitin payı %34,4.",
+            "show": {
+              "type": "stat",
+              "value": "%34,4",
+              "label": "kartla e-ticarette taksitli pay · 2025",
+              "bar": 0.344,
+              "note": "KAYNAK: GÖSAŞ / BKM VERİSİ"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Para elden çıkarken bir tür acı hissediyoruz. Nakit bu acıyı tam o anda yaşatıyor. Kart ve taksit, acıyı uzaklaştırıyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Nakit",
+              "light": "Kart",
+              "caption": "Aynı tutar, farklı acı"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Tek tıkla ödeme. Kayıtlı kart. Şimdi al, sonra öde.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Tek tıkla ödeme",
+                "Kayıtlı kart",
+                "Şimdi al, sonra öde"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani taksit seçeneğin varsa sakla değil, fiyatın hemen altında göster. Toplam tutarı da açıkça yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Taksit seçenekleri",
+              "body": "Fiyatın hemen altında, toplamıyla.",
+              "time": "13:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "toblerone-kuculme",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Toblerone",
+      "mechanism": "Küçülme (gramaj) ve fark edilme",
+      "callypso_feature": "Kampanyalar (fiyat değişikliği duyurusu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Toblerone fiyatı değil, üçgenleri azalttı",
+        "Kutu aynı kaldı, çikolata azaldı",
+        "Müşteri fiyatı değil, boşluğu fark etti"
+      ],
+      "cover": {
+        "line1": "Kutu aynı.",
+        "line2": "Üçgenler azaldı.",
+        "object": "üçgen çikolata",
+        "icon": "chocolate",
+        "theme": "warm",
+        "number": "170 → 150 g"
+      },
+      "fact": "2016'da İngiltere'de 170 gramlık Toblerone 150 grama indi, kutu aynı kaldı.",
+      "big_number": "150",
+      "mechanism_lines": [
+        "Fiyatı değiştirmek yerine miktarı azaltmak ilk bakışta görünmüyor.",
+        "Ama fark edildiğinde güveni sarsıyor."
+      ],
+      "action": [
+        "Fiyat ya da gramaj değişecekse müşterine önceden ve açıkça söyle.",
+        "Nedenini tek cümleyle anlat."
+      ],
+      "insight": "Saklanan değişiklik, söylenen değişiklikten pahalıya patlar.",
+      "question": "Sen fiyat değişikliğini müşterine nasıl söylüyorsun? 👇",
+      "tags": [
+        "#toblerone",
+        "#gramaj"
+      ],
+      "facts": [
+        {
+          "text": "Kasım 2016'da İngiltere'de Toblerone üçgenlerin arasını açtı: 170 gramlık bar 150 grama, 400 gramlık bar 360 grama indi; kutu boyu aynı kaldı.",
+          "source_label": "BBC haberi (The Kathmandu Post'ta yeniden yayın, 2016); STV News",
+          "source_url": "https://kathmandupost.com/world/2016/11/08/toblerone-triangle-change-upsets-fans",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "Mondelez gerekçe olarak birçok hammaddede artan maliyetleri gösterdi; değişiklik tüketicilerden tepki aldı.",
+          "source_label": "STV News (2016)",
+          "source_url": "https://archive.news.stv.tv/archive/1372337-toblerone-faces-backlash-after-size-reduction.html",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "Şirket değişikliği açıkladı; aldatma denmez. Bugünkü gramaj iddia edilmez."
+        }
+      ],
+      "score": 80,
+      "story": {
+        "label": "Gramaj",
+        "segments": [
+          {
+            "say": "Toblerone fiyatı değil, üçgenleri azalttı.",
+            "show": {
+              "type": "title",
+              "text": "Fiyat aynı.",
+              "sub": "Üçgenler azaldı."
+            }
+          },
+          {
+            "say": "2016. İngiltere'de biri Toblerone kutusunu açıyor. Kutu aynı boy. Ama üçgenlerin arası açılmış.",
+            "show": {
+              "type": "stamps",
+              "total": 6,
+              "filled": 4,
+              "label": "Üçgenler arasında boşluk"
+            }
+          },
+          {
+            "say": "170 gramlık çikolata 150 grama inmiş. 400 gramlık 360 grama.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Önce · gram",
+                "value": "170",
+                "bar": 1
+              },
+              "right": {
+                "label": "Sonra · gram",
+                "value": "150",
+                "bar": 0.88
+              },
+              "caption": "Toblerone · İngiltere"
+            }
+          },
+          {
+            "say": "Şirket nedenini açıkladı: hammadde maliyetleri artmış. Fiyatı artırmak yerine çikolatayı azaltmışlar. Ama tepki büyük oldu.",
+            "show": {
+              "type": "phone",
+              "app": "Haber",
+              "title": "Toblerone tepki çekti",
+              "body": "Üçgenler arasındaki boşluk dikkat çekti.",
+              "time": "08:00"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Fiyat artışı etikette görünüyor. Gramaj ise ilk bakışta görünmüyor. Ama müşteri bir kere fark edince, artık fiyata değil sana bakıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Fark edilmez",
+              "text": "Fark edilince güven gider."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Küçülen cips paketi. Azalan deterjan. Aynı fiyata daha az kahve.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Küçülen paket",
+                "Azalan deterjan",
+                "Daha az kahve"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani fiyat ya da gramaj değişecekse müşterine önceden söyle. Nedenini tek cümleyle anlat. Saklamak, söylemekten pahalı.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Fiyatlarımız değişiyor",
+              "body": "Nedenini kısaca anlatmak istedik.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "kupa-sahiplik-etkisi",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Kupa deneyi (Kahneman, Knetsch & Thaler)",
+      "mechanism": "Sahiplik etkisi",
+      "callypso_feature": "Otomasyon akışları (deneme sonrası)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Bir kupa senin olunca değeri artıyor",
+        "Aynı kupa, iki ayrı fiyat",
+        "Senin olan şeyi bırakmak zor"
+      ],
+      "cover": {
+        "line1": "Aynı kupa.",
+        "line2": "Senin olunca pahalı.",
+        "object": "kahve kupası",
+        "icon": "mug",
+        "theme": "light",
+        "number": "2,87 → 7,12"
+      },
+      "fact": "Kupası olanlar ortanca 7,12 dolardan aşağı satmadı, olmayanlar en fazla 2,87 dolar verdi.",
+      "big_number": "7,12",
+      "mechanism_lines": [
+        "Bir şey bizim olunca değeri gözümüzde büyüyor.",
+        "Vazgeçmek kayıp gibi geliyor."
+      ],
+      "action": [
+        "Müşterinin ürünü evde denemesini kolaylaştır: kolay iade, numune, deneme boyu.",
+        "İade şartlarını açık yaz."
+      ],
+      "insight": "Elindeki şeyi bırakmak, almaktan zordur.",
+      "question": "Senin mağazanda ürünü denemek kolay mı? 👇",
+      "tags": [
+        "#sahiplenme",
+        "#davranışsalekonomi"
+      ],
+      "facts": [
+        {
+          "text": "Kahneman, Knetsch & Thaler (1990), Deney 6: kupa sahipleri için ortanca satış fiyatı 7,12 dolar, alıcılar için ortanca alış fiyatı 2,87 dolar; beklenen 12,5 işlem yerine yalnızca 3 işlem oldu.",
+          "source_label": "Kahneman, Knetsch & Thaler (1990), Journal of Political Economy",
+          "source_url": "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_et_al_1990_Experimental_tests.pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Ortanca değerler; tam metinden doğrulandı."
+        }
+      ],
+      "score": 81,
+      "story": {
+        "label": "Kupa",
+        "segments": [
+          {
+            "say": "Bir kupa senin olunca, değeri artıyor.",
+            "show": {
+              "type": "title",
+              "text": "Aynı kupa.",
+              "sub": "İki fiyat."
+            }
+          },
+          {
+            "say": "Bir sınıf. Öğrencilerin yarısına üniversite logolu bir kupa veriliyor. Diğer yarısına hiçbir şey.",
+            "show": {
+              "type": "chips",
+              "title": "Sınıf",
+              "items": [
+                "Kupası olanlar",
+                "Kupası olmayanlar"
+              ]
+            }
+          },
+          {
+            "say": "Sonra kupa sahiplerine soruluyor: kaça satarsın? Ortanca cevap 7,12 dolar.",
+            "show": {
+              "type": "stat",
+              "value": "7,12",
+              "label": "sahiplerin satış fiyatı · dolar",
+              "note": "KAYNAK: KAHNEMAN, KNETSCH & THALER (1990)"
+            }
+          },
+          {
+            "say": "Kupası olmayanlar ise aynı kupaya ortanca 2,87 dolar vermeye razı. Aynı kupa, iki buçuk kat fark.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Almak isteyen · dolar",
+                "value": "2,87",
+                "bar": 0.4
+              },
+              "right": {
+                "label": "Sahibi · dolar",
+                "value": "7,12",
+                "bar": 1
+              },
+              "caption": "Ortanca fiyat"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Psikologlar buna sahiplik etkisi diyor. Bir şey senin olunca, ondan vazgeçmek kayıp gibi geliyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Vazgeçmek",
+              "light": "Almak",
+              "caption": "Aynı kupa, farklı ağırlık"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Ücretsiz deneme. Evde dene, beğenmezsen iade et. Test sürüşü.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Ücretsiz deneme",
+                "Evde dene",
+                "Test sürüşü"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani müşterinin ürünü eline almasını kolaylaştır. Numune, deneme boyu ya da kolay iade. Şartları açık yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Evde dene",
+              "body": "Beğenmezsen kolay iade.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "varsayilan-secenek",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Organ bağışı deneyi (Johnson & Goldstein)",
+      "mechanism": "Varsayılan seçenek",
+      "callypso_feature": "Formlar (izin ve tercih seçenekleri)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Kutucuğun hazır işaretli olması kararı değiştiriyor",
+        "İnsanlar çoğu zaman seçmez, kalır",
+        "Aynı soru, iki kat fark"
+      ],
+      "cover": {
+        "line1": "Kimse seçmedi.",
+        "line2": "Varsayılan kazandı.",
+        "object": "onay kutucuğu",
+        "icon": "checkbox",
+        "theme": "light",
+        "number": "%42 → %82"
+      },
+      "fact": "Varsayılan 'hayır' iken katılım %42, varsayılan 'evet' iken %82 oldu.",
+      "big_number": "%82",
+      "mechanism_lines": [
+        "İnsanlar çoğu zaman varsayılanı değiştirmiyor.",
+        "Varsayılan, önerilen seçenek gibi algılanıyor."
+      ],
+      "action": [
+        "Müşterinin yararına olan seçeneği varsayılan yap: ör. teslimat bildirimi açık.",
+        "Ücretli ek hizmeti ya da pazarlama iznini asla önceden işaretleme."
+      ],
+      "insight": "Çoğu müşteri seçmez; varsayılanda kalır.",
+      "question": "Senin ödeme sayfanda hangi kutucuk işaretli? 👇",
+      "tags": [
+        "#varsayılan",
+        "#davranışsaltasarım"
+      ],
+      "facts": [
+        {
+          "text": "Johnson & Goldstein (2003), çevrim içi deney (161 kişi): katılmak için işaretle düzeninde %42, istemiyorsan çık düzeninde %82, zorunlu seçimde %79 bağışçı olmayı kabul etti.",
+          "source_label": "Johnson & Goldstein (2003), Science",
+          "source_url": "https://www.dangoldstein.com/papers/DefaultsScience.pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Rakamlar yazarın sitesindeki makalenin grafiğinden."
+        },
+        {
+          "text": "Etkin onay oranı: katılmak için işaretle sisteminde Almanya %12; istemiyorsan çık sisteminde Avusturya %99,98.",
+          "source_label": "Johnson & Goldstein (2003), Science",
+          "source_url": "https://www.dangoldstein.com/papers/DefaultsScience.pdf",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Etkin onay; gerçek bağış oranı değil."
+        }
+      ],
+      "score": 82,
+      "story": {
+        "label": "Varsayılan",
+        "segments": [
+          {
+            "say": "Kutucuğun işaretli gelmesi, kararı değiştiriyor.",
+            "show": {
+              "type": "title",
+              "text": "İşaretli kutu.",
+              "sub": "Kararı değiştiriyor."
+            }
+          },
+          {
+            "say": "Bir çevrim içi deney. İnsanlara organ bağışçısı olmak isteyip istemedikleri soruluyor. Tek fark, formun nasıl başladığı.",
+            "show": {
+              "type": "chips",
+              "title": "İki form",
+              "items": [
+                "Katılmak için işaretle",
+                "İstemiyorsan çık"
+              ]
+            }
+          },
+          {
+            "say": "Katılmak için işaretlemen gerekince evet diyenler %42. Varsayılan evet olunca %82.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Varsayılan hayır",
+                "value": "%42",
+                "bar": 0.42
+              },
+              "right": {
+                "label": "Varsayılan evet",
+                "value": "%82",
+                "bar": 0.82
+              },
+              "caption": "Kabul edenler · 2003"
+            }
+          },
+          {
+            "say": "Ülkelerde fark daha da büyük. Almanya'da etkin onay %12. Komşusu Avusturya'da %99,98.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Almanya",
+                "value": "%12",
+                "bar": 0.12
+              },
+              "right": {
+                "label": "Avusturya",
+                "value": "%99,98",
+                "bar": 1
+              },
+              "caption": "Etkin onay oranı"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İnsanlar çoğu zaman seçmez, olduğu yerde kalır. Varsayılan da önerilen seçenek gibi görünür.",
+            "show": {
+              "type": "rule",
+              "strike": "Herkes seçer",
+              "text": "Çoğu kişi varsayılanda kalır."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Açık gelen bildirimler. Otomatik yenilenen abonelik. Hazır seçili kargo.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Açık bildirimler",
+                "Otomatik yenileme",
+                "Seçili kargo"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani müşterinin yararına olanı varsayılan yap, teslimat bildirimi gibi. Ama ücretli ekleri ya da pazarlama iznini asla önceden işaretleme.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Teslimat bildirimi açık",
+              "body": "Pazarlama izni: senin seçimin.",
+              "time": "15:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "uber-kesin-sayi",
+      "pillar": "B",
+      "funnel": "TOF",
+      "brand": "Uber",
+      "mechanism": "Kesin sayı etkisi",
+      "callypso_feature": "Kampanyalar (fiyat sunumu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Uber'de 2,1 kat, 2 kattan kolay kabul ediliyordu",
+        "Yuvarlak sayı sana keyfi geliyor",
+        "Daha yüksek zam, daha az itiraz"
+      ],
+      "cover": {
+        "line1": "2 kat keyfi.",
+        "line2": "2,1 kat hesaplı.",
+        "object": "araç ve zam çarpanı",
+        "icon": "car",
+        "theme": "dark",
+        "number": "2,1x"
+      },
+      "fact": "Uber'in ekonomistine göre yolcular 2,1 kat zammı 2 kattan daha kolay kabul ediyordu.",
+      "big_number": "2,1",
+      "mechanism_lines": [
+        "Yuvarlak sayı biri uydurmuş gibi geliyor.",
+        "Kesin sayı bir hesabın sonucu gibi duruyor."
+      ],
+      "action": [
+        "Kargo ücreti ya da kampanya eşiği gibi rakamları uydurma yuvarlak sayılarla değil, gerçek hesabına göre yaz.",
+        "Rakamın nereden geldiğini tek cümleyle açıkla."
+      ],
+      "insight": "Kesin sayı, hesaplanmış gibi görünür.",
+      "question": "Senin fiyatların yuvarlak mı, kesin mi? 👇",
+      "tags": [
+        "#uber",
+        "#kesinsayı"
+      ],
+      "facts": [
+        {
+          "text": "Uber'in o dönemki ekonomi araştırmaları başkanı Keith Chen: yolcular 2,1 kat zammı 2,0 kattan (yuvarlak 2 kat) daha kolay kabul ediyordu; 1,9'dan 2,0'a geçiş, 1,8'den 1,9'a geçişten 6 kat fazla talep düşüşü yaratıyordu.",
+          "source_label": "NPR Hidden Brain (2016), röportaj dökümü",
+          "source_url": "https://www.npr.org/transcripts/478266839",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "Uber iç verisine dayanan röportaj beyanı; hakemli çalışma değil."
+        },
+        {
+          "text": "Thomas, Simon & Kadiyali (2010): alıcılar kesin fiyatları olduğundan küçük algılıyor; iki pazarın emlak verisinde liste fiyatı daha kesin olan evler daha yüksek fiyata satıldı.",
+          "source_label": "Thomas, Simon & Kadiyali (2010), Marketing Science",
+          "source_url": "https://ideas.repec.org/a/inm/ormksc/v29y2010i1p175-190.html",
+          "source_type": "academic",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 79,
+      "story": {
+        "label": "Kesin sayı",
+        "segments": [
+          {
+            "say": "Uber'de 2,1 kat zam, 2 kattan kolay geçiyordu.",
+            "show": {
+              "type": "title",
+              "text": "2,1 kat > 2 kat?",
+              "sub": "Uber'de öyleydi."
+            }
+          },
+          {
+            "say": "Yağmurlu bir akşam. Uygulamayı açıyorsun. Fiyat normalin iki katı.",
+            "show": {
+              "type": "phone",
+              "app": "Yolculuk",
+              "title": "Yoğunluk zammı",
+              "body": "Fiyatlar şu an yüksek.",
+              "time": "19:30"
+            }
+          },
+          {
+            "say": "Uber'in o dönemki ekonomisti Keith Chen'e göre, insanlar 2,1 kat zamma, 2 kattan daha kolay evet diyordu.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Yuvarlak",
+                "value": "2,0x",
+                "bar": 0.6
+              },
+              "right": {
+                "label": "Kesin",
+                "value": "2,1x",
+                "bar": 1
+              },
+              "caption": "Hangisi daha kolay kabul edildi?"
+            }
+          },
+          {
+            "say": "1,9'dan 2'ye geçiş, 1,8'den 1,9'a geçişten altı kat fazla talep kaybettiriyordu.",
+            "show": {
+              "type": "stat",
+              "value": "6 kat",
+              "label": "yuvarlak 2'de daha büyük düşüş",
+              "note": "KAYNAK: NPR HIDDEN BRAIN (2016)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Yuvarlak sayı, biri oturup uydurmuş gibi geliyor. Kesin sayı ise bir hesabın sonucu gibi duruyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Biri uydurdu",
+              "text": "Bir hesap yaptı."
+            }
+          },
+          {
+            "say": "Araştırmalar emlakta da benzerini buldu. Liste fiyatı daha kesin olan evler, daha yüksek fiyata satıldı.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Emlak ilanı",
+                "Kargo ücreti",
+                "Kampanya eşiği"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani kargo ücreti ya da kampanya eşiği gibi rakamları uydurma yuvarlak sayılarla değil, gerçek hesabınla yaz. Nereden geldiğini de söyle.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kargo ücreti nasıl hesaplanıyor?",
+              "body": "Paket ağırlığı ve mesafeye göre.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "hepsiburada-premium",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Hepsiburada Premium",
+      "mechanism": "Üyelik ve batık maliyet",
+      "callypso_feature": "Segmentasyon (üye müşteriler)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Hepsiburada üyelerine ayda daha sık sipariş verdiriyor",
+        "Üye olunca daha sık sipariş veriyorsun",
+        "Ödediğin üyeliği değerlendirmek istiyorsun"
+      ],
+      "cover": {
+        "line1": "Üye oldun.",
+        "line2": "Daha sık geliyorsun.",
+        "object": "üyelik kartı",
+        "icon": "member-card",
+        "theme": "warm",
+        "number": "%36"
+      },
+      "fact": "Hepsiburada'ya göre Premium üyeleri, üye olmadan öncesine göre ayda %36 daha sık sipariş veriyor.",
+      "big_number": "%36",
+      "mechanism_lines": [
+        "Parasını verdiğin üyeliği değerlendirmek istiyorsun.",
+        "Üyelik avantajları, başka yerden almayı zorlaştırıyor."
+      ],
+      "action": [
+        "En sık alan müşterilerine üyelik ya da kademe gibi bir aidiyet sun.",
+        "Avantajları gerçek ve ölçülebilir olsun."
+      ],
+      "insight": "Ödenmiş bir üyelik, müşteriyi geri getirir.",
+      "question": "Senin müşterinin üye olabileceği bir şey var mı? 👇",
+      "tags": [
+        "#hepsiburada",
+        "#üyelik"
+      ],
+      "facts": [
+        {
+          "text": "Hepsiburada 2024 2. çeyrek: Premium üyelerinin aylık sipariş sıklığı, programa katılmadan öncesine göre %36 daha yüksek (1. çeyrekle aynı).",
+          "source_label": "Hepsiburada 2024 2. çeyrek sonuçları (SEC Form 6-K)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1850235/000110465924098764/tm2423696d1_ex99-1.htm",
+          "source_type": "official",
+          "checked_at": "2026-10-28",
+          "note": "Aynı üyelerin önce/sonra kıyası; kontrollü deney değil."
+        },
+        {
+          "text": "Hepsiburada Premium 2024 sonunda 3,7 milyon üyeye ulaştı; 2023 sonunda 2,2 milyondu.",
+          "source_label": "Hepsiburada 2024 4. çeyrek ve yıl sonu sonuçları (StockTitan'da şirket duyurusu)",
+          "source_url": "https://www.stocktitan.net/news/HEPS/hepsiburada-announces-fourth-quarter-and-full-year-2024-financial-bz9c7f0l0cis.html",
+          "source_type": "official",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 84,
+      "story": {
+        "label": "Üyelik",
+        "segments": [
+          {
+            "say": "Hepsiburada, üyelerine daha sık sipariş verdiriyor.",
+            "show": {
+              "type": "title",
+              "text": "Üye oldun.",
+              "sub": "Daha sık geliyorsun."
+            }
+          },
+          {
+            "say": "Bir akşam bir şey lazım oluyor. Üç ayrı sitede aynı ürün var. Ama sen direkt birini açıyorsun.",
+            "show": {
+              "type": "chips",
+              "title": "Aynı ürün",
+              "items": [
+                "Site A",
+                "Site B",
+                "Üye olduğun site"
+              ]
+            }
+          },
+          {
+            "say": "Çünkü orada üyesin. Kargon bedava, avantajın var. Başka yerden almak, ödediğin üyeliği boşa harcamak gibi geliyor.",
+            "show": {
+              "type": "phone",
+              "app": "Alışveriş",
+              "title": "Premium avantajın",
+              "body": "Bu siparişte kargo bedava.",
+              "time": "21:00"
+            }
+          },
+          {
+            "say": "Hepsiburada'nın kendi verisine göre Premium üyeleri, üye olmadan öncesine göre ayda %36 daha sık sipariş veriyor.",
+            "show": {
+              "type": "stat",
+              "value": "%36",
+              "label": "daha sık sipariş · üyelik öncesine göre",
+              "note": "KAYNAK: HEPSİBURADA 2024 2. ÇEYREK"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Üyelik, her alışverişte küçük bir soru soruyor: parasını verdim, kullanmayacak mıyım? Buna batık maliyet etkisi deniyor.",
+            "show": {
+              "type": "rule",
+              "strike": "En ucuzu bul",
+              "text": "Üyeliğini değerlendir."
+            }
+          },
+          {
+            "say": "Program da büyüyor. 2023 sonunda 2,2 milyon üye vardı, 2024 sonunda 3,7 milyon.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "2023 sonu",
+                "value": "2,2 mn",
+                "bar": 0.59
+              },
+              "right": {
+                "label": "2024 sonu",
+                "value": "3,7 mn",
+                "bar": 1
+              },
+              "caption": "Premium üye sayısı"
+            }
+          },
+          {
+            "say": "Yani en sık alan müşterilerine bir aidiyet sun. Üyelik, kademe ya da özel avantaj. Ama avantaj gerçek olsun.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Sadık müşteri kulübü",
+              "body": "Sık alanlara özel avantaj.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "dominos-pizza-takip",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Domino's",
+      "mechanism": "Beklemeyi görünür kılmak",
+      "callypso_feature": "Otomasyon akışları (sipariş durumu bildirimi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Domino's pizzayı değil, beklemeyi tasarladı",
+        "Pizzanı beklemek neden daha az sinir bozucu?",
+        "Beş adım, bekleme gizemini bitirdi"
+      ],
+      "cover": {
+        "line1": "Pizza değil.",
+        "line2": "Bekleme tasarlandı.",
+        "object": "sipariş takip çubuğu",
+        "icon": "tracker",
+        "theme": "dark",
+        "number": "5 adım"
+      },
+      "fact": "Domino's 2008'de siparişi beş adımda gösteren Pizza Tracker'ı tüm ABD'de açtı.",
+      "big_number": "5",
+      "mechanism_lines": [
+        "Belirsiz bekleme, bilinen beklemeden uzun hissediliyor.",
+        "Her adım, işin yapıldığını gösteriyor."
+      ],
+      "action": [
+        "Siparişten teslimata kadar her adımda müşterine kısa bir durum bildirimi gönder.",
+        "Gecikme varsa önce sen haber ver."
+      ],
+      "insight": "Görünen bekleme, görünmeyenden kısa gelir.",
+      "question": "Senin müşterin siparişini nereden takip ediyor? 👇",
+      "tags": [
+        "#dominos",
+        "#siparişdeneyimi"
+      ],
+      "facts": [
+        {
+          "text": "Domino's, Pizza Tracker'ı Aralık 2007'de seçili müşterilerle test etti ve Ocak 2008'de tüm ABD'de açtı; amacı pizzayı beklemenin gizemini ortadan kaldırmak.",
+          "source_label": "Domino's Newsroom (Tracker 15. yıl)",
+          "source_url": "https://media.dominos.com/stories/tracker-15th-birthday/",
+          "source_type": "official",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "İlk sürüm siparişi 5 adımda gösteriyordu: sipariş alındı, hazırlanıyor, fırında, kalite kontrol/kutulama, yolda.",
+          "source_label": "Domino's basın bülteni (Franchising.com, 30 Ocak 2008)",
+          "source_url": "https://www.franchising.com/news/20080130_dominos_launches_revolutionary_customer_tool_pizza.html",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "Domino's 2024 yıllık raporu: ABD perakende satışlarının %85'inden fazlası dijital kanallardan geldi.",
+          "source_label": "Domino's Pizza Inc. 2024 Form 10-K (SEC)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1286681/000095017025025223/dpz-20241229.htm",
+          "source_type": "official",
+          "checked_at": "2026-10-28",
+          "note": "Takip ekranı dijital payın kanıtlanmış nedeni değil."
+        }
+      ],
+      "score": 83,
+      "story": {
+        "label": "Takip",
+        "segments": [
+          {
+            "say": "Domino's pizzayı değil, beklemeyi tasarladı.",
+            "show": {
+              "type": "title",
+              "text": "Pizza değil.",
+              "sub": "Bekleme tasarlandı."
+            }
+          },
+          {
+            "say": "Pizza sipariş ettin. Yirmi dakika geçti. Hazır mı, yolda mı, unuttular mı? Bilmiyorsun, sadece bekliyorsun.",
+            "show": {
+              "type": "phone",
+              "app": "Sipariş",
+              "title": "Siparişin alındı",
+              "body": "Başka bilgi yok.",
+              "time": "20:20"
+            }
+          },
+          {
+            "say": "Domino's 2008'de bunu değiştirdi. Pizza Tracker'ı tüm Amerika'da açtı. Amaç, beklemenin gizemini ortadan kaldırmak.",
+            "show": {
+              "type": "chips",
+              "title": "Pizza Tracker · 2008",
+              "items": [
+                "Alındı",
+                "Fırında",
+                "Yolda"
+              ]
+            }
+          },
+          {
+            "say": "Siparişin 5 adımda ilerliyor. Her adım ekranda tek tek, sırayla yanıyor.",
+            "show": {
+              "type": "stamps",
+              "total": 5,
+              "filled": 3,
+              "label": "Fırında",
+              "highlight": 3
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Bekleme süresi değişmiyor. Ama belirsizlik bitiyor. Her adım, birinin senin için çalıştığını gösteriyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Ne zaman gelecek?",
+              "text": "Şu an fırında."
+            }
+          },
+          {
+            "say": "Bugün Domino's'un Amerika'daki satışlarının %85'inden fazlası dijital kanallardan geliyor.",
+            "show": {
+              "type": "stat",
+              "value": "%85+",
+              "label": "ABD satışında dijital pay · 2024",
+              "bar": 0.85,
+              "note": "KAYNAK: DOMINO'S 2024 YILLIK RAPOR"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani siparişten teslimata kadar her adımda müşterine kısa bir mesaj at. Hazırlanıyor, kargoda, yarın kapında. Gecikme varsa bunu önce sen söyle.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Siparişin kargoda 📦",
+              "body": "Yarın kapında olacak.",
+              "time": "16:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "zirve-son-kurali",
+      "pillar": "C",
+      "funnel": "MOF",
+      "brand": "Soğuk su deneyi (Kahneman ve ark.)",
+      "mechanism": "Zirve-son kuralı",
+      "callypso_feature": "Otomasyon akışları (teslimat sonrası mesaj)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Daha uzun acıyı tercih ettiler",
+        "Deneyimin sonu her şeyi değiştiriyor",
+        "İnsanlar sonu hatırlıyor"
+      ],
+      "cover": {
+        "line1": "Daha uzun acı.",
+        "line2": "Ama tercih edildi.",
+        "object": "kum saati",
+        "icon": "hourglass",
+        "theme": "light",
+        "number": "22/32"
+      },
+      "fact": "32 kişiden 22'si, sonu biraz daha az acıtan uzun denemeyi tekrar etmeyi seçti.",
+      "big_number": "22/32",
+      "mechanism_lines": [
+        "İnsanlar bir deneyimi en yoğun anı ve sonuyla hatırlıyor.",
+        "Süre, hatırada sanıldığı kadar önemli değil."
+      ],
+      "action": [
+        "Siparişin son anını güzelleştir: pakete el yazısı bir not ya da teslimattan sonra kısa bir teşekkür mesajı.",
+        "İlk siparişte bunu mutlaka yap."
+      ],
+      "insight": "Müşteri deneyimin sonunu hatırlar.",
+      "question": "Senin müşterin paketini açınca ne görüyor? 👇",
+      "tags": [
+        "#zirvesonkuralı",
+        "#müşterideneyimi"
+      ],
+      "facts": [
+        {
+          "text": "Kahneman, Fredrickson, Schreiber & Redelmeier (1993): kısa denemede el 60 saniye 14 derece suda; uzun denemede aynı 60 saniyeye, su hafifçe ısınırken 30 saniye eklendi. 32 kişiden 22'si (%69) tekrar için uzun denemeyi seçti.",
+          "source_label": "Kahneman ve ark. (1993), Psychological Science",
+          "source_url": "https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.1993.tb00589.x/",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Rakamlar tam metinden doğrulandı; son 'daha az acılı', hoş değil."
+        }
+      ],
+      "score": 83,
+      "story": {
+        "label": "Son an",
+        "segments": [
+          {
+            "say": "Daha uzun acıyı tercih ettiler.",
+            "show": {
+              "type": "title",
+              "text": "Daha uzun acı.",
+              "sub": "Ama tercih edildi."
+            }
+          },
+          {
+            "say": "Bir deney. Elini 60 saniye boyunca 14 derecelik buz gibi suya sokuyorsun.",
+            "show": {
+              "type": "counter",
+              "value": 60,
+              "label": "saniye · 14 derece"
+            }
+          },
+          {
+            "say": "Bir de ikinci deneme var. Aynı 60 saniye, ama sonunda 30 saniye daha. Bu sürede su çok hafif ısınıyor.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Kısa deneme",
+                "value": "60 sn",
+                "bar": 0.67
+              },
+              "right": {
+                "label": "Uzun deneme",
+                "value": "60+30 sn",
+                "bar": 1
+              },
+              "caption": "Toplam süre"
+            }
+          },
+          {
+            "say": "Hangisini tekrar yaparsın diye soruyorlar. 32 kişiden 22'si uzun olanı seçiyor. Yani daha fazla acıyı.",
+            "show": {
+              "type": "stat",
+              "value": "22/32",
+              "label": "uzun denemeyi seçti",
+              "bar": 0.69,
+              "note": "KAYNAK: KAHNEMAN VE ARK. (1993)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Çünkü hafıza süreyi tutmuyor. En yoğun anı ve sonu tutuyor. Sonu biraz daha az acıtınca, bütün deneyim daha iyi hatırlanıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Toplam süre",
+              "text": "En yoğun an ve son."
+            }
+          },
+          {
+            "say": "Alışverişte son an nedir? Paketi açtığın an. Teslimattan sonraki ilk mesaj.",
+            "show": {
+              "type": "chips",
+              "title": "Senin son anın",
+              "items": [
+                "Paketi açmak",
+                "İlk mesaj",
+                "İlk kullanım"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani pakete el yazısı küçük bir not koy. Teslimattan sonra kısa bir teşekkür mesajı gönder. İlk siparişte mutlaka.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Paketin ulaştı mı? 💛",
+              "body": "Bizi seçtiğin için teşekkürler.",
+              "time": "18:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "eposta-konu-isim",
+      "pillar": "C",
+      "funnel": "MOF",
+      "brand": "E-posta saha deneyi (Sahni ve ark.)",
+      "mechanism": "İsimle hitap",
+      "callypso_feature": "E-posta kampanyaları (kişiselleştirme)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Konu satırına adını yazmak açılmayı artırdı",
+        "Bir kelime, e-postanın açılmasını değiştiriyor",
+        "Adını gören, e-postayı açıyor"
+      ],
+      "cover": {
+        "line1": "Tek kelime:",
+        "line2": "Senin adın.",
+        "object": "zarf ve isim",
+        "icon": "mail",
+        "theme": "light",
+        "number": "%20"
+      },
+      "fact": "Konu satırına alıcının adını eklemek açılma olasılığını %20 artırdı (%9,05'ten %10,80'e).",
+      "big_number": "%20",
+      "mechanism_lines": [
+        "İsim, kalabalık gelen kutusunda dikkat çekiyor.",
+        "Mesajın sana yazıldığını hissettiriyor."
+      ],
+      "action": [
+        "E-posta konu satırına müşterinin adını ekle.",
+        "İsmi yalnızca iznini aldığın ve doğru kaydettiğin müşterilerde kullan."
+      ],
+      "insight": "İnsan önce kendi adını görür.",
+      "question": "Sen e-postalarında müşterine adıyla mı yazıyorsun? 👇",
+      "tags": [
+        "#epostapazarlaması",
+        "#kişiselleştirme"
+      ],
+      "facts": [
+        {
+          "text": "Sahni, Wheeler & Chintagunta (2018), rastgele saha deneyi: konu satırına alıcının adını eklemek e-postayı açma olasılığını %20 artırdı (%9,05'ten %10,80'e), satış fırsatlarını %31 artırdı, abonelikten çıkmayı %17 azalttı.",
+          "source_label": "Sahni, Wheeler & Chintagunta (2018), Marketing Science",
+          "source_url": "https://ideas.repec.org/a/inm/ormksc/v37y2018i2p236-258.html",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Göreli artış (puan değil); tek şirketin ana deneyi."
+        }
+      ],
+      "score": 84,
+      "story": {
+        "label": "İsim",
+        "segments": [
+          {
+            "say": "Konu satırına adını yazmak, açılmayı artırdı.",
+            "show": {
+              "type": "title",
+              "text": "Tek kelime:",
+              "sub": "Senin adın."
+            }
+          },
+          {
+            "say": "Sabah gelen kutun açık. Yirmi tane e-posta. Hepsi aynı: Fırsatları kaçırma.",
+            "show": {
+              "type": "chips",
+              "title": "Gelen kutusu",
+              "items": [
+                "Fırsatları kaçırma",
+                "Yeni sezon",
+                "Son gün"
+              ]
+            }
+          },
+          {
+            "say": "Bir tanesi farklı. Konu satırında senin adın yazıyor. Gözün hemen oraya kayıyor.",
+            "show": {
+              "type": "phone",
+              "app": "E-posta",
+              "title": "Ayşe, bu hafta senin için",
+              "body": "Yeni gelenlere göz at.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Bir saha deneyinde konu satırına sadece alıcının adını eklemek, açılma ihtimalini %20 artırdı. %9,05'ten %10,80'e.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "İsimsiz",
+                "value": "%9,05",
+                "bar": 0.84
+              },
+              "right": {
+                "label": "İsimli",
+                "value": "%10,80",
+                "bar": 1
+              },
+              "caption": "Açılma oranı · 2018"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Aynı deneyde satış fırsatları %31 arttı. Abonelikten çıkanlar da %17 azaldı.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Satış fırsatı",
+                "value": "+%31",
+                "bar": 1
+              },
+              "right": {
+                "label": "Abonelikten çıkma",
+                "value": "-%17",
+                "bar": 0.55
+              },
+              "caption": "İsimli e-posta"
+            }
+          },
+          {
+            "say": "İsim yeni bir bilgi vermiyor. Ama kalabalıkta sana yazıldığını hissettiriyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Herkese",
+              "text": "Sana yazıldı."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani konu satırına müşterinin adını ekle. Ama bunu sadece izin aldığın ve adını doğru kaydettiğin müşterilerde.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Mehmet, sepetin seni bekliyor",
+              "body": "İzinli müşterilere, doğru isimle.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "havlu-sosyal-kanit",
+      "pillar": "C",
+      "funnel": "MOF",
+      "brand": "Otel havlu deneyi (Goldstein, Cialdini & Griskevicius)",
+      "mechanism": "Sosyal kanıt",
+      "callypso_feature": "Kampanyalar (müşteri sayısı ve yorum vurgusu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Bir cümle havluları değiştirdi",
+        "Başkaları ne yapıyorsa sen de yapıyorsun",
+        "Çevreyi koru değil, diğerleri de yapıyor"
+      ],
+      "cover": {
+        "line1": "Çevre değil.",
+        "line2": "Diğerleri ikna etti.",
+        "object": "otel havlusu ve kart",
+        "icon": "towel",
+        "theme": "green",
+        "number": "%35,1 → %44,1"
+      },
+      "fact": "'Misafirlerin çoğu havlusunu tekrar kullanıyor' kartı, tekrar kullanımı %35,1'den %44,1'e çıkardı.",
+      "big_number": "%44,1",
+      "mechanism_lines": [
+        "İnsanlar ne yapacağını bilmediğinde başkalarına bakıyor.",
+        "'Çoğu kişi böyle yapıyor' bilgisi, en güçlü gerekçelerden biri."
+      ],
+      "action": [
+        "Ürün sayfanda gerçek sosyal kanıt göster: kaç kişinin aldığı, en çok yorum alan ürün.",
+        "Rakamlar gerçek ve güncel olsun."
+      ],
+      "insight": "Müşteri, kendisi gibi olanlara bakar.",
+      "question": "Senin ürün sayfanda sosyal kanıt var mı? 👇",
+      "tags": [
+        "#sosyalkanıt",
+        "#cialdini"
+      ],
+      "facts": [
+        {
+          "text": "Goldstein, Cialdini & Griskevicius (2008), ilk otel deneyi: 'misafirlerin çoğu havlusunu tekrar kullanıyor' kartında tekrar kullanım %44,1, standart çevre mesajında %35,1.",
+          "source_label": "ScienceDaily (2008), Goldstein, Cialdini & Griskevicius (2008) JCR özeti",
+          "source_url": "https://www.sciencedaily.com/releases/2008/08/080822160338.htm",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "Hakemli bir sonraki çalışma (PMC4118982) aynı rakamları aktarıyor; etki her ortamda aynı değil."
+        },
+        {
+          "text": "Sonraki tekrar çalışmasında genel normlar her zaman kontrolü geçmedi; misafirin kendi ortamına bağlı normlar en güçlüydü.",
+          "source_label": "Reese ve ark. (2014), PMC",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4118982",
+          "source_type": "academic",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 82,
+      "story": {
+        "label": "Havlu",
+        "segments": [
+          {
+            "say": "Bir cümle, havluları değiştirdi.",
+            "show": {
+              "type": "title",
+              "text": "Bir cümle.",
+              "sub": "Havluları değiştirdi."
+            }
+          },
+          {
+            "say": "Bir otel odası. Banyoda küçük bir kart: Çevreyi koruyun, havlunuzu tekrar kullanın.",
+            "show": {
+              "type": "phone",
+              "app": "Otel kartı",
+              "title": "Çevreyi koruyun",
+              "body": "Havlunuzu tekrar kullanın.",
+              "time": "08:00"
+            }
+          },
+          {
+            "say": "Araştırmacılar bazı odalarda kartı değiştiriyor. Yeni kart diyor ki: Misafirlerimizin çoğu havlusunu tekrar kullanıyor.",
+            "show": {
+              "type": "phone",
+              "app": "Otel kartı",
+              "title": "Misafirlerin çoğu",
+              "body": "havlusunu tekrar kullanıyor.",
+              "time": "08:00"
+            }
+          },
+          {
+            "say": "Çevre kartında tekrar kullanım %35,1. Diğer misafirler kartında %44,1.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Çevreyi koru",
+                "value": "%35,1",
+                "bar": 0.35
+              },
+              "right": {
+                "label": "Çoğu misafir",
+                "value": "%44,1",
+                "bar": 0.44
+              },
+              "caption": "Havlusunu tekrar kullanan"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Ne yapacağımızı bilmediğimizde başkalarına bakıyoruz. Buna sosyal kanıt deniyor. Benim gibi olanlar böyle yapıyorsa, doğrusu budur.",
+            "show": {
+              "type": "rule",
+              "strike": "Doğrusu bu",
+              "text": "Herkes böyle yapıyor."
+            }
+          },
+          {
+            "say": "Bu her yerde var. En çok satan etiketi. Bu hafta yüz kişi aldı. Yüksek puanlı yorumlar.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "En çok satan",
+                "Bu hafta alanlar",
+                "Yorumlar"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani ürün sayfanda gerçek sosyal kanıt göster. Bu ürünü kaç kişi aldı, hangisi en çok yorum aldı. Ama rakamlar gerçek ve güncel olsun.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "En çok tercih edilen",
+              "body": "Gerçek ve güncel rakamlarla.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "tek-yildiz-yorum",
+      "pillar": "D",
+      "funnel": "TOF",
+      "brand": "Amazon ve Barnes & Noble (Chevalier & Mayzlin)",
+      "mechanism": "Olumsuzluk ağırlığı ve yorum metni",
+      "callypso_feature": "Otomasyon akışları (yorum isteği)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Beş yıldız her şey değil",
+        "Müşterin yıldıza değil, yoruma bakıyor",
+        "Tek kötü yorum neden bu kadar ağır?"
+      ],
+      "cover": {
+        "line1": "Beş yıldız",
+        "line2": "yetmiyor.",
+        "object": "yıldızlı yorum kartı",
+        "icon": "stars",
+        "theme": "light",
+        "number": "1 ★"
+      },
+      "fact": "Kitap verisinde 1 yıldızlı yorumun satışa etkisi, 5 yıldızlıdan daha büyüktü.",
+      "mechanism_lines": [
+        "Kötü yorum, iyi yorumdan daha ağır basıyor.",
+        "Müşteri sadece puana değil, yazılana bakıyor."
+      ],
+      "action": [
+        "Kötü yorumu silme; kısa, kibar ve çözüm sunan bir cevap yaz.",
+        "Memnun müşterilerden yıldız değil, birkaç cümlelik yorum iste."
+      ],
+      "insight": "Yoruma verdiğin cevap da bir yorumdur.",
+      "question": "Sen kötü yorumlara cevap veriyor musun? 👇",
+      "tags": [
+        "#müşteriyorumu",
+        "#sosyalkanıt"
+      ],
+      "facts": [
+        {
+          "text": "Chevalier & Mayzlin (2006): bir kitabın yorumlarının iyileşmesi o sitedeki göreli satışını artırıyor; çoğu örneklemde 1 yıldızlı yorumun etkisi 5 yıldızlıdan büyük; yorum uzunluğu verisi müşterilerin metni okuduğunu gösteriyor.",
+          "source_label": "Chevalier & Mayzlin (2006), JMR",
+          "source_url": "https://doi.org/10.1509/jmkr.43.3.345",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Özet Crossref ile doğrulandı; kitap verisi, 2003."
+        },
+        {
+          "text": "Yorumların %50'den fazlası en yüksek puanı (5 yıldız) verdi; en düşük puanı verenler %10'dan azdı.",
+          "source_label": "NBER Digest (2004), Chevalier & Mayzlin çalışma özeti",
+          "source_url": "https://www.nber.org/digest/may04/effect-word-mouth-sales-online-book-reviews",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        }
+      ],
+      "score": 83,
+      "story": {
+        "label": "Yorum",
+        "segments": [
+          {
+            "say": "Beş yıldız her şey değil.",
+            "show": {
+              "type": "title",
+              "text": "Beş yıldız",
+              "sub": "her şey değil."
+            }
+          },
+          {
+            "say": "İki büyük kitap sitesi. Aynı kitap, iki sitede de satılıyor. Ama yorumlar farklı.",
+            "show": {
+              "type": "chips",
+              "title": "Aynı kitap",
+              "items": [
+                "Site A yorumları",
+                "Site B yorumları"
+              ]
+            }
+          },
+          {
+            "say": "Araştırmacılar binlerce kitabın satışını karşılaştırıyor. Yorumu iyi olan sitede kitap daha çok satıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Yorum önemsiz",
+              "text": "Yorum satışı değiştiriyor."
+            }
+          },
+          {
+            "say": "Ama asıl ilginç kısım şu: yorumların yarıdan fazlası zaten 5 yıldız. 1 yıldız verenler %10'dan az.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "1 yıldız",
+                "value": "<%10",
+                "bar": 0.1
+              },
+              "right": {
+                "label": "5 yıldız",
+                "value": ">%50",
+                "bar": 0.55
+              },
+              "caption": "Yorumların dağılımı"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Az olmasına rağmen, çoğu örneklemde tek bir 1 yıldızlı yorumun etkisi, 5 yıldızlıdan daha büyük çıkıyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "1 yıldız",
+              "light": "5 yıldız",
+              "caption": "Az ama ağır"
+            }
+          },
+          {
+            "say": "Bir de şu var: müşteriler sadece yıldıza bakmıyor. Yorumun metnini okuyor.",
+            "show": {
+              "type": "phone",
+              "app": "Yorumlar",
+              "title": "★☆☆☆☆",
+              "body": "Kargo geç geldi ama ürün güzel.",
+              "time": "22:00"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani kötü yorumu silme. Kısa, kibar ve çözüm sunan bir cevap yaz. Memnun müşterilerden de yıldız değil, birkaç cümle iste.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Yorumuna cevap verdik",
+              "body": "Yaşadığın sorunu çözmek istiyoruz.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "surekli-indirim-miti",
+      "pillar": "D",
+      "funnel": "TOF",
+      "brand": "Fiyat promosyonu araştırmaları",
+      "mechanism": "Referans fiyat ve indirim sinyali",
+      "callypso_feature": "Kampanyalar (seçici indirim)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Sürekli indirim, normal fiyatı öldürüyor",
+        "İndirim yaptıkça müşterin daha ucuz bekliyor",
+        "Her hafta indirim neden kötü?"
+      ],
+      "cover": {
+        "line1": "Sürekli indirim",
+        "line2": "fiyatı ucuzlatır.",
+        "object": "üstü çizili etiket",
+        "icon": "tag",
+        "theme": "light"
+      },
+      "fact": "Araştırmalar, sık ve derin indirimin müşterinin aklındaki normal fiyatı aşağı çektiğini gösteriyor.",
+      "mechanism_lines": [
+        "Sık indirim, müşterinin beklediği fiyatı aşağı çekiyor.",
+        "Hiç indirim yapmayan bir markanın birden indirime girmesi, kaliteye dair şüphe yaratabiliyor."
+      ],
+      "action": [
+        "İndirimi her hafta değil, belli dönemlerde ve belli müşterilere yap.",
+        "Sadık müşterine indirim yerine erken erişim ya da hediye dene."
+      ],
+      "insight": "Her indirim, müşterine yeni bir normal fiyat öğretir.",
+      "question": "Sen en son ne zaman indirim yaptın? 👇",
+      "tags": [
+        "#indirim",
+        "#referansfiyat"
+      ],
+      "facts": [
+        {
+          "text": "Kalwani & Yim (1992): promosyonun sıklığı ve indirimin derinliği tüketicinin fiyat beklentisini (referans fiyat) belirgin şekilde etkiliyor.",
+          "source_label": "Kalwani & Yim (1992), JMR",
+          "source_url": "https://doi.org/10.1177/002224379202900108",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Künye Crossref ile doğrulandı."
+        },
+        {
+          "text": "Raghubir & Corfman (1999): promosyon markanın geçmiş davranışıyla tutarsızsa ya da sektörde nadirse, denemeden önceki marka değerlendirmesini olumsuz etkileyebiliyor.",
+          "source_label": "Raghubir & Corfman (1999), JMR",
+          "source_url": "https://doi.org/10.1177/002224379903600206",
+          "source_type": "academic",
+          "checked_at": "2026-10-28",
+          "note": "Özet Crossref ile doğrulandı; koşula bağlı bulgu."
+        }
+      ],
+      "score": 78,
+      "story": {
+        "label": "İndirim",
+        "segments": [
+          {
+            "say": "Sürekli indirim, normal fiyatı öldürüyor.",
+            "show": {
+              "type": "title",
+              "text": "Sürekli indirim",
+              "sub": "Normal fiyatı öldürüyor."
+            }
+          },
+          {
+            "say": "Bir mağaza düşün. Her hafta bir kampanya. Bu hafta yüzde yirmi, gelecek hafta yüzde otuz.",
+            "show": {
+              "type": "chips",
+              "title": "Her hafta",
+              "items": [
+                "Bu hafta indirim",
+                "Gelecek hafta indirim",
+                "Hafta sonu indirim"
+              ]
+            }
+          },
+          {
+            "say": "Bir süre sonra müşteri normal fiyattan almıyor. Bekliyor. Nasılsa yine indirim gelecek.",
+            "show": {
+              "type": "phone",
+              "app": "Müşteri",
+              "title": "Bekleyeyim",
+              "body": "Nasılsa yine indirime girer.",
+              "time": "20:00"
+            }
+          },
+          {
+            "say": "Araştırmalar bunu gösteriyor. İndirimin sıklığı ve derinliği, müşterinin aklındaki normal fiyatı aşağı çekiyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Normal fiyat",
+              "text": "İndirimli fiyat, yeni normal."
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Yani sık indirim, aklındaki fiyatı kalıcı olarak düşürüyor. Bir de ters bir etki var. Hiç indirim yapmayan bir marka birden indirime girerse, akla şüphe düşebiliyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Şüphe",
+              "light": "Fırsat",
+              "caption": "Beklenmedik indirim"
+            }
+          },
+          {
+            "say": "Bu her yerde var. Hiç bitmeyen kampanyalar. Hep üstü çizili fiyatlar.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Bitmeyen kampanya",
+                "Hep üstü çizili fiyat"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani indirimi her hafta değil, belli dönemlerde yap. Sadık müşterine indirim yerine erken erişim ya da küçük bir hediye dene.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Yeni sezona erken erişim",
+              "body": "Sadece sadık müşterilerimize.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "costco-sosisli",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Costco",
+      "mechanism": "Zarar lideri ve fiyat çapası",
+      "callypso_feature": "Kampanyalar (imza ürün)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Costco sosisliden kâr beklemiyor",
+        "Bu sosislinin fiyatı 1980'lerden beri aynı",
+        "Bir sosisli, bütün mağazanın reklamı"
+      ],
+      "cover": {
+        "line1": "Fiyat sabit.",
+        "line2": "Sadakat kazandı.",
+        "object": "sosisli ve içecek",
+        "icon": "hotdog",
+        "theme": "warm",
+        "number": "1,50"
+      },
+      "fact": "Costco'nun sosisli ve içecek menüsü 1980'lerden beri 1,50 dolar.",
+      "big_number": "1,50",
+      "mechanism_lines": [
+        "Tek bir ürünün sabit fiyatı, bütün mağaza için güven sinyali oluyor.",
+        "Uzmanlara göre bu bir zarar lideri: kâr değil sadakat getiriyor."
+      ],
+      "action": [
+        "Mağazanda müşterinin hatırlayacağı tek bir imza ürün seç ve fiyatını sabit tut.",
+        "Bu ürünü kâr için değil, güven için kullan."
+      ],
+      "insight": "Bazen tek bir ürün, bütün mağazanın sözü olur.",
+      "question": "Senin mağazanın imza ürünü hangisi? 👇",
+      "tags": [
+        "#costco",
+        "#zararlideri"
+      ],
+      "facts": [
+        {
+          "text": "Costco finans direktörü Gary Millerchip, 30 Mayıs 2024'te '1,50 dolarlık sosisli fiyatı güvende' dedi.",
+          "source_label": "CNN, ABC7 News (31 Mayıs 2024)",
+          "source_url": "https://abc7news.com/post/costcos-150-hot-dog-price-safe/14895838/",
+          "source_type": "press",
+          "checked_at": "2026-10-28"
+        },
+        {
+          "text": "NPR (2024): sosisli ve içecek menüsü 1980'lerden beri 1,50 dolar; uzmanlar bunu 'zarar lideri' fiyatlaması olarak tanımlıyor; bir analist Costco'nun müşteri sadakatini satın aldığını söylüyor.",
+          "source_label": "NPR (2024), OPB'de yeniden yayın",
+          "source_url": "https://www.opb.org/article/2024/06/04/costco-hot-dogs-have-cost-1-50-since-the-1980s-here-s-why-prices-aren-t-changing/",
+          "source_type": "press",
+          "checked_at": "2026-10-28",
+          "note": "'Zarar lideri' Costco'nun değil uzmanların ifadesi; zarar tutarı söylenmez."
+        }
+      ],
+      "score": 82,
+      "story": {
+        "label": "Sosisli",
+        "segments": [
+          {
+            "say": "Costco sosisliden kâr beklemiyor.",
+            "show": {
+              "type": "title",
+              "text": "Sosisli.",
+              "sub": "Kâr için değil."
+            }
+          },
+          {
+            "say": "Dev bir depo market. Alışveriş bitiyor, çıkışta bir büfe. Sosisli ve içecek, 1,50 dolar.",
+            "show": {
+              "type": "stat",
+              "value": "1,50",
+              "label": "sosisli + içecek · dolar",
+              "note": "KAYNAK: NPR (2024)"
+            }
+          },
+          {
+            "say": "Bu fiyat 1980'lerden beri değişmedi. Her şey zamlandı, o sosisli zamlanmadı.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "1980'ler · dolar",
+                "value": "1,50",
+                "bar": 1
+              },
+              "right": {
+                "label": "Bugün · dolar",
+                "value": "1,50",
+                "bar": 1
+              },
+              "caption": "Sosisli menü"
+            }
+          },
+          {
+            "say": "2024'te bir söylenti çıktı: fiyat artacak. Şirketin finans direktörü yatırımcı toplantısında açıkça söyledi: fiyat güvende.",
+            "show": {
+              "type": "phone",
+              "app": "Haber",
+              "title": "Sosisli fiyatı güvende",
+              "body": "Costco finans direktörü, 2024",
+              "time": "17:00"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Uzmanlara göre bu bir zarar lideri. Sosisli kâr getirmiyor. Ama müşteriye bir şey söylüyor: burada fiyatlar adil.",
+            "show": {
+              "type": "rule",
+              "strike": "Kâr",
+              "text": "Burada fiyatlar adil."
+            }
+          },
+          {
+            "say": "Bu her yerde var. Kafede sabit fiyatlı çay. Markette hep ucuz ekmek. Mağazanın imza ürünü.",
+            "show": {
+              "type": "chips",
+              "title": "Her yerde var",
+              "items": [
+                "Sabit fiyatlı çay",
+                "Hep ucuz ekmek",
+                "İmza ürün"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yani mağazanda müşterinin hatırlayacağı tek bir imza ürün seç ve fiyatını uzun süre sabit tut. Onu kâr için değil, güven için kullan.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "İmza ürünümüz",
+              "body": "Fiyatı sabit, sözümüz sabit.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     }
   ]
 }

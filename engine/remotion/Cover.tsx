@@ -8,7 +8,8 @@ import { FONT, H, W } from './theme.ts';
 
 export type CoverIcon =
   | 'stamp-card' | 'phone-streak' | 'hourglass' | 'parcel' | 'coffee' | 'music-cards' | 'cart' | 'cookie-jar'
-  | 'ruler' | 'gift' | 'tag' | 'hanger' | 'remote' | 'flatpack' | 'basket';
+  | 'ruler' | 'gift' | 'tag' | 'hanger' | 'remote' | 'flatpack' | 'basket' | 'credit-card' | 'stars' | 'member-card'
+  | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car';
 export type CoverTheme = 'light' | 'dark' | 'warm' | 'green';
 
 export interface CoverSpec { line1: string; line2: string; icon: CoverIcon; number?: string; theme: CoverTheme }
@@ -184,6 +185,169 @@ const ICONS: Record<CoverIcon, (t: T) => ReactNode> = {
       <path d="M200 230v130l150-60V170z" fill="#B3854F" />
       <rect x="230" y="250" width="90" height="40" fill="#F2C14E" transform="skewY(-22)" />
       <path d="M90 60l60 60v24" stroke="#5E6670" strokeWidth="14" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </Svg>
+  ),
+  'credit-card': (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-10 200 200)">
+        <rect x="40" y="150" width="300" height="186" rx="22" fill={t.obj2} />
+        <rect x="60" y="90" width="300" height="186" rx="22" fill={t.ink} />
+        <rect x="60" y="126" width="300" height="34" fill={t.accent} opacity="0.85" />
+        <rect x="88" y="186" width="54" height="40" rx="8" fill="#E9C46A" />
+        <path d="M88 206h54M115 186v40" stroke="#B8902F" strokeWidth="3" />
+        {[0, 1, 2, 3].map((i) => <rect key={i} x={170 + i * 44} y="242" width="34" height="10" rx="5" fill={t.obj} opacity="0.7" />)}
+      </g>
+    </Svg>
+  ),
+  stars: (t) => (
+    <Svg t={t}>
+      <rect x="40" y="110" width="320" height="180" rx="24" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      {[0, 1, 2, 3, 4].map((i) => {
+        const cx = 88 + i * 56, cy = 170, on = i === 0;
+        const pts = Array.from({ length: 10 }, (_, k) => {
+          const r = k % 2 ? 11 : 24, a = -Math.PI / 2 + (k * Math.PI) / 5;
+          return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`;
+        }).join(' ');
+        return <polygon key={i} points={pts} fill={on ? t.accent : 'none'} stroke={on ? t.accent : t.obj2} strokeWidth="4" strokeLinejoin="round" />;
+      })}
+      <rect x="66" y="218" width="230" height="12" rx="6" fill={t.obj2} />
+      <rect x="66" y="244" width="170" height="12" rx="6" fill={t.obj2} />
+    </Svg>
+  ),
+  'member-card': (t) => (
+    <Svg t={t}>
+      <g transform="rotate(8 200 200)">
+        <rect x="50" y="110" width="300" height="186" rx="22" fill={t.accent} />
+        <path d="M150 190l22 24 28-44 28 44 22-24-10 60h-80z" fill="#fff" />
+        <rect x="140" y="258" width="120" height="12" rx="6" fill="#fff" opacity="0.8" />
+        <rect x="72" y="132" width="90" height="12" rx="6" fill="#fff" opacity="0.6" />
+      </g>
+    </Svg>
+  ),
+  newspaper: (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-6 200 200)">
+        <rect x="70" y="60" width="260" height="290" rx="10" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+        <rect x="92" y="84" width="216" height="34" rx="4" fill={t.ink} />
+        <rect x="92" y="136" width="100" height="90" rx="4" fill={t.accent} opacity="0.85" />
+        {[0, 1, 2, 3, 4].map((i) => <rect key={i} x="206" y={138 + i * 18} width="102" height="8" rx="4" fill={t.obj2} />)}
+        {[0, 1, 2, 3, 4, 5].map((i) => <rect key={i} x="92" y={246 + i * 16} width={i % 2 ? 180 : 216} height="8" rx="4" fill={t.obj2} />)}
+      </g>
+    </Svg>
+  ),
+  jars: (t) => (
+    <Svg t={t}>
+      {[0, 1, 2, 3, 4].map((i) => {
+        const x = 30 + i * 70, big = i === 2, y = big ? 110 : 160, h = big ? 230 : 180;
+        return (
+          <g key={i}>
+            <rect x={x + 6} y={y - 22} width="52" height="24" rx="6" fill={big ? t.accent : t.obj2} />
+            <rect x={x} y={y} width="64" height={h} rx="14" fill={t.obj} stroke={t.obj2} strokeWidth="3" />
+            <rect x={x + 6} y={y + h * 0.35} width="52" height={h * 0.58} rx="10" fill={['#B23A48', '#E09F3E', '#7B2D26', '#9E2A2B', '#D17A22'][i]} />
+          </g>
+        );
+      })}
+    </Svg>
+  ),
+  candy: (t) => (
+    <Svg t={t}>
+      <path d="M70 200l-40-36v72z M150 200l-40-36v72z" fill={t.obj2} transform="translate(0 0)" />
+      <circle cx="120" cy="200" r="0" />
+      <circle cx="140" cy="210" r="70" fill="#5B3A29" />
+      <circle cx="120" cy="188" r="16" fill="#7A513A" />
+      <path d="M260 280c0-54 30-90 50-112 20 22 50 58 50 112z" fill="#C0C6CC" />
+      <path d="M310 168c4-18 16-26 30-30" stroke={t.accent} strokeWidth="5" fill="none" strokeLinecap="round" />
+      <text x="300" y="350" fontFamily="Outfit" fontWeight="800" fontSize="44" fill={t.accent} textAnchor="middle">0</text>
+    </Svg>
+  ),
+  wheel: (t) => (
+    <Svg t={t}>
+      <circle cx="200" cy="210" r="160" fill={t.obj} stroke={t.ink} strokeWidth="8" />
+      {Array.from({ length: 10 }, (_, i) => {
+        const a1 = (i * Math.PI) / 5, a2 = ((i + 1) * Math.PI) / 5;
+        return <path key={i} d={`M200 210L${200 + 152 * Math.cos(a1)} ${210 + 152 * Math.sin(a1)}A152 152 0 0 1 ${200 + 152 * Math.cos(a2)} ${210 + 152 * Math.sin(a2)}z`} fill={i % 2 ? t.obj2 : t.accent} opacity={i % 2 ? 1 : 0.85} />;
+      })}
+      <circle cx="200" cy="210" r="26" fill={t.ink} />
+      <path d="M200 26l-20 36h40z" fill={t.ink} />
+    </Svg>
+  ),
+  hotdog: (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-12 200 200)">
+        <rect x="40" y="170" width="320" height="80" rx="40" fill="#E2A65A" />
+        <rect x="30" y="150" width="340" height="50" rx="25" fill="#B5462D" />
+        <path d="M70 172q20-16 40 0t40 0 40 0 40 0 40 0 40 0" stroke="#F2C14E" strokeWidth="9" fill="none" strokeLinecap="round" />
+        <rect x="40" y="186" width="320" height="64" rx="32" fill="#EDB86C" />
+      </g>
+      <rect x="290" y="250" width="70" height="110" rx="10" fill={t.accent} />
+      <rect x="318" y="210" width="10" height="50" rx="5" fill={t.ink} />
+    </Svg>
+  ),
+  chocolate: (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-8 200 200)">
+        <path d="M30 290h340l-20-30H50z" fill="#E8C66A" />
+        {[0, 1, 2, 3, 4].map((i) => {
+          const x = 50 + i * 64, gap = i === 2 || i === 3 ? 18 : 0;
+          return <path key={i} d={`M${x + gap} 260l26-90 26 90z`} fill="#6B4226" stroke="#4A2C18" strokeWidth="3" />;
+        })}
+      </g>
+    </Svg>
+  ),
+  tracker: (t) => (
+    <Svg t={t}>
+      <rect x="20" y="130" width="360" height="140" rx="28" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      <rect x="50" y="192" width="300" height="16" rx="8" fill={t.obj2} />
+      <rect x="50" y="192" width="180" height="16" rx="8" fill={t.accent} />
+      {[0, 1, 2, 3, 4].map((i) => <circle key={i} cx={50 + i * 75} cy="200" r="20" fill={i <= 2 ? t.accent : t.obj} stroke={i <= 2 ? t.accent : t.obj2} strokeWidth="5" />)}
+      <circle cx="200" cy="200" r="30" fill="none" stroke={t.accent} strokeWidth="4" opacity="0.5" />
+    </Svg>
+  ),
+  mail: (t) => (
+    <Svg t={t}>
+      <rect x="40" y="100" width="320" height="210" rx="18" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      <path d="M44 110l156 120 156-120" stroke={t.obj2} strokeWidth="6" fill="none" strokeLinejoin="round" />
+      <rect x="220" y="60" width="150" height="56" rx="28" fill={t.accent} />
+      <text x="295" y="98" fontFamily="Outfit" fontWeight="800" fontSize="30" fill="#fff" textAnchor="middle">Ayşe,</text>
+    </Svg>
+  ),
+  towel: (t) => (
+    <Svg t={t}>
+      <rect x="60" y="70" width="280" height="16" rx="8" fill={t.obj2} />
+      <path d="M90 78h220v240a14 14 0 0 1-14 14H104a14 14 0 0 1-14-14z" fill={t.obj} />
+      <rect x="90" y="270" width="220" height="16" fill={t.accent} opacity="0.85" />
+      <rect x="236" y="120" width="90" height="120" rx="10" fill={t.accent} transform="rotate(8 280 180)" />
+      <path d="M262 170l14 14 26-30" stroke="#fff" strokeWidth="7" fill="none" strokeLinecap="round" strokeLinejoin="round" transform="rotate(8 280 180)" />
+    </Svg>
+  ),
+  mug: (t) => (
+    <Svg t={t}>
+      <path d="M100 110h170v190a40 40 0 0 1-40 40h-90a40 40 0 0 1-40-40z" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      <path d="M270 150h30a40 40 0 0 1 0 80h-30" stroke={t.obj2} strokeWidth="18" fill="none" />
+      <rect x="130" y="180" width="110" height="60" rx="10" fill={t.accent} />
+      <path d="M150 90q10-25 0-45M190 90q10-25 0-45M230 90q10-25 0-45" stroke={t.obj2} strokeWidth="6" fill="none" strokeLinecap="round" />
+    </Svg>
+  ),
+  checkbox: (t) => (
+    <Svg t={t}>
+      <rect x="40" y="90" width="320" height="220" rx="22" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      {[0, 1].map((i) => (
+        <g key={i}>
+          <rect x="74" y={130 + i * 90} width="56" height="56" rx="10" fill={i === 0 ? t.accent : 'none'} stroke={i === 0 ? t.accent : t.obj2} strokeWidth="5" />
+          {i === 0 && <path d="M86 158l12 13 22-26" stroke="#fff" strokeWidth="7" fill="none" strokeLinecap="round" strokeLinejoin="round" />}
+          <rect x="152" y={150 + i * 90} width={i === 0 ? 170 : 130} height="14" rx="7" fill={t.obj2} />
+        </g>
+      ))}
+    </Svg>
+  ),
+  car: (t) => (
+    <Svg t={t}>
+      <path d="M50 250l30-70q10-24 36-24h168q26 0 36 24l30 70z" fill={t.accent} />
+      <rect x="40" y="240" width="320" height="70" rx="20" fill={t.accent} />
+      <path d="M110 230l18-50h144l18 50z" fill={t.obj} opacity="0.85" />
+      <circle cx="115" cy="312" r="32" fill={t.ink} /><circle cx="285" cy="312" r="32" fill={t.ink} />
+      <rect x="250" y="70" width="110" height="56" rx="28" fill={t.ink} />
+      <text x="305" y="108" fontFamily="Outfit" fontWeight="800" fontSize="30" fill={t.obj} textAnchor="middle">2,1x</text>
     </Svg>
   ),
   basket: (t) => (
