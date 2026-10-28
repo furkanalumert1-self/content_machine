@@ -14,6 +14,7 @@ import { MAX_ATTEMPTS, renderWithRetries } from '../render/render.ts';
 import { BUCKET } from '../lib/storage.ts';
 import { buildButtons, callbackKey, readyMessage } from '../approvals/telegram-approval.ts';
 import { TelegramApi } from '../notify/telegram.ts';
+import { checkCredit, creditMessage } from '../story/credit.ts';
 import { renderCover } from '../story/cover.ts';
 import { coverSpec } from '../story/build.ts';
 import { produceStory } from '../story/produce.ts';
@@ -124,6 +125,16 @@ for (const v of noCover ?? []) {
   const { error: ue } = await db.from('videos').update({ script: { ...script, cover, cover_path: coverPath } }).eq('id', v.id).eq('status', 'ready');
   if (ue) await log.warn(`Video ${v.id}: kapak kaydedilemedi (${ue.message}).`);
   else await log.info(`Video ${v.id}: kapak eklendi.`);
+}
+
+// ElevenLabs kalan kredisi: her çalıştırmada panel için kaydedilir; azaldıysa Telegram'a da bildirilir.
+if (process.env.ELEVENLABS_API_KEY) {
+  const { data: st } = await db.from('app_settings').select('daily_video_count').single();
+  const credit = await checkCredit(st?.daily_video_count ?? 1);
+  const ctx = { kind: credit.kind, ...(credit.kind === 'ok' || credit.kind === 'low' ? { remaining: credit.remaining, limit: credit.limit, videos_left: credit.videosLeft } : {}) };
+  const clog = createLogger('elevenlabs-kredi', db);
+  if (credit.kind === 'ok') await clog.info(creditMessage(credit), ctx);
+  else await clog.warn(creditMessage(credit), { ...ctx, notify: credit.kind === 'low' });
 }
 
 if (failures) process.exitCode = 1;

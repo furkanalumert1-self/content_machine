@@ -7,6 +7,9 @@ import { redirect } from 'next/navigation';
 export default async function PanelLayout({ children }: { children: ReactNode }) {
   const { db, user } = await requireAdminPage();
   const { data: s } = await db.from('app_settings').select('mode, paused').single();
+  // Son 3 günün ElevenLabs kredi kaydı (günlük render işi yazar); yalnızca uyarıysa gösterilir.
+  const { data: credit } = await db.from('logs').select('level, message, at').eq('job', 'elevenlabs-kredi')
+    .gte('at', new Date(Date.now() - 3 * 86_400_000).toISOString()).order('at', { ascending: false }).limit(1).maybeSingle();
   async function logout() {
     'use server';
     await signOut();
@@ -33,7 +36,12 @@ export default async function PanelLayout({ children }: { children: ReactNode })
           <Nav />
         </div>
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">{children}</main>
+      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+        {credit?.level === 'warn' && (
+          <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">⚠️ {credit.message}</div>
+        )}
+        {children}
+      </main>
     </div>
   );
 }
