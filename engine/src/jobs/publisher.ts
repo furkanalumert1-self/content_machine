@@ -10,7 +10,7 @@ import { publishClaimed, type ClaimedVideo, type PublishDeps } from '../instagra
 import { decideToken } from '../instagram/token.ts';
 import { BUCKET } from '../lib/storage.ts';
 
-const MAX_PER_RUN = 3;
+const MAX_PER_RUN = 1; // bir kontrolde tek video: geciken iki video aynı anda paylaşılmasın
 const STALE_MINUTES = 20;
 
 requireEnv('publisher');

@@ -43,7 +43,9 @@ revoke all on function zamanlayici.gh_dispatch(text, jsonb) from public, anon, a
 
 -- Saatler UTC (İstanbul = UTC+3, yaz saati yok).
 select cron.schedule('sr-gunluk-video',  '41 5 * * *',               $$select zamanlayici.gh_dispatch('daily.yml', '{"mode":"plan_and_render"}')$$); -- 08:41
-select cron.schedule('sr-yayin-ogle',    '7,22,37,52 9-11 * * *',    $$select zamanlayici.gh_dispatch('publisher.yml')$$);                         -- 12:07–14:52
+-- Öğle yayın kontrolü sabaha taşındı (28.10): eski işi kaldır.
+select cron.unschedule(jobid) from cron.job where jobname = 'sr-yayin-ogle';
+select cron.schedule('sr-yayin-sabah',   '7,22,37,52 5-6 * * *',     $$select zamanlayici.gh_dispatch('publisher.yml')$$);                         -- 08:07–09:52
 select cron.schedule('sr-yayin-aksam',   '7,22,37,52 16-19 * * *',   $$select zamanlayici.gh_dispatch('publisher.yml')$$);                         -- 19:07–22:52
 select cron.schedule('sr-metrikler',     '17 7 * * *',               $$select zamanlayici.gh_dispatch('metrics.yml')$$);                           -- 10:17
 select cron.schedule('sr-fikirler',      '23 4 * * 1',               $$select zamanlayici.gh_dispatch('ideas.yml')$$);                             -- Pazartesi 07:23

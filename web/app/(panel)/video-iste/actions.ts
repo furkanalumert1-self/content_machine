@@ -68,7 +68,8 @@ export async function requestVideo(_: ActionResult, form: FormData): Promise<Act
     const { script, caption, hashtags, problems } = buildForIdea(idea, { brief: brief.brief, phase, targetSec, caseNo: (stories ?? 0) + 1 });
     if (problems.length) return { ok: false, message: `Senaryo kurallara uymadı:\n• ${problems.join('\n• ')}` };
 
-    const slot = chooseSlot({ windows: s!.publish_windows, timezone: s!.timezone, now: new Date(), ...(await scheduleInputs(db)) });
+    // Elle istenen video: en yakın uygun saat (aralık doluluğuna bakılmaz).
+    const slot = chooseSlot({ windows: s!.publish_windows, timezone: s!.timezone, now: new Date(), ...(await scheduleInputs(db)), occupied: undefined });
     const { error } = await db.from('videos').insert({
       product_id: productId, brief_id: brief.id, idea_id: idea.id, origin: 'manual', request_instruction: instruction || null,
       style, content_type: script.content_type, duration_sec: script.duration_sec, script, caption, hashtags,

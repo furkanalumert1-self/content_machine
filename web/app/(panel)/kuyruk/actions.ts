@@ -5,6 +5,8 @@ import { parseBrief } from '@content-machine/engine/brief/brief.ts';
 import { numbersIn } from '@content-machine/engine/topics/bank.ts';
 import { CTA_KEYWORD, MAX_TAGS, MIN_TAGS, productNameAllowed, type Phase } from '@content-machine/engine/topics/channel.ts';
 import type { Topic } from '@content-machine/engine/topics/types.ts';
+import { chooseSlot } from '@content-machine/engine/schedule/slots.ts';
+import { scheduleInputs } from '@content-machine/engine/schedule/repo.ts';
 import { requireAdmin } from '@/lib/dal';
 import { dispatch } from '@/lib/github';
 import { fail, text, uuid, type ActionResult } from '@/lib/validate';
@@ -24,7 +26,25 @@ async function setStatus(form: FormData, status: 'approved' | 'rejected', from: 
   } catch (e) { return fail(e); }
 }
 
-export const approve = async (_: ActionResult, form: FormData) => setStatus(form, 'approved', ['ready']);
+export async function approve(_: ActionResult, form: FormData): Promise<ActionResult> {
+  const r = await setStatus(form, 'approved', ['ready']);
+  if (!r?.ok) return r;
+  try {
+    // Yayın saati geçtikten sonra onaylanan video, sıradaki boş aralığa kaydırılır (iki video aynı anda paylaşılmasın).
+    const id = uuid(form);
+    const { db } = await requireAdmin();
+    const { data: v } = await db.from('videos').select('publish_at').eq('id', id).single();
+    if (v?.publish_at && new Date(v.publish_at).getTime() < Date.now() - 15 * 60_000) {
+      const { data: s } = await db.from('app_settings').select('publish_windows, timezone').single();
+      const inputs = await scheduleInputs(db);
+      const slot = chooseSlot({ windows: s!.publish_windows, timezone: s!.timezone, now: new Date(), ...inputs, occupied: inputs.occupied?.filter((d) => d.getTime() !== new Date(v.publish_at).getTime()) });
+      await db.from('videos').update({ publish_at: slot.publishAt.toISOString(), publish_at_reason: `Onay planlanan saatten sonra geldi; sıradaki boş aralığa alındı. ${slot.reason}` }).eq('id', id);
+      revalidatePath('/kuyruk');
+      return { ok: true, message: `Onaylandı. Planlanan saat geçtiği için ${slot.reason.split(' (İstanbul)')[0]} saatine alındı.` };
+    }
+  } catch (e) { return fail(e); }
+  return r;
+}
 export const reject = async (_: ActionResult, form: FormData) => setStatus(form, 'rejected', ['ready', 'approved', 'planned', 'render_failed', 'publish_failed']);
 
 export async function editCaption(_: ActionResult, form: FormData): Promise<ActionResult> {
@@ -76,7 +96,7 @@ export async function changeTime(_: ActionResult, form: FormData): Promise<Actio
     if (at.getTime() < Date.now() + 5 * 60_000) return { ok: false, message: 'En az 5 dakika sonrası için saat seçin.' };
     const { db, user } = await requireAdmin();
     const { data, error } = await db.from('videos')
-      .update({ publish_at: at.toISOString(), publish_at_reason: `Elle değiştirildi (${user.email}, ${new Date().toISOString().slice(0, 16)} UTC). Yayın kontrolü yalnızca 12:07–14:52 ve 19:07–22:52 arasında çalışır; bu aralık dışındaki saat bir sonraki kontrolde yayınlanır.` })
+      .update({ publish_at: at.toISOString(), publish_at_reason: `Elle değiştirildi (${user.email}, ${new Date().toISOString().slice(0, 16)} UTC). Yayın kontrolü yalnızca 08:07–09:52 ve 19:07–22:52 arasında çalışır; bu aralık dışındaki saat bir sonraki kontrolde yayınlanır.` })
       .eq('id', id).not('status', 'in', '(publishing,published)').select('id');
     if (error) throw new Error(error.message);
     if (!data?.length) return { ok: false, message: 'Bu videonun saati değiştirilemez.' };

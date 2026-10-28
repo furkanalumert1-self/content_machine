@@ -4,7 +4,7 @@
 | İş | Zaman | Ne yapar | Tahmini süre |
 |---|---|---|---|
 | **Günlük plan ve render** (`daily.yml`) | Her gün 08:41 | Brief senkronu → fikir + senaryo + yayın saati → video üretimi → kalite kontrolü → depolama. Fikir azsa aynı çalışmada acil fikir araştırması. | ~3 dk |
-| **Yayın kontrolü** (`publisher.yml`) | 12:07–14:52 ve 19:07–22:52 arası 15 dk'da bir | Telegram onay/ret basışlarını uygular, zamanı gelmiş onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
+| **Yayın kontrolü** (`publisher.yml`) | 08:07–09:52 ve 19:07–22:52 arası 15 dk'da bir | Telegram onay/ret basışlarını uygular, zamanı gelmiş onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
 | **Metrikler ve token** (`metrics.yml`) | Her gün 10:17 | Token yenileme/uyarı, 24. ve 72. saat metrikleri, takipçi aktif saatleri | ~1 dk |
 | **Fikir araştırması** (`ideas.yml`) | Pazartesi 07:23 | 15–20 yeni fikir | ~1 dk |
 | **Render deneme** (`render-test.yml`) | Elle veya render kodu değişince | Gizli anahtarsız örnek video (artifact olarak indirilebilir) | ~1,5 dk |
@@ -12,7 +12,7 @@
 
 Dakikalar :00 yerine :07, :17, :41 gibi seçildi: GitHub saat başlarında yoğunlaşır ve o anlarda işleri geciktirebilir, hatta düşürebilir.
 
-> **Gecikme uyarısı:** GitHub zamanlanmış işleri yoğunlukta birkaç dakika (bazen daha fazla) geciktirebilir; kesin dakika garantisi yoktur. Onayladığınız video, seçilen saatten sonraki **ilk başarılı yayın kontrolünde** paylaşılır. Onayı yayın aralığından sonra verirseniz video bir sonraki aralıkta (ertesi gün 12:07'den itibaren) gider.
+> **Gecikme uyarısı:** GitHub zamanlanmış işleri yoğunlukta birkaç dakika (bazen daha fazla) geciktirebilir; kesin dakika garantisi yoktur. Onayladığınız video, seçilen saatten sonraki **ilk başarılı yayın kontrolünde** paylaşılır. Onayı yayın aralığından sonra verirseniz video bir sonraki aralıkta (ertesi sabah 08:07'den itibaren) gider.
 
 ## Açma anahtarı: `AUTOMATION_ENABLED`
 Zamanlanmış işler, siz bu değişkeni `true` yapana kadar **atlanır** (dakika harcamaz, hata e-postası gelmez). Önce gizli anahtarları ekleyin, Supabase ve Instagram'ı bağlayın, en son bunu açın.

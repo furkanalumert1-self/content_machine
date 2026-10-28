@@ -118,3 +118,33 @@ describe('metrikler', () => {
     expect(averageByHour([])).toBeNull();
   });
 });
+
+describe('chooseSlot — günde iki video (sabah + akşam)', () => {
+  const W2 = [{ start: '08:00', end: '10:00' }, { start: '19:00', end: '22:00' }];
+  const plan2 = (now: string, occupied: Date[] = []) => {
+    const first = chooseSlot({ ...base(now), windows: W2, occupied, minLeadMinutes: 360 });
+    const second = chooseSlot({ ...base(now), windows: W2, occupied: [...occupied, first.publishAt], minLeadMinutes: 360 });
+    return [first, second].map((c) => localParts(c.publishAt, TZ));
+  };
+
+  it('08:41 planlaması: bu akşam + yarın sabah (onay için en az 6 saat)', () => {
+    const [a, b] = plan2('2026-10-28T08:41');
+    expect(a.date).toBe('2026-10-28');
+    expect(a.minute).toBeGreaterThanOrEqual(19 * 60);
+    expect(b.date).toBe('2026-10-29');
+    expect(b.minute).toBeLessThan(10 * 60);
+  });
+
+  it('ertesi gün: dünden planlanmış sabah doluysa bu akşam + yarın sabah; aynı aralığa iki video düşmez', () => {
+    const yesterdayPlannedMorning = at('2026-10-29T08:30');
+    const [a, b] = plan2('2026-10-29T08:41', [yesterdayPlannedMorning]);
+    expect([a.date, a.minute >= 19 * 60]).toEqual(['2026-10-29', true]);
+    expect([b.date, b.minute < 10 * 60]).toEqual(['2026-10-30', true]);
+  });
+
+  it('elle istenen video (doluluk yok): en yakın uygun saat', () => {
+    const c = chooseSlot({ ...base('2026-10-28T08:41'), windows: W2 });
+    expect(localParts(c.publishAt, TZ).date).toBe('2026-10-28');
+    expect(localParts(c.publishAt, TZ).minute).toBeGreaterThanOrEqual(9 * 60 + 26);
+  });
+});

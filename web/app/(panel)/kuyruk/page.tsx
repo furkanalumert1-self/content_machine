@@ -44,7 +44,7 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
       </div>
 
       {filter === FILTERS.bekleyen && waiting > 0 && <div className="mb-4"><Notice tone="warn">{waiting} video onayınızı bekliyor.</Notice></div>}
-      <div className="mb-4"><Notice>Yayın kontrolü GitHub Actions ile 12:07–14:52 ve 19:07–22:52 arasında 15 dakikada bir çalışır; birkaç dakika gecikebilir. Kesin dakika garantisi yoktur.</Notice></div>
+      <div className="mb-4"><Notice>Yayın kontrolü Supabase zamanlayıcısıyla 08:07–09:52 ve 19:07–22:52 arasında 15 dakikada bir çalışır; Onay planlanan saatten sonra gelirse video sıradaki boş aralığa alınır.</Notice></div>
 
       {!rows.length && <Empty title="Bu listede video yok.">Yeni video sabah 08:41&apos;de otomatik planlanır. Hemen bir tane için <Link className="underline" href="/video-iste">Video iste</Link>.</Empty>}
 

@@ -6,7 +6,8 @@ export const SLOT_MINUTES = 30;
 export const MIN_SCORED_FOR_EXPLOIT = 8;  // toplamda bu kadar ölçülmüş videodan önce hep keşif
 export const MIN_PER_SLOT = 2;            // bir saatin "bilinen" sayılması için en az örnek
 export const EXPLORE_EVERY = 4;           // yeterli veride bile 4 günde bir keşif
-export const LEAD_MINUTES = 45;           // render + onay için en az bu kadar önce
+export const LEAD_MINUTES = 45;           // render + onay için en az bu kadar önce (elle istenen video)
+export const AUTO_LEAD_MINUTES = 360;     // otomatik plan: onay için gün içinde zaman kalsın (08:41 → akşam + ertesi sabah)
 
 export interface Window { start: string; end: string } // "12:00" – "14:00" (bitiş hariç)
 
@@ -55,22 +56,44 @@ export interface ChooseInput {
   history: PastVideo[];            // yayınlanmış videolar
   recentPlanned: Date[];           // son 14 günde planlanan publish_at'ler (henüz ölçülmemiş olanlar dahil)
   onlineByHour?: number[] | null;  // İstanbul saatine göre 0–23 ortalama çevrimiçi takipçi
+  /** Verilirse: her yayın aralığına günde en fazla bir video; bu anlarda (yerel gün + aralık) dolu sayılır. */
+  occupied?: Date[];
+  /** Şu andan en az kaç dakika sonra (varsayılan LEAD_MINUTES). */
+  minLeadMinutes?: number;
 }
 
 export function chooseSlot(input: ChooseInput): SlotChoice {
   const { timezone: tz, now } = input;
-  const slots = candidateSlots(input.windows);
-  if (!slots.length) throw new Error('Yayın saat aralığı tanımlı değil.');
+  const allSlots = candidateSlots(input.windows);
+  if (!allSlots.length) throw new Error('Yayın saat aralığı tanımlı değil.');
+  const lead = input.minLeadMinutes ?? LEAD_MINUTES;
+  const earliest = new Date(now.getTime() + lead * 60_000);
 
-  // Bugün yeterince ileride olan ilk uygun gün
+  // İlk uygun (gün, aralık): yeterince ileride ve (occupied verildiyse) o gün o aralıkta başka video yok.
+  const winSlots = input.windows.map((w) => allSlots.filter((s) => toMin(s) >= toMin(w.start) && toMin(s) < toMin(w.end)));
+  const busy = new Set((input.occupied ?? []).map((d) => {
+    const lp = localParts(d, tz);
+    return `${lp.date}|${input.windows.findIndex((w) => lp.minute >= toMin(w.start) - SLOT_MINUTES && lp.minute < toMin(w.end) + SLOT_MINUTES)}`;
+  }));
   const today = localParts(now, tz);
-  const minMinute = today.minute + LEAD_MINUTES;
   let date = today.date;
-  let usable = slots.filter((s) => toMin(s) >= minMinute);
-  if (!usable.length) {
-    date = new Date(Date.parse(`${today.date}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
-    usable = slots;
+  let slots = allSlots;
+  let usable: string[] = [];
+  let windowNote = '';
+  search: for (let day = 0; day < 14; day++) {
+    date = new Date(Date.parse(`${today.date}T00:00:00Z`) + day * 86_400_000).toISOString().slice(0, 10);
+    for (const [wi, ws] of (input.occupied ? winSlots.map((x, i) => [i, x] as const) : [[-1, allSlots] as const])) {
+      if (wi >= 0 && busy.has(`${date}|${wi}`)) continue;
+      const ok = ws.filter((s) => localToUtc(date, s, tz) >= earliest);
+      if (ok.length) {
+        usable = ok;
+        slots = ws;
+        if (wi >= 0) windowNote = ` Aralık: ${input.windows[wi].start}–${input.windows[wi].end} (her aralığa günde bir video).`;
+        break search;
+      }
+    }
   }
+  if (!usable.length) throw new Error('Önümüzdeki 14 günde boş yayın aralığı yok.');
 
   // Saat başına örnek ve ortalama
   const stats = new Map(slots.map((s) => [s, { n: 0, sum: 0, tried: 0 }]));
@@ -116,5 +139,5 @@ export function chooseSlot(input: ChooseInput): SlotChoice {
     reason = `Şimdiye kadarki en yüksek ortalama etkileşim ${slot} (n=${stats.get(slot)!.n}). Karşılaştırma: ${ranking}.${activity(slot)} Örnek sayısı az olduğu için kesin değildir.`;
   }
 
-  return { publishAt: localToUtc(date, slot, tz), slot, mode, reason: `${date} ${slot} (İstanbul). ${reason} GitHub zamanlaması nedeniyle yayın birkaç dakika gecikebilir.` };
+  return { publishAt: localToUtc(date, slot, tz), slot, mode, reason: `${date} ${slot} (İstanbul).${windowNote} ${reason}` };
 }

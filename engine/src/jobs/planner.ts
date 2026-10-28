@@ -12,7 +12,7 @@ import { contentSentences } from '../plan/script.ts';
 import { startOfLocalDay } from '../plan/time.ts';
 import { scheduleInputs } from '../schedule/repo.ts';
 import type { Phase } from '../topics/channel.ts';
-import { chooseSlot } from '../schedule/slots.ts';
+import { AUTO_LEAD_MINUTES, chooseSlot } from '../schedule/slots.ts';
 
 const db = serviceClient('planner');
 const log = createLogger('planner', db);
@@ -55,25 +55,27 @@ if (!brief) {
 
 const activeStyles = listActiveStyles().map((x) => x.slug);
 
-const result = planDay({
-  brief: brief.brief,
-  ideas: await listIdeas(db, p.id),
-  recent: recent.filter((r) => r.product_id === p.id),
-  recentExploration: await recentExplorationFlags(db, p.id),
-  activeStyles,
-  phase: (settings.content_phase ?? 1) as Phase,
-  caseNo: await nextCaseNo(),
-});
-
-if (!result.ok) {
-  await log.error(`${p.slug}: ${result.reason}`, { problems: result.problems });
-  if (result.needsEmergencyResearch) {
-    setOutput('needs_research', true);
-    await log.warn('Kullanılabilir konu kalmadı: config/topics/sepet-rontgeni.json\'a kaynakları doğrulanmış yeni konular eklenmeli.', { notify: true });
-  } else process.exitCode = 1;
-} else {
+// Günde daily_video_count video: her biri ayrı yayın aralığına (ör. akşam + ertesi sabah), onay için en az 6 saat önceden.
+let ideas = await listIdeas(db, p.id);
+let recentForProduct = recent.filter((r) => r.product_id === p.id);
+const exploration = await recentExplorationFlags(db, p.id);
+const inputs = await scheduleInputs(db);
+const occupied = [...(inputs.occupied ?? [])];
+for (let n = plannedToday ?? 0; n < settings.daily_video_count; n++) {
+  const result = planDay({
+    brief: brief.brief, ideas, recent: recentForProduct, recentExploration: exploration, activeStyles,
+    phase: (settings.content_phase ?? 1) as Phase, caseNo: await nextCaseNo(),
+  });
+  if (!result.ok) {
+    await log.error(`${p.slug}: ${result.reason}`, { problems: result.problems });
+    if (result.needsEmergencyResearch) {
+      setOutput('needs_research', true);
+      await log.warn('Kullanılabilir konu kalmadı: config/topics/sepet-rontgeni.json\'a kaynakları doğrulanmış yeni konular eklenmeli.', { notify: true });
+    } else process.exitCode = 1;
+    break;
+  }
   const { plan } = result;
-  const slot = chooseSlot({ windows: settings.publish_windows, timezone: settings.timezone, now: new Date(), ...(await scheduleInputs(db)) });
+  const slot = chooseSlot({ windows: settings.publish_windows, timezone: settings.timezone, now: new Date(), ...inputs, occupied, minLeadMinutes: AUTO_LEAD_MINUTES });
   const { data: video, error } = await db.from('videos').insert({
     product_id: p.id,
     brief_id: brief.id,
@@ -92,8 +94,12 @@ if (!result.ok) {
   }).select('id').single();
   if (error) throw error;
   await markIdeaUsed(db, plan.idea.id);
+  occupied.push(slot.publishAt);
+  ideas = ideas.map((i) => (i.id === plan.idea.id ? { ...i, used: true, last_used_at: new Date().toISOString() } : i));
+  recentForProduct = [{ product_id: p.id, content_type: plan.script.content_type, style: plan.style, created_at: new Date().toISOString(), sentences: contentSentences(plan.script) }, ...recentForProduct];
+  exploration.unshift(plan.idea.is_exploration);
   setOutput('planned', true);
-  await log.info(`${p.slug}: video planlandı (${video.id}), yayın ${slot.slot} (${slot.mode}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
+  await log.info(`${p.slug}: video planlandı (${video.id}), yayın ${slot.reason.split(' (İstanbul)')[0]} (${slot.mode}).`, { idea: plan.idea.idea, duration: plan.script.duration_sec });
   if (plan.needsEmergencyResearch) {
     setOutput('needs_research', true);
     // Konu bankası elle araştırılıp doğrulanır (kaynak kapısı); otomatik iş yalnızca dosyayı senkronlar.
