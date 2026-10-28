@@ -96,7 +96,7 @@ export async function changeTime(_: ActionResult, form: FormData): Promise<Actio
     if (at.getTime() < Date.now() + 5 * 60_000) return { ok: false, message: 'En az 5 dakika sonrası için saat seçin.' };
     const { db, user } = await requireAdmin();
     const { data, error } = await db.from('videos')
-      .update({ publish_at: at.toISOString(), publish_at_reason: `Elle değiştirildi (${user.email}, ${new Date().toISOString().slice(0, 16)} UTC). Yayın kontrolü yalnızca 08:07–09:52 ve 19:07–22:52 arasında çalışır; bu aralık dışındaki saat bir sonraki kontrolde yayınlanır.` })
+      .update({ publish_at: at.toISOString(), publish_at_reason: `Elle değiştirildi (${user.email}, ${new Date().toISOString().slice(0, 16)} UTC). Yayın kontrolü yalnızca 13:07–15:52 ve 19:07–20:52 arasında çalışır; bu aralık dışındaki saat bir sonraki kontrolde yayınlanır.` })
       .eq('id', id).not('status', 'in', '(publishing,published)').select('id');
     if (error) throw new Error(error.message);
     if (!data?.length) return { ok: false, message: 'Bu videonun saati değiştirilemez.' };

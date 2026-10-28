@@ -5,7 +5,7 @@
 | İş | İstanbul saati |
 |---|---|
 | Günlük plan ve render | Her gün 08:41 |
-| Yayın kontrolü | 08:07–09:52 ve 19:07–22:52, 15 dk'da bir |
+| Yayın kontrolü | 13:07–15:52 ve 19:07–20:52, 15 dk'da bir |
 | Metrikler ve token | Her gün 10:17 |
 | Fikir araştırması | Pazartesi 07:23 |
 

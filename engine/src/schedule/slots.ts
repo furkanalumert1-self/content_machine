@@ -7,7 +7,7 @@ export const MIN_SCORED_FOR_EXPLOIT = 8;  // toplamda bu kadar ölçülmüş vid
 export const MIN_PER_SLOT = 2;            // bir saatin "bilinen" sayılması için en az örnek
 export const EXPLORE_EVERY = 4;           // yeterli veride bile 4 günde bir keşif
 export const LEAD_MINUTES = 45;           // render + onay için en az bu kadar önce (elle istenen video)
-export const AUTO_LEAD_MINUTES = 360;     // otomatik plan: onay için gün içinde zaman kalsın (08:41 → akşam + ertesi sabah)
+export const AUTO_LEAD_MINUTES = 240;     // otomatik plan: onay için en az 4 saat (08:41 → aynı gün 13:00 sonrası + akşam)
 
 export interface Window { start: string; end: string } // "12:00" – "14:00" (bitiş hariç)
 

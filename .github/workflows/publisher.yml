@@ -1,12 +1,12 @@
 # 15 dakikada bir, yalnızca yayın aralıklarında: zamanı gelmiş ve onaylı videoları Instagram'a gönderir.
-# Saatler İstanbul: 08:07–09:52 (sabah) ve 19:07–22:52 (akşam). GitHub zamanlaması yoğunlukta gecikebilir; kesin dakika garantisi yok.
+# Saatler İstanbul: 13:07–15:52 (öğleden sonra) ve 19:07–20:52 (akşam). GitHub zamanlaması yoğunlukta gecikebilir; kesin dakika garantisi yok.
 # Ayarlardaki yayın aralıklarını değiştirirseniz bu saatleri de güncelleyin (docs/kurulum/github-actions.md).
 name: Yayın kontrolü
 
 on:
   schedule:
-    - cron: '7,22,37,52 5-6 * * *'    # 08:07–09:52 İstanbul (sabah)
-    - cron: '7,22,37,52 16-19 * * *'  # 19:07–22:52 İstanbul
+    - cron: '7,22,37,52 10-12 * * *'  # 13:07–15:52 İstanbul (öğleden sonra)
+    - cron: '7,22,37,52 16-17 * * *'  # 19:07–20:52 İstanbul (akşam)
   workflow_dispatch:
 
 concurrency:

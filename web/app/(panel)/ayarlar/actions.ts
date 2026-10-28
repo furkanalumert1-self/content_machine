@@ -39,12 +39,12 @@ export async function setSchedule(_: ActionResult, form: FormData): Promise<Acti
     for (const w of windows) {
       if (!HHMM.test(w.start) || !HHMM.test(w.end) || w.start >= w.end) throw new Error('Aralıklar SS:DD biçiminde ve başlangıç < bitiş olmalı.');
     }
-    const outside = windows.some((w) => !((w.start >= '08:00' && w.end <= '10:00') || (w.start >= '19:00' && w.end <= '22:45')));
+    const outside = windows.some((w) => !((w.start >= '13:00' && w.end <= '16:00') || (w.start >= '19:00' && w.end <= '21:00')));
     const { db } = await requireAdmin();
     const { error } = await db.from('app_settings').update({ daily_video_count: count, publish_windows: windows }).eq('id', 1);
     if (error) throw new Error(error.message);
     return done(outside
-      ? 'Kaydedildi. Uyarı: yayın kontrolü yalnızca 08:07–09:52 ve 19:07–22:52 arasında çalışıyor; bu aralık dışındaki saatler için yayın kontrolü saatlerinin de (publisher.yml ve supabase/zamanlayici.sql) değişmesi gerekir.'
+      ? 'Kaydedildi. Uyarı: yayın kontrolü yalnızca 13:07–15:52 ve 19:07–20:52 arasında çalışıyor; bu aralık dışındaki saatler için yayın kontrolü saatlerinin de (publisher.yml ve supabase/zamanlayici.sql) değişmesi gerekir.'
       : 'Kaydedildi.');
   } catch (e) { return fail(e); }
 }

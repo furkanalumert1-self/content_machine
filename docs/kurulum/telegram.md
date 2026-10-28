@@ -32,7 +32,7 @@ GitHub → **Actions** → **Telegram test** → **Run workflow**. Birkaç saniy
 ## Onay nasıl çalışır?
 1. Video sabah üretilir (~08:45) → önizleme ve düğmeler gelir.
 2. **Onayla** → video planlanan saatten sonraki ilk yayın kontrolünde paylaşılır. **Reddet** → asla paylaşılmaz.
-3. Düğme basışları yayın kontrolü sırasında işlenir (08:07–09:52 ve 19:07–22:52 arası, 15 dk'da bir). Yani bastığınız onay bir sonraki yayın kontrolünde (08:07–09:52 veya 19:07–22:52) uygulanır. Panel (ADIM 9) anında uygular.
+3. Düğme basışları yayın kontrolü sırasında işlenir (13:07–15:52 ve 19:07–20:52 arası, 15 dk'da bir). Yani bastığınız onay bir sonraki yayın kontrolünde (13:07–15:52 veya 19:07–20:52) uygulanır. Panel (ADIM 9) anında uygular.
 4. Onaylamazsanız video yayınlanmaz (onaylı modda).
 
 ## Güvenlik
