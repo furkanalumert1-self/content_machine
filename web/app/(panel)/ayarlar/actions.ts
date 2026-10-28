@@ -44,7 +44,7 @@ export async function setSchedule(_: ActionResult, form: FormData): Promise<Acti
     const { error } = await db.from('app_settings').update({ daily_video_count: count, publish_windows: windows }).eq('id', 1);
     if (error) throw new Error(error.message);
     return done(outside
-      ? 'Kaydedildi. Uyarı: yayın kontrolü yalnızca 13:07–15:52 ve 19:07–20:52 arasında çalışıyor; bu aralık dışındaki saatler için yayın kontrolü saatlerinin de (publisher.yml ve supabase/zamanlayici.sql) değişmesi gerekir.'
+      ? 'Kaydedildi. Uyarı: yayın kontrolü yalnızca 13:07–16:07 ve 19:07–21:07 arasında çalışıyor; bu aralık dışındaki saatler için yayın kontrolü saatlerinin de (publisher.yml ve supabase/zamanlayici.sql) değişmesi gerekir.'
       : 'Kaydedildi.');
   } catch (e) { return fail(e); }
 }

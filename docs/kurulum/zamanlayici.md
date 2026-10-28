@@ -5,7 +5,7 @@
 | İş | İstanbul saati |
 |---|---|
 | Günlük plan ve render | Her gün 08:41 |
-| Yayın kontrolü | 13:07–15:52 ve 19:07–20:52, 15 dk'da bir |
+| Yayın kontrolü | 13:07–16:07 ve 19:07–21:07, 15 dk'da bir |
 | Metrikler ve token | Her gün 10:17 |
 | Fikir araştırması | Pazartesi 07:23 |
 
@@ -37,7 +37,7 @@ Sonuçta uzun bir kimlik (uuid) görürsünüz. Ardından bu sorgu sekmesini **k
 ## Adım 3 — Zamanlayıcıyı kurun
 1. GitHub'da `supabase/zamanlayici.sql` dosyasını açın → kopyala simgesi.
 2. Supabase → **SQL Editor** → **New query** → yapıştırın → **Run**.
-3. Altta 5 satır görmelisiniz: `sr-fikirler`, `sr-gunluk-video`, `sr-metrikler`, `sr-yayin-aksam`, `sr-yayin-ogle`.
+3. Altta şu satırları görmelisiniz: `sr-fikirler`, `sr-gunluk-video`, `sr-metrikler`, `sr-yayin-aksam`, `sr-yayin-ogleden-sonra`, `sr-yayin-son` (6 satır).
 
 > "permission denied to create extension" hatası alırsanız: **Database** → **Extensions** → `pg_cron` ve `pg_net` satırlarını açın (Enable), sonra 2. adımı tekrarlayın.
 

@@ -75,7 +75,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
                   <Field label="bitiş"><Input type="time" name={`w${i + 1}_end`} defaultValue={windows[i]?.end ?? ''} /></Field>
                 </div>
               ))}
-              <p className="text-xs text-muted">İstanbul saati. Sistem bu aralıklarda farklı saatleri dener; veri biriktikçe en iyi ortalamaya yönelir (kesin değildir). Yayın kontrolü GitHub Actions&apos;ta 13:07–15:52 ve 19:07–20:52 arasında çalışır ve birkaç dakika gecikebilir.</p>
+              <p className="text-xs text-muted">İstanbul saati. Sistem bu aralıklarda farklı saatleri dener; veri biriktikçe en iyi ortalamaya yönelir (kesin değildir). Yayın kontrolü GitHub Actions&apos;ta 13:07–16:07 ve 19:07–21:07 arasında çalışır ve birkaç dakika gecikebilir.</p>
             </div>
           </ActionForm>
         </Card>

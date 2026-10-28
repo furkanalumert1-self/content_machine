@@ -9,7 +9,7 @@
 08:41  Günlük iş: fikir + senaryo + yayın saati seçilir → video üretilir → kalite kontrolü
        → Panel "Kuyruk" ve Telegram'da onayınıza sunulur
        Siz: Onayla / Reddet / Düzenle / Saati değiştir
-13:07–15:52 · 19:07–20:52  15 dk'da bir: zamanı gelmiş ONAYLI video Instagram'a gider
+13:07–16:07 · 19:07–21:07  15 dk'da bir: zamanı gelmiş ONAYLI video Instagram'a gider
 10:17  Metrikler (yayından 24 ve 72 saat sonra) + Instagram token kontrolü
 Pazartesi 07:23  Haftalık fikir araştırması
 ```

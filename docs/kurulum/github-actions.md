@@ -4,7 +4,7 @@
 | İş | Zaman | Ne yapar | Tahmini süre |
 |---|---|---|---|
 | **Günlük plan ve render** (`daily.yml`) | Her gün 08:41 | Brief senkronu → fikir + senaryo + yayın saati → video üretimi → kalite kontrolü → depolama. Fikir azsa aynı çalışmada acil fikir araştırması. | ~3 dk |
-| **Yayın kontrolü** (`publisher.yml`) | 13:07–15:52 ve 19:07–20:52 arası 15 dk'da bir | Telegram onay/ret basışlarını uygular, zamanı gelmiş onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
+| **Yayın kontrolü** (`publisher.yml`) | 13:07–16:07 ve 19:07–21:07 arası 15 dk'da bir | Telegram onay/ret basışlarını uygular, zamanı gelmiş onaylı videoyu Instagram'a gönderir | ~1 dk (yayın varsa 2–6 dk) |
 | **Metrikler ve token** (`metrics.yml`) | Her gün 10:17 | Token yenileme/uyarı, 24. ve 72. saat metrikleri, takipçi aktif saatleri | ~1 dk |
 | **Fikir araştırması** (`ideas.yml`) | Pazartesi 07:23 | 15–20 yeni fikir | ~1 dk |
 | **Render deneme** (`render-test.yml`) | Elle veya render kodu değişince | Gizli anahtarsız örnek video (artifact olarak indirilebilir) | ~1,5 dk |

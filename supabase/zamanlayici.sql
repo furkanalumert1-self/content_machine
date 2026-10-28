@@ -47,6 +47,7 @@ select cron.schedule('sr-gunluk-video',  '41 5 * * *',               $$select za
 select cron.unschedule(jobid) from cron.job where jobname in ('sr-yayin-ogle', 'sr-yayin-sabah');
 select cron.schedule('sr-yayin-ogleden-sonra', '7,22,37,52 10-12 * * *', $$select zamanlayici.gh_dispatch('publisher.yml')$$);                  -- 13:07–15:52
 select cron.schedule('sr-yayin-aksam',   '7,22,37,52 16-17 * * *',   $$select zamanlayici.gh_dispatch('publisher.yml')$$);                         -- 19:07–20:52
+select cron.schedule('sr-yayin-son',     '7 13,18 * * *',            $$select zamanlayici.gh_dispatch('publisher.yml')$$);                         -- 16:07 ve 21:07 (aralık sonuna planlanan video kaçmasın)
 select cron.schedule('sr-metrikler',     '17 7 * * *',               $$select zamanlayici.gh_dispatch('metrics.yml')$$);                           -- 10:17
 select cron.schedule('sr-fikirler',      '23 4 * * 1',               $$select zamanlayici.gh_dispatch('ideas.yml')$$);                             -- Pazartesi 07:23
 

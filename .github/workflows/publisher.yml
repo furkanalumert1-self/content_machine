@@ -7,6 +7,7 @@ on:
   schedule:
     - cron: '7,22,37,52 10-12 * * *'  # 13:07–15:52 İstanbul (öğleden sonra)
     - cron: '7,22,37,52 16-17 * * *'  # 19:07–20:52 İstanbul (akşam)
+    - cron: '7 13,18 * * *'           # 16:07 ve 21:07: aralık sonuna planlanan video kaçmasın
   workflow_dispatch:
 
 concurrency:
