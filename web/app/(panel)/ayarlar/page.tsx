@@ -68,7 +68,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
         <Card title="Plan ve saat aralıkları">
           <ActionForm action={setSchedule} label="Kaydet" variant="secondary">
             <div className="space-y-3">
-              <Field label="Günlük video sayısı" hint="MVP: 1"><Input type="number" name="daily_video_count" min={1} max={3} defaultValue={s?.daily_video_count ?? 1} /></Field>
+              <Field label="Günlük video sayısı" hint="1–3; her aralığa günde en fazla bir video"><Input type="number" name="daily_video_count" min={1} max={3} defaultValue={s?.daily_video_count ?? 1} /></Field>
               {[0, 1].map((i) => (
                 <div key={i} className="grid grid-cols-2 gap-2">
                   <Field label={`Aralık ${i + 1} başlangıç`}><Input type="time" name={`w${i + 1}_start`} defaultValue={windows[i]?.start ?? ''} /></Field>
