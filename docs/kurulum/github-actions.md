@@ -80,3 +80,5 @@ Herkese açık repoda iki risk var:
 | Yayın güvenliği | Kilitler ve kurallar kodda, testli | Yapay zekânın her seferinde aynı kurala uyması gerekir |
 
 **Karar:** Render, yayın ve metrik gibi düzenli işler GitHub Actions'ta. Claude Code ileride yalnızca isteğe bağlı işler için (ör. yeni ürün brief taslağı) düşünülebilir.
+
+**Hemen paylaş:** GitHub → Actions → **Yayın kontrolü** → **Run workflow** → "hemen" kutusunu işaretleyin. Önümüzdeki 3 saate planlanmış ilk **onaylı** videonun saati şimdiye alınır ve paylaşılır (DURDURULDU açıksa paylaşılmaz).
