@@ -79,6 +79,19 @@ const staleBefore = new Date(Date.now() - STALE_MINUTES * 60_000).toISOString();
 const { data: stale } = await db.from('videos').select('*').eq('status', 'publishing').lt('publish_started_at', staleBefore);
 for (const v of stale ?? []) await handle(toClaimed(v));
 
+// Elle "hemen paylaş" (iş akışı girdisi): önümüzdeki 3 saate planlanmış ilk onaylı videonun saati şimdiye çekilir.
+// Onay ve PAUSED denetimi aşağıdaki DB fonksiyonunda aynen geçerli.
+if (process.env.PUBLISH_NOW === 'true') {
+  const now = new Date();
+  const { data: next } = await db.from('videos').select('id, publish_at').eq('status', 'approved')
+    .gt('publish_at', now.toISOString()).lte('publish_at', new Date(now.getTime() + 3 * 3600_000).toISOString())
+    .order('publish_at').limit(1).maybeSingle();
+  if (next) {
+    await db.from('videos').update({ publish_at: now.toISOString(), publish_at_reason: `Elle hemen paylaşıldı (önceki plan ${next.publish_at}).` }).eq('id', next.id).eq('status', 'approved');
+    await log.info(`Video ${next.id}: hemen paylaş isteğiyle yayın saati şimdiye alındı.`);
+  } else await log.info('Hemen paylaş: önümüzdeki 3 saatte onaylı video yok.');
+}
+
 // 2) Zamanı gelenler (DB fonksiyonu PAUSED'ı ve onayı kontrol eder, atomik kilitler)
 for (let i = 0; i < MAX_PER_RUN; i++) {
   const { data, error } = await db.rpc('claim_due_video');
