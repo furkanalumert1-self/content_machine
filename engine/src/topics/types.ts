@@ -47,7 +47,16 @@ export interface Topic {
   facts: Fact[];
   score: number;
   /** Hikâye formatı (seslendirmeli): cümle cümle anlatı + her cümlenin çizimi. Yoksa konu henüz hikâyeye çevrilmemiştir. */
-  story?: { label: string; segments: import('../story/types.ts').StorySegment[] };
+  story?: {
+    label: string;
+    /** Anlatı kalıbı (Animasyon Sistemi): masal, neden (bu neden var?), olay (gerçek olay), karar (sen karar ver), rontgen (klasik). */
+    pattern?: 'masal' | 'neden' | 'olay' | 'karar' | 'rontgen';
+    /** Özel çizim dünyası (engine/remotion/worlds). */
+    world?: string;
+    /** Ses modeli (varsayılan VOICE_MODEL); eleven_v4 [ton] etiketlerini destekler. */
+    voice_model?: string;
+    segments: import('../story/types.ts').StorySegment[];
+  };
 }
 
 export interface TopicBank {

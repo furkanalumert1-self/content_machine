@@ -10,15 +10,18 @@ export const TARGET_LUFS = -14;
 export interface Alignment { characters: string[]; character_start_times_seconds: number[]; character_end_times_seconds: number[] }
 export interface Speech { audio: Buffer; alignment: Alignment }
 
-export async function synthesize(text: string, voiceId: string, opts: { speed?: number; apiKey?: string } = {}): Promise<Speech> {
+export async function synthesize(text: string, voiceId: string, opts: { speed?: number; apiKey?: string; model?: string } = {}): Promise<Speech> {
   const key = opts.apiKey ?? process.env.ELEVENLABS_API_KEY;
   if (!key) throw new Error('ELEVENLABS_API_KEY tanımlı değil.');
   const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}/with-timestamps?output_format=mp3_44100_128`, {
     method: 'POST',
     headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      text, model_id: VOICE_MODEL, language_code: 'tr',
-      voice_settings: { stability: 0.55, similarity_boost: 0.75, style: 0.15, speed: opts.speed ?? 1.1 },
+      text, model_id: opts.model ?? VOICE_MODEL, language_code: 'tr',
+      // eleven_v4: ton [etiket]lerle verilir, hızlandırılmaz (Animasyon Sistemi önerisi: stability ~0,3).
+      voice_settings: (opts.model ?? VOICE_MODEL) === 'eleven_v4'
+        ? { stability: 0.4, similarity_boost: 0.75 }
+        : { stability: 0.55, similarity_boost: 0.75, style: 0.15, speed: opts.speed ?? 1.1 },
     }),
   });
   if (!res.ok) {

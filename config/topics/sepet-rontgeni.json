@@ -2284,13 +2284,13 @@
       "callypso_feature": "Kampanyalar (paket teklifleri)",
       "status": "dogrulandi",
       "hooks": [
-        "Kimsenin seçmediği seçenek satışı yapıyordu",
-        "Bu abonelik sayfasında bir tuzak var",
-        "Ortadaki seçenek satmak için orada değil"
+        "Bu fiyat listesinde bir tuzak var",
+        "Kimsenin almadığı paket, en çok satanı yarattı",
+        "84 kişi pahalıyı seçti, sonra bir satır silindi"
       ],
       "cover": {
-        "line1": "Kimse seçmedi.",
-        "line2": "Ama satışı yaptı.",
+        "line1": "Bu listede",
+        "line2": "bir tuzak var.",
         "object": "üç seçenekli abonelik sayfası",
         "icon": "newspaper",
         "theme": "light",
@@ -2341,17 +2341,21 @@
       "score": 86,
       "story": {
         "label": "Tuzak",
+        "pattern": "neden",
+        "world": "tuzak",
+        "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "Kimsenin seçmediği seçenek, satışı yapıyordu.",
+            "say": "[calm, curious storyteller] Bu fiyat listesinde bir tuzak var. Bulabilir misin?",
             "show": {
               "type": "title",
-              "text": "Kimse seçmedi.",
-              "sub": "Ama satışı yaptı."
-            }
+              "text": "Bu listede bir tuzak var.",
+              "sub": "Bulabilir misin?"
+            },
+            "pause": 0.8
           },
           {
-            "say": "Bir dergi aboneliği. Üç seçenek: sadece dijital 59 dolar. Sadece basılı 125 dolar. Basılı artı dijital, yine 125 dolar.",
+            "say": "Bir dergi üç abonelik sunuyor. Dijital, 59 dolar. Basılı, 125 dolar. Basılı artı dijital… yine 125 dolar.",
             "show": {
               "type": "chips",
               "title": "Abonelik",
@@ -2360,19 +2364,47 @@
                 "Basılı · 125 dolar",
                 "Basılı + dijital · 125 dolar"
               ]
+            },
+            "pause": 0.5
+          },
+          {
+            "say": "Dan Ariely bunu 100 öğrenciye sordu.",
+            "show": {
+              "type": "stat",
+              "value": "100",
+              "label": "öğrenci"
             }
           },
           {
-            "say": "Dan Ariely bunu 100 öğrenciye sordu. 84'ü pahalı paketi seçti. Sadece basılıyı seçen kimse yoktu.",
+            "say": "84'ü pahalı paketi seçti. Sadece basılıyı seçen… hiç kimse.",
             "show": {
               "type": "stat",
               "value": "84/100",
               "label": "basılı + dijital paketi seçti",
               "note": "KAYNAK: ARIELY (2008)"
-            }
+            },
+            "pause": 0.8
           },
           {
-            "say": "Sonra o işe yaramaz seçeneği sildi. Bu sefer 68 kişi ucuz olanı aldı. Pahalı paket 32'ye düştü.",
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray",
+            "pause": 0.4
+          },
+          {
+            "say": "Sonra kimsenin seçmediği o satırı sildi.",
+            "show": {
+              "type": "rule",
+              "strike": "Basılı · 125 dolar",
+              "text": "Satır silindi."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Bu sefer 68 kişi ucuz olanı aldı. Pahalı paket 32'ye düştü.",
             "show": {
               "type": "compare",
               "left": {
@@ -2386,49 +2418,29 @@
                 "bar": 0.32
               },
               "caption": "Pahalı paketi seçen · 100 kişide"
-            }
-          },
-          {
-            "say": "Hadi röntgenini çekelim.",
-            "show": {
-              "type": "xray",
-              "text": "Röntgen"
             },
-            "mode": "xray"
+            "pause": 0.8
           },
           {
-            "say": "Ortadaki seçenek satmak için orada değildi. Kıyas için oradaydı. Aynı fiyata daha azını görünce, paket birden bedava ek gibi duruyor.",
+            "say": "O satır satılmak için orada değildi. Yanındaki paketi fırsat gibi göstermek için oradaydı.",
             "show": {
               "type": "rule",
               "strike": "Satmak için",
               "text": "Kıyas için orada."
-            }
-          },
-          {
-            "say": "Bu her yerde var. Orta boy patlamış mısır. Üç kademeli abonelik. Sinemada büyük menü.",
-            "show": {
-              "type": "chips",
-              "title": "Her yerde var",
-              "items": [
-                "Orta boy mısır",
-                "Üç kademeli abonelik",
-                "Büyük menü"
-              ]
             },
-            "mode": "light"
+            "pause": 0.5
           },
           {
-            "say": "Yani bir paketi öne çıkarmak istiyorsan, yanına aynı fiyata daha az veren bir seçenek koy. Ama hepsi gerçek ve alınabilir olsun.",
+            "say": "Tuzak buydu: kimsenin almadığı seçenek.",
             "show": {
-              "type": "phone",
-              "app": "Senin mağazan",
-              "title": "Paketini seç",
-              "body": "Tekli · İkili · İkili + hediye",
-              "time": "12:00"
-            }
+              "type": "title",
+              "text": "Tuzak:",
+              "sub": "kimsenin almadığı seçenek."
+            },
+            "pause": 0.8
           },
           {
-            "say": "Sepet Röntgeni. Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
             "show": {
               "type": "outro",
               "caseNo": 0,

@@ -9,12 +9,14 @@ import type { Beat, StoryScript } from './types.ts';
 import { VOICE_MODEL, type Alignment } from './voice.ts';
 
 export const XRAY_LINE = 'Hadi röntgenini çekelim.';
-/** Ölçülen hız (1.1x): ~2,27 kelime/sn + 1,2 sn kapanış → 45–58 sn için 103–128 kelime. */
-export const MIN_WORDS = 103;
+/** Ölçülen hız (1.1x): ~2,27 kelime/sn + 1,2 sn kapanış. Animasyon Sistemi: 70–100 kelime + nefes payı (kısa kalan ses kapanış kartıyla 45 sn'ye tamamlanır). */
+export const MIN_WORDS = 70;
 export const MAX_WORDS = 128;
 export const WORDS_PER_SEC = 2.27;
 
-const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
+/** [ton] etiketleri (eleven_v4) okunmaz; kelime sayısına ve kancaya girmez. */
+export const stripTags = (s: string) => s.replace(/\[[^\]]*\]/g, ' ').replace(/\s+/g, ' ').trim();
+const words = (s: string) => stripTags(s).split(/\s+/).filter(Boolean).length;
 // Saat ve kaynak notu süs/künyedir, iddia değil; rakam denetimine girmez.
 const DECOR = new Set(['type', 'time', 'note', 'icon']);
 const beatText = (b: Beat): string => Object.entries(b).filter(([k]) => !DECOR.has(k))
@@ -25,7 +27,7 @@ export function validateStory(topic: Topic, phase: Phase = 1): string[] {
   const p: string[] = [];
   const segs = topic.story?.segments ?? [];
   if (!segs.length) return ['Konunun hikâye metni yok.'];
-  const firstSentence = segs[0].say.split(/(?<=[.!?])\s+/)[0];
+  const firstSentence = stripTags(segs[0].say).split(/(?<=[.!?])\s+/)[0];
   if (words(firstSentence) > MAX_HOOK_WORDS) p.push(`Kanca ${MAX_HOOK_WORDS} kelimeyi aşıyor: "${firstSentence}"`);
   if (!segs.some((s) => s.say.includes(XRAY_LINE) && s.show.type === 'xray')) p.push(`"${XRAY_LINE}" bölümü yok.`);
   const last = segs.at(-1)!;
@@ -48,13 +50,14 @@ export function planStory(topic: Topic, caseNo: number, contentType: ContentType
   const est = Math.min(58, Math.max(45, Math.round((words(narration(segments).text) / WORDS_PER_SEC + 1.2) * 100) / 100));
   return {
     version: 2, format: 'story', product: CHANNEL_NAME, channel: CHANNEL_NAME, content_type: contentType,
-    case_no: caseNo, case_label: topic.story!.label, hook: segments[0].say.split(/(?<=[.!?])\s+/)[0],
+    case_no: caseNo, case_label: topic.story!.label, hook: stripTags(segments[0].say).split(/(?<=[.!?])\s+/)[0],
     segments, scenes: [], captions: [], duration_sec: est,
-    voice: { provider: 'elevenlabs', voice_id: voiceId, model: VOICE_MODEL, lufs: null },
+    voice: { provider: 'elevenlabs', voice_id: voiceId, model: topic.story!.voice_model ?? VOICE_MODEL, lufs: null },
     cta: segments.at(-1)!.say, cta_url: '', sample_data: false, review_notes: [],
     sources: [...new Map(topic.facts.map((f) => [f.source_url, { label: f.source_label, url: f.source_url }])).values()],
     funnel: topic.funnel,
     cover: coverSpec(topic.cover),
+    ...(topic.story!.world ? { world: topic.story!.world } : {}),
   };
 }
 

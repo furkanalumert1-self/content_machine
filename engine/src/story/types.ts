@@ -21,6 +21,8 @@ export interface StorySegment {
   say: string;
   show: Beat;
   mode?: Mode;
+  /** Bu bölümden sonra eklenecek sessizlik (sn, en fazla 1). Görüntü orada konuşur. */
+  pause?: number;
 }
 
 export interface WordTiming { w: string; start: number; end: number }
@@ -63,4 +65,6 @@ export interface StoryScript {
   /** Reels kapağı tanımı (konu bankasından) ve üretilen kapağın depolama yolu. */
   cover?: import('../../remotion/Cover.tsx').CoverSpec;
   cover_path?: string;
+  /** Özel çizim dünyası (remotion/worlds); yoksa kart beat'leri çizilir. */
+  world?: string;
 }

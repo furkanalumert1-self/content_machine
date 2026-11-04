@@ -44,7 +44,11 @@ export function restoreOriginals<T extends WordTiming & { from: number; to: numb
 export function wordsFrom(a: Alignment): (WordTiming & { from: number; to: number })[] {
   const out: (WordTiming & { from: number; to: number })[] = [];
   let cur: (WordTiming & { from: number; to: number }) | null = null;
+  let tag = 0; // [ton] etiketleri (eleven_v4) okunmaz, altyazıya girmez
   a.characters.forEach((ch, i) => {
+    if (ch === '[') { tag++; return; }
+    if (ch === ']') { tag = Math.max(0, tag - 1); return; }
+    if (tag) return;
     if (/\s/.test(ch)) { if (cur) out.push(cur); cur = null; return; }
     const s = a.character_start_times_seconds[i];
     const e = a.character_end_times_seconds[i];

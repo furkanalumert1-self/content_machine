@@ -62,3 +62,12 @@ describe('hikâye kuralları', () => {
     expect(p).toMatch(/ürün adı/);
   });
 });
+
+describe('Animasyon Sistemi uyarlaması', () => {
+  it('[ton] etiketleri altyazıya ve kelime sayısına girmez', async () => {
+    const { stripTags } = await import('../src/story/build.ts');
+    const text = '[calm, warm storyteller] Bu listede bir tuzak var.';
+    expect(wordsFrom(fakeAlign(text)).map((w) => w.w)).toEqual(['Bu', 'listede', 'bir', 'tuzak', 'var.']);
+    expect(stripTags(text)).toBe('Bu listede bir tuzak var.');
+  });
+});

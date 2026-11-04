@@ -6,6 +6,7 @@ import type { Beat, CaptionChunk, Mode, StoryScene, StoryScript } from '../src/s
 import { FPS } from '../src/plan/script.ts';
 import { useTextQc } from './qc.tsx';
 import { ease, FONT, H, SAFE, W } from './theme.ts';
+import { WORLDS } from './worlds/index.ts';
 
 export interface StoryProps {
   script: StoryScript;
@@ -373,9 +374,19 @@ function Chrome({ script }: { script: StoryScript }) {
 }
 
 export function Story({ script }: StoryProps) {
+  const World = script.world ? WORLDS[script.world] : undefined;
+  if (script.world && !World) throw new Error(`Çizim dünyası bulunamadı: ${script.world}`);
   return (
     <AbsoluteFill style={{ width: W, height: H, background: C.light.bg }}>
-      {script.scenes.map((s) => (
+      {World ? (
+        // Özel dünya: tek sahne baştan sona sürer; yalnız kapanış (REHBER) standart kartla.
+        <>
+          <Sequence from={0} durationInFrames={Math.round(script.scenes.at(-1)!.start * FPS)} layout="none"><World script={script} /></Sequence>
+          {script.scenes.filter((s) => s.show.type === 'outro').map((s) => (
+            <Sequence key={s.id} from={Math.round(s.start * FPS)} durationInFrames={s.frames} layout="none"><SceneFrame scene={s} channel={script.channel} /></Sequence>
+          ))}
+        </>
+      ) : script.scenes.map((s) => (
         <Sequence key={s.id} from={Math.round(s.start * FPS)} durationInFrames={s.frames} layout="none">
           <SceneFrame scene={s} channel={script.channel} />
         </Sequence>
