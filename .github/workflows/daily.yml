@@ -10,8 +10,12 @@ on:
       mode:
         description: 'plan_and_render: planla ve üret · render_only: yalnızca bekleyen videoları üret'
         type: choice
-        options: [plan_and_render, render_only]
+        options: [plan_and_render, render_only, konu]
         default: plan_and_render
+      konu:
+        description: 'mode=konu: planlanacak konunun anahtarı (config/topics/sepet-rontgeni.json, ör. economist-tuzak-secenek)'
+        type: string
+        default: ''
 
 concurrency:
   group: daily-pipeline
@@ -40,13 +44,19 @@ jobs:
           ffmpeg: 'true'
 
       - name: Brief senkronu (onay durumu dahil)
-        if: inputs.mode != 'render_only'
+        if: inputs.mode != 'render_only' && inputs.mode != 'konu'
         run: npx tsx src/jobs/brief-sync.ts
 
       - name: Planlama
         id: plan
-        if: inputs.mode != 'render_only'
+        if: inputs.mode != 'render_only' && inputs.mode != 'konu'
         run: npx tsx src/jobs/planner.ts
+
+      - name: Konuyu planla (elle seçilen konu)
+        if: inputs.mode == 'konu'
+        env:
+          KONU: ${{ inputs.konu }}
+        run: npx tsx src/jobs/plan-topic.ts "$KONU"
 
       - name: Acil fikir araştırması
         if: steps.plan.outputs.needs_research == 'true'
