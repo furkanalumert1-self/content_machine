@@ -9,7 +9,7 @@ import { FONT, H, W } from './theme.ts';
 export type CoverIcon =
   | 'stamp-card' | 'phone-streak' | 'hourglass' | 'parcel' | 'coffee' | 'music-cards' | 'cart' | 'cookie-jar'
   | 'ruler' | 'gift' | 'tag' | 'hanger' | 'remote' | 'flatpack' | 'basket' | 'credit-card' | 'stars' | 'member-card'
-  | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car';
+  | 'price-trap' | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car';
 export type CoverTheme = 'light' | 'dark' | 'warm' | 'green';
 
 export interface CoverSpec { line1: string; line2: string; icon: CoverIcon; number?: string; theme: CoverTheme }
@@ -222,6 +222,22 @@ const ICONS: Record<CoverIcon, (t: T) => ReactNode> = {
         <rect x="140" y="258" width="120" height="12" rx="6" fill="#fff" opacity="0.8" />
         <rect x="72" y="132" width="90" height="12" rx="6" fill="#fff" opacity="0.6" />
       </g>
+    </Svg>
+  ),
+  'price-trap': (t) => (
+    <Svg t={t}>
+      <rect x="40" y="40" width="320" height="320" rx="24" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      <rect x="66" y="66" width="140" height="18" rx="9" fill={t.ink} />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <rect x="62" y={108 + i * 80} width="276" height="62" rx="12" fill="none" stroke={i === 1 ? t.accent : 'none'} strokeWidth="5" strokeDasharray={i === 1 ? '12 9' : undefined} />
+          <rect x="80" y={124 + i * 80} width={i === 2 ? 130 : 90} height="14" rx="7" fill={t.ink} opacity={i === 1 ? 0.5 : 1} />
+          <rect x="80" y={146 + i * 80} width="64" height="10" rx="5" fill={t.obj2} />
+          <rect x="270" y={128 + i * 80} width="50" height="20" rx="10" fill={i === 2 ? t.accent : t.obj2} />
+        </g>
+      ))}
+      <circle cx="270" cy="230" r="58" fill="rgba(255,255,255,0.35)" stroke={t.ink} strokeWidth="11" />
+      <path d="M312 272 L362 322" stroke={t.ink} strokeWidth="20" strokeLinecap="round" />
     </Svg>
   ),
   newspaper: (t) => (

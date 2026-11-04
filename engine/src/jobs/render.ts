@@ -62,11 +62,11 @@ for (const v of queue ?? []) {
   const briefRow = (Array.isArray(v.product_briefs) ? v.product_briefs[0] : v.product_briefs) as { content_md: string };
   const brief = parseBrief(briefRow.content_md);
   if ((v.script as { format?: string }).format === 'story') {
-    // Kapak özelliğinden önce planlanan videolarda kapak tanımı konunun kaydından alınır.
+    // Kapak tasarımdır, içerik değil: her zaman konu bankasının güncel kapağı kullanılır (eski planlarda kapak yoksa da).
     const idea = (Array.isArray(v.ideas) ? v.ideas[0] : v.ideas) as { topic: { cover?: StoryScript['cover'] } | null } | null;
     const stored = v.script as StoryScript;
     let plan = stored;
-    try { if (!stored.cover && idea?.topic?.cover) plan = { ...stored, cover: coverSpec(idea.topic.cover) }; } catch (e) { await log.warn(`Video ${v.id}: ${(e as Error).message}`); }
+    try { if (idea?.topic?.cover) plan = { ...stored, cover: coverSpec(idea.topic.cover) }; } catch (e) { await log.warn(`Video ${v.id}: ${(e as Error).message}`); }
     if (await renderStoryVideo(v.id, plan, product.slug, v.render_attempts)) failures++;
     continue;
   }

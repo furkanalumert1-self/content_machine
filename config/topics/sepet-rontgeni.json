@@ -2291,8 +2291,8 @@
       "cover": {
         "line1": "Bu listede",
         "line2": "bir tuzak var.",
-        "object": "üç seçenekli abonelik sayfası",
-        "icon": "newspaper",
+        "object": "üç satırlı fiyat listesi ve büyüteç",
+        "icon": "price-trap",
         "theme": "light",
         "number": "84/100"
       },
