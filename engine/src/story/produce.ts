@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { RenderResult } from '../render/render.ts';
-import { MAX_SEC, VOICE_SPEED } from '../topics/channel.ts';
+import { MAX_SEC, MIN_SEC, VOICE_SPEED } from '../topics/channel.ts';
 import { timeStory } from './build.ts';
 import { renderStory } from './render.ts';
 import { narration } from './timeline.ts';
@@ -27,12 +27,17 @@ export async function produceStory(plan: StoryScript, outDir: string, name: stri
     audio = normalizeLoudness(speech.audio);
     dur = audioDuration(audio.audio, outDir, name);
   }
+  // Ses kısa kalırsa (45 sn altı) yeniden seslendirilmez: kapanış kartı (REHBER çağrısı) sessizce biraz uzun kalır.
+  const padded = Math.max(dur, MIN_SEC + 0.5 - TAIL);
   const script = timeStory(plan, {
-    alignment: speech.alignment, durationSec: dur, lufs: audio.lufs,
+    alignment: speech.alignment, durationSec: padded, lufs: audio.lufs,
     audioSrc: `data:audio/mp4;base64,${audio.audio.toString('base64')}`,
   });
   const r = await renderStory(script, outDir, name);
-  return { ...r, script: { ...script, audio_src: undefined, review_notes: speed !== VOICE_SPEED ? [`Ses ${speed}x hızla okundu (süre sınırı).`] : [] } };
+  return { ...r, script: { ...script, audio_src: undefined, review_notes: [
+    ...(speed !== VOICE_SPEED ? [`Ses ${speed}x hızla okundu (süre sınırı).`] : []),
+    ...(padded > dur ? [`Ses ${dur.toFixed(1)} sn; kapanış kartı ${(padded - dur).toFixed(1)} sn uzatıldı (en az ${MIN_SEC} sn).`] : []),
+  ] } };
 }
 
 function audioDuration(audio: Buffer, dir: string, name: string): number {
