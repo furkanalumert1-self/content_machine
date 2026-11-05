@@ -77,7 +77,7 @@ for (let n = plannedToday ?? 0; n < settings.daily_video_count; n++) {
   const { plan } = result;
   const slot = chooseSlot({ windows: settings.publish_windows, timezone: settings.timezone, now: new Date(), ...inputs, occupied, minLeadMinutes: AUTO_LEAD_MINUTES });
   // Yalnız bugünün boş aralıkları doldurulur: bir aralık elle/önceden doluysa ertesi güne video yığılmaz.
-  if (n > 0 && slot.publishAt.getTime() >= todayStart.getTime() + 86_400_000) {
+  if (slot.publishAt.getTime() >= todayStart.getTime() + 86_400_000) {
     await log.info(`${p.slug}: bugünün yayın aralıkları dolu; ek video planlanmadı.`);
     break;
   }

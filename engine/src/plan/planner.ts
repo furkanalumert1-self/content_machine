@@ -80,7 +80,10 @@ export function planDay(input: PlanInput): PlanResult {
   const rejected: string[] = [];
 
   for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
-    const sel = selectIdea(pool, input.recentExploration, now, { preferredType: type.type });
+    // Özel çizimli (story.world) konu varsa önce o seçilir; kalmadıysa normal havuz (video hiç kaçmaz).
+    const all = selectIdea(pool, input.recentExploration, now, { preferredType: type.type });
+    const drawn = selectIdea(pool.filter((i) => !!i.topic?.story?.world), input.recentExploration, now);
+    const sel = drawn.idea ? { ...drawn, reason: `Özel çizimli konu öncelikli. ${drawn.reason}`, usableLeft: all.usableLeft, needsEmergencyResearch: all.needsEmergencyResearch } : all;
     if (!sel.idea) {
       return { ok: false, reason: 'Kullanılabilir fikir yok; acil fikir araştırması gerekli.', needsEmergencyResearch: true, problems: rejected };
     }

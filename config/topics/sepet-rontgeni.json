@@ -2621,10 +2621,10 @@
               "text": "44 mü, 49 mu?",
               "sub": "Hangisi daha çok sattı?"
             },
-            "pause": 0.6
+            "pause": 0.8
           },
           {
-            "say": "Bir kadın giyim kataloğu. Aynı elbise, üç ayrı katalogda, üç ayrı fiyatla basılıyor.",
+            "say": "Bir giyim kataloğu. Aynı elbise, üç ayrı baskıda, üç ayrı fiyatla.",
             "show": {
               "type": "chips",
               "title": "Aynı elbise",
@@ -2636,7 +2636,20 @@
             }
           },
           {
-            "say": "44 dolar ile 54 dolar neredeyse aynı satıyor. Ama 49 dolar, ikisinden de belirgin şekilde fazla.",
+            "say": "44 dolar. 49 dolar. 54 dolar.",
+            "show": {
+              "type": "chips",
+              "title": "Üç fiyat",
+              "items": [
+                "44 dolar",
+                "49 dolar",
+                "54 dolar"
+              ]
+            },
+            "pause": 0.5
+          },
+          {
+            "say": "44 ile 54 neredeyse aynı satıyor. Ama 49… ikisinden de belirgin şekilde fazla.",
             "show": {
               "type": "compare",
               "left": {
@@ -2651,7 +2664,7 @@
               },
               "caption": "Hangisi daha çok sattı?"
             },
-            "pause": 0.6
+            "pause": 0.8
           },
           {
             "say": "Araştırmacılar bunu üç ayrı deneyde denedi. Üçünde de 9'la biten fiyat kazandı.",
@@ -2660,7 +2673,8 @@
               "total": 3,
               "filled": 3,
               "label": "Üç deneyin üçü"
-            }
+            },
+            "pause": 0.4
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2668,11 +2682,11 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "pause": 0.3,
+            "mode": "xray"
           },
           {
-            "say": "Göz fiyatı soldan okuyor. 2,99 ile 3 lira arasında bir kuruş var. Ama fark büyük geliyor.",
+            "say": "Göz fiyatı soldan okuyor. 2,99 ile 3 arasında sadece bir kuruş var. Ama ilk rakam değişince fark büyük geliyor.",
             "show": {
               "type": "compare",
               "left": {
@@ -2686,7 +2700,9 @@
                 "bar": 0.7
               },
               "caption": "Fark bir kuruş"
-            }
+            },
+            "pause": 0.5,
+            "mode": "light"
           },
           {
             "say": "Bir de sinyal var. 9'la biten fiyat, indirimdeymiş gibi geliyor.",
@@ -2698,20 +2714,7 @@
             "pause": 0.5
           },
           {
-            "say": "Market rafına bir bak, hep aynı.",
-            "show": {
-              "type": "chips",
-              "title": "Her yerde var",
-              "items": [
-                "Market rafı",
-                "Benzin",
-                "Abonelik"
-              ]
-            },
-            "mode": "light"
-          },
-          {
-            "say": "Bir ürün grubunda fiyatları 9'la bitir, iki hafta satışlara bak.",
+            "say": "Bir ürün grubunda fiyatları 9'la bitir. İki hafta satışlara bak.",
             "show": {
               "type": "phone",
               "app": "Senin mağazan",
@@ -2722,7 +2725,7 @@
             "pause": 0.4
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
@@ -2730,7 +2733,9 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "pattern": "olay",
+        "world": "fiyat9"
       }
     },
     {
@@ -2798,37 +2803,45 @@
               "text": "24 mü, 6 mı?",
               "sub": "Tahmin et."
             },
-            "pause": 0.6
+            "pause": 0.8
           },
           {
-            "say": "Bir markette tadım standı. Bir gün 24 çeşit reçel var. Başka bir gün sadece 6.",
+            "say": "Bir markette tadım standı kuruluyor. Bir gün masada 24 çeşit reçel var.",
+            "show": {
+              "type": "stat",
+              "value": "24",
+              "label": "çeşit reçel"
+            }
+          },
+          {
+            "say": "Başka bir gün… sadece 6.",
+            "show": {
+              "type": "stat",
+              "value": "6",
+              "label": "çeşit reçel"
+            },
+            "pause": 0.4
+          },
+          {
+            "say": "Kalabalık masa daha çok dikkat çekiyor: geçenlerin %60'ı duruyor. Sadede %40.",
             "show": {
               "type": "compare",
               "left": {
-                "label": "Kalabalık stant",
-                "value": "24",
-                "bar": 1
+                "label": "24 çeşit",
+                "value": "%60",
+                "bar": 0.6
               },
               "right": {
-                "label": "Sade stant",
-                "value": "6",
-                "bar": 0.25
+                "label": "6 çeşit",
+                "value": "%40",
+                "bar": 0.4
               },
-              "caption": "Reçel çeşidi"
-            }
+              "caption": "Duranlar"
+            },
+            "pause": 0.5
           },
           {
-            "say": "Kalabalık stant daha çok ilgi çekiyor. Önünden geçenlerin %60'ı duruyor. Sade standa %40.",
-            "show": {
-              "type": "stat",
-              "value": "%60",
-              "label": "24 çeşitte duranlar",
-              "bar": 0.6,
-              "note": "KAYNAK: IYENGAR & LEPPER (2000)"
-            }
-          },
-          {
-            "say": "Ama kasada tablo dönüyor. 6 çeşit görenlerin yaklaşık %30'u reçel alıyor. 24 çeşit görenlerin sadece %3'ü.",
+            "say": "Ama kasada tablo dönüyor. 6 çeşitte duranların yaklaşık %30'u alıyor. 24 çeşitte… sadece %3.",
             "show": {
               "type": "compare",
               "left": {
@@ -2843,7 +2856,7 @@
               },
               "caption": "Satın alanlar"
             },
-            "pause": 0.6
+            "pause": 0.8
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2851,30 +2864,31 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "pause": 0.3,
+            "mode": "xray"
           },
           {
-            "say": "Seçenek çoğaldıkça karar ağırlaşıyor. Ya yanlışı seçersem? Sonra bakarım deyip gidiyorsun.",
+            "say": "Seçenek çoğaldıkça karar ağırlaşıyor. Sonra bakarım deyip gidiyorsun.",
             "show": {
               "type": "scale",
               "heavy": "Karar vermek",
               "light": "Bakmak",
               "caption": "Çok seçenek, ağır karar"
-            }
+            },
+            "pause": 0.5,
+            "mode": "light"
           },
           {
-            "say": "Yani çok çeşit, her zaman çok satış demek değil. Bu deneyde tam tersiydi.",
+            "say": "Çok çeşit, çok satış demek değil. Bu deneyde tam tersiydi.",
             "show": {
               "type": "rule",
               "strike": "Çok çeşit, çok satış",
               "text": "Kolay karar, çok satış."
             },
-            "mode": "light",
             "pause": 0.5
           },
           {
-            "say": "Kategori sayfanın başında her şeyi değil, öne çıkan birkaç ürünü göster. Filtre ve en çok satan etiketiyle seçimi kolaylaştır.",
+            "say": "Kategori sayfanın başında her şeyi değil, öne çıkan üç ürünü göster.",
             "show": {
               "type": "phone",
               "app": "Senin mağazan",
@@ -2885,7 +2899,7 @@
             "pause": 0.4
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Bunun gibi 25 taktik bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
             "show": {
               "type": "outro",
               "caseNo": 0,
@@ -2893,7 +2907,9 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "pattern": "olay",
+        "world": "recel"
       }
     },
     {
