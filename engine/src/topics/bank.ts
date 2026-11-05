@@ -22,7 +22,9 @@ export function hookScore(hook: string, brand = ''): number {
   const curiosity = /\b(değil|aslında|ama|neden|sanma|gizli|yok|kimse|bilmeden|sessizce)\b|\?/i.test(hook) ? 3 : 0;
   const concrete = (/\d/.test(hook) ? 2 : 0) + (brand && hook.toLocaleLowerCase('tr').includes(brand.toLocaleLowerCase('tr').split(/[\s/]+/)[0]) ? 1 : 0);
   const brevity = Math.max(0, MAX_HOOK_WORDS + 1 - w) / 2;
-  return curiosity + concrete + brevity;
+  // İzleyiciye doğrudan görev/soru ("Bulabilir misin?", "Tahmin et") ilk 3 saniyede en iyi tutan kanca oldu (Röntgen tuzak, 5.11).
+  const challenge = /(m[ıiuü]s[ıiuü]n\b|tahmin et|bil bakalım|fark ett|hangisi|hangi\b)/i.test(hook) ? 3 : 0;
+  return curiosity + concrete + brevity + challenge;
 }
 
 export function pickHook(topic: Pick<Topic, 'hooks' | 'brand'>): { hook: string; scores: { hook: string; score: number }[] } {

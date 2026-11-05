@@ -7,6 +7,7 @@ import { FPS } from '../src/plan/script.ts';
 import { useTextQc } from './qc.tsx';
 import { ease, FONT, H, SAFE, W } from './theme.ts';
 import { WORLDS } from './worlds/index.ts';
+import { CoverObject, type CoverIcon } from './Cover.tsx';
 
 export interface StoryProps {
   script: StoryScript;
@@ -87,20 +88,30 @@ const cardStyle = (p: Pal, extra: CSSProperties = {}): CSSProperties => ({
   boxShadow: p === C.light ? '0 18px 40px rgba(21,21,21,0.10)' : `0 0 40px ${p.accent}22`, ...extra,
 });
 
-function Title({ b, p, id }: { b: Extract<Beat, { type: 'title' }>; p: Pal; id: string }) {
+function Title({ b, p, id, icon }: { b: Extract<Beat, { type: 'title' }>; p: Pal; id: string; icon?: CoverIcon }) {
   const f = useCurrentFrame();
   const ref = useTextQc<HTMLDivElement>(id, useSettle());
   const words = b.text.split(' ');
+  // İlk 3 saniye: kanca ilk karede okunur (boş kare yok), sahne yavaşça yaklaşır; hareket hiç durmaz.
+  const zoom = 1 + 0.035 * Math.min(1, f / 90);
   return (
-    <div ref={ref} style={{ maxHeight: 820, overflow: 'hidden' }}>
+    <div ref={ref} style={{ maxHeight: 860, overflow: 'hidden', paddingBottom: 40 /* yakınlaşma payı */ }}>
+      <div style={{ width: '96%', transform: `scale(${zoom})`, transformOrigin: 'left center' }}>
       <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: 104, lineHeight: 1.04, letterSpacing: -2.5, color: p.ink }}>
         {words.map((w, i) => {
-          const q = ease((f - i * 2) / 9);
+          const q = 0.6 + 0.4 * ease((f - i) / 6);
           return <span key={i} style={{ display: 'inline-block', opacity: q, transform: `translateY(${(1 - q) * 34}px)`, marginRight: 26 }}>{w}</span>;
         })}
       </div>
-      <div style={{ height: 10, width: `${ease((f - 12) / 14) * 280}px`, background: p.accent, borderRadius: 5, marginTop: 30 }} />
-      {b.sub && <Enter delay={14}><div style={{ fontFamily: FONT.sans, fontSize: 48, color: p.muted, marginTop: 34 }}>{b.sub}</div></Enter>}
+      <div style={{ height: 10, width: `${ease((f - 4) / 14) * 280}px`, background: p.accent, borderRadius: 5, marginTop: 30 }} />
+      {b.sub && <Enter delay={8}><div style={{ fontFamily: FONT.sans, fontSize: 48, color: p.muted, marginTop: 34 }}>{b.sub}</div></Enter>}
+      {icon && (
+        // Açılışta konunun nesnesi ilk karede görünür ve süzülür (kapakla aynı çizim).
+        <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center', opacity: 0.75 + 0.25 * ease(f / 8), transform: `translateY(${Math.sin(f / 14) * 8}px) rotate(${Math.sin(f / 22) * 1.5}deg) scale(${0.92 + 0.08 * ease(f / 10)})` }}>
+          <CoverObject icon={icon} size={320} />
+        </div>
+      )}
+      </div>
     </div>
   );
 }
@@ -326,12 +337,12 @@ function Outro({ b, p, id, channel }: { b: Extract<Beat, { type: 'outro' }>; p: 
   );
 }
 
-function BeatView({ scene, channel }: { scene: StoryScene; channel: string }) {
+function BeatView({ scene, channel, icon }: { scene: StoryScene; channel: string; icon?: CoverIcon }) {
   const p = C[scene.mode];
   const b = scene.show;
   const id = scene.id;
   switch (b.type) {
-    case 'title': return <Title b={b} p={p} id={id} />;
+    case 'title': return <Title b={b} p={p} id={id} icon={id === 's0' ? icon : undefined} />;
     case 'phone': return <Phone b={b} p={p} id={id} />;
     case 'counter': return <Counter b={b} p={p} id={id} />;
     case 'stat': return <Stat b={b} p={p} id={id} />;
@@ -345,7 +356,7 @@ function BeatView({ scene, channel }: { scene: StoryScene; channel: string }) {
   }
 }
 
-function SceneFrame({ scene, channel }: { scene: StoryScene; channel: string }) {
+function SceneFrame({ scene, channel, icon }: { scene: StoryScene; channel: string; icon?: CoverIcon }) {
   const f = useCurrentFrame();
   const out = scene.show.type === 'outro' ? 1 : interpolate(f, [scene.frames - 5, scene.frames], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
@@ -354,7 +365,7 @@ function SceneFrame({ scene, channel }: { scene: StoryScene; channel: string }) 
       <div style={{ position: 'absolute', left: SAFE.left, right: W - SAFE.right, top: 280, height: 1030, display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: out }}>
         {/* İçerik sıkıştırılmaz: sığmazsa metin taşması kontrolü yakalar. */}
         <SettleCtx.Provider value={Math.min(SETTLE, scene.frames - 2)}>
-          <div style={{ flexShrink: 0 }}><BeatView scene={scene} channel={channel} /></div>
+          <div style={{ flexShrink: 0 }}><BeatView scene={scene} channel={channel} icon={icon} /></div>
         </SettleCtx.Provider>
       </div>
     </AbsoluteFill>
@@ -388,7 +399,7 @@ export function Story({ script }: StoryProps) {
         </>
       ) : script.scenes.map((s) => (
         <Sequence key={s.id} from={Math.round(s.start * FPS)} durationInFrames={s.frames} layout="none">
-          <SceneFrame scene={s} channel={script.channel} />
+          <SceneFrame scene={s} channel={script.channel} icon={script.cover?.icon} />
         </Sequence>
       ))}
       <Chrome script={script} />

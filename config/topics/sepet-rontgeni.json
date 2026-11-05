@@ -12,9 +12,9 @@
       "callypso_feature": "Otomasyon akışları + Customer 360 (puan durumu)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu iki karttan hangisi daha hızlı dolar?",
         "İki bedava damga, kartı doldurtuyor",
-        "Boş kart kimseyi geri getirmez",
-        "Yarısı dolu kart neden bitirilir?"
+        "Boş kart kimseyi geri getirmez"
       ],
       "cover": {
         "line1": "Boş kart.",
@@ -54,10 +54,11 @@
         "label": "Sadakat kartı",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Boş bir kart… kimseyi geri getirmiyor.",
+            "say": "[warm, conversational, like telling a friend] Bu iki karttan hangisi daha hızlı dolar? Tahmin et.",
             "show": {
               "type": "title",
-              "text": "Boş kart, boş dönüş."
+              "text": "Hangi kart?",
+              "sub": "Tahmin et."
             },
             "pause": 0.6
           },
@@ -161,9 +162,9 @@
       "callypso_feature": "SMS kampanyaları (puan hatırlatma)",
       "status": "dogrulandi",
       "hooks": [
+        "Duolingo seni dersle tutmuyor",
         "Duolingo seni dersle değil, seriyle tutuyor",
-        "Serini kaybetmemek için açıyorsun",
-        "Yedi gün, bırakmayı zorlaştırıyor"
+        "Serini kaybetmemek için açıyorsun"
       ],
       "cover": {
         "line1": "Ders değil.",
@@ -220,10 +221,11 @@
         "label": "Seri",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Duolingo seni dersle değil, seriyle tutuyor.",
+            "say": "[warm, conversational, like telling a friend] Duolingo seni dersle tutmuyor. Neyle tutuyor, biliyor musun?",
             "show": {
               "type": "title",
-              "text": "Ders değil. Seri."
+              "text": "Ders değil.",
+              "sub": "Peki ne?"
             },
             "pause": 0.6
           },
@@ -382,10 +384,11 @@
         "label": "Geri kazanma",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Kayıp müşterinin de son kullanma tarihi var.",
+            "say": "[warm, conversational, like telling a friend] Kayıp müşterinin de son kullanma tarihi var. Kaç ay sence?",
             "show": {
               "type": "title",
-              "text": "Kayıp müşterinin son kullanma tarihi."
+              "text": "Son kullanma tarihi",
+              "sub": "Kaç ay sence?"
             },
             "pause": 0.6
           },
@@ -496,9 +499,9 @@
       "callypso_feature": "Segmentasyon (sık alan müşteriler)",
       "status": "dogrulandi",
       "hooks": [
+        "Kargoyu peşin ödeyen neden daha çok alıyor?",
         "Prime üyeleri neden iki kat harcıyor?",
-        "Kargoyu peşin ödeyen daha çok alıyor",
-        "Amazon Prime sadece bir abonelik değil"
+        "Kargoyu peşin ödeyen daha çok alıyor"
       ],
       "cover": {
         "line1": "Peşin ödedin.",
@@ -540,10 +543,11 @@
         "label": "Üyelik",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Kargoyu peşin ödeyen… daha çok alıyor.",
+            "say": "[warm, conversational, like telling a friend] Kargoyu peşin ödeyen neden daha çok alıyor?",
             "show": {
               "type": "title",
-              "text": "Peşin ödedin. Şimdi kullan."
+              "text": "Peşin kargo.",
+              "sub": "Neden daha çok?"
             },
             "pause": 0.6
           },
@@ -645,9 +649,9 @@
       "callypso_feature": "Customer 360 (puan) + otomasyon akışları",
       "status": "dogrulandi",
       "hooks": [
+        "Starbucks yıldızları aslında ne işe yarıyor?",
         "Starbucks sana yıldız vermiyor. Seni geri çağırıyor.",
-        "Kahve değil, yıldız topluyorsun",
-        "Harcamanın yarısından fazlası tek programdan"
+        "Kahve değil, yıldız topluyorsun"
       ],
       "cover": {
         "line1": "Yıldız değil.",
@@ -689,10 +693,11 @@
         "label": "Sadakat programı",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Starbucks sana yıldız vermiyor. Seni geri çağırıyor.",
+            "say": "[warm, conversational, like telling a friend] Starbucks yıldızları aslında ne işe yarıyor? Bil bakalım.",
             "show": {
               "type": "title",
-              "text": "Yıldız değil. Geri çağırma."
+              "text": "Yıldızlar ne işe yarıyor?",
+              "sub": "Bil bakalım."
             },
             "pause": 0.6
           },
@@ -797,9 +802,9 @@
       "callypso_feature": "Customer 360 + e-posta kampanyası (yıl sonu özeti)",
       "status": "dogrulandi",
       "hooks": [
+        "Spotify'ın en iyi reklamını sen yapıyorsun",
         "Spotify sana kendi yılını hediye ediyor",
-        "Wrapped bir reklam, ama sen paylaşıyorsun",
-        "En iyi reklam müşterinin kendi verisi"
+        "Wrapped bir reklam, ama sen paylaşıyorsun"
       ],
       "cover": {
         "line1": "Senin yılın.",
@@ -847,10 +852,11 @@
         "label": "Kişiselleştirme",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] En iyi reklam… müşterinin kendi verisi.",
+            "say": "[warm, conversational, like telling a friend] Spotify'ın en iyi reklamını sen yapıyorsun. Fark ettin mi?",
             "show": {
               "type": "title",
-              "text": "En iyi reklam: senin verin."
+              "text": "Reklamı sen yapıyorsun.",
+              "sub": "Fark ettin mi?"
             },
             "pause": 0.6
           },
@@ -952,9 +958,9 @@
       "callypso_feature": "Kampanyalar (eşik hatırlatması)",
       "status": "dogrulandi",
       "hooks": [
+        "Kargo eşiği düşünce sepet büyür mü?",
         "Eşik düşünce sepet küçüldü",
-        "Kargo bedava değil, sepeti büyütüyor",
-        "Bedava kargo sepeti büyütür, ama dikkat"
+        "Kargo bedava değil, sepeti büyütüyor"
       ],
       "cover": {
         "line1": "Eşik düştü.",
@@ -1003,10 +1009,11 @@
         "label": "Kargo eşiği",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Eşik düşünce… sepet küçüldü.",
+            "say": "[warm, conversational, like telling a friend] Kargo eşiği düşünce sepet büyür mü? Tahmin et.",
             "show": {
               "type": "title",
-              "text": "Eşik düştü. Sepet küçüldü."
+              "text": "Eşik düştü.",
+              "sub": "Sepet büyüdü mü?"
             },
             "pause": 0.6
           },
@@ -1109,9 +1116,9 @@
       "callypso_feature": "Kampanyalar (stok azaldı bildirimi)",
       "status": "dogrulandi",
       "hooks": [
+        "Aynı kurabiye, iki kavanoz",
         "Son ürünler yazısı neden işe yarıyor?",
-        "Az kalan şey daha değerli görünür",
-        "Kurabiye aynı, kavanoz farklı"
+        "Az kalan şey daha değerli görünür"
       ],
       "cover": {
         "line1": "Az kaldı.",
@@ -1151,11 +1158,11 @@
         "label": "Kıtlık",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Kurabiye aynı. Kavanoz farklı.",
+            "say": "[warm, conversational, like telling a friend] Aynı kurabiye, iki kavanoz. Hangisi daha lezzetli geldi?",
             "show": {
               "type": "title",
               "text": "Aynı kurabiye.",
-              "sub": "Farklı kavanoz."
+              "sub": "Hangisi daha lezzetli?"
             },
             "pause": 0.6
           },
@@ -1254,9 +1261,9 @@
       "callypso_feature": "Segmentasyon + kampanyalar",
       "status": "dogrulandi",
       "hooks": [
+        "Yeni müşteri 5 kat pahalı mı?",
         "5 kat daha pahalı. Gerçekten mi?",
-        "Herkesin tekrarladığı rakam aslında bir aralık",
-        "Yeni müşteri pahalı, ama kaç kat?"
+        "Herkesin tekrarladığı rakam aslında bir aralık"
       ],
       "cover": {
         "line1": "5 kat mı?",
@@ -1297,11 +1304,11 @@
         "label": "Mit",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] 5 kat daha pahalı. Gerçekten mi?",
+            "say": "[warm, conversational, like telling a friend] Yeni müşteri 5 kat pahalı mı? Emin misin?",
             "show": {
               "type": "title",
-              "text": "5 kat mı?",
-              "sub": "Gerçekten mi?"
+              "text": "5 kat pahalı mı?",
+              "sub": "Emin misin?"
             },
             "pause": 0.6
           },
@@ -1402,9 +1409,9 @@
       "callypso_feature": "Otomasyon akışları (sipariş sonrası teşekkür)",
       "status": "dogrulandi",
       "hooks": [
+        "Sephora kutuya neden bedava numune koyuyor?",
         "Numune bedava değil. Bir borç.",
-        "Sephora sana neden numune veriyor?",
-        "Küçük hediye, büyük karşılık"
+        "Sephora sana neden numune veriyor?"
       ],
       "cover": {
         "line1": "Bedava değil.",
@@ -1452,11 +1459,11 @@
         "label": "Karşılıklılık",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Küçük bir hediye… büyük bir karşılık.",
+            "say": "[warm, conversational, like telling a friend] Sephora kutuya neden bedava numune koyuyor? Cömertlik değil.",
             "show": {
               "type": "title",
-              "text": "Küçük hediye.",
-              "sub": "Büyük karşılık."
+              "text": "Neden bedava?",
+              "sub": "Cömertlik değil."
             },
             "pause": 0.6
           },
@@ -1566,9 +1573,9 @@
       "callypso_feature": "Segmentasyon",
       "status": "dogrulandi",
       "hooks": [
+        "Senin indirimin komşununkiyle aynı mı?",
         "Senin indirimin komşununkiyle aynı değil",
-        "Herkese aynı indirim artık işe yaramıyor",
-        "Migros sana özel teklif yapıyor. Neden?"
+        "Herkese aynı indirim artık işe yaramıyor"
       ],
       "cover": {
         "line1": "Senin indirimin.",
@@ -1616,11 +1623,11 @@
         "label": "Segmentleme",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Senin indirimin… komşununkiyle aynı değil.",
+            "say": "[warm, conversational, like telling a friend] Senin indirimin komşununkiyle aynı mı? Değil.",
             "show": {
               "type": "title",
-              "text": "Senin indirimin.",
-              "sub": "Sadece senin."
+              "text": "Aynı indirim mi?",
+              "sub": "Değil."
             },
             "pause": 0.6
           },
@@ -1767,11 +1774,11 @@
         "label": "Az ama sık",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Zara neredeyse hiç reklam vermiyor.",
+            "say": "[warm, conversational, like telling a friend] Zara neredeyse hiç reklam vermiyor. Nasıl satıyor peki?",
             "show": {
               "type": "title",
               "text": "Reklam yok.",
-              "sub": "Müşteri yine geliyor."
+              "sub": "Nasıl satıyor?"
             },
             "pause": 0.6
           },
@@ -1871,9 +1878,9 @@
       "callypso_feature": "Customer 360 profili + geri kazanma akışı",
       "status": "dogrulandi",
       "hooks": [
+        "Netflix'ten çıkmak neden bu kadar kolay?",
         "Netflix seni kapıda tutmuyor",
-        "İptal ettin ama geçmişin seni bekliyor",
-        "Netflix'ten çıkmak kolay, dönmek daha kolay"
+        "İptal ettin ama geçmişin seni bekliyor"
       ],
       "cover": {
         "line1": "Çıkış kolay.",
@@ -1921,10 +1928,11 @@
         "label": "Geri dönüş",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Netflix seni kapıda tutmuyor.",
+            "say": "[warm, conversational, like telling a friend] Netflix'ten çıkmak neden bu kadar kolay? Bir sebebi var.",
             "show": {
               "type": "title",
-              "text": "Seni kapıda tutmuyor."
+              "text": "Çıkmak neden kolay?",
+              "sub": "Bir sebebi var."
             },
             "pause": 0.6
           },
@@ -2073,9 +2081,9 @@
       "callypso_feature": "Formlar (tercih toplama)",
       "status": "dogrulandi",
       "hooks": [
+        "IKEA mobilyayı neden sana kurduruyor?",
         "Kendi kurduğun dolap daha değerli",
-        "IKEA'da montaj neden sende?",
-        "Emek verdiğin şeyi bırakamazsın"
+        "IKEA'da montaj neden sende?"
       ],
       "cover": {
         "line1": "Montaj sende.",
@@ -2117,11 +2125,11 @@
         "label": "Emek",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] IKEA'da montaj neden sende?",
+            "say": "[warm, conversational, like telling a friend] IKEA mobilyayı neden sana kurduruyor? Tembellik değil.",
             "show": {
               "type": "title",
-              "text": "Montaj sende.",
-              "sub": "Bir sebebi var."
+              "text": "Neden sen kuruyorsun?",
+              "sub": "Tembellik değil."
             },
             "pause": 0.6
           },
@@ -2225,9 +2233,9 @@
       "callypso_feature": "Otomasyon akışları (terk edilen sepet)",
       "status": "dogrulandi",
       "hooks": [
+        "Sepeti bıraktın, çıktın",
         "Sepetlerin çoğu ödemeye hiç ulaşmıyor",
-        "Terk edilen sepet bir ret değil",
-        "Hatırlatmayı yarına bırakma"
+        "Terk edilen sepet bir ret değil"
       ],
       "cover": {
         "line1": "Terk etmedi.",
@@ -2276,11 +2284,11 @@
         "label": "Sepet terki",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Terk edilen sepet… bir ret değil.",
+            "say": "[warm, conversational, like telling a friend] Sepeti bıraktın, çıktın. Mağaza bunu nasıl görüyor biliyor musun?",
             "show": {
               "type": "title",
-              "text": "Terk edilen sepet.",
-              "sub": "Bir ret değil."
+              "text": "Sepeti bıraktın.",
+              "sub": "Mağaza ne görüyor?"
             },
             "pause": 0.6
           },
@@ -2550,9 +2558,9 @@
       "callypso_feature": "Kampanyalar (fiyat testleri)",
       "status": "dogrulandi",
       "hooks": [
+        "Hangisi daha çok sattı: 44 mü, 49 mu?",
         "Daha pahalı fiyat daha çok sattı",
-        "49, 44'ten daha çok sattı",
-        "Fiyatın son rakamı satışı değiştiriyor"
+        "49, 44'ten daha çok sattı"
       ],
       "cover": {
         "line1": "Daha pahalı.",
@@ -2607,11 +2615,11 @@
         "label": "Son rakam",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Daha pahalı fiyat… daha çok sattı.",
+            "say": "[warm, conversational, like telling a friend] Hangisi daha çok sattı: 44 mü, 49 mu?",
             "show": {
               "type": "title",
-              "text": "Daha pahalı.",
-              "sub": "Daha çok sattı."
+              "text": "44 mü, 49 mu?",
+              "sub": "Hangisi daha çok sattı?"
             },
             "pause": 0.6
           },
@@ -2734,9 +2742,9 @@
       "callypso_feature": "Segmentasyon (öne çıkan ürünler)",
       "status": "dogrulandi",
       "hooks": [
+        "24 çeşit mi satar, 6 çeşit mi?",
         "Çok çeşit seni satıştan uzaklaştırabilir",
-        "Daha çok çeşit, daha az satış mı?",
-        "Kalabalık stant daha az sattı"
+        "24 mü, 6 mı? Tahmin et."
       ],
       "cover": {
         "line1": "Çok çeşit",
@@ -2784,11 +2792,11 @@
         "label": "Reçel",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Çok çeşit… seni satıştan uzaklaştırabilir.",
+            "say": "[warm, conversational, like telling a friend] 24 çeşit mi satar, 6 çeşit mi? Tahmin et.",
             "show": {
               "type": "title",
-              "text": "Çok çeşit",
-              "sub": "Az satış?"
+              "text": "24 mü, 6 mı?",
+              "sub": "Tahmin et."
             },
             "pause": 0.6
           },
@@ -2897,9 +2905,9 @@
       "callypso_feature": "Kampanyalar (hediye ürün)",
       "status": "dogrulandi",
       "hooks": [
+        "Bir sent, tercihleri nasıl tersine çevirdi?",
         "Bir sentlik indirim tercihi tersine çevirdi",
-        "Bedava, ucuzdan çok daha güçlü",
-        "Fark aynı kaldı, seçim değişti"
+        "Bedava, ucuzdan çok daha güçlü"
       ],
       "cover": {
         "line1": "Bir sent indi.",
@@ -2946,11 +2954,11 @@
         "label": "Bedava",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Bir sentlik indirim, tercihi tersine çevirdi.",
+            "say": "[warm, conversational, like telling a friend] Bir sent, tercihleri nasıl tersine çevirdi? Bak.",
             "show": {
               "type": "title",
               "text": "Bir sent.",
-              "sub": "Tersine döndü."
+              "sub": "Her şey değişti."
             },
             "pause": 0.6
           },
@@ -3062,9 +3070,9 @@
       "callypso_feature": "Kampanyalar (fiyat sunumu)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu çark tahminini değiştirecek",
         "Rastgele bir sayı tahminini değiştiriyor",
-        "İlk gördüğün sayı seni bırakmıyor",
-        "Bir çark, insanların tahminini kaydırdı"
+        "İlk gördüğün sayı seni bırakmıyor"
       ],
       "cover": {
         "line1": "İlk sayı",
@@ -3105,11 +3113,11 @@
         "label": "Çapa",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Rastgele bir sayı, tahminini değiştiriyor.",
+            "say": "[warm, conversational, like telling a friend] Bu çark tahminini değiştirecek. İnanmıyor musun?",
             "show": {
               "type": "title",
-              "text": "Rastgele bir sayı.",
-              "sub": "Tahminini değiştiriyor."
+              "text": "Bu çark…",
+              "sub": "tahminini değiştirecek."
             },
             "pause": 0.6
           },
@@ -3221,9 +3229,9 @@
       "callypso_feature": "Kampanyalar (taksit seçeneği duyurusu)",
       "status": "dogrulandi",
       "hooks": [
+        "Aynı bilete neden iki kat para verdiler?",
         "Kartla ödeyince aynı bilete iki kat verdiler",
-        "Nakit acıtıyor, kart acıtmıyor",
-        "Ödeme şekli, ödeyeceğin tutarı değiştiriyor"
+        "Nakit acıtıyor, kart acıtmıyor"
       ],
       "cover": {
         "line1": "Nakit acıtır.",
@@ -3280,11 +3288,11 @@
         "label": "Ödeme acısı",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Kartla ödeyince, aynı bilete iki kat verdiler.",
+            "say": "[warm, conversational, like telling a friend] Aynı bilete neden iki kat para verdiler?",
             "show": {
               "type": "title",
               "text": "Aynı bilet.",
-              "sub": "İki kat teklif."
+              "sub": "Neden iki kat?"
             },
             "pause": 0.6
           },
@@ -3391,9 +3399,9 @@
       "callypso_feature": "Kampanyalar (fiyat değişikliği duyurusu)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu çikolatada bir şey eksik",
         "Toblerone fiyatı değil, üçgenleri azalttı",
-        "Kutu aynı kaldı, çikolata azaldı",
-        "Müşteri fiyatı değil, boşluğu fark etti"
+        "Kutu aynı kaldı, çikolata azaldı"
       ],
       "cover": {
         "line1": "Kutu aynı.",
@@ -3441,11 +3449,11 @@
         "label": "Gramaj",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Toblerone fiyatı değil… üçgenleri azalttı.",
+            "say": "[warm, conversational, like telling a friend] Bu çikolatada bir şey eksik. Fark ettin mi?",
             "show": {
               "type": "title",
-              "text": "Fiyat aynı.",
-              "sub": "Üçgenler azaldı."
+              "text": "Bir şey eksik.",
+              "sub": "Fark ettin mi?"
             },
             "pause": 0.6
           },
@@ -3549,9 +3557,9 @@
       "callypso_feature": "Otomasyon akışları (deneme sonrası)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu kupa kaç para eder?",
         "Bir kupa senin olunca değeri artıyor",
-        "Aynı kupa, iki ayrı fiyat",
-        "Senin olan şeyi bırakmak zor"
+        "Aynı kupa, iki ayrı fiyat"
       ],
       "cover": {
         "line1": "Aynı kupa.",
@@ -3592,11 +3600,11 @@
         "label": "Kupa",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Bir kupa senin olunca, değeri artıyor.",
+            "say": "[warm, conversational, like telling a friend] Bu kupa kaç para eder? Cevap, kupanın kimde olduğuna bağlı.",
             "show": {
               "type": "title",
-              "text": "Aynı kupa.",
-              "sub": "İki fiyat."
+              "text": "Bu kupa kaç para?",
+              "sub": "Kime göre?"
             },
             "pause": 0.6
           },
@@ -3702,9 +3710,9 @@
       "callypso_feature": "Formlar (izin ve tercih seçenekleri)",
       "status": "dogrulandi",
       "hooks": [
+        "Tek bir kutucuk kararını değiştiriyor",
         "Kutucuğun hazır işaretli olması kararı değiştiriyor",
-        "İnsanlar çoğu zaman seçmez, kalır",
-        "Aynı soru, iki kat fark"
+        "İnsanlar çoğu zaman seçmez, kalır"
       ],
       "cover": {
         "line1": "Kimse seçmedi.",
@@ -3753,11 +3761,11 @@
         "label": "Varsayılan",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Kutucuğun işaretli gelmesi, kararı değiştiriyor.",
+            "say": "[warm, conversational, like telling a friend] Tek bir kutucuk kararını değiştiriyor. İnanmıyor musun?",
             "show": {
               "type": "title",
-              "text": "İşaretli kutu.",
-              "sub": "Kararı değiştiriyor."
+              "text": "Tek bir kutucuk.",
+              "sub": "Kararını değiştiriyor."
             },
             "pause": 0.6
           },
@@ -3870,9 +3878,9 @@
       "callypso_feature": "Kampanyalar (fiyat sunumu)",
       "status": "dogrulandi",
       "hooks": [
+        "2 kat mı, 2,1 kat mı?",
         "Uber'de 2,1 kat, 2 kattan kolay kabul ediliyordu",
-        "Yuvarlak sayı sana keyfi geliyor",
-        "Daha yüksek zam, daha az itiraz"
+        "Yuvarlak sayı sana keyfi geliyor"
       ],
       "cover": {
         "line1": "2 kat keyfi.",
@@ -3920,11 +3928,11 @@
         "label": "Kesin sayı",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Uber'de 2,1 kat zam, 2 kattan kolay geçiyordu.",
+            "say": "[warm, conversational, like telling a friend] 2 kat mı, 2,1 kat mı? Hangisini daha kolay ödersin?",
             "show": {
               "type": "title",
-              "text": "2,1 kat > 2 kat?",
-              "sub": "Uber'de öyleydi."
+              "text": "2 mi, 2,1 mi?",
+              "sub": "Hangisini ödersin?"
             },
             "pause": 0.6
           },
@@ -4028,9 +4036,9 @@
       "callypso_feature": "Segmentasyon (üye müşteriler)",
       "status": "dogrulandi",
       "hooks": [
+        "Hepsiburada'yı neden direkt açıyorsun?",
         "Hepsiburada üyelerine ayda daha sık sipariş verdiriyor",
-        "Üye olunca daha sık sipariş veriyorsun",
-        "Ödediğin üyeliği değerlendirmek istiyorsun"
+        "Üye olunca daha sık sipariş veriyorsun"
       ],
       "cover": {
         "line1": "Üye oldun.",
@@ -4078,11 +4086,11 @@
         "label": "Üyelik",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Hepsiburada, üyelerine daha sık sipariş verdiriyor.",
+            "say": "[warm, conversational, like telling a friend] Hepsiburada'yı neden direkt açıyorsun? Cevap kargoda değil.",
             "show": {
               "type": "title",
-              "text": "Üye oldun.",
-              "sub": "Daha sık geliyorsun."
+              "text": "Neden direkt orası?",
+              "sub": "Cevap kargoda değil."
             },
             "pause": 0.6
           },
@@ -4185,9 +4193,9 @@
       "callypso_feature": "Otomasyon akışları (sipariş durumu bildirimi)",
       "status": "dogrulandi",
       "hooks": [
+        "Pizzan aynı sürede geliyor",
         "Domino's pizzayı değil, beklemeyi tasarladı",
-        "Pizzanı beklemek neden daha az sinir bozucu?",
-        "Beş adım, bekleme gizemini bitirdi"
+        "Pizzanı beklemek neden daha az sinir bozucu?"
       ],
       "cover": {
         "line1": "Pizza değil.",
@@ -4242,11 +4250,11 @@
         "label": "Takip",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Domino's pizzayı değil… beklemeyi tasarladı.",
+            "say": "[warm, conversational, like telling a friend] Pizzan aynı sürede geliyor. Neden daha kısa geliyor?",
             "show": {
               "type": "title",
-              "text": "Pizza değil.",
-              "sub": "Bekleme tasarlandı."
+              "text": "Aynı süre.",
+              "sub": "Neden daha kısa?"
             },
             "pause": 0.6
           },
@@ -4344,9 +4352,9 @@
       "callypso_feature": "Otomasyon akışları (teslimat sonrası mesaj)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu insanlar neden daha uzun acıyı seçti?",
         "Daha uzun acıyı tercih ettiler",
-        "Deneyimin sonu her şeyi değiştiriyor",
-        "İnsanlar sonu hatırlıyor"
+        "Deneyimin sonu her şeyi değiştiriyor"
       ],
       "cover": {
         "line1": "Daha uzun acı.",
@@ -4387,11 +4395,11 @@
         "label": "Son an",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Daha uzun acıyı tercih ettiler.",
+            "say": "[warm, conversational, like telling a friend] Bu insanlar neden daha uzun acıyı seçti?",
             "show": {
               "type": "title",
               "text": "Daha uzun acı.",
-              "sub": "Ama tercih edildi."
+              "sub": "Neden seçtiler?"
             },
             "pause": 0.6
           },
@@ -4494,9 +4502,9 @@
       "callypso_feature": "E-posta kampanyaları (kişiselleştirme)",
       "status": "dogrulandi",
       "hooks": [
+        "Hangi e-postayı açarsın?",
         "Konu satırına adını yazmak açılmayı artırdı",
-        "Bir kelime, e-postanın açılmasını değiştiriyor",
-        "Adını gören, e-postayı açıyor"
+        "Bir kelime, e-postanın açılmasını değiştiriyor"
       ],
       "cover": {
         "line1": "Tek kelime:",
@@ -4537,11 +4545,11 @@
         "label": "İsim",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Konu satırına adını yazmak, açılmayı artırdı.",
+            "say": "[warm, conversational, like telling a friend] Hangi e-postayı açarsın? Tek bir kelime fark ediyor.",
             "show": {
               "type": "title",
-              "text": "Tek kelime:",
-              "sub": "Senin adın."
+              "text": "Hangisini açarsın?",
+              "sub": "Tek kelime."
             },
             "pause": 0.6
           },
@@ -4703,11 +4711,11 @@
         "label": "Havlu",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Bir cümle… havluları değiştirdi.",
+            "say": "[warm, conversational, like telling a friend] Bir cümle havluları değiştirdi. Hangi cümle, bil bakalım.",
             "show": {
               "type": "title",
               "text": "Bir cümle.",
-              "sub": "Havluları değiştirdi."
+              "sub": "Hangisi?"
             },
             "pause": 0.6
           },
@@ -4812,9 +4820,9 @@
       "callypso_feature": "Otomasyon akışları (yorum isteği)",
       "status": "dogrulandi",
       "hooks": [
+        "Beş yıldız mı etkili, tek yıldız mı?",
         "Beş yıldız her şey değil",
-        "Müşterin yıldıza değil, yoruma bakıyor",
-        "Tek kötü yorum neden bu kadar ağır?"
+        "5 mi, 1 mi? Hangisi daha etkili?"
       ],
       "cover": {
         "line1": "Beş yıldız",
@@ -4861,11 +4869,11 @@
         "label": "Yorum",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Beş yıldız… her şey değil.",
+            "say": "[warm, conversational, like telling a friend] Beş yıldız mı etkili, tek yıldız mı?",
             "show": {
               "type": "title",
-              "text": "Beş yıldız",
-              "sub": "her şey değil."
+              "text": "5 mi, 1 mi?",
+              "sub": "Hangisi daha etkili?"
             },
             "pause": 0.6
           },
@@ -4968,9 +4976,9 @@
       "callypso_feature": "Kampanyalar (seçici indirim)",
       "status": "dogrulandi",
       "hooks": [
+        "Her hafta indirim mi yapıyorsun?",
         "Sürekli indirim, normal fiyatı öldürüyor",
-        "İndirim yaptıkça müşterin daha ucuz bekliyor",
-        "Her hafta indirim neden kötü?"
+        "İndirim yaptıkça müşterin daha ucuz bekliyor"
       ],
       "cover": {
         "line1": "Sürekli indirim",
@@ -5017,11 +5025,11 @@
         "label": "İndirim",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Sürekli indirim… normal fiyatı öldürüyor.",
+            "say": "[warm, conversational, like telling a friend] Her hafta indirim mi yapıyorsun? Bunu bir dinle.",
             "show": {
               "type": "title",
-              "text": "Sürekli indirim",
-              "sub": "Normal fiyatı öldürüyor."
+              "text": "Her hafta indirim mi?",
+              "sub": "Bunu bir dinle."
             },
             "pause": 0.6
           },
@@ -5119,9 +5127,9 @@
       "callypso_feature": "Kampanyalar (imza ürün)",
       "status": "dogrulandi",
       "hooks": [
+        "Bu sosisli 1980'lerden beri aynı fiyat",
         "Costco sosisliden kâr beklemiyor",
-        "Bu sosislinin fiyatı 1980'lerden beri aynı",
-        "Bir sosisli, bütün mağazanın reklamı"
+        "Bu sosislinin fiyatı 1980'lerden beri aynı"
       ],
       "cover": {
         "line1": "Fiyat sabit.",
@@ -5169,11 +5177,11 @@
         "label": "Sosisli",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Costco sosisliden kâr beklemiyor.",
+            "say": "[warm, conversational, like telling a friend] Bu sosisli 1980'lerden beri aynı fiyat. Neden sence?",
             "show": {
               "type": "title",
-              "text": "Sosisli.",
-              "sub": "Kâr için değil."
+              "text": "Aynı fiyat.",
+              "sub": "Neden sence?"
             },
             "pause": 0.6
           },

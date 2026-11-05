@@ -379,6 +379,15 @@ const ICONS: Record<CoverIcon, (t: T) => ReactNode> = {
   ),
 };
 
+/** Kapak nesnesi tek başına (hikâyenin açılış karesinde: kapak ile ilk kare aynı dünyadan). */
+export function CoverObject({ icon, size }: { icon: CoverIcon; size: number }) {
+  return (
+    <div style={{ width: size, height: size }}>
+      <div style={{ width: 680, height: 680, transform: `scale(${size / 680})`, transformOrigin: 'top left' }}>{ICONS[icon](THEMES.light)}</div>
+    </div>
+  );
+}
+
 export function Cover({ cover, channel, caseNo }: CoverProps) {
   const t = THEMES[cover.theme];
   const titleRef = useTextQc<HTMLDivElement>('kapak-baslik', 0);
