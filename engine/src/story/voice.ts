@@ -20,7 +20,7 @@ export async function synthesize(text: string, voiceId: string, opts: { speed?: 
       text, model_id: opts.model ?? VOICE_MODEL, language_code: 'tr',
       // eleven_v4: ton [etiket]lerle verilir, hızlandırılmaz (Animasyon Sistemi önerisi: stability ~0,3).
       voice_settings: (opts.model ?? VOICE_MODEL) === 'eleven_v4'
-        ? { stability: 0.4, similarity_boost: 0.75 }
+        ? { stability: 0.3, similarity_boost: 0.75 } // kullanıcı seçimi (C · sohbet tonu)
         : { stability: 0.55, similarity_boost: 0.75, style: 0.15, speed: opts.speed ?? 1.1 },
     }),
   });

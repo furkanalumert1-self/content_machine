@@ -4,34 +4,47 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { RenderResult } from '../render/render.ts';
 import { MAX_SEC, MIN_SEC, VOICE_SPEED } from '../topics/channel.ts';
-import { timeStory } from './build.ts';
+import { stripTags, timeStory } from './build.ts';
 import { renderStory } from './render.ts';
 import { narration } from './timeline.ts';
 import type { StoryScript } from './types.ts';
-import { normalizeLoudness, synthesize, type Alignment } from './voice.ts';
+import { normalizeLoudness, synthesize, VOICE_MODEL, type Alignment } from './voice.ts';
 
 const TAIL = 1.2;
 const MAX_SPEED = 1.2;
 
-export async function produceStory(plan: StoryScript, outDir: string, name: string): Promise<RenderResult & { script?: StoryScript }> {
+export async function produceStory(input: StoryScript, outDir: string, name: string): Promise<RenderResult & { script?: StoryScript }> {
   mkdirSync(outDir, { recursive: true });
-  const { text, ranges } = narration(plan.segments);
-  const model = plan.voice.model;
+  let plan = input;
   const pauses = plan.segments.map((s) => Math.min(1, Math.max(0, s.pause ?? 0)));
-  const synth = async (speed: number) => {
-    const raw = await synthesize(text, plan.voice.voice_id, { speed, model });
-    return pauses.some(Boolean) ? insertPauses(raw.audio, raw.alignment, ranges, pauses, outDir, name) : raw;
-  };
+  const notes: string[] = [];
   let speed = VOICE_SPEED;
-  let speech = await synth(speed);
-  let audio = normalizeLoudness(speech.audio);
-  let dur = audioDuration(audio.audio, outDir, name);
-  // Ses 58 sn sınırını aşarsa bir kez, biraz daha hızlı okutulur (ElevenLabs en fazla 1.2x; eleven_v4 hızlandırılmaz).
-  if (dur + TAIL > MAX_SEC - 0.3 && speed < MAX_SPEED && model !== 'eleven_v4') {
-    speed = Math.min(MAX_SPEED, Math.round(speed * ((dur + TAIL) / (MAX_SEC - 1)) * 100) / 100);
-    speech = await synth(speed);
-    audio = normalizeLoudness(speech.audio);
-    dur = audioDuration(audio.audio, outDir, name);
+  let { text, ranges } = narration(plan.segments);
+  let raw = await synthesize(text, plan.voice.voice_id, { speed, model: plan.voice.model });
+  const build = (scale: number) => {
+    const sp = pauses.some(Boolean) && scale > 0 ? insertPauses(raw.audio, raw.alignment, ranges, pauses.map((x) => x * scale), outDir, name) : raw;
+    const audio = normalizeLoudness(sp.audio);
+    return { speech: sp, audio, dur: audioDuration(audio.audio, outDir, name) };
+  };
+  let { speech, audio, dur } = build(1);
+  const tooLong = () => dur + TAIL > MAX_SEC - 0.3;
+  // 58 sn sınırı: 1) nefes payları kısaltılır (yeni seslendirme yok), 2) eleven_v4 hızlandırılamadığı için
+  // eski modelle (etiketsiz metin) biraz hızlı yeniden okutulur; eski modelde doğrudan hızlandırılır.
+  if (tooLong() && pauses.some(Boolean)) {
+    const total = pauses.reduce((x, y) => x + y, 0);
+    const scale = Math.max(0, 1 - (dur + TAIL - (MAX_SEC - 0.5)) / total);
+    ({ speech, audio, dur } = build(scale));
+    notes.push(`Nefes payları %${Math.round((1 - scale) * 100)} kısaltıldı (süre sınırı).`);
+  }
+  if (tooLong()) {
+    if (plan.voice.model === 'eleven_v4') {
+      plan = { ...plan, voice: { ...plan.voice, model: VOICE_MODEL }, segments: plan.segments.map((x) => ({ ...x, say: stripTags(x.say), pause: undefined })) };
+      ({ text, ranges } = narration(plan.segments));
+      notes.push(`eleven_v4 sesi ${dur.toFixed(1)} sn sürdü; ${VOICE_MODEL} ile yeniden okundu.`);
+    }
+    speed = Math.min(MAX_SPEED, Math.round(VOICE_SPEED * ((dur + TAIL) / (MAX_SEC - 1)) * 100) / 100);
+    raw = await synthesize(text, plan.voice.voice_id, { speed, model: plan.voice.model });
+    ({ speech, audio, dur } = build(0));
   }
   // Ses kısa kalırsa (45 sn altı) yeniden seslendirilmez: kapanış kartı (REHBER çağrısı) sessizce biraz uzun kalır.
   const padded = Math.max(dur, MIN_SEC + 0.5 - TAIL);
@@ -41,6 +54,7 @@ export async function produceStory(plan: StoryScript, outDir: string, name: stri
   });
   const r = await renderStory(script, outDir, name);
   return { ...r, script: { ...script, audio_src: undefined, review_notes: [
+    ...notes,
     ...(speed !== VOICE_SPEED ? [`Ses ${speed}x hızla okundu (süre sınırı).`] : []),
     ...(padded > dur ? [`Ses ${dur.toFixed(1)} sn; kapanış kartı ${(padded - dur).toFixed(1)} sn uzatıldı (en az ${MIN_SEC} sn).`] : []),
   ] } };
