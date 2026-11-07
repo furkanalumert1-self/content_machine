@@ -83,11 +83,13 @@ for (const v of stale ?? []) await handle(toClaimed(v));
 // Onay ve PAUSED denetimi aşağıdaki DB fonksiyonunda aynen geçerli.
 if (process.env.PUBLISH_NOW === 'true') {
   const now = new Date();
-  const { data: next } = await db.from('videos').select('id, publish_at').eq('status', 'approved')
+  // Otomatik modda kalite kontrolünden geçmiş ("ready") video da onaylı sayılır.
+  const statuses = (await settings()).mode === 'auto' ? ['approved', 'ready'] : ['approved'];
+  const { data: next } = await db.from('videos').select('id, publish_at').in('status', statuses)
     .gt('publish_at', now.toISOString()).lte('publish_at', new Date(now.getTime() + 3 * 3600_000).toISOString())
     .order('publish_at').limit(1).maybeSingle();
   if (next) {
-    await db.from('videos').update({ publish_at: now.toISOString(), publish_at_reason: `Elle hemen paylaşıldı (önceki plan ${next.publish_at}).` }).eq('id', next.id).eq('status', 'approved');
+    await db.from('videos').update({ publish_at: now.toISOString(), publish_at_reason: `Elle hemen paylaşıldı (önceki plan ${next.publish_at}).` }).eq('id', next.id).in('status', statuses);
     await log.info(`Video ${next.id}: hemen paylaş isteğiyle yayın saati şimdiye alındı.`);
   } else await log.info('Hemen paylaş: önümüzdeki 3 saatte onaylı video yok.');
 }
