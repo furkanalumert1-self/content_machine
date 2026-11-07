@@ -12,11 +12,14 @@ import { normalizeLoudness, synthesize, VOICE_MODEL, type Alignment } from './vo
 
 const TAIL = 1.2;
 const MAX_SPEED = 1.2;
+/** Bölüm sonlarına eklenen sessizlik (insertPauses) kapalı: kesintisiz okuma. */
+const INSERT_PAUSES = false;
 
 export async function produceStory(input: StoryScript, outDir: string, name: string): Promise<RenderResult & { script?: StoryScript }> {
   mkdirSync(outDir, { recursive: true });
   let plan = input;
-  const pauses = plan.segments.map((s) => Math.min(1, Math.max(0, s.pause ?? 0)));
+  // Kullanıcı (7.11): bölüm arası sessizlik kesik gibi duyuluyor; ses tek parça, aralıksız okunur.
+  const pauses = INSERT_PAUSES ? plan.segments.map((s) => Math.min(1, Math.max(0, s.pause ?? 0))) : plan.segments.map(() => 0);
   const notes: string[] = [];
   let speed = VOICE_SPEED;
   let { text, ranges } = narration(plan.segments);

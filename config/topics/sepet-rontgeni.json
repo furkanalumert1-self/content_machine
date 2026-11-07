@@ -59,8 +59,7 @@
               "type": "title",
               "text": "Hangi kart?",
               "sub": "Tahmin et."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir oto yıkamacı iki çeşit kart dağıtıyor. Birinde sekiz boş kutu var.",
@@ -86,8 +85,7 @@
               "type": "rule",
               "text": "Daha çok bitiren.",
               "strike": "Aynı ödül"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -95,8 +93,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "İkinci kart sıfırdan başlamıyor. Yolun bir kısmı bitmiş gibi duruyor.",
@@ -114,11 +111,10 @@
               "type": "rule",
               "text": "Bir işi bitirmek.",
               "strike": "Bir işe başlamak"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Yarısı dolu profil, ilk adımı hediye üyelik… hep aynı hamle.",
+            "say": "Yarısı dolu profil, ilk adımı hediye üyelik, hep aynı hamle.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -138,8 +134,7 @@
               "title": "Kartına iki damga hediye",
               "body": "Ödülüne başladın bile.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -226,8 +221,7 @@
               "type": "title",
               "text": "Ders değil.",
               "sub": "Peki ne?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Gece on bir. Telefon titriyor: serin bitmek üzere.",
@@ -240,7 +234,7 @@
             }
           },
           {
-            "say": "Ders yapmak istemiyorsun. Ama yedi günlük seriyi bozmak… hiç istemiyorsun.",
+            "say": "Ders yapmak istemiyorsun. Ama yedi günlük seriyi bozmak, hiç istemiyorsun.",
             "show": {
               "type": "counter",
               "value": 7,
@@ -255,8 +249,7 @@
               "value": "3,6 kat",
               "label": "7 günlük seri yapanların kursu bitirme ihtimali",
               "note": "KAYNAK: DUOLINGO BLOG (2022)"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -264,8 +257,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Seri büyüdükçe yeni bir şey kazanmıyorsun. Ama kaybedecek bir şeyin oluyor.",
@@ -282,8 +274,7 @@
               "type": "rule",
               "strike": "Kazanmak için",
               "text": "Kaybetmemek için geri dönüyoruz."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Duolingo bunu biliyor. O yüzden seriyi koruyan bir dondurma hakkı bile veriyor.",
@@ -296,7 +287,7 @@
             }
           },
           {
-            "say": "Süresi dolan puan, sepette bekleyen ürün… hepsi aynı hamle.",
+            "say": "Süresi dolan puan, sepette bekleyen ürün, hepsi aynı hamle.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -316,8 +307,7 @@
               "title": "Puanların yarın siliniyor",
               "body": "Biriken puanlarını kullanmayı unutma.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -389,8 +379,7 @@
               "type": "title",
               "text": "Son kullanma tarihi",
               "sub": "Kaç ay sence?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Türkiye'de bir e-ticaret şirketi, bir süredir alışveriş yapmayan 1.174 müşteriyi geri çağırıyor.",
@@ -408,8 +397,7 @@
               "value": "%47,3",
               "label": "6–9 ay önce kaybedilenler geri döndü",
               "bar": 0.473
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Ama 15 aydan uzun süredir sessiz olanlarda bu oran %16,8'e düşüyor.",
@@ -426,8 +414,7 @@
                 "bar": 0.473
               },
               "caption": "Geri dönme oranı"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -435,8 +422,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Müşteri her ay biraz daha uzaklaşıyor. Alışkanlığı yavaş yavaş başka yere taşınıyor.",
@@ -451,11 +437,10 @@
             "show": {
               "type": "title",
               "text": "Ne değil. Ne zaman."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Seni özledik bildirimi, sessiz üyeye hatırlatma, aylar sonra gelen kampanya… zamanlaması hepsini değiştiriyor.",
+            "say": "Seni özledik bildirimi, sessiz üyeye hatırlatma, aylar sonra gelen kampanya, zamanlaması hepsini değiştiriyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -475,8 +460,7 @@
               "title": "Seni bir süredir görmedik",
               "body": "Son aldığın ürünün yenisi geldi.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -548,8 +532,7 @@
               "type": "title",
               "text": "Peşin kargo.",
               "sub": "Neden daha çok?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Amazon Prime'da yıllık bir ücret ödüyorsun, kargo bedava oluyor.",
@@ -576,8 +559,7 @@
                 "bar": 1
               },
               "caption": "Yıllık harcama · CIRP tahmini"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -585,8 +567,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Bir şeye peşin para verdiysen onu değerlendirmek istiyorsun. Ödenmiş kargo, bir sonraki siparişi kolaylaştırıyor.",
@@ -601,11 +582,10 @@
             "show": {
               "type": "title",
               "text": "Sebep mi, sonuç mu?"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Spor salonu üyeliği, önceden ödenmiş kahve kartı, ücretli sadakat programları… aynı mantık.",
+            "say": "Spor salonu üyeliği, önceden ödenmiş kahve kartı, ücretli sadakat programları, aynı mantık.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -625,8 +605,7 @@
               "title": "Üyeliğin bu ay kazandırdı",
               "body": "Üç siparişte kargo ödemedin.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -698,8 +677,7 @@
               "type": "title",
               "text": "Yıldızlar ne işe yarıyor?",
               "sub": "Bil bakalım."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Her kahvede telefonuna birkaç yıldız düşüyor. Biriktikçe bedava bir içecek geliyor.",
@@ -727,8 +705,7 @@
               "value": "%59",
               "label": "harcamanın üyelerden gelen payı",
               "bar": 0.59
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -736,8 +713,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Her alışverişte ödüle biraz daha yaklaştığını görüyorsun.",
@@ -754,11 +730,10 @@
               "type": "rule",
               "text": "Yıldızlar boşa gitmesin.",
               "strike": "Başka bir kahveci"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Havayolu milleri, market puanları, kademeli üyelikler… hepsi aynı oyun.",
+            "say": "Havayolu milleri, market puanları, kademeli üyelikler, hepsi aynı oyun.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -778,8 +753,7 @@
               "title": "Ödülüne iki sipariş kaldı",
               "body": "Bir sonraki siparişte yaklaşıyorsun.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -857,8 +831,7 @@
               "type": "title",
               "text": "Reklamı sen yapıyorsun.",
               "sub": "Fark ettin mi?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Her yıl sonunda Spotify sana kendi yılını gösteriyor. En çok dinlediğin şarkılar, sanatçılar, türler.",
@@ -885,8 +858,7 @@
               "type": "stat",
               "value": "600 milyon+",
               "label": "sosyal medyada paylaşım"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -894,8 +866,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Wrapped sana yeni bir şey satmıyor. Kendi geçmişini sana bir hikâye olarak geri veriyor.",
@@ -910,11 +881,10 @@
               "type": "rule",
               "text": "Paylaşılmak.",
               "strike": "Reklam vermek"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Yıl sonu alışveriş özeti, kazanılan puanlar, üyelik yıl dönümü… aynı fikrin küçük hâlleri.",
+            "say": "Yıl sonu alışveriş özeti, kazanılan puanlar, üyelik yıl dönümü, aynı fikrin küçük hâlleri.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -934,8 +904,7 @@
               "title": "Seninle geçen yılımız",
               "body": "En çok aldığın ürünü hatırlıyor musun?",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -1014,8 +983,7 @@
               "type": "title",
               "text": "Eşik düştü.",
               "sub": "Sepet büyüdü mü?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Amazon'da ücretsiz kargo için sepetin 49 doları geçmesi gerekiyordu. Ortalama siparişte 3,31 ürün vardı.",
@@ -1041,8 +1009,7 @@
                 "bar": 1
               },
               "caption": "Sipariş başına ürün · 2002"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1050,8 +1017,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Eşik yüksekken insanlar sepeti eşiğe kadar dolduruyordu. Kargo ödememek için bir ürün daha ekliyorlardı.",
@@ -1068,11 +1034,10 @@
               "type": "rule",
               "text": "Her zaman daha çok kâr değil.",
               "strike": "Daha çok satış"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Şu kadar daha ekle kargo bedava, sepetteki eşik çubuğu, ikinci ürüne indirim… hepsi aynı hesap.",
+            "say": "Şu kadar daha ekle kargo bedava, sepetteki eşik çubuğu, ikinci ürüne indirim, hepsi aynı hesap.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -1092,8 +1057,7 @@
               "title": "Kargo bedava olmasına az kaldı",
               "body": "Bir ürün daha ekle.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -1163,8 +1127,7 @@
               "type": "title",
               "text": "Aynı kurabiye.",
               "sub": "Hangisi daha lezzetli?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "1975'te bir deney. Herkese aynı kurabiye veriliyor. Bir grup 10 kurabiyelik kavanozdan alıyor, diğeri 2 kurabiye kalan kavanozdan.",
@@ -1188,8 +1151,7 @@
             "show": {
               "type": "title",
               "text": "Az kalan, daha değerli."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1197,8 +1159,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Kavanoz 10'dan 2'ye düşünce değer daha da artıyor. Hele herkes çok istedi denince.",
@@ -1215,11 +1176,10 @@
               "type": "rule",
               "text": "Algısı daha değerli.",
               "strike": "Tadı daha güzel"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Son birkaç ürün, sınırlı üretim, stokta azaldı etiketi… aynı kavanoz.",
+            "say": "Son birkaç ürün, sınırlı üretim, stokta azaldı etiketi, aynı kavanoz.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -1237,8 +1197,7 @@
               "type": "rule",
               "text": "Gerçek stok bilgisi.",
               "strike": "Sahte kıtlık"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -1309,8 +1268,7 @@
               "type": "title",
               "text": "5 kat pahalı mı?",
               "sub": "Emin misin?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Pazarlamada herkes aynı cümleyi söylüyor: yeni müşteri kazanmak, eskisini tutmaktan 5 kat pahalı.",
@@ -1326,8 +1284,7 @@
               "value": "5–25 kat",
               "label": "yeni müşteri, eskisini tutmaktan pahalı",
               "note": "KAYNAK: HARVARD BUSINESS REVIEW (2014)"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1335,8 +1292,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Yazı bu aralık için tek bir çalışma göstermiyor. Yani 5 kat bir kural değil, aralığın alt ucu.",
@@ -1361,11 +1317,10 @@
               "type": "rule",
               "text": "Ama yön doğru.",
               "strike": "Tek bir sihirli rakam"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Kaynağı belli olmayan istatistikler, sunumlarda dolaşan yuvarlak sayılar… dikkatli bak.",
+            "say": "Kaynağı belli olmayan istatistikler, sunumlarda dolaşan yuvarlak sayılar, dikkatli bak.",
             "show": {
               "type": "chips",
               "title": "Her yerde",
@@ -1385,8 +1340,7 @@
               "title": "Seni özledik",
               "body": "Son aldığın ürünün yenisi geldi.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -1464,8 +1418,7 @@
               "type": "title",
               "text": "Neden bedava?",
               "sub": "Cömertlik değil."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Sephora'dan sipariş verince kutuya ücretsiz numune ekleniyor. Hem de numuneyi sen seçiyorsun.",
@@ -1500,8 +1453,7 @@
                 "bar": 0.85
               },
               "caption": "Satın alınan çekiliş bileti"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1509,8 +1461,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Üstelik o kişiyi sevip sevmemeleri fark etmiyor. Belirleyen, karşılık verme isteği.",
@@ -1527,11 +1478,10 @@
               "type": "rule",
               "text": "Küçük bir borç.",
               "strike": "Bedava"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Kasada ikram edilen kahve, hesaba eklenen tatlı, kargo kutusundaki el yazısı not… hepsi bu.",
+            "say": "Kasada ikram edilen kahve, hesaba eklenen tatlı, kargo kutusundaki el yazısı not, hepsi bu.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -1549,8 +1499,7 @@
               "type": "rule",
               "text": "Ürün ve küçük bir sürpriz.",
               "strike": "Sadece ürün"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -1628,8 +1577,7 @@
               "type": "title",
               "text": "Aynı indirim mi?",
               "sub": "Değil."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Migros Money'nin 2025 sonu itibarıyla 14 milyon aktif üyesi var. Ama herkes aynı kampanyayı görmüyor.",
@@ -1638,8 +1586,7 @@
               "value": "14 milyon",
               "label": "aktif üye · 2025 sonu",
               "note": "KAYNAK: MIGROS 2025 FAALİYET RAPORU"
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1647,8 +1594,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Migros, izin veren üyelerin alışveriş alışkanlıklarına bakıyor. Sonra Tam Bana Göre gibi kişiye özel teklifler sunuyor.",
@@ -1674,11 +1620,10 @@
               "type": "title",
               "text": "Önce izin.",
               "sub": "Sonra kişiselleştirme."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Önerilen ürünler, doğum günü kuponu, sık aldığın ürünün indirimi… hepsi aynı fikir.",
+            "say": "Önerilen ürünler, doğum günü kuponu, sık aldığın ürünün indirimi, hepsi aynı fikir.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -1698,8 +1643,7 @@
               "title": "Kedin için yeni mama",
               "body": "Son aldığın markanın yenisi geldi.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -1779,8 +1723,7 @@
               "type": "title",
               "text": "Reklam yok.",
               "sub": "Nasıl satıyor?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bain'in analizine göre Zara, satışlarının %0,5'inden azını reklama harcıyor. H&M'de bu oran %4.",
@@ -1797,8 +1740,7 @@
                 "bar": 0.12
               },
               "caption": "Satışın reklama giden payı · Bain"
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1806,8 +1748,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Zara'nın reklamı mağazanın kendisi. Mağazalara haftada iki kez yeni ürün geliyor.",
@@ -1830,11 +1771,10 @@
             "show": {
               "type": "title",
               "text": "Sadakat, reklamın yerini tutuyor."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Haftanın yeni ürün günü, sınırlı koleksiyonlar, yeni gelenler sayfası… hepsi aynı ritim.",
+            "say": "Haftanın yeni ürün günü, sınırlı koleksiyonlar, yeni gelenler sayfası, hepsi aynı ritim.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -1854,8 +1794,7 @@
               "title": "Bu haftanın yenileri geldi",
               "body": "Önce sana haber veriyoruz.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -1933,8 +1872,7 @@
               "type": "title",
               "text": "Çıkmak neden kolay?",
               "sub": "Bir sebebi var."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Aboneliğini iptal ettiğinde, dönem sonuna kadar izlemeye devam ediyorsun.",
@@ -1963,8 +1901,7 @@
               "label": "aylık iptal oranı · tahmin",
               "bar": 0.02,
               "note": "KAYNAK: ANTENNA / MEDIAPOST"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -1972,8 +1909,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Ayrılmak kolay. Ama geri dönmek daha da kolay. Kaldığın yerden devam ediyorsun.",
@@ -1988,11 +1924,10 @@
             "show": {
               "type": "title",
               "text": "Kapı açık kalıyor."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Kayıtlı sepet, saklanan tercihler, tek tıkla yeniden üyelik… kapıyı açık bırakmak bu.",
+            "say": "Kayıtlı sepet, saklanan tercihler, tek tıkla yeniden üyelik, kapıyı açık bırakmak bu.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -2012,8 +1947,7 @@
               "title": "Tekrar hoş geldin",
               "body": "Sepetin ve beden bilgin seni bekliyor.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -2130,8 +2064,7 @@
               "type": "title",
               "text": "Neden sen kuruyorsun?",
               "sub": "Tembellik değil."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir deney. İnsanlar basit bir IKEA kutusunu ya kendileri kuruyor, ya da kurulmuş hâlini görüyor.",
@@ -2158,8 +2091,7 @@
               "label": "daha fazla ödeme isteği",
               "bar": 0.63,
               "note": "NORTON, MOCHON & ARIELY (2012)"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2167,8 +2099,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Emek verdiğin şeye daha çok değer biçiyorsun. Buna IKEA etkisi deniyor.",
@@ -2185,11 +2116,10 @@
               "total": 6,
               "filled": 6,
               "label": "Tamamlanan iş"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Kendi tasarladığın ürün, kendi kurduğun profil, adım adım kurulan uygulama… hepsi aynı his.",
+            "say": "Kendi tasarladığın ürün, kendi kurduğun profil, adım adım kurulan uygulama, hepsi aynı his.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -2209,8 +2139,7 @@
               "title": "Kutunu kişiselleştir",
               "body": "İsmini ekle, rengini seç.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -2289,8 +2218,7 @@
               "type": "title",
               "text": "Sepeti bıraktın.",
               "sub": "Mağaza ne görüyor?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "50 çalışmanın ortalamasına göre, online sepetlerin yaklaşık %70'i ödemeye hiç ulaşmıyor.",
@@ -2307,8 +2235,7 @@
             "show": {
               "type": "title",
               "text": "Karar vermek üzereydi."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2316,8 +2243,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Bir saha deneyinde hatırlatma reklamlarının ilk haftalık etkisinin yarısı, ilk iki gün içinde görüldü.",
@@ -2335,11 +2261,10 @@
               "type": "rule",
               "text": "Bugün hatırlat.",
               "strike": "Yarın hatırlatırım"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Sepette ürün kaldı, fiyatı düştü, stoğu azaldı… bunların hepsi zamanla yarışıyor.",
+            "say": "Sepette ürün kaldı, fiyatı düştü, stoğu azaldı, bunların hepsi zamanla yarışıyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -2359,8 +2284,7 @@
               "title": "Sepetinde bir şey unuttun",
               "body": "Beğendiğin ürün hâlâ seni bekliyor.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -2450,11 +2374,10 @@
               "type": "title",
               "text": "Bu listede bir tuzak var.",
               "sub": "Bulabilir misin?"
-            },
-            "pause": 0.8
+            }
           },
           {
-            "say": "Bir dergi üç abonelik sunuyor. Dijital, 59 dolar. Basılı, 125 dolar. Basılı artı dijital… yine 125 dolar.",
+            "say": "Bir dergi üç abonelik sunuyor. Dijital, 59 dolar. Basılı, 125 dolar. Basılı artı dijital, yine 125 dolar.",
             "show": {
               "type": "chips",
               "title": "Abonelik",
@@ -2463,8 +2386,7 @@
                 "Basılı · 125 dolar",
                 "Basılı + dijital · 125 dolar"
               ]
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Dan Ariely bunu 100 öğrenciye sordu.",
@@ -2475,14 +2397,13 @@
             }
           },
           {
-            "say": "84'ü pahalı paketi seçti. Sadece basılıyı seçen… hiç kimse.",
+            "say": "84'ü pahalı paketi seçti. Sadece basılıyı seçen, hiç kimse.",
             "show": {
               "type": "stat",
               "value": "84/100",
               "label": "basılı + dijital paketi seçti",
               "note": "KAYNAK: ARIELY (2008)"
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2490,8 +2411,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.4
+            "mode": "xray"
           },
           {
             "say": "Sonra kimsenin seçmediği o satırı sildi.",
@@ -2517,8 +2437,7 @@
                 "bar": 0.32
               },
               "caption": "Pahalı paketi seçen · 100 kişide"
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "O satır satılmak için orada değildi. Yanındaki paketi fırsat gibi göstermek için oradaydı.",
@@ -2526,8 +2445,7 @@
               "type": "rule",
               "strike": "Satmak için",
               "text": "Kıyas için orada."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Tuzak buydu: kimsenin almadığı seçenek.",
@@ -2535,8 +2453,7 @@
               "type": "title",
               "text": "Tuzak:",
               "sub": "kimsenin almadığı seçenek."
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
@@ -2620,8 +2537,7 @@
               "type": "title",
               "text": "44 mü, 49 mu?",
               "sub": "Hangisi daha çok sattı?"
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Bir giyim kataloğu. Aynı elbise, üç ayrı baskıda, üç ayrı fiyatla.",
@@ -2645,11 +2561,10 @@
                 "49 dolar",
                 "54 dolar"
               ]
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "44 ile 54 neredeyse aynı satıyor. Ama 49… ikisinden de belirgin şekilde fazla.",
+            "say": "44 ile 54 neredeyse aynı satıyor. Ama 49, ikisinden de belirgin şekilde fazla.",
             "show": {
               "type": "compare",
               "left": {
@@ -2663,8 +2578,7 @@
                 "bar": 1
               },
               "caption": "Hangisi daha çok sattı?"
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Araştırmacılar bunu üç ayrı deneyde denedi. Üçünde de 9'la biten fiyat kazandı.",
@@ -2673,8 +2587,7 @@
               "total": 3,
               "filled": 3,
               "label": "Üç deneyin üçü"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2682,7 +2595,6 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "pause": 0.3,
             "mode": "xray"
           },
           {
@@ -2701,7 +2613,6 @@
               },
               "caption": "Fark bir kuruş"
             },
-            "pause": 0.5,
             "mode": "light"
           },
           {
@@ -2710,8 +2621,7 @@
               "type": "rule",
               "strike": "Normal fiyat",
               "text": "İndirimdeymiş gibi."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Bir ürün grubunda fiyatları 9'la bitir. İki hafta satışlara bak.",
@@ -2721,8 +2631,7 @@
               "title": "Fiyat testi",
               "body": "Bir ürün grubu, iki hafta.",
               "time": "09:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz.",
@@ -2802,8 +2711,7 @@
               "type": "title",
               "text": "24 mü, 6 mı?",
               "sub": "Tahmin et."
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Bir markette tadım standı kuruluyor. Bir gün masada 24 çeşit reçel var.",
@@ -2814,13 +2722,12 @@
             }
           },
           {
-            "say": "Başka bir gün… sadece 6.",
+            "say": "Başka bir gün, sadece 6.",
             "show": {
               "type": "stat",
               "value": "6",
               "label": "çeşit reçel"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Kalabalık masa daha çok dikkat çekiyor: geçenlerin %60'ı duruyor. Sadede %40.",
@@ -2837,11 +2744,10 @@
                 "bar": 0.4
               },
               "caption": "Duranlar"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Ama kasada tablo dönüyor. 6 çeşitte duranların yaklaşık %30'u alıyor. 24 çeşitte… sadece %3.",
+            "say": "Ama kasada tablo dönüyor. 6 çeşitte duranların yaklaşık %30'u alıyor. 24 çeşitte, sadece %3.",
             "show": {
               "type": "compare",
               "left": {
@@ -2855,8 +2761,7 @@
                 "bar": 1
               },
               "caption": "Satın alanlar"
-            },
-            "pause": 0.8
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -2864,7 +2769,6 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "pause": 0.3,
             "mode": "xray"
           },
           {
@@ -2875,7 +2779,6 @@
               "light": "Bakmak",
               "caption": "Çok seçenek, ağır karar"
             },
-            "pause": 0.5,
             "mode": "light"
           },
           {
@@ -2884,8 +2787,7 @@
               "type": "rule",
               "strike": "Çok çeşit, çok satış",
               "text": "Kolay karar, çok satış."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Kategori sayfanın başında her şeyi değil, öne çıkan üç ürünü göster.",
@@ -2895,8 +2797,7 @@
               "title": "En çok satan 3 ürün",
               "body": "Kararsız kalanlar için seçtik.",
               "time": "11:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktik bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -2975,8 +2876,7 @@
               "type": "title",
               "text": "Bir sent.",
               "sub": "Her şey değişti."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir masa. Bir yanda Lindt trüf, 15 sent. Öbür yanda küçük bir Hershey's şekeri, 1 sent.",
@@ -3006,7 +2906,7 @@
             }
           },
           {
-            "say": "Sonra ikisini de 1 sent indiriyor. Lindt 14 sent, şeker bedava. Fark aynı… ama Lindt'i seçenler %31'e düşüyor.",
+            "say": "Sonra ikisini de 1 sent indiriyor. Lindt 14 sent, şeker bedava. Fark aynı, ama Lindt'i seçenler %31'e düşüyor.",
             "show": {
               "type": "compare",
               "left": {
@@ -3020,8 +2920,7 @@
                 "bar": 0.31
               },
               "caption": "Lindt'i seçenler"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -3029,8 +2928,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Bedava, ucuzun bir adım ötesi değil. Bambaşka bir duygu. Kaybedecek hiçbir şey yokmuş gibi.",
@@ -3038,11 +2936,10 @@
               "type": "rule",
               "strike": "Biraz daha ucuz",
               "text": "Bedava bambaşka."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Bedava kargo, bedava deneme, yanında bedava hediye… hepsi bu duyguya oynuyor.",
+            "say": "Bedava kargo, bedava deneme, yanında bedava hediye, hepsi bu duyguya oynuyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3062,8 +2959,7 @@
               "title": "Hediyen sepette 🎁",
               "body": "Sepetin hediye eşiğini geçti.",
               "time": "14:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -3134,8 +3030,7 @@
               "type": "title",
               "text": "Bu çark…",
               "sub": "tahminini değiştirecek."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir deney. Önünde bir çark dönüyor. Bazılarında 10'da duruyor, bazılarında 65'te.",
@@ -3179,8 +3074,7 @@
                 "bar": 0.45
               },
               "caption": "Ortanca tahmin · 1974"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -3188,8 +3082,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Buna çapalama deniyor. İlk gördüğün sayı aklına bir çapa atıyor. Sonraki her tahmin onun etrafında dolaşıyor.",
@@ -3197,11 +3090,10 @@
               "type": "rule",
               "strike": "Kendi tahminim",
               "text": "İlk sayının etrafında."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Menünün başındaki pahalı yemek, üstü çizili fiyat, önce gösterilen büyük paket… hepsi çapa.",
+            "say": "Menünün başındaki pahalı yemek, üstü çizili fiyat, önce gösterilen büyük paket, hepsi çapa.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3221,8 +3113,7 @@
               "title": "Üçlü set",
               "body": "Önce set, sonra tekli seçenek.",
               "time": "12:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -3309,8 +3200,7 @@
               "type": "title",
               "text": "Aynı bilet.",
               "sub": "Neden iki kat?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "MIT'de bir açık artırma. Ödül, bir basketbol maçına bilet. Yarısına nakit ödeyeceksiniz deniyor, yarısına kartla.",
@@ -3324,7 +3214,7 @@
             }
           },
           {
-            "say": "Nakit grubunun ortalama teklifi 29 dolar. Kart grubununki 61 dolar. Aynı bilet… iki katından fazla.",
+            "say": "Nakit grubunun ortalama teklifi 29 dolar. Kart grubununki 61 dolar. Aynı bilet, iki katından fazla.",
             "show": {
               "type": "compare",
               "left": {
@@ -3338,8 +3228,7 @@
                 "bar": 1
               },
               "caption": "Ortalama teklif · 2001"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Türkiye'de bunun bir adı var: taksit. Kartla yapılan e-ticaret harcamasında taksitin payı %34,4.",
@@ -3357,8 +3246,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Para elden çıkarken bir tür acı hissediyoruz. Nakit bunu tam o anda yaşatıyor. Kart ve taksit, acıyı uzaklaştırıyor.",
@@ -3367,11 +3255,10 @@
               "heavy": "Nakit",
               "light": "Kart",
               "caption": "Aynı tutar, farklı acı"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Tek tıkla ödeme, kayıtlı kart, şimdi al sonra öde… hepsi acıyı azaltıyor.",
+            "say": "Tek tıkla ödeme, kayıtlı kart, şimdi al sonra öde, hepsi acıyı azaltıyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3391,8 +3278,7 @@
               "title": "Taksit seçenekleri",
               "body": "Fiyatın hemen altında, toplamıyla.",
               "time": "13:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -3470,8 +3356,7 @@
               "type": "title",
               "text": "Bir şey eksik.",
               "sub": "Fark ettin mi?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "2016. İngiltere'de biri Toblerone kutusunu açıyor. Kutu aynı boy. Ama üçgenlerin arası açılmış.",
@@ -3497,8 +3382,7 @@
                 "bar": 0.88
               },
               "caption": "Toblerone · İngiltere"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Şirket nedenini açıkladı: hammadde maliyetleri artmış. Fiyatı artırmak yerine çikolatayı azaltmışlar. Tepki büyük oldu.",
@@ -3516,8 +3400,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Fiyat artışı etikette görünüyor. Gramaj ise ilk bakışta görünmüyor. Ama müşteri bir kere fark edince, artık sana bakıyor.",
@@ -3525,11 +3408,10 @@
               "type": "rule",
               "strike": "Fark edilmez",
               "text": "Fark edilince güven gider."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Küçülen cips paketi, azalan deterjan, aynı fiyata daha az kahve… hepsi fark ediliyor.",
+            "say": "Küçülen cips paketi, azalan deterjan, aynı fiyata daha az kahve, hepsi fark ediliyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3549,8 +3431,7 @@
               "title": "Fiyatlarımız değişiyor",
               "body": "Nedenini kısaca anlatmak istedik.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -3621,8 +3502,7 @@
               "type": "title",
               "text": "Bu kupa kaç para?",
               "sub": "Kime göre?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir sınıf. Öğrencilerin yarısına üniversite logolu bir kupa veriliyor. Diğer yarısına hiçbir şey.",
@@ -3645,7 +3525,7 @@
             }
           },
           {
-            "say": "Kupası olmayanlar ise aynı kupaya ortanca 2,87 dolar vermeye razı. Aynı kupa… iki buçuk kat fark.",
+            "say": "Kupası olmayanlar ise aynı kupaya ortanca 2,87 dolar vermeye razı. Aynı kupa, iki buçuk kat fark.",
             "show": {
               "type": "compare",
               "left": {
@@ -3659,8 +3539,7 @@
                 "bar": 1
               },
               "caption": "Ortanca fiyat"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -3668,8 +3547,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Buna sahiplik etkisi deniyor. Bir şey senin olunca, ondan vazgeçmek kayıp gibi geliyor.",
@@ -3678,11 +3556,10 @@
               "heavy": "Vazgeçmek",
               "light": "Almak",
               "caption": "Aynı kupa, farklı ağırlık"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Ücretsiz deneme, evde dene beğenmezsen iade et, test sürüşü… hepsi önce eline veriyor.",
+            "say": "Ücretsiz deneme, evde dene beğenmezsen iade et, test sürüşü, hepsi önce eline veriyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3702,8 +3579,7 @@
               "title": "Evde dene",
               "body": "Beğenmezsen kolay iade.",
               "time": "11:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -3782,8 +3658,7 @@
               "type": "title",
               "text": "Tek bir kutucuk.",
               "sub": "Kararını değiştiriyor."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir çevrim içi deney. İnsanlara organ bağışçısı olmak isteyip istemedikleri soruluyor. Tek fark, formun nasıl başladığı.",
@@ -3811,8 +3686,7 @@
                 "bar": 0.82
               },
               "caption": "Kabul edenler · 2003"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Ülkelerde fark daha da büyük. Almanya'da etkin onay %12. Komşusu Avusturya'da %99,98.",
@@ -3837,8 +3711,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "İnsanlar çoğu zaman seçmiyor, olduğu yerde kalıyor. Varsayılan da önerilen seçenek gibi görünüyor.",
@@ -3846,11 +3719,10 @@
               "type": "rule",
               "strike": "Herkes seçer",
               "text": "Çoğu kişi varsayılanda kalır."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Açık gelen bildirimler, otomatik yenilenen abonelik, hazır seçili kargo… hepsi varsayılan.",
+            "say": "Açık gelen bildirimler, otomatik yenilenen abonelik, hazır seçili kargo, hepsi varsayılan.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -3870,8 +3742,7 @@
               "title": "Teslimat bildirimi açık",
               "body": "Pazarlama izni: senin seçimin.",
               "time": "15:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -3949,8 +3820,7 @@
               "type": "title",
               "text": "2 mi, 2,1 mi?",
               "sub": "Hangisini ödersin?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Yağmurlu bir akşam. Uygulamayı açıyorsun. Fiyat normalin iki katı.",
@@ -3986,8 +3856,7 @@
               "value": "6 kat",
               "label": "yuvarlak 2'de daha büyük düşüş",
               "note": "KAYNAK: NPR HIDDEN BRAIN (2016)"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -3995,8 +3864,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Yuvarlak sayı, biri oturup uydurmuş gibi geliyor. Kesin sayı ise bir hesabın sonucu gibi.",
@@ -4004,8 +3872,7 @@
               "type": "rule",
               "strike": "Biri uydurdu",
               "text": "Bir hesap yaptı."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Emlakta da benzeri bulundu. Liste fiyatı daha kesin olan evler, daha yüksek fiyata satıldı.",
@@ -4028,8 +3895,7 @@
               "title": "Kargo ücreti nasıl hesaplanıyor?",
               "body": "Paket ağırlığı ve mesafeye göre.",
               "time": "12:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -4107,8 +3973,7 @@
               "type": "title",
               "text": "Neden direkt orası?",
               "sub": "Cevap kargoda değil."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Üç ayrı sitede aynı ürün var. Ama sen direkt birini açıyorsun.",
@@ -4139,8 +4004,7 @@
               "value": "%36",
               "label": "daha sık sipariş · üyelik öncesine göre",
               "note": "KAYNAK: HEPSİBURADA 2024 2. ÇEYREK"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4148,8 +4012,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Üyelik hep şunu sorduruyor: parasını verdim, kullanmayacak mıyım? Buna batık maliyet deniyor.",
@@ -4157,8 +4020,7 @@
               "type": "rule",
               "strike": "En ucuzu bul",
               "text": "Üyeliğini değerlendir."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Program da büyüyor. 2023 sonunda 2,2 milyon üye vardı, 2024 sonunda 3,7 milyon.",
@@ -4185,8 +4047,7 @@
               "title": "Sadık müşteri kulübü",
               "body": "Sık alanlara özel avantaj.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -4271,8 +4132,7 @@
               "type": "title",
               "text": "Aynı süre.",
               "sub": "Neden daha kısa?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Pizza sipariş ettin. Yirmi dakika geçti. Hazır mı, yolda mı, unuttular mı? Bilmiyorsun.",
@@ -4304,8 +4164,7 @@
               "filled": 3,
               "label": "Fırında",
               "highlight": 3
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4313,8 +4172,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Bekleme süresi değişmiyor. Ama belirsizlik bitiyor. Her adım, birinin senin için çalıştığını gösteriyor.",
@@ -4322,8 +4180,7 @@
               "type": "rule",
               "strike": "Ne zaman gelecek?",
               "text": "Şu an fırında."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Bugün Domino's'un Amerika'daki satışlarının %85'inden fazlası dijital kanallardan geliyor.",
@@ -4344,8 +4201,7 @@
               "title": "Siparişin kargoda 📦",
               "body": "Yarın kapında olacak.",
               "time": "16:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -4416,8 +4272,7 @@
               "type": "title",
               "text": "Daha uzun acı.",
               "sub": "Neden seçtiler?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir deney. Elini 60 saniye boyunca 14 derecelik buz gibi suya sokuyorsun.",
@@ -4452,8 +4307,7 @@
               "label": "uzun denemeyi seçti",
               "bar": 0.69,
               "note": "KAYNAK: KAHNEMAN VE ARK. (1993)"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4461,8 +4315,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Çünkü hafıza süreyi tutmuyor. En yoğun anı ve sonu tutuyor. Son biraz daha az acıtınca, her şey daha iyi hatırlanıyor.",
@@ -4470,8 +4323,7 @@
               "type": "rule",
               "strike": "Toplam süre",
               "text": "En yoğun an ve son."
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Alışverişte son an ne? Paketi açtığın an. Teslimattan sonraki ilk mesaj.",
@@ -4494,8 +4346,7 @@
               "title": "Paketin ulaştı mı? 💛",
               "body": "Bizi seçtiğin için teşekkürler.",
               "time": "18:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -4566,8 +4417,7 @@
               "type": "title",
               "text": "Hangisini açarsın?",
               "sub": "Tek kelime."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Sabah gelen kutun açık. Yirmi tane e-posta. Hepsi aynı: Fırsatları kaçırma.",
@@ -4606,8 +4456,7 @@
                 "bar": 1
               },
               "caption": "Açılma oranı · 2018"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4615,8 +4464,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Aynı deneyde satış fırsatları %31 arttı. Abonelikten çıkanlar da %17 azaldı.",
@@ -4642,8 +4490,7 @@
               "strike": "Herkese",
               "text": "Sana yazıldı."
             },
-            "mode": "light",
-            "pause": 0.5
+            "mode": "light"
           },
           {
             "say": "Konu satırına müşterinin adını ekle. Ama sadece izin aldığın ve adını doğru kaydettiğin müşterilerde.",
@@ -4653,8 +4500,7 @@
               "title": "Mehmet, sepetin seni bekliyor",
               "body": "İzinli müşterilere, doğru isimle.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -4732,8 +4578,7 @@
               "type": "title",
               "text": "Bir cümle.",
               "sub": "Hangisi?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir otel odası. Banyoda küçük bir kart: Çevreyi koruyun, havlunuzu tekrar kullanın.",
@@ -4770,8 +4615,7 @@
                 "bar": 0.44
               },
               "caption": "Havlusunu tekrar kullanan"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4779,8 +4623,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Ne yapacağımızı bilmediğimizde başkalarına bakıyoruz. Buna sosyal kanıt deniyor. Benim gibiler böyle yapıyorsa, doğrusu bu.",
@@ -4788,11 +4631,10 @@
               "type": "rule",
               "strike": "Doğrusu bu",
               "text": "Herkes böyle yapıyor."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "En çok satan etiketi, bu hafta yüz kişi aldı, yüksek puanlı yorumlar… hepsi sosyal kanıt.",
+            "say": "En çok satan etiketi, bu hafta yüz kişi aldı, yüksek puanlı yorumlar, hepsi sosyal kanıt.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -4812,8 +4654,7 @@
               "title": "En çok tercih edilen",
               "body": "Gerçek ve güncel rakamlarla.",
               "time": "12:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
@@ -4890,8 +4731,7 @@
               "type": "title",
               "text": "5 mi, 1 mi?",
               "sub": "Hangisi daha etkili?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "İki büyük kitap sitesi. Aynı kitap ikisinde de satılıyor. Ama yorumlar farklı.",
@@ -4927,8 +4767,7 @@
                 "bar": 0.55
               },
               "caption": "Yorumların dağılımı"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -4936,8 +4775,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Az olmasına rağmen, çoğu örneklemde tek bir 1 yıldızlı yorumun etkisi, 5 yıldızlıdan büyük çıkıyor.",
@@ -4946,8 +4784,7 @@
               "heavy": "1 yıldız",
               "light": "5 yıldız",
               "caption": "Az ama ağır"
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Bir de şu var: müşteriler sadece yıldıza bakmıyor. Yorumu okuyor.",
@@ -4968,8 +4805,7 @@
               "title": "Yorumuna cevap verdik",
               "body": "Yaşadığın sorunu çözmek istiyoruz.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
@@ -5046,8 +4882,7 @@
               "type": "title",
               "text": "Her hafta indirim mi?",
               "sub": "Bunu bir dinle."
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Bir mağaza düşün. Her hafta bir kampanya. Bu hafta yüzde yirmi, gelecek hafta yüzde otuz.",
@@ -5069,8 +4904,7 @@
               "title": "Bekleyeyim",
               "body": "Nasılsa yine indirime girer.",
               "time": "20:00"
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "Araştırmalar da bunu gösteriyor. İndirimin sıklığı ve derinliği, aklındaki normal fiyatı aşağı çekiyor.",
@@ -5086,8 +4920,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Bir de ters etki var: hiç indirim yapmayan marka birden indirime girerse, akla şüphe düşebiliyor.",
@@ -5096,11 +4929,10 @@
               "heavy": "Şüphe",
               "light": "Fırsat",
               "caption": "Beklenmedik indirim"
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Bitmeyen kampanyalar… müşteri bunu öğreniyor.",
+            "say": "Bitmeyen kampanyalar, müşteri bunu öğreniyor.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -5119,8 +4951,7 @@
               "title": "Yeni sezona erken erişim",
               "body": "Sadece sadık müşterilerimize.",
               "time": "10:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
@@ -5198,8 +5029,7 @@
               "type": "title",
               "text": "Aynı fiyat.",
               "sub": "Neden sence?"
-            },
-            "pause": 0.6
+            }
           },
           {
             "say": "Dev bir depo market. Alışveriş bitiyor, çıkışta bir büfe. Sosisli ve içecek, 1,50 dolar.",
@@ -5225,8 +5055,7 @@
                 "bar": 1
               },
               "caption": "Sosisli menü"
-            },
-            "pause": 0.5
+            }
           },
           {
             "say": "2024'te bir söylenti çıktı: fiyat artacak. Şirketin finans direktörü yatırımcılara açıkça söyledi: fiyat güvende.",
@@ -5244,8 +5073,7 @@
               "type": "xray",
               "text": "Röntgen"
             },
-            "mode": "xray",
-            "pause": 0.3
+            "mode": "xray"
           },
           {
             "say": "Uzmanlara göre bu bir zarar lideri. Sosisli kâr getirmiyor. Ama müşteriye bir şey söylüyor: burada fiyatlar adil.",
@@ -5253,11 +5081,10 @@
               "type": "rule",
               "strike": "Kâr",
               "text": "Burada fiyatlar adil."
-            },
-            "pause": 0.5
+            }
           },
           {
-            "say": "Kafede sabit fiyatlı çay, markette hep ucuz ekmek… her mağazanın bir imza ürünü olabilir.",
+            "say": "Kafede sabit fiyatlı çay, markette hep ucuz ekmek, her mağazanın bir imza ürünü olabilir.",
             "show": {
               "type": "chips",
               "title": "Her yerde var",
@@ -5277,8 +5104,7 @@
               "title": "İmza ürünümüz",
               "body": "Fiyatı sabit, sözümüz sabit.",
               "time": "11:00"
-            },
-            "pause": 0.4
+            }
           },
           {
             "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
