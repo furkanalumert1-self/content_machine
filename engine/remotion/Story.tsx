@@ -356,13 +356,27 @@ function BeatView({ scene, channel, icon }: { scene: StoryScene; channel: string
   }
 }
 
-function SceneFrame({ scene, channel, icon }: { scene: StoryScene; channel: string; icon?: CoverIcon }) {
+/**
+ * Sabit başlık bandı (rakip analizi 10.11: en çok izlenen Türkçe Reels'ler videonun başından sonuna aynı başlığı üstte tutuyor,
+ * ör. "Kafeler Bu Yüzden Batıyor 👇"). Kancadan sonra kapanışa kadar görünür; sonradan katılan izleyici konuyu anlar.
+ */
+function HeadlineBar({ text }: { text: string }) {
+  return (
+    <div style={{ position: 'absolute', top: 255, left: SAFE.left, right: W - SAFE.right, display: 'flex', justifyContent: 'center' }}>
+      <div style={{ background: '#151515', color: '#fff', borderRadius: 18, padding: '16px 30px', fontFamily: FONT.sans, fontWeight: 800, fontSize: 46, lineHeight: 1.1, textAlign: 'center', letterSpacing: -0.5 }}>
+        {text} <span style={{ color: C.light.accent }}>👇</span>
+      </div>
+    </div>
+  );
+}
+
+function SceneFrame({ scene, channel, icon, bar }: { scene: StoryScene; channel: string; icon?: CoverIcon; bar?: boolean }) {
   const f = useCurrentFrame();
   const out = scene.show.type === 'outro' ? 1 : interpolate(f, [scene.frames - 5, scene.frames], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
     <AbsoluteFill>
       <Backdrop mode={scene.mode} />
-      <div style={{ position: 'absolute', left: SAFE.left, right: W - SAFE.right, top: 280, height: 1030, display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: out }}>
+      <div style={{ position: 'absolute', left: SAFE.left, right: W - SAFE.right, top: bar ? 400 : 280, height: bar ? 910 : 1030, display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: out }}>
         {/* İçerik sıkıştırılmaz: sığmazsa metin taşması kontrolü yakalar. */}
         <SettleCtx.Provider value={Math.min(SETTLE, scene.frames - 2)}>
           <div style={{ flexShrink: 0 }}><BeatView scene={scene} channel={channel} icon={icon} /></div>
@@ -384,8 +398,16 @@ function Chrome({ script }: { script: StoryScript }) {
   );
 }
 
+function HeadlineSpan({ script, text }: { script: StoryScript; text: string }) {
+  const t = useCurrentFrame() / FPS;
+  const scene = script.scenes.find((s) => t >= s.start && t < s.start + s.duration) ?? script.scenes.at(-1)!;
+  if (scene.id === 's0' || scene.show.type === 'outro') return null;
+  return <HeadlineBar text={text} />;
+}
+
 export function Story({ script }: StoryProps) {
   const World = script.world ? WORLDS[script.world] : undefined;
+  const headline = script.headline ?? (script.cover ? `${script.cover.line1} ${script.cover.line2}` : '');
   if (script.world && !World) throw new Error(`Çizim dünyası bulunamadı: ${script.world}`);
   return (
     <AbsoluteFill style={{ width: W, height: H, background: C.light.bg }}>
@@ -399,10 +421,11 @@ export function Story({ script }: StoryProps) {
         </>
       ) : script.scenes.map((s) => (
         <Sequence key={s.id} from={Math.round(s.start * FPS)} durationInFrames={s.frames} layout="none">
-          <SceneFrame scene={s} channel={script.channel} icon={script.cover?.icon} />
+          <SceneFrame scene={s} channel={script.channel} icon={script.cover?.icon} bar={!!headline && s.id !== 's0' && s.show.type !== 'outro'} />
         </Sequence>
       ))}
       <Chrome script={script} />
+      {!World && headline && <HeadlineSpan script={script} text={headline} />}
       {script.audio_src && <Audio src={script.audio_src} />}
     </AbsoluteFill>
   );

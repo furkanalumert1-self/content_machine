@@ -58,6 +58,7 @@ export function planStory(topic: Topic, caseNo: number, contentType: ContentType
     funnel: topic.funnel,
     cover: coverSpec(topic.cover),
     ...(topic.story!.world ? { world: topic.story!.world } : {}),
+    ...(topic.story!.headline ? { headline: topic.story!.headline } : {}),
   };
 }
 

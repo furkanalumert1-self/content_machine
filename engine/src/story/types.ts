@@ -65,6 +65,8 @@ export interface StoryScript {
   /** Reels kapağı tanımı (konu bankasından) ve üretilen kapağın depolama yolu. */
   cover?: import('../../remotion/Cover.tsx').CoverSpec;
   cover_path?: string;
+  /** Sabit başlık bandı metni. */
+  headline?: string;
   /** Özel çizim dünyası (remotion/worlds); yoksa kart beat'leri çizilir. */
   world?: string;
 }

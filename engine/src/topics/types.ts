@@ -51,6 +51,8 @@ export interface Topic {
     label: string;
     /** Anlatı kalıbı (Animasyon Sistemi): masal, neden (bu neden var?), olay (gerçek olay), karar (sen karar ver), rontgen (klasik). */
     pattern?: 'masal' | 'neden' | 'olay' | 'karar' | 'rontgen';
+    /** Videonun üstünde baştan sona duran başlık bandı (≤7 kelime, marka önde). */
+    headline?: string;
     /** Özel çizim dünyası (engine/remotion/worlds). */
     world?: string;
     /** Ses modeli (varsayılan VOICE_MODEL); eleven_v4 [ton] etiketlerini destekler. */

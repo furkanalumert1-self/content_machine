@@ -145,7 +145,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Sadakat kartı bu yüzden dolmuyor"
       }
     },
     {
@@ -318,7 +319,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Duolingo seni böyle bırakmıyor"
       }
     },
     {
@@ -471,7 +473,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Kayıp müşteri kaç ayda gider?"
       }
     },
     {
@@ -616,7 +619,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Amazon Prime'ın asıl hilesi"
       }
     },
     {
@@ -764,7 +768,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Starbucks yıldızlarının sırrı"
       }
     },
     {
@@ -915,7 +920,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Spotify Wrapped neden bu kadar yayılıyor?"
       }
     },
     {
@@ -1068,7 +1074,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Ücretsiz kargo eşiğinin sırrı"
       }
     },
     {
@@ -1208,7 +1215,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Son 2 ürün neden daha çok satar?"
       }
     },
     {
@@ -1351,7 +1359,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "5 kat pahalı efsanesi"
       }
     },
     {
@@ -1510,7 +1519,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Sephora numuneyi neden bedava veriyor?"
       }
     },
     {
@@ -1654,7 +1664,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Migros indirimleri herkese aynı mı?"
       }
     },
     {
@@ -1805,7 +1816,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Zara reklamsız nasıl satıyor?"
       }
     },
     {
@@ -1958,7 +1970,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Netflix çıkışı neden bu kadar kolay?"
       }
     },
     {
@@ -2150,7 +2163,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "IKEA montajı bu yüzden sana bırakıyor"
       }
     },
     {
@@ -2295,7 +2309,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Terk edilen sepeti böyle geri al"
       }
     },
     {
@@ -2463,7 +2478,8 @@
               "cta": "Yorumlara REHBER yaz"
             }
           }
-        ]
+        ],
+        "headline": "Bu fiyat listesinde tuzak var"
       }
     },
     {
@@ -2644,7 +2660,8 @@
         ],
         "voice_model": "eleven_v4",
         "pattern": "olay",
-        "world": "fiyat9"
+        "world": "fiyat9",
+        "headline": "Fiyatlar neden 9'la biter?"
       }
     },
     {
@@ -2810,7 +2827,8 @@
         ],
         "voice_model": "eleven_v4",
         "pattern": "olay",
-        "world": "recel"
+        "world": "recel",
+        "headline": "Çok çeşit satışı öldürür mü?"
       }
     },
     {
@@ -2970,7 +2988,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Bedava kelimesinin gücü"
       }
     },
     {
@@ -3124,7 +3143,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "İlk gördüğün fiyat seni yönetir"
       }
     },
     {
@@ -3289,7 +3309,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Kartla neden daha çok harcıyoruz?"
       }
     },
     {
@@ -3442,7 +3463,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Toblerone'da eksik olan ne?"
       }
     },
     {
@@ -3590,7 +3612,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Senin olan şey neden daha değerli?"
       }
     },
     {
@@ -3753,7 +3776,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "İşaretli kutucuğun gücü"
       }
     },
     {
@@ -3906,7 +3930,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Uber neden 2,1 kat zam yazıyor?"
       }
     },
     {
@@ -4058,7 +4083,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Hepsiburada Premium'un asıl işi"
       }
     },
     {
@@ -4212,7 +4238,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Domino's beklemeyi nasıl kısalttı?"
       }
     },
     {
@@ -4357,7 +4384,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Müşteri sonunu hatırlar"
       }
     },
     {
@@ -4511,7 +4539,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "E-postayı açtıran tek kelime"
       }
     },
     {
@@ -4665,7 +4694,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Oteller bu cümleyle ikna ediyor"
       }
     },
     {
@@ -4816,7 +4846,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Tek yıldızlı yorumun gücü"
       }
     },
     {
@@ -4962,7 +4993,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Sürekli indirim markanı öldürür"
       }
     },
     {
@@ -5115,7 +5147,8 @@
             }
           }
         ],
-        "voice_model": "eleven_v4"
+        "voice_model": "eleven_v4",
+        "headline": "Costco sosisliyi neden zamlamıyor?"
       }
     }
   ]
