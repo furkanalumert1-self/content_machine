@@ -7337,9 +7337,9 @@
           {
             "say": "Red Bull'un kendi hesabına göre toplamda 9,5 milyon kişi canlı izledi. Kutuyu kimse göstermedi, herkes markayı konuştu.",
             "show": {
-              "type": "counter",
-              "value": 9.5,
-              "label": "milyon canlı izleyici · Red Bull'a göre"
+              "type": "stat",
+              "value": "9,5 milyon",
+              "label": "canlı izleyici · Red Bull'a göre"
             }
           },
           {
