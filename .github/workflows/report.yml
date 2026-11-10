@@ -1,0 +1,29 @@
+# Elle çalıştırılır: son N günün yayınları ve en son metrikleri (salt okuma).
+name: Performans raporu
+
+on:
+  workflow_dispatch:
+    inputs:
+      gun:
+        description: 'Kaç günlük'
+        type: string
+        default: '14'
+
+jobs:
+  report:
+    if: vars.AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup
+      - name: Rapor
+        env:
+          GUN: ${{ inputs.gun }}
+        run: npx tsx src/jobs/report.ts "$GUN"
