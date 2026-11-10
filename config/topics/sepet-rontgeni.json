@@ -137,11 +137,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -311,11 +311,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -465,11 +465,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -611,11 +611,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -760,11 +760,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -912,11 +912,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1066,11 +1066,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1207,11 +1207,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1351,11 +1351,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1511,11 +1511,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1656,11 +1656,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1808,11 +1808,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -1962,11 +1962,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2155,11 +2155,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2301,11 +2301,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 1,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2471,11 +2471,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği PDF yaptım. Yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2650,11 +2650,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2817,11 +2817,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktik bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -2980,11 +2980,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3135,11 +3135,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3301,11 +3301,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3455,11 +3455,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3604,11 +3604,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3768,11 +3768,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -3922,11 +3922,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4075,11 +4075,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4230,11 +4230,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4376,11 +4376,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4531,11 +4531,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4686,11 +4686,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4838,11 +4838,11 @@
             }
           },
           {
-            "say": "25 taktiklik rehberi isteyen, yorumlara REHBER yazsın. DM'den atıyorum.",
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -4985,11 +4985,11 @@
             }
           },
           {
-            "say": "Bunun gibi 25 taktiği bir PDF'te topladım. İstersen yorumlara REHBER yaz, DM'den atayım.",
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
@@ -5139,11 +5139,11 @@
             }
           },
           {
-            "say": "Böyle 25 taktik daha var, hepsi tek bir PDF'te. Yorumlara REHBER yaz, göndereyim.",
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
             "show": {
               "type": "outro",
               "caseNo": 0,
-              "cta": "Yorumlara REHBER yaz"
+              "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
         ],
