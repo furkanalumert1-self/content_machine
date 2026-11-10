@@ -9,7 +9,7 @@ import { FONT, H, W } from './theme.ts';
 export type CoverIcon =
   | 'stamp-card' | 'phone-streak' | 'hourglass' | 'parcel' | 'coffee' | 'music-cards' | 'cart' | 'cookie-jar'
   | 'ruler' | 'gift' | 'tag' | 'hanger' | 'remote' | 'flatpack' | 'basket' | 'credit-card' | 'stars' | 'member-card'
-  | 'price-trap' | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car';
+  | 'burger' | 'bottle' | 'cookie' | 'pizza' | 'brick' | 'razor' | 'cereal' | 'price-trap' | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car' | 'stairs' | 'balloon' | 'cursor' | 'icecream' | 'plane';
 export type CoverTheme = 'light' | 'dark' | 'warm' | 'green';
 
 export interface CoverSpec { line1: string; line2: string; icon: CoverIcon; number?: string; theme: CoverTheme }
@@ -222,6 +222,123 @@ const ICONS: Record<CoverIcon, (t: T) => ReactNode> = {
         <rect x="140" y="258" width="120" height="12" rx="6" fill="#fff" opacity="0.8" />
         <rect x="72" y="132" width="90" height="12" rx="6" fill="#fff" opacity="0.6" />
       </g>
+    </Svg>
+  ),
+  burger: (t) => (
+    <Svg t={t}>
+      <path d="M70 200 q130 -170 260 0 z" fill="#E09F3E" />
+      {[[140, 150], [200, 130], [260, 150], [170, 175], [230, 175]].map(([x, y], i) => <ellipse key={i} cx={x} cy={y} rx="7" ry="4" fill="#FFF3D6" />)}
+      <path d="M60 210 h280 l-14 22 h-252 z" fill="#6A994E" />
+      <rect x="58" y="230" width="284" height="44" rx="20" fill="#5B3A29" />
+      <path d="M66 272 h268 l-10 18 h-248 z" fill="#F2C14E" />
+      <path d="M70 292 h260 q0 56 -130 56 q-130 0 -130 -56 z" fill="#D9963E" />
+    </Svg>
+  ),
+  bottle: (t) => (
+    <Svg t={t}>
+      <path d="M170 40 h60 v50 q50 30 50 90 v170 q0 20 -20 20 h-120 q-20 0 -20 -20 v-170 q0 -60 50 -90 z" fill={t.accent} />
+      <rect x="168" y="30" width="64" height="26" rx="8" fill={t.ink} />
+      <rect x="130" y="200" width="140" height="90" rx="14" fill={t.obj} />
+      <rect x="150" y="226" width="100" height="14" rx="7" fill={t.ink} />
+      <rect x="160" y="252" width="80" height="10" rx="5" fill={t.obj2} />
+      <path d="M150 120 q-8 40 0 70" stroke="#fff" strokeOpacity="0.35" strokeWidth="10" fill="none" strokeLinecap="round" />
+    </Svg>
+  ),
+  cookie: (t) => (
+    <Svg t={t}>
+      <ellipse cx="200" cy="250" rx="150" ry="40" fill="#2B1B14" />
+      <rect x="50" y="200" width="300" height="50" fill="#2B1B14" />
+      <ellipse cx="200" cy="200" rx="150" ry="40" fill="#3A251B" />
+      <rect x="54" y="214" width="292" height="22" fill="#F3EDE3" />
+      <ellipse cx="200" cy="200" rx="110" ry="26" fill="none" stroke="#2B1B14" strokeWidth="6" />
+      <circle cx="320" cy="90" r="34" fill="#F2C14E" opacity="0.9" />
+    </Svg>
+  ),
+  pizza: (t) => (
+    <Svg t={t}>
+      <path d="M60 150 l140 -60 l140 60 v170 h-280 z" fill="#C89B62" />
+      <path d="M60 150 h280 v22 h-280 z" fill="#B3854F" />
+      <circle cx="200" cy="245" r="80" fill="#E8B04A" />
+      <circle cx="200" cy="245" r="66" fill="#D94F30" />
+      {[[175, 225], [225, 230], [195, 275], [235, 268], [168, 262]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="11" fill="#8E2A1B" />)}
+      <rect x="150" y="112" width="100" height="24" rx="6" fill={t.accent} />
+    </Svg>
+  ),
+  brick: (t) => (
+    <Svg t={t}>
+      <path d="M70 200 l130 -60 l130 60 l-130 60 z" fill="#F15A3A" />
+      <path d="M70 200 v80 l130 60 v-80 z" fill="#C73E22" />
+      <path d="M330 200 v80 l-130 60 v-80 z" fill="#DE4B2D" />
+      {[[140, 180], [200, 152], [260, 180], [200, 208]].map(([x, y], i) => (
+        <g key={i}><ellipse cx={x} cy={y} rx="26" ry="12" fill="#F7826A" /><rect x={x - 26} y={y - 24} width="52" height="24" fill="#F7826A" /><ellipse cx={x} cy={y - 24} rx="26" ry="12" fill="#FA9C88" /></g>
+      ))}
+    </Svg>
+  ),
+  razor: (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-25 200 200)">
+        <rect x="185" y="150" width="30" height="220" rx="15" fill={t.ink} />
+        <rect x="120" y="80" width="160" height="70" rx="16" fill={t.accent} />
+        <rect x="130" y="92" width="140" height="10" rx="5" fill="#fff" opacity="0.8" />
+        <rect x="130" y="112" width="140" height="10" rx="5" fill="#fff" opacity="0.6" />
+      </g>
+    </Svg>
+  ),
+  stairs: (t) => (
+    <Svg t={t}>
+      {Array.from({ length: 6 }, (_, i) => (
+        <g key={i}>
+          <rect x={40 + i * 54} y={320 - i * 46} width={320 - i * 54} height="46" fill={i % 2 ? '#151515' : '#FFFFFF'} stroke="#151515" strokeWidth="4" />
+          {i % 2 === 0 && <rect x={40 + i * 54 + 18} y={320 - i * 46} width="22" height="28" fill="#151515" />}
+        </g>
+      ))}
+      <circle cx="300" cy="70" r="26" fill={t.accent} />
+      <path d="M326 70 v-40 l26 8" stroke={t.accent} strokeWidth="8" fill="none" strokeLinecap="round" />
+    </Svg>
+  ),
+  balloon: (t) => (
+    <Svg t={t}>
+      <path d="M200 30 C300 30 330 120 300 190 C280 240 230 270 214 300 h-28 C170 270 120 240 100 190 C70 120 100 30 200 30 z" fill={t.accent} stroke={t.ink} strokeWidth="5" />
+      <path d="M200 30 C230 90 230 220 214 300 M200 30 C170 90 170 220 186 300" stroke={t.ink} strokeOpacity="0.35" strokeWidth="4" fill="none" />
+      <path d="M190 300 l-14 50 M210 300 l14 50" stroke={t.ink} strokeWidth="4" />
+      <rect x="168" y="348" width="64" height="40" rx="6" fill={t.ink} />
+    </Svg>
+  ),
+  cursor: (t) => (
+    <Svg t={t}>
+      <rect x="30" y="100" width="260" height="96" rx="48" fill={t.accent} />
+      <text x="160" y="162" textAnchor="middle" fontFamily="Outfit" fontWeight="800" fontSize="38" fill="#fff">SATIN AL</text>
+      <path d="M250 200 l0 150 l42 -40 l30 64 l28 -14 l-30 -62 l58 -4 z" fill={t.ink} stroke="#fff" strokeWidth="6" strokeLinejoin="round" />
+    </Svg>
+  ),
+  icecream: (t) => (
+    <Svg t={t}>
+      <path d="M130 190 L200 380 L270 190 z" fill="#D9A55B" />
+      <path d="M150 220 l90 40 M140 200 l110 120 M260 220 l-90 40 M255 205 l-100 110" stroke="#B4823E" strokeWidth="5" />
+      <circle cx="200" cy="130" r="80" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+      <circle cx="145" cy="180" r="45" fill="#F2D7C9" />
+      <circle cx="255" cy="180" r="45" fill="#7B4A2D" />
+      <circle cx="200" cy="52" r="16" fill={t.accent} />
+    </Svg>
+  ),
+  plane: (t) => (
+    <Svg t={t}>
+      <g transform="rotate(-30 200 200)">
+        <rect x="70" y="180" width="270" height="44" rx="22" fill={t.obj} stroke={t.obj2} strokeWidth="4" />
+        <path d="M190 190 l-50 -120 h34 l80 120 z M190 214 l-50 120 h34 l80 -120 z" fill={t.accent} />
+        <path d="M86 190 l-30 -60 h26 l40 60 z" fill={t.accent} />
+        <circle cx="318" cy="202" r="10" fill={t.ink} />
+      </g>
+    </Svg>
+  ),
+  cereal: (t) => (
+    <Svg t={t}>
+      <path d="M120 60 h160 l20 20 v280 h-200 v-280 z" fill={t.accent} />
+      <path d="M280 60 l20 20 v280 l-20 -10 z" fill="#000" opacity="0.15" />
+      <rect x="130" y="90" width="150" height="40" rx="8" fill="#fff" />
+      <rect x="145" y="104" width="120" height="12" rx="6" fill={t.ink} />
+      <ellipse cx="205" cy="250" rx="60" ry="32" fill="#fff" opacity="0.9" />
+      {[[180, 240], [205, 232], [228, 245], [195, 258], [220, 262]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="10" fill="#E8B04A" />)}
     </Svg>
   ),
   'price-trap': (t) => (

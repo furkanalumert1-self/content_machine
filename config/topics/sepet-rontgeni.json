@@ -5150,6 +5150,2927 @@
         "voice_model": "eleven_v4",
         "headline": "Costco sosisliyi neden zamlamıyor?"
       }
+    },
+    {
+      "key": "burger-king-whopper-detour",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Burger King",
+      "mechanism": "Oyunlaştırma ve merak",
+      "callypso_feature": "Kampanyalar (ilk 100 kişiye özel)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Burger King müşterilerini McDonald's'a gönderdi",
+        "Burger King Whopper'ı 1 sente sattı",
+        "Burger King rakibinin kapısında indirim açtı"
+      ],
+      "cover": {
+        "line1": "Müşterisini",
+        "line2": "rakibe gönderdi.",
+        "object": "hamburger ve telefon",
+        "icon": "burger",
+        "theme": "warm",
+        "number": "1 sent"
+      },
+      "fact": "Burger King 2018'de Whopper'ı 1 sente sattı; indirim sadece bir McDonald's'ın 600 fit yakınında açılıyordu.",
+      "mechanism_lines": [
+        "1 sentlik fiyat, uygulama indirme zahmetini önemsiz kıldı.",
+        "Rakibin kapısında oynanan oyun anlatılmak istenen bir hikâyeye dönüştü."
+      ],
+      "action": [
+        "Tek bir ürünü sembolik fiyata koy, ama sadece hesap açan ilk 100 kişiye.",
+        "Adedi ve süreyi açıkça yaz; ticari ileti onayını ayrı ve isteğe bağlı al."
+      ],
+      "insight": "İnsanlar küçük bir zahmete, oyunun bir parçası olduklarında katlanır.",
+      "question": "Senin müşterin hangi oyuna katılırdı? 👇",
+      "tags": [
+        "#burgerking",
+        "#oyunlaştırma"
+      ],
+      "facts": [
+        {
+          "text": "Burger King'in Whopper Detour kampanyasında (4–12 Aralık 2018) Whopper 1 sente satıldı; indirim yalnızca bir McDonald's'ın 600 fit yakınında açılıyordu.",
+          "source_label": "Restaurant Dive (2019)",
+          "source_url": "https://www.restaurantdive.com/news/burger-kings-whopper-detour-generated-15m-app-downloads/548249/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "RBI CEO'su José Cil'e göre uygulama 1,5 milyon kez indirildi ve App Store'da günlerce birinci oldu.",
+          "source_label": "Restaurant Dive (2019), RBI 4. çeyrek 2018 toplantısı",
+          "source_url": "https://www.restaurantdive.com/news/burger-kings-whopper-detour-generated-15m-app-downloads/548249/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı."
+        },
+        {
+          "text": "Kampanya 2019 Cannes Lions'ta Direct Grand Prix kazandı.",
+          "source_label": "Adweek (2019)",
+          "source_url": "https://www.adweek.com/creativity/whopper-detour-burger-kings-masterpiece-of-trolling-wins-direct-grand-prix-at-cannes/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Rakip",
+        "pattern": "olay",
+        "headline": "Burger King rakibini nasıl kullandı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Burger King müşterilerini McDonald's'a gönderdi. Hem de bilerek.",
+            "show": {
+              "type": "title",
+              "text": "Rakibe gönderdi.",
+              "sub": "Hem de bilerek."
+            }
+          },
+          {
+            "say": "2018'de uygulamasında bir kampanya açtı: Whopper sadece 1 sent.",
+            "show": {
+              "type": "phone",
+              "app": "Burger King",
+              "title": "Whopper: 1 sent",
+              "body": "Ama bir şartla.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Şartı şuydu: indirim, sadece bir McDonald's'ın 600 fit yakınındayken açılıyordu.",
+            "show": {
+              "type": "stat",
+              "value": "600 fit",
+              "label": "McDonald's'a uzaklık"
+            }
+          },
+          {
+            "say": "Şirkete göre uygulama 1,5 milyon kez indirildi, App Store'da günlerce birinci oldu.",
+            "show": {
+              "type": "stat",
+              "value": "1,5 milyon",
+              "label": "uygulama indirmesi · şirkete göre",
+              "note": "KAYNAK: RESTAURANT DIVE (2019)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "1 sentlik fiyat, uygulama indirme zahmetini önemsiz kıldı. Rakibin kapısında oynanan oyun da herkesin anlattığı bir hikâye oldu.",
+            "show": {
+              "type": "rule",
+              "strike": "Uygulamayı indir",
+              "text": "Oyuna katıl."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Sen de bir ürünü sembolik fiyata koy, ama sadece hesap açan ilk 100 kişiye. Süreyi açıkça yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Sembolik fiyat",
+              "body": "Hesap açan ilk 100 kişiye.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "1,5 milyon"
+    },
+    {
+      "key": "burger-king-kufl-whopper",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Burger King",
+      "mechanism": "Beklenti ihlali ve kanıtla güven",
+      "callypso_feature": "Kampanyalar (ürün hikâyesi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Burger King küflü hamburgerini reklam yaptı",
+        "Burger King ürününü çürürken gösterdi",
+        "Burger King kendi burgerini küflendirdi"
+      ],
+      "cover": {
+        "line1": "Küflü burger",
+        "line2": "reklam oldu.",
+        "object": "küflenen hamburger",
+        "icon": "burger",
+        "theme": "green",
+        "number": "34 gün"
+      },
+      "fact": "Burger King 2020'de bir Whopper'ın 34 günde küflenişini reklam yaptı.",
+      "mechanism_lines": [
+        "Beklenmedik görüntü dikkati anında çekiyor.",
+        "Yapay koruyucu yok iddiası yazıyla değil, görüntüyle kanıtlanıyor."
+      ],
+      "action": [
+        "Ürünün 'katkısız' gibi bir iddiası varsa yazmakla yetinme; test raporu ya da üretim videosuyla kanıtla.",
+        "İddia gerçekten doğru ve belgeli olsun."
+      ],
+      "insight": "Gösterdiğin kanıt, yazdığın iddiadan daha ikna edicidir.",
+      "question": "Senin ürününün kanıtlayabileceğin iddiası ne? 👇",
+      "tags": [
+        "#burgerking",
+        "#kanıtlapazarlama"
+      ],
+      "facts": [
+        {
+          "text": "Şubat 2020'de yayınlanan reklam bir Whopper'ın 34 günde küflenişini gösterdi; yapay koruyucusuz Whopper o sırada ABD'de yaklaşık 400 restoranda vardı.",
+          "source_label": "The Motley Fool (2020)",
+          "source_url": "https://www.fool.com/investing/2020/02/19/burger-king-flaunts-moldy-whopper-in-preservative.aspx",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Eurobest 2020 ödül başvurusuna göre kampanya 8,4 milyar gösterim ve %14 satış artışı bildirdi.",
+          "source_label": "Eurobest 2020 Integrated Grand Prix",
+          "source_url": "https://www2.eurobest.com/winners/2020/integrated/",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Ödül başvurusu; marka ve ajans beyanı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Küf",
+        "pattern": "olay",
+        "headline": "Burger King neden küflü burger gösterdi?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Burger King kendi hamburgerini küflendirdi. Ve bunu reklam yaptı.",
+            "show": {
+              "type": "title",
+              "text": "Küflü burger.",
+              "sub": "Reklam oldu."
+            }
+          },
+          {
+            "say": "2020'de bir Whopper'ı kameranın önüne koydu ve günlerce çekti.",
+            "show": {
+              "type": "counter",
+              "value": 34,
+              "label": "gün"
+            }
+          },
+          {
+            "say": "34 günde hamburger yavaş yavaş küflendi. Reklam bunu baştan sona gösterdi.",
+            "show": {
+              "type": "stat",
+              "value": "34 gün",
+              "label": "küflenme süresi",
+              "note": "KAYNAK: THE MOTLEY FOOL (2020)"
+            }
+          },
+          {
+            "say": "Ödül başvurusuna göre kampanya 8,4 milyar gösterim ve %14 satış artışı bildirdi.",
+            "show": {
+              "type": "stat",
+              "value": "%14",
+              "label": "satış artışı · marka beyanı",
+              "bar": 0.14,
+              "note": "KAYNAK: EUROBEST 2020"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Mesaj tekti: yapay koruyucu yok. Ama bunu yazmadı, gösterdi. Görüntü, iddiadan daha ikna edici.",
+            "show": {
+              "type": "rule",
+              "strike": "Yapay koruyucu yok",
+              "text": "Gösterdi, yazmadı."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürününün katkısız gibi bir iddiası varsa, test raporuyla ya da üretim videosuyla kanıtla. Ama iddia gerçekten doğru olsun.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Üretimden bir gün",
+              "body": "İddiamızın kanıtı bu video.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "34 gün"
+    },
+    {
+      "key": "kitkat-android",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "KitKat ve Google",
+      "mechanism": "Ödünç dikkat (ortak marka)",
+      "callypso_feature": "Kampanyalar (ortak indirim kodu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Google işletim sistemine çikolata adı verdi",
+        "KitKat Android'in adı oldu",
+        "Nestlé çikolatasını Google'a isim yaptı"
+      ],
+      "cover": {
+        "line1": "Telefonun adı:",
+        "line2": "bir çikolata.",
+        "object": "çikolata ve telefon",
+        "icon": "chocolate",
+        "theme": "dark",
+        "number": "50 milyon"
+      },
+      "fact": "Google, Android 4.4'ün adını KitKat koydu; Nestlé 50 milyondan fazla Android logolu KitKat üretti.",
+      "mechanism_lines": [
+        "İki marka birbirinin kitlesine ulaştı.",
+        "Beklenmedik ortaklık, herkesin konuştuğu bir haber oldu."
+      ],
+      "action": [
+        "Hedef kitlesi seninkine benzeyen ama rakip olmayan bir yerel markayla ortak paket ya da ortak indirim kodu yap.",
+        "Müşteri verisini birbirinize aktarmayın; her marka kendi izinli kanalından duyursun."
+      ],
+      "insight": "Doğru ortak, reklam bütçesinden daha uzağa ulaştırır.",
+      "question": "Senin mağazanla hangi marka ortak olabilir? 👇",
+      "tags": [
+        "#kitkat",
+        "#ortakmarka"
+      ],
+      "facts": [
+        {
+          "text": "Google 3 Eylül 2013'te Android 4.4'ün adını KitKat olarak duyurdu; Google'dan John Lagerling'e göre anlaşmada para el değiştirmedi; Nestlé 19 ülkede 50 milyondan fazla Android logolu KitKat üretti.",
+          "source_label": "Engadget (2013)",
+          "source_url": "https://www.engadget.com/2013/09/03/android-kit-kat/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "'Para el değiştirmedi' Google'ın beyanı."
+        },
+        {
+          "text": "Nestlé: 50 milyondan fazla özel KitKat; İngiltere'de paketlerden 1.000 Nexus 7 tablet çıktı.",
+          "source_label": "Nestlé UK basın bülteni (2013)",
+          "source_url": "https://www.nestle.co.uk/en-gb/media/pressreleases/google-and-nestl%C3%A9-announce-android-kitkat",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Ortaklık",
+        "pattern": "olay",
+        "headline": "KitKat nasıl Android'in adı oldu?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Google telefonların işletim sistemine bir çikolatanın adını verdi.",
+            "show": {
+              "type": "title",
+              "text": "Telefonun adı:",
+              "sub": "bir çikolata."
+            }
+          },
+          {
+            "say": "2013'te Android'in yeni sürümü çıktı. Adı: KitKat.",
+            "show": {
+              "type": "phone",
+              "app": "Android",
+              "title": "Android 4.4 KitKat",
+              "body": "Yeni sürüm hazır.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Google'a göre bu anlaşmada para bile el değiştirmedi.",
+            "show": {
+              "type": "rule",
+              "strike": "Reklam bütçesi",
+              "text": "Para el değiştirmedi."
+            }
+          },
+          {
+            "say": "Nestlé de 19 ülkede 50 milyondan fazla Android logolu KitKat çıkardı. Paketlerden tablet çıkıyordu.",
+            "show": {
+              "type": "stat",
+              "value": "50 milyon+",
+              "label": "Android logolu KitKat",
+              "note": "KAYNAK: NESTLÉ, ENGADGET (2013)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İki marka birbirinin kitlesine ulaştı. Çikolata alan teknolojiyi, telefon kullanan çikolatayı konuştu.",
+            "show": {
+              "type": "chips",
+              "title": "Ödünç dikkat",
+              "items": [
+                "Çikolatacı → teknoloji",
+                "Telefoncu → çikolata"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Sana benzer müşterisi olan ama rakibin olmayan bir yerel markayla ortak paket yap. Herkes kendi izinli kanalından duyursun.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ortak paket",
+              "body": "Komşu markayla birlikte.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "50 milyon"
+    },
+    {
+      "key": "oreo-karanlikta",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Oreo",
+      "mechanism": "Anlık gündem ve mizah",
+      "callypso_feature": "Kampanyalar (gündem gönderisi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Oreo elektrik kesintisini reklama çevirdi",
+        "Işıklar gitti, Oreo hemen tweet attı",
+        "Oreo tek tweet'le Super Bowl'u kazandı"
+      ],
+      "cover": {
+        "line1": "Işıklar gitti.",
+        "line2": "Oreo hazırdı.",
+        "object": "karanlıkta bisküvi",
+        "icon": "cookie",
+        "theme": "dark"
+      },
+      "fact": "Super Bowl 2013'te stadyumun ışıkları gidince Oreo 'Karanlıkta da batırabilirsin' tweet'ini attı.",
+      "mechanism_lines": [
+        "Herkesin aynı anda yaşadığı an, dikkati katlıyor.",
+        "Hız, bütçeden daha değerli oldu."
+      ],
+      "action": [
+        "Haftada bir gündem saati belirle ve hazır bir ürün şablonuyla zararsız bir ana 30 dakika içinde esprili bir gönderi at.",
+        "Trajedileri, siyaseti ve başkasının telifli görselini kullanma."
+      ],
+      "insight": "Doğru anı yakalayan küçük bir gönderi, büyük reklamı geçebilir.",
+      "question": "Senin markan hangi gündeme espriyle girerdi? 👇",
+      "tags": [
+        "#oreo",
+        "#gündempazarlaması"
+      ],
+      "facts": [
+        {
+          "text": "3 Şubat 2013 Super Bowl'unda ışıklar yaklaşık yarım saat gitti; Oreo'nun 'You can still dunk in the dark' tweet'i kısa sürede 12.600'den fazla retweet aldı.",
+          "source_label": "Digiday (2013)",
+          "source_url": "https://digiday.com/marketing/how-oreo-won-the-super-bowl-blackout/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Ajans 360i'den Michael Nuzzo'ya göre gönderi bir dakikadan kısa sürede hazırlandı ve 20:48'de atıldı; 15.000'den fazla retweet aldı; odada 10 kişi vardı.",
+          "source_label": "Digiday sözlü tarih",
+          "source_url": "https://digiday.com/marketing/oral-history-oreo-tweet/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Ajansın anlatımı; onay e-postayla alındı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Gündem",
+        "pattern": "olay",
+        "headline": "Oreo bir tweet'le nasıl kazandı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Oreo bir elektrik kesintisini reklama çevirdi.",
+            "show": {
+              "type": "title",
+              "text": "Işıklar gitti.",
+              "sub": "Oreo hazırdı."
+            }
+          },
+          {
+            "say": "2013 Super Bowl. Maçın ortasında stadyumun ışıkları gidiyor.",
+            "show": {
+              "type": "phone",
+              "app": "Canlı yayın",
+              "title": "Stadyumda elektrik kesildi",
+              "body": "Maç durdu.",
+              "time": "20:38"
+            }
+          },
+          {
+            "say": "Dakikalar içinde Oreo bir tweet atıyor: Karanlıkta da batırabilirsin.",
+            "show": {
+              "type": "phone",
+              "app": "Oreo",
+              "title": "Karanlıkta da batırabilirsin.",
+              "body": "Tek bir bisküvi, karanlık bir zemin.",
+              "time": "20:48"
+            }
+          },
+          {
+            "say": "Ajansa göre görsel bir dakikadan kısa sürede hazırlandı. Tweet 15.000'den fazla retweet aldı.",
+            "show": {
+              "type": "stat",
+              "value": "15.000+",
+              "label": "retweet",
+              "note": "KAYNAK: DIGIDAY"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Herkes aynı anda aynı şeyi yaşıyordu. Oreo o anın içine girdi. Hız, bütçeden değerli oldu.",
+            "show": {
+              "type": "rule",
+              "strike": "Büyük bütçe",
+              "text": "Doğru an."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Haftada bir gündem saati belirle. Hazır bir ürün şablonuyla, zararsız bir ana 30 dakika içinde esprili bir gönderi at.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Gündem saati",
+              "body": "Hazır şablon, 30 dakika.",
+              "time": "15:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "15.000"
+    },
+    {
+      "key": "heinz-ketcap-ciz",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Heinz",
+      "mechanism": "Kategoriyle özdeşleşme",
+      "callypso_feature": "Formlar (kullanıcı içeriği)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Heinz insanlara sadece ketçap çizin dedi",
+        "Heinz reklamını müşterilerine çizdirdi",
+        "Heinz yapay zekâya ketçap çizdirdi"
+      ],
+      "cover": {
+        "line1": "Ketçap çiz.",
+        "line2": "Heinz çizdiler.",
+        "object": "ketçap şişesi",
+        "icon": "bottle",
+        "theme": "light"
+      },
+      "fact": "Heinz 18 ülkeden insanlara sadece 'ketçap çiz' dedi; çoğu Heinz şişesi çizdi.",
+      "mechanism_lines": [
+        "Marka kategorinin kendisi olunca, insanlar onu ezberden çiziyor.",
+        "Reklamı müşterinin eli yaptı."
+      ],
+      "action": [
+        "Takipçilerinden 'şu kelimeyi duyunca aklına gelen ürünü' fotoğraflamasını iste ve gerçek sonuçları izin alarak paylaş.",
+        "Yarışma yaparsan katılım koşullarını ve aydınlatma metnini yaz."
+      ],
+      "insight": "Akla ilk gelen marka olmak, en güçlü reklamdır.",
+      "question": "Senin kategorinde akla ilk gelen marka kim? 👇",
+      "tags": [
+        "#heinz",
+        "#akılpayı"
+      ],
+      "facts": [
+        {
+          "text": "Rethink ajansının deneyinde 18 ülkeden insanlara 'ketçap çiz' dendi; katılımcılar Heinz çizdi.",
+          "source_label": "D&AD Ödülleri arşivi (2021)",
+          "source_url": "https://www.dandad.org/work/d-ad-awards-archive/heinz-draw-ketchup",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Beş kıtada katılımcıların çoğu ezberden Heinz şişesi çizdi.",
+          "source_label": "Muse by Clios (2021)",
+          "source_url": "https://musebyclios.com/?p=42582",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Yüzde verilmiyor; 'çoğu' denir."
+        },
+        {
+          "text": "2022'de Heinz aynı şeyi yapay zekâya sordu; markasız komutlarla bile çoğu zaman Heinz'e benzer görseller çıktı.",
+          "source_label": "Muse by Clios (2022)",
+          "source_url": "https://musebyclios.com/advertising/asked-to-draw-ketchup-even-a-i-chose-heinz/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Markanın seçtiği örnekler."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Ketçap",
+        "pattern": "olay",
+        "headline": "Ketçap çiz denince ne çiziyorsun?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Heinz insanlara sadece şunu söyledi: ketçap çiz.",
+            "show": {
+              "type": "title",
+              "text": "Ketçap çiz.",
+              "sub": "Ne çizerdin?"
+            }
+          },
+          {
+            "say": "Marka adı yok, şişe yok, ipucu yok. Sadece ketçap.",
+            "show": {
+              "type": "chips",
+              "title": "Kural",
+              "items": [
+                "Marka yok",
+                "Şişe yok",
+                "İpucu yok"
+              ]
+            }
+          },
+          {
+            "say": "18 ülkeden insanlar kalemi aldı. Ve çoğu ezberden bir Heinz şişesi çizdi.",
+            "show": {
+              "type": "stat",
+              "value": "18 ülke",
+              "label": "çoğu Heinz çizdi",
+              "note": "KAYNAK: D&AD, MUSE BY CLIOS"
+            }
+          },
+          {
+            "say": "2022'de aynı şeyi yapay zekâya sordular. O da çoğu zaman Heinz'e benzer bir şişe çizdi.",
+            "show": {
+              "type": "phone",
+              "app": "Yapay zekâ",
+              "title": "Komut: ketçap",
+              "body": "Sonuç: tanıdık bir şişe.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Marka kategorinin kendisi olunca, insanlar onu ezberden çiziyor. Reklamı müşterinin eli yaptı.",
+            "show": {
+              "type": "rule",
+              "strike": "Ketçap",
+              "text": "Heinz."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Takipçilerinden, bir kelimeyi duyunca akla gelen ürünü fotoğraflamasını iste. Gerçek sonuçları izin alarak paylaş.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Aklına ilk ne geliyor?",
+              "body": "Fotoğrafla, paylaşalım.",
+              "time": "18:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "18"
+    },
+    {
+      "key": "snickers-ac-degilsin",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Snickers",
+      "mechanism": "Durumsal tetikleyici",
+      "callypso_feature": "Kampanyalar (an odaklı mesaj)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Snickers ürününü değil, açlığı sattı",
+        "Snickers'a göre açken sen değilsin",
+        "Snickers huysuzluğu satmaya başladı"
+      ],
+      "cover": {
+        "line1": "Çikolata değil,",
+        "line2": "açlık satıyor.",
+        "object": "çikolata bar",
+        "icon": "chocolate",
+        "theme": "warm",
+        "number": "%15,9"
+      },
+      "fact": "Ödül vaka çalışmasına göre 'Açken sen değilsin' kampanyasıyla Snickers satışları ilk yılda %15,9 arttı.",
+      "mechanism_lines": [
+        "Snickers bir anı sahiplendi: açlıktan huysuzlaştığın an.",
+        "Ürün özelliği değil, tanıdık bir sorun çözüldü."
+      ],
+      "action": [
+        "Ürün açıklamanı özellik listesi yerine müşterinin yaşadığı tek bir anla başlat.",
+        "O anı abartılı ama dürüst bir mizahla anlat."
+      ],
+      "insight": "Müşteri ürünü değil, çözdüğü anı hatırlar.",
+      "question": "Senin ürünün hangi anı çözüyor? 👇",
+      "tags": [
+        "#snickers",
+        "#içgörü"
+      ],
+      "facts": [
+        {
+          "text": "IPA Effectiveness Awards 2012 vaka çalışmasına göre kampanya ilk yılda satışları %15,9 artırdı ve 58 pazarın 56'sında pazar payı kazandırdı.",
+          "source_label": "IPA Effectiveness Awards (2012)",
+          "source_url": "https://ipa.co.uk/knowledge/case-studies/snickers-you-re-not-you-when-you-re-hungry/",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Ödül vaka çalışması; marka ve ajans beyanı."
+        },
+        {
+          "text": "Kampanya 2010 Super Bowl'unda Betty White'lı reklamla başladı.",
+          "source_label": "Fortune (2025)",
+          "source_url": "https://fortune.com/2025/09/30/why-snickers-advertising-campaign-hungry-so-successful/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Açlık",
+        "pattern": "olay",
+        "headline": "Snickers neden çikolatayı anlatmıyor?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Snickers çikolatasını değil, açlığını satmaya başladı.",
+            "show": {
+              "type": "title",
+              "text": "Çikolata değil,",
+              "sub": "açlık."
+            }
+          },
+          {
+            "say": "2010 Super Bowl. Bir futbol maçında bir genç huysuzlanıyor. Ama ekranda genç değil, yaşlı bir kadın oynuyor.",
+            "show": {
+              "type": "phone",
+              "app": "Reklam",
+              "title": "Açken sen değilsin.",
+              "body": "Al, bir Snickers ye.",
+              "time": "21:00"
+            }
+          },
+          {
+            "say": "Bir ısırık sonra kendine geliyor. Mesaj basit: açken sen değilsin.",
+            "show": {
+              "type": "rule",
+              "strike": "Huysuz sen",
+              "text": "Gerçek sen."
+            }
+          },
+          {
+            "say": "Ödül vaka çalışmasına göre satışlar ilk yılda %15,9 arttı. 58 pazarın 56'sında pay kazandı.",
+            "show": {
+              "type": "stat",
+              "value": "%15,9",
+              "label": "satış artışı · ilk yıl",
+              "bar": 0.159,
+              "note": "KAYNAK: IPA (2012)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Snickers fıstıktan, karameldan bahsetmedi. Herkesin bildiği bir anı sahiplendi: açlıktan huysuzlaştığın an.",
+            "show": {
+              "type": "chips",
+              "title": "Satılan şey",
+              "items": [
+                "Fıstık değil",
+                "Karamel değil",
+                "Bir an"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürün açıklamanı özellik listesiyle değil, müşterinin yaşadığı tek bir anla başlat.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Sabah sekizde, toplantıdan önce…",
+              "body": "Ürünün o anı çözüyor.",
+              "time": "08:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "%15,9"
+    },
+    {
+      "key": "coca-cola-isimli-sise",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Coca-Cola",
+      "mechanism": "Kişiselleştirme ve paylaşma",
+      "callypso_feature": "Otomasyon akışları (isimli not)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Coca-Cola logosunu şişeden kaldırdı",
+        "Coca-Cola şişelere senin adını yazdı",
+        "Coca-Cola markası yerine isim yazdı"
+      ],
+      "cover": {
+        "line1": "Logo yerine",
+        "line2": "senin adın.",
+        "object": "isim etiketli şişe",
+        "icon": "bottle",
+        "theme": "warm",
+        "number": "250 milyon"
+      },
+      "fact": "Coca-Cola 2011'de Avustralya'da şişelere en popüler 150 ismi yazdı; şirkete göre 250 milyondan fazla isimli şişe ve kutu satıldı.",
+      "mechanism_lines": [
+        "İnsan önce kendi adını görüyor.",
+        "İsimli şişe hediye edilip paylaşılıyor; reklam kendiliğinden yayılıyor."
+      ],
+      "action": [
+        "Siparişe, müşterinin verdiği isimle el yazısı bir not ekle.",
+        "İsmi sadece sipariş için kullan; izinsiz pazarlamada kullanma."
+      ],
+      "insight": "Kendi adını gören müşteri ürünü sahiplenir ve paylaşır.",
+      "question": "Senin müşterin paketinde adını görüyor mu? 👇",
+      "tags": [
+        "#cocacola",
+        "#kişiselleştirme"
+      ],
+      "facts": [
+        {
+          "text": "Coca-Cola 2011 yazında Avustralya'da şişelere en popüler 150 ismi yazdı; şirkete göre 23 milyonluk ülkede 250 milyondan fazla isimli şişe ve kutu satıldı; kampanya 70'ten fazla ülkeye yayıldı.",
+          "source_label": "The Coca-Cola Company",
+          "source_url": "https://www.coca-colacompany.com/about-us/history/how-a-campaign-got-its-start-down-under",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı; isimli ürün sayısı, ek satış değil."
+        },
+        {
+          "text": "Ogilvy vaka çalışmasına göre genç yetişkinlerde tüketim %7 arttı.",
+          "source_label": "Packaging News (Ogilvy vaka çalışması)",
+          "source_url": "https://www.packagingnews.com.au/news/how-sharing-turned-a-brand-around",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Ajans beyanı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "İsim",
+        "pattern": "olay",
+        "headline": "Coca-Cola logosunu neden sildi?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Coca-Cola dünyanın en tanınan logosunu şişeden kaldırdı.",
+            "show": {
+              "type": "title",
+              "text": "Logo yok.",
+              "sub": "Yerine ne var?"
+            }
+          },
+          {
+            "say": "2011, Avustralya. Logonun yerine isimler geliyor. Ülkenin en popüler 150 ismi.",
+            "show": {
+              "type": "chips",
+              "title": "Şişede",
+              "items": [
+                "Ayşe",
+                "Mehmet",
+                "Senin adın"
+              ]
+            }
+          },
+          {
+            "say": "Şirkete göre 23 milyonluk ülkede 250 milyondan fazla isimli şişe ve kutu satıldı.",
+            "show": {
+              "type": "stat",
+              "value": "250 milyon+",
+              "label": "isimli şişe ve kutu · şirkete göre",
+              "note": "KAYNAK: THE COCA-COLA COMPANY"
+            }
+          },
+          {
+            "say": "Kampanya sonra 70'ten fazla ülkeye yayıldı.",
+            "show": {
+              "type": "counter",
+              "value": 70,
+              "label": "ülke"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İnsan önce kendi adını görüyor. Sonra arkadaşının adını bulup ona hediye ediyor. Reklam kendiliğinden yayılıyor.",
+            "show": {
+              "type": "chips",
+              "title": "Neden işe yaradı?",
+              "items": [
+                "Kendi adın",
+                "Arkadaşına hediye",
+                "Paylaşım"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Siparişe müşterinin verdiği isimle el yazısı bir not ekle. İsmi sadece sipariş için kullan.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ayşe, bu senin için",
+              "body": "El yazısı not, her pakette.",
+              "time": "16:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "250 milyon"
+    },
+    {
+      "key": "ikea-zamanla-ode",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "IKEA",
+      "mechanism": "Emeğin takdiri ve zihinsel muhasebe",
+      "callypso_feature": "Otomasyon akışları (gecikme telafisi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "IKEA müşterisinden para değil, zaman istedi",
+        "IKEA yolda geçen saatleri paraya çevirdi",
+        "IKEA kasada Google Maps geçmişini istedi"
+      ],
+      "cover": {
+        "line1": "Para değil,",
+        "line2": "zamanınla öde.",
+        "object": "kum saati",
+        "icon": "hourglass",
+        "theme": "warm",
+        "number": "1 saat"
+      },
+      "fact": "IKEA Dubai 2020'de müşterilerin mağazaya gelirken harcadığı zamanı para gibi kabul etti; 1 saat 105 dirhem sayıldı.",
+      "mechanism_lines": [
+        "Müşterinin harcadığı zaman görünür oldu ve ödüllendirildi.",
+        "Fiyatı zaman cinsinden göstermek alışılmış fiyat algısını kırdı."
+      ],
+      "action": [
+        "Kargon söz verdiğin süreyi aşarsa, geciken her gün için küçük bir indirim kodunu paketin içine koy.",
+        "Kuralı ürün sayfasında açıkça yaz; izinsiz kişilere SMS ya da e-posta gönderme."
+      ],
+      "insight": "Müşterinin emeğine saygı gösteren marka hatırlanır.",
+      "question": "Senin müşterin sana gelmek için ne harcıyor? 👇",
+      "tags": [
+        "#ikea",
+        "#zamanınıöde"
+      ],
+      "facts": [
+        {
+          "text": "IKEA Dubai ve Memac Ogilvy, Şubat 2020'de Jebel Ali mağazasıyla 'Buy With Your Time' kampanyasını başlattı; 1 saat, Dubai'deki ortalama saatlik ücrete, 105 dirheme eşitlendi.",
+          "source_label": "shots.net (2020)",
+          "source_url": "https://shots.net/news/view/spend-a-little-time-with-ikea",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Müşteriler kasada yolculuk sürelerini Google Maps zaman çizelgesiyle gösterdi.",
+          "source_label": "PYMNTS (2020)",
+          "source_url": "https://www.pymnts.com/news/retail/2020/ikea-allows-consumers-to-use-time-as-currency/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Sonuç rakamı doğrulanmadı; kullanılmaz."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Zaman",
+        "pattern": "olay",
+        "headline": "IKEA neden zamanla ödeme aldı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] IKEA müşterisinden para değil, zaman istedi.",
+            "show": {
+              "type": "title",
+              "text": "Para değil,",
+              "sub": "zamanınla öde."
+            }
+          },
+          {
+            "say": "2020, Dubai. Yeni bir IKEA mağazası açılıyor. Ama mağaza şehrin dışında, gitmek saatler sürüyor.",
+            "show": {
+              "type": "phone",
+              "app": "Harita",
+              "title": "Mağazaya 1 saat",
+              "body": "Yolda geçen zaman.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "IKEA şunu yaptı: buraya gelirken harcadığın zamanı para gibi kabul etti.",
+            "show": {
+              "type": "rule",
+              "strike": "Kredi kartı",
+              "text": "Yolda geçen zaman."
+            }
+          },
+          {
+            "say": "1 saat, Dubai'deki ortalama saatlik ücrete, 105 dirheme eşitlendi. Her ürüne bir de zaman fiyatı yazıldı.",
+            "show": {
+              "type": "stat",
+              "value": "1 saat",
+              "label": "105 dirhem değerinde",
+              "note": "KAYNAK: SHOTS.NET (2020)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Müşteri, kasada Google Maps geçmişini gösterip yol süresini ödeme yerine kullandı. Harcadığı emek görünür ve değerli oldu.",
+            "show": {
+              "type": "chips",
+              "title": "Kasada",
+              "items": [
+                "Google Maps geçmişi",
+                "Yol süresi",
+                "Ödeme"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Kargon söz verdiğin süreyi aşarsa, geciken her gün için küçük bir indirim kodunu paketin içine koy. Kuralı açıkça yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bekledin, telafi ediyoruz",
+              "body": "Geciken her gün için küçük bir hediye.",
+              "time": "16:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "patagonia-bu-ceketi-alma",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Patagonia",
+      "mechanism": "Tersine psikoloji ve güvenilirlik",
+      "callypso_feature": "Ürün sayfası (dürüst uyarı kutusu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Patagonia müşterisine ceketini alma dedi",
+        "Patagonia Kara Cuma'da satmamak için ilan verdi",
+        "Patagonia kendi ceketine almayın reklamı verdi"
+      ],
+      "cover": {
+        "line1": "Bu ceketi",
+        "line2": "alma.",
+        "object": "askıda ceket",
+        "icon": "hanger",
+        "theme": "dark"
+      },
+      "fact": "Patagonia 25 Kasım 2011 Kara Cuma günü New York Times'a tam sayfa 'Bu ceketi almayın' ilanı verdi.",
+      "mechanism_lines": [
+        "'Alma' denmesi dikkat çekiyor ve merak uyandırıyor.",
+        "Kendi çıkarına ters konuşan marka daha güvenilir görünüyor."
+      ],
+      "action": [
+        "En çok satan ürününün sayfasına dürüst bir 'Bu ürünü alma, eğer…' kutusu ekle.",
+        "Kimin için uygun olmadığını ve bakım ipuçlarını yaz; iade oranını 30 gün izle."
+      ],
+      "insight": "Satmaktan vazgeçen dürüstlük, güven satar.",
+      "question": "Senin ürünün kimin için uygun değil? 👇",
+      "tags": [
+        "#patagonia",
+        "#tersinepsikoloji"
+      ],
+      "facts": [
+        {
+          "text": "Patagonia 25 Kasım 2011'de, Kara Cuma günü, New York Times'a tam sayfa 'Don't Buy This Jacket' ilanı verdi.",
+          "source_label": "Patagonia (resmî hikâye sayfası)",
+          "source_url": "https://www.patagonia.com.au/blogs/stories/dont-buy-this-jacket",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "İlana göre R2 ceketin üretimi, yüzde 60'ı geri dönüştürülmüş olsa da 135 litre su gerektiriyordu.",
+          "source_label": "David Gelles, kitap alıntısı",
+          "source_url": "https://davidgelles.substack.com/p/the-secret-history-of-dont-buy-this",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "İlanın kendi iddiası."
+        },
+        {
+          "text": "Dönemin CEO'su Casey Sheahan'a göre yaklaşık 57.000 dolarlık ilan 40–50 milyon dolarlık ücretsiz tanıtım getirdi.",
+          "source_label": "David Gelles, kitap alıntısı",
+          "source_url": "https://davidgelles.substack.com/p/the-secret-history-of-dont-buy-this",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "CEO tahmini; satış rakamı verilmez."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Alma",
+        "pattern": "olay",
+        "headline": "Patagonia neden 'bu ceketi alma' dedi?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Patagonia Kara Cuma günü müşterisine ceketini alma dedi.",
+            "show": {
+              "type": "title",
+              "text": "Bu ceketi",
+              "sub": "alma."
+            }
+          },
+          {
+            "say": "25 Kasım 2011, Kara Cuma. New York Times'ta tam sayfa bir ilan: Bu ceketi almayın.",
+            "show": {
+              "type": "phone",
+              "app": "Gazete",
+              "title": "BU CEKETİ ALMAYIN",
+              "body": "Tam sayfa ilan, Kara Cuma.",
+              "time": "07:00"
+            }
+          },
+          {
+            "say": "İlana göre o ceketi üretmek 135 litre su gerektiriyordu. İhtiyacın yoksa alma, onar, yeniden kullan.",
+            "show": {
+              "type": "stat",
+              "value": "135 litre",
+              "label": "tek ceket için su · ilana göre"
+            }
+          },
+          {
+            "say": "Dönemin CEO'suna göre yaklaşık 57.000 dolarlık ilan, 40 ila 50 milyon dolarlık ücretsiz tanıtım getirdi.",
+            "show": {
+              "type": "stat",
+              "value": "40–50 milyon",
+              "label": "dolar · ücretsiz tanıtım · CEO'ya göre"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Alma denince merak ediyorsun. Kendi satışına karşı konuşan bir marka da sana dürüst görünüyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Güven",
+              "light": "Bugünkü satış",
+              "caption": "Neyi kazandı?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "En çok satan ürününün sayfasına dürüst bir kutu ekle: Bu ürünü alma, eğer… Kimin için uygun olmadığını yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bu ürünü alma, eğer…",
+              "body": "Kimin için uygun olmadığını açıkça yaz.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "dominos-cukur-asfalt",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Domino's",
+      "mechanism": "Sorunu sahiplenmek",
+      "callypso_feature": "Kargo (hasar garantisi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Domino's pizza için yol asfaltladı",
+        "Domino's şehirlerin çukurlarını kapattı",
+        "Domino's pizzayı korumak için yol tamir etti"
+      ],
+      "cover": {
+        "line1": "Pizza için",
+        "line2": "yol tamiri.",
+        "object": "pizza kutusu",
+        "icon": "pizza",
+        "theme": "warm",
+        "number": "50 eyalet"
+      },
+      "fact": "Domino's 2018'de pizzalar sarsılmasın diye ABD'de kasabaların yol çukurlarını kapattırdı; programı 50 eyalete genişletti.",
+      "mechanism_lines": [
+        "Ürünü bozan gerçek bir sorunu müşteri için çözdü.",
+        "Kasabaları aday göstermek insanları kampanyanın parçası yaptı."
+      ],
+      "action": [
+        "Ürününün sana ulaşana kadar nerede bozulduğunu bul ve ambalajı iyileştir.",
+        "'Hasarlı geldiyse fotoğrafını gönder, yenisini yollayalım' garantisini ürün sayfasına yaz."
+      ],
+      "insight": "Müşterinin sorununu sahiplenen marka konuşulur.",
+      "question": "Senin ürünün yolda neye takılıyor? 👇",
+      "tags": [
+        "#dominos",
+        "#müşterideneyimi"
+      ],
+      "facts": [
+        {
+          "text": "Domino's Haziran 2018'de 4 kasabada yol çukurlarını kapattırdığını açıkladı.",
+          "source_label": "CBS Boston (2018)",
+          "source_url": "https://www.cbsnews.com/boston/news/dominos-paving-for-pizza-roads-potholes-nominate-town/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "29 Ağustos 2018'e kadar 15.275 posta kodundan 137.000'den fazla aday gösterildi; program 50 eyaletin her birinden bir topluluğa genişletildi.",
+          "source_label": "Nation's Restaurant News (2018)",
+          "source_url": "https://www.nrn.com/quick-service/domino-s-extends-pothole-filling-grants-to-all-50-states",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Şirket duyurusu; 50 eyaletin tamamlandığı doğrulanmadı."
+        },
+        {
+          "text": "Her belediyeye 5.000 dolarlık hibe verildi.",
+          "source_label": "Restaurant Dive (2019)",
+          "source_url": "https://www.restaurantdive.com/news/throwing-pies-at-potholes/562784/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Yol",
+        "pattern": "olay",
+        "headline": "Domino's neden yol tamir etti?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Domino's pizza satmak için yol asfaltladı.",
+            "show": {
+              "type": "title",
+              "text": "Pizza için",
+              "sub": "yol tamiri."
+            }
+          },
+          {
+            "say": "Sorun şuydu: çukurlu yolda pizza kutunun içinde kayıyor, peynir bir tarafa yapışıyor.",
+            "show": {
+              "type": "phone",
+              "app": "Sipariş",
+              "title": "Pizzan geldi",
+              "body": "Ama peyniri kutunun kapağında.",
+              "time": "20:30"
+            }
+          },
+          {
+            "say": "2018'de Domino's çözümü buldu: kasabaların çukurlarını kendisi kapattırdı. İlk 4 kasabada başladı.",
+            "show": {
+              "type": "counter",
+              "value": 4,
+              "label": "ilk kasaba"
+            }
+          },
+          {
+            "say": "Şirkete göre 137.000'den fazla kişi kendi kasabasını aday gösterdi. Program 50 eyalete genişletildi.",
+            "show": {
+              "type": "stat",
+              "value": "137.000+",
+              "label": "aday gösterme · şirkete göre",
+              "note": "KAYNAK: NATION'S RESTAURANT NEWS (2018)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Domino's, ürününü bozan gerçek bir sorunu müşteri için çözdü. Aday göstermek de insanları kampanyanın parçası yaptı.",
+            "show": {
+              "type": "rule",
+              "strike": "Daha iyi pizza",
+              "text": "Sağlam gelen pizza."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürününün yolda nerede bozulduğunu bul ve ambalajı iyileştir. Hasarlı geldiyse fotoğrafını gönder, yenisini yollayalım de.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Hasarlı mı geldi?",
+              "body": "Fotoğrafını gönder, yenisini yollayalım.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "lego-az-parca",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "LEGO",
+      "mechanism": "Odak ve seçenek fazlalığı",
+      "callypso_feature": "Segmentasyon (en çok satanlar)",
+      "status": "dogrulandi",
+      "hooks": [
+        "LEGO batmamak için eğlence parklarını sattı",
+        "LEGO kurtulmak için büyümeyi durdurdu",
+        "LEGO daha azını yaparak geri döndü"
+      ],
+      "cover": {
+        "line1": "Daha az yaptı.",
+        "line2": "Geri döndü.",
+        "object": "oyuncak tuğla",
+        "icon": "brick",
+        "theme": "light",
+        "number": "2004"
+      },
+      "fact": "LEGO 2004'te 1,93 milyar Danimarka kronu zarar etti; dört Legoland parkını sattı, tuğlaya döndü ve 2005'te 505 milyon kron kâra geçti.",
+      "mechanism_lines": [
+        "Fazla ürün ve yan iş hem maliyeti hem kararsızlığı artırdı.",
+        "Daha az ama net bir seçki, karar vermeyi ve kâr etmeyi kolaylaştırdı."
+      ],
+      "action": [
+        "Son 90 günde hiç satmayan ürün ve varyantları arşive al.",
+        "Ana sayfada yalnızca en çok satan 3 kategoriyi öne çıkar ve dönüşümü önceki 30 günle karşılaştır."
+      ],
+      "insight": "Bazen büyümenin yolu, daha az yapmaktır.",
+      "question": "Senin mağazanda hiç satmayan kaç ürün var? 👇",
+      "tags": [
+        "#lego",
+        "#odak"
+      ],
+      "facts": [
+        {
+          "text": "LEGO 2004'te 1,93 milyar Danimarka kronu net zarar etti; 2005'te 505 milyon kron net kâra geçti, gelir %12 artarak 7,05 milyar krona çıktı.",
+          "source_label": "Associated Press, NBC News (2006)",
+          "source_url": "https://www.nbcnews.com/id/wbna11367083",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "LEGO 2005'te 4 Legoland parkını 375 milyon euroya Blackstone'a sattı.",
+          "source_label": "Associated Press, NBC News (2006)",
+          "source_url": "https://www.nbcnews.com/id/wbna11367083",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "2004'te CEO olan Knudstorp yan işleri kesti ve şirketi yeniden çekirdek ürüne, tuğlaya odakladı.",
+          "source_label": "Irish Times (2010)",
+          "source_url": "https://www.irishtimes.com/business/another-brick-in-the-wall-1.643471",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Parça sayısı rakamı resmî değil; kullanılmaz."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Odak",
+        "pattern": "olay",
+        "headline": "LEGO iflastan nasıl döndü?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] LEGO batmamak için kendi eğlence parklarını sattı.",
+            "show": {
+              "type": "title",
+              "text": "Daha az yaptı.",
+              "sub": "Geri döndü."
+            }
+          },
+          {
+            "say": "Bir dönem LEGO her şeyi yapıyordu: parklar, oyunlar, giysiler, binlerce farklı parça.",
+            "show": {
+              "type": "chips",
+              "title": "Her şey",
+              "items": [
+                "Eğlence parkları",
+                "Video oyunları",
+                "Binlerce parça"
+              ]
+            }
+          },
+          {
+            "say": "2004'te 1,93 milyar Danimarka kronu zarar etti. Şirket iflasın eşiğindeydi.",
+            "show": {
+              "type": "stat",
+              "value": "1,93 milyar",
+              "label": "kron zarar · 2004",
+              "note": "KAYNAK: AP (2006)"
+            }
+          },
+          {
+            "say": "Yeni CEO tersini yaptı. 4 Legoland parkını sattı, yan işleri kesti, şirketi yeniden tuğlaya döndürdü.",
+            "show": {
+              "type": "counter",
+              "value": 4,
+              "label": "satılan park"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Bir yıl sonra, 2005'te, LEGO yeniden kâra geçti: 505 milyon kron. Daha az şey, daha net bir seçki.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "2004 · kron",
+                "value": "−1,93 mr",
+                "bar": 1
+              },
+              "right": {
+                "label": "2005 · kron",
+                "value": "+505 mn",
+                "bar": 0.4
+              },
+              "caption": "Zarardan kâra"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Son 90 günde hiç satmayan ürünleri arşive al. Ana sayfada sadece en çok satan 3 kategoriyi göster.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "En çok satan 3 kategori",
+              "body": "Gerisi bir tık uzakta.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "dollar-shave-club-video",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Dollar Shave Club",
+      "mechanism": "Kurucu samimiyeti ve mizah",
+      "callypso_feature": "Kampanyalar (kurucu videosu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Bir kurucu deposunda çektiği videoyla patladı",
+        "Dollar Shave Club 4.500 dolarlık videoyla tanındı",
+        "Kurucu kendi reklamında başrol oynadı"
+      ],
+      "cover": {
+        "line1": "Tek video,",
+        "line2": "milyarlık şirket.",
+        "object": "tıraş bıçağı",
+        "icon": "razor",
+        "theme": "light",
+        "number": "12.000"
+      },
+      "fact": "Dollar Shave Club'ın 4.500 dolara çekilen lansman videosundan sonra ilk 48 saatte yaklaşık 12.000 kişi üye oldu.",
+      "mechanism_lines": [
+        "Gösterişsiz, kendisiyle dalga geçen bir kurucu 'bizden biri' gibi görünüyor.",
+        "Tek cümlelik net bir vaat akılda kalıyor."
+      ],
+      "action": [
+        "Kurucu olarak telefonla 45–60 saniyelik bir video çek: tek farkını ve gerçek fiyatını esprili ama doğru anlat.",
+        "Rakibi kötüleme, kanıtlayamadığın iddiada bulunma."
+      ],
+      "insight": "Samimi bir kurucu, büyük bütçeli reklamı geçebilir.",
+      "question": "Sen kendi markanın videosunda oynar mıydın? 👇",
+      "tags": [
+        "#dollarshaveclub",
+        "#kurucuvideosu"
+      ],
+      "facts": [
+        {
+          "text": "Mart 2012'de yayınlanan lansman videosu 4.500 dolara çekildi; ilk 48 saatte yaklaşık 12.000 kişi üye oldu; video ilk üç ayda 4,75 milyon kez izlendi.",
+          "source_label": "Entrepreneur (2012)",
+          "source_url": "https://www.entrepreneur.com/growing-a-business/how-a-dollar-shave-clubs-ad-went-viral/224282",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı; üye, sipariş değil."
+        },
+        {
+          "text": "Unilever Temmuz 2016'da şirketi bildirildiğine göre 1 milyar dolara satın aldı.",
+          "source_label": "Fortune (2016)",
+          "source_url": "https://fortune.com/2016/07/19/unilever-buys-dollar-shave-club-for-1-billion/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Fiyat basın haberi; Unilever açıklamadı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Video",
+        "pattern": "olay",
+        "headline": "Dollar Shave Club tek videoyla nasıl patladı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Bir kurucu deposunda bir video çekti. Şirket milyar dolarlık oldu.",
+            "show": {
+              "type": "title",
+              "text": "Tek video,",
+              "sub": "milyarlık şirket."
+            }
+          },
+          {
+            "say": "2012. Dollar Shave Club'ın kurucusu kamera karşısına kendisi geçiyor. Deposunda, kolilerin arasında, esprili bir video.",
+            "show": {
+              "type": "phone",
+              "app": "Video",
+              "title": "Jiletlerimiz harika mı? Evet.",
+              "body": "Kurucunun kendi videosu.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Videonun maliyeti: 4.500 dolar. Şirkete göre ilk 48 saatte yaklaşık 12.000 kişi üye oldu.",
+            "show": {
+              "type": "stat",
+              "value": "12.000",
+              "label": "üye · ilk 48 saat · şirkete göre",
+              "note": "KAYNAK: ENTREPRENEUR (2012)"
+            }
+          },
+          {
+            "say": "Video ilk üç ayda 4,75 milyon kez izlendi. 2016'da Unilever, bildirildiğine göre şirketi 1 milyar dolara aldı.",
+            "show": {
+              "type": "stat",
+              "value": "1 milyar",
+              "label": "dolar · satış fiyatı · basına göre"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Gösterişsiz, kendisiyle dalga geçen bir kurucu sana bizden biri gibi geliyor. Tek cümlelik vaat de akılda kalıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Büyük bütçe",
+              "text": "Samimi kurucu."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Telefonu al, kendin çek. 45 saniyede tek farkını ve gerçek fiyatını esprili ama doğru anlat.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kurucudan 45 saniye",
+              "body": "Tek fark, gerçek fiyat.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "12.000"
+    },
+    {
+      "key": "airbnb-misir-gevregi",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Airbnb",
+      "mechanism": "Gündem, kıtlık ve hikâye",
+      "callypso_feature": "Kampanyalar (sınırlı özel ambalaj)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Airbnb batmamak için mısır gevreği sattı",
+        "Airbnb'yi bir mısır gevreği kutusu kurtardı",
+        "Airbnb kurucuları gevrek kutusu tasarladı"
+      ],
+      "cover": {
+        "line1": "Şirketi bir",
+        "line2": "gevrek kurtardı.",
+        "object": "mısır gevreği kutusu",
+        "icon": "cereal",
+        "theme": "warm",
+        "number": "40 dolar"
+      },
+      "fact": "Airbnb kurucuları 2008'de seçim temalı mısır gevreği kutularını 40 dolardan sattı; Chesky'ye göre bin kutudan fazla satıp yaklaşık 30.000 dolar kazandılar.",
+      "mechanism_lines": [
+        "Gündeme bağlı, sınırlı ve koleksiyonluk bir ürün değerinin çok üstünde satıldı.",
+        "Asıl değer kutuda değil, hikâyedeydi."
+      ],
+      "action": [
+        "Yerel bir gündeme ya da özel bir güne bağlı, numaralı ve gerçekten sınırlı bir özel ambalaj hazırla.",
+        "Kalan stoğu dürüstçe göster; sahte kıtlık, siyasi figür ya da izinsiz marka adı kullanma."
+      ],
+      "insight": "Hikâyesi olan bir ürün, fiyatının çok üstünde değer görür.",
+      "question": "Senin ürününün anlatılacak hikâyesi ne? 👇",
+      "tags": [
+        "#airbnb",
+        "#hikâyeanlatıcılığı"
+      ],
+      "facts": [
+        {
+          "text": "Brian Chesky'ye göre kurucular bin kutudan fazla (1.000+) mısır gevreği sattı ve yaklaşık 30.000 dolar kazandı.",
+          "source_label": "CNBC (2023)",
+          "source_url": "https://www.cnbc.com/2023/04/18/airbnb-ceo-says-he-wooed-first-investors-with-boxes-of-cereal.html",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Kurucunun anlatımı."
+        },
+        {
+          "text": "Kutular 2008 parti kongreleri sırasında 40 dolardan satıldı.",
+          "source_label": "Fortune (2023)",
+          "source_url": "https://fortune.com/2023/04/19/airbnb-ceo-cereal-box-investors-changed-everything-billion-dollar-company/",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Gevrek",
+        "pattern": "olay",
+        "headline": "Airbnb'yi bir gevrek kutusu nasıl kurtardı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Airbnb batmamak için mısır gevreği sattı.",
+            "show": {
+              "type": "title",
+              "text": "Şirketi bir",
+              "sub": "gevrek kurtardı."
+            }
+          },
+          {
+            "say": "2008. Airbnb'nin kurucularının parası bitmek üzere. Yatırımcılar ilgilenmiyor.",
+            "show": {
+              "type": "phone",
+              "app": "Banka",
+              "title": "Bakiye düşük",
+              "body": "Kredi kartları dolu.",
+              "time": "23:00"
+            }
+          },
+          {
+            "say": "Seçim gündemi sıcak. Kurucular seçim temalı mısır gevreği kutuları tasarlıyor ve tanesini 40 dolardan satıyor.",
+            "show": {
+              "type": "stat",
+              "value": "40 dolar",
+              "label": "bir kutu gevrek",
+              "note": "KAYNAK: FORTUNE (2023)"
+            }
+          },
+          {
+            "say": "Chesky'ye göre bin kutudan fazla satıldı ve yaklaşık 30.000 dolar kazandılar. Şirket ayakta kaldı.",
+            "show": {
+              "type": "stat",
+              "value": "30.000",
+              "label": "dolar · kurucuya göre",
+              "note": "KAYNAK: CNBC (2023)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İnsanlar gevrek almadı, hikâye aldı. Gündeme bağlı, sınırlı ve koleksiyonluk bir kutu.",
+            "show": {
+              "type": "chips",
+              "title": "Neyi satın aldılar?",
+              "items": [
+                "Gündem",
+                "Sınırlı sayı",
+                "Hikâye"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Yerel bir gündeme bağlı, numaralı ve gerçekten sınırlı bir özel ambalaj hazırla. Kalan stoğu dürüstçe göster.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Özel seri · numaralı",
+              "body": "Kalan stok dürüstçe yazıyor.",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "old-spice-kadinlara",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Old Spice",
+      "mechanism": "Asıl alıcıyı hedeflemek",
+      "callypso_feature": "Segmentasyon (alıcı kim?)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Old Spice erkek reklamını kadınlara yaptı",
+        "Old Spice yorumlara tek tek videoyla cevap verdi",
+        "Old Spice iki günde 186 video çekti"
+      ],
+      "cover": {
+        "line1": "Erkek ürünü,",
+        "line2": "kadına reklam.",
+        "object": "duş jeli şişesi",
+        "icon": "bottle",
+        "theme": "dark",
+        "number": "%60"
+      },
+      "fact": "Ajansına göre erkek duş jellerinin %60'ını kadınlar satın alıyordu; Old Spice reklamını onlara yaptı.",
+      "mechanism_lines": [
+        "Ürünü kullanana değil, satın alana konuşmak mesajı doğru kişiye ulaştırdı.",
+        "İsimle verilen kişisel cevaplar paylaşımı artırdı."
+      ],
+      "action": [
+        "Ürününü kimin satın aldığını sipariş notları ya da anonim bir anketle öğren.",
+        "Bir reklamı doğrudan o alıcıya hitap edecek şekilde yaz."
+      ],
+      "insight": "Kullanan ile satın alan aynı kişi olmayabilir.",
+      "question": "Senin ürününü kim satın alıyor, kim kullanıyor? 👇",
+      "tags": [
+        "#oldspice",
+        "#hedefkitle"
+      ],
+      "facts": [
+        {
+          "text": "Wieden+Kennedy'ye göre erkek duş jellerinin %60'ını kadınlar satın alıyordu; kampanya Şubat 2010'da yayınlandı.",
+          "source_label": "Wieden+Kennedy vaka sayfası",
+          "source_url": "https://www.wk.com/work/old-spice-smell-like-a-man-man",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Ajans beyanı."
+        },
+        {
+          "text": "Ajansa göre hedef %15 büyümeydi; Temmuz 2010'da satışlar 2 katına çıktı; iki buçuk günde 186 kişiye özel video çekildi.",
+          "source_label": "Wieden+Kennedy vaka sayfası",
+          "source_url": "https://www.wk.com/work/old-spice-smell-like-a-man-man",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Ajans beyanı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Alıcı",
+        "pattern": "olay",
+        "headline": "Old Spice reklamı neden kadınlara yaptı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Old Spice erkek ürününün reklamını kadınlara yaptı.",
+            "show": {
+              "type": "title",
+              "text": "Erkek ürünü,",
+              "sub": "kadına reklam."
+            }
+          },
+          {
+            "say": "Ajansına göre erkek duş jellerinin %60'ını kadınlar satın alıyordu. Markete giden, sepete koyan onlardı.",
+            "show": {
+              "type": "stat",
+              "value": "%60",
+              "label": "satın alan kadın · ajansa göre",
+              "bar": 0.6,
+              "note": "KAYNAK: WIEDEN+KENNEDY"
+            }
+          },
+          {
+            "say": "2010'da reklam doğrudan onlara konuştu: Kocanız böyle kokabilirdi.",
+            "show": {
+              "type": "phone",
+              "app": "Reklam",
+              "title": "Merhaba hanımlar.",
+              "body": "Kocanıza bakın, sonra bana.",
+              "time": "21:00"
+            }
+          },
+          {
+            "say": "Sonra internetten gelen yorumlara cevap verdi. İki buçuk günde, isimle 186 kişiye özel video.",
+            "show": {
+              "type": "counter",
+              "value": 186,
+              "label": "kişiye özel video"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Ajansa göre hedef %15 büyümeydi. Temmuz 2010'da satışlar 2 katına çıktı. Kullanana değil, satın alana konuştu.",
+            "show": {
+              "type": "compare",
+              "left": {
+                "label": "Hedef",
+                "value": "%15",
+                "bar": 0.15
+              },
+              "right": {
+                "label": "Sonuç · ajansa göre",
+                "value": "2 kat",
+                "bar": 1
+              },
+              "caption": "Satış"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürününü kimin satın aldığını sipariş notlarından öğren. Bir reklamı doğrudan o alıcıya yaz.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kendine mi, hediye mi?",
+              "body": "Sipariş notundan öğren.",
+              "time": "14:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "%60"
+    },
+    {
+      "key": "volkswagen-piyano-merdiven",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Volkswagen",
+      "mechanism": "Oyunlaştırma ve anlık ödül",
+      "callypso_feature": "Sepet (ücretsiz kargo ilerleme çubuğu)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Volkswagen metro merdivenini dev piyanoya çevirdi",
+        "Bir otomobil markası merdivenlere piyano tuşu döşedi",
+        "Volkswagen insanları yürüyen merdivenden vazgeçirdi"
+      ],
+      "cover": {
+        "line1": "Merdiven değil,",
+        "line2": "piyano.",
+        "object": "piyano merdiven",
+        "icon": "stairs",
+        "theme": "light",
+        "number": "%66"
+      },
+      "fact": "Volkswagen 2009'da Stockholm'deki bir metro merdivenini basınca ses çıkaran piyanoya çevirdi; kampanyaya göre merdiveni seçen %66 arttı.",
+      "mechanism_lines": [
+        "Sıkıcı bir davranışa küçük ve anında gelen bir keyif eklendi.",
+        "İnsanlar zor yolu kimse zorlamadan, kendiliğinden seçti."
+      ],
+      "action": [
+        "Sepete 'Ücretsiz kargoya şu kadar kaldı' gibi gerçek eşiği gösteren bir ilerleme çubuğu ekle.",
+        "Sepet tamamlama oranını 2 hafta önce ve sonra karşılaştır."
+      ],
+      "insight": "İnsanları zorlamak yerine eğlendir.",
+      "question": "Senin müşterin hangi adımda sıkılıyor? 👇",
+      "tags": [
+        "#volkswagen",
+        "#oyunlaştırma"
+      ],
+      "facts": [
+        {
+          "text": "Volkswagen ve DDB Stockholm, Haziran 2009'da Stockholm Odenplan metro istasyonundaki merdiveni basınca ses çıkaran piyanoya çevirdi; kampanyaya göre tek günlük testte merdiveni seçenler normalden %66 fazlaydı.",
+          "source_label": "Stanford Social Innovation Review",
+          "source_url": "https://ssir.org/articles/entry/what_works_fun_for_a_change",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Kampanyanın kendi ölçümü; yöntemi yayımlanmadı."
+        },
+        {
+          "text": "'Piano Staircase' 2010'da Cannes Lions'ta Altın Aslan kazandı.",
+          "source_label": "Cannes Lions / LoveTheWork",
+          "source_url": "https://www.lovethework.com/work-awards/entries/93366",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Piyano",
+        "pattern": "olay",
+        "headline": "Volkswagen neden merdivene piyano koydu?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Volkswagen metro merdivenini dev bir piyanoya çevirdi.",
+            "show": {
+              "type": "title",
+              "text": "Merdiven değil,",
+              "sub": "piyano."
+            }
+          },
+          {
+            "say": "2009, Stockholm. Metroda herkes yürüyen merdivene biniyor, hemen yanındaki merdiveni kimse kullanmıyor.",
+            "show": {
+              "type": "chips",
+              "title": "Metro çıkışı",
+              "items": [
+                "Yürüyen merdiven: kalabalık",
+                "Merdiven: bomboş"
+              ]
+            }
+          },
+          {
+            "say": "Bir gece merdivenin her basamağı piyano tuşuna dönüştü. Bastıkça nota çalıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Sıkıcı merdiven",
+              "text": "Basınca çalan piyano."
+            }
+          },
+          {
+            "say": "Kampanyanın kendi ölçümüne göre o gün merdiveni seçenler normalden yüzde 66 fazlaydı.",
+            "show": {
+              "type": "stat",
+              "value": "%66",
+              "label": "daha çok merdiven · kampanyaya göre",
+              "bar": 0.66,
+              "note": "KAYNAK: SSIR"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Kimse zorlanmadı. Sıkıcı bir işe küçük ve anında gelen bir keyif eklenince insanlar zor yolu kendisi seçti.",
+            "show": {
+              "type": "scale",
+              "heavy": "Anlık keyif",
+              "light": "Zahmet",
+              "caption": "Ne ağır bastı?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Sepetine gerçek eşiği gösteren bir ilerleme çubuğu koy: Ücretsiz kargoya az kaldı. 2 hafta sonra sonucu karşılaştır.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ücretsiz kargoya az kaldı",
+              "body": "Çubuk doldukça kargo bedava.",
+              "time": "15:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "%66"
+    },
+    {
+      "key": "red-bull-stratos",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Red Bull",
+      "mechanism": "Merak ve paylaşılan canlı an",
+      "callypso_feature": "Canlı yayın kampanyası (süreli kod)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Red Bull reklam yerine stratosferden atlayış yayınladı",
+        "Bir içecek markası bir adamı stratosferden atlattı",
+        "Red Bull'un yayınını milyonlar aynı anda izledi"
+      ],
+      "cover": {
+        "line1": "Reklam yok.",
+        "line2": "Canlı atlayış.",
+        "object": "stratosfer balonu",
+        "icon": "balloon",
+        "theme": "dark",
+        "number": "8 milyon+"
+      },
+      "fact": "Red Bull 14 Ekim 2012'de Felix Baumgartner'ın stratosferden atlayışını YouTube'dan canlı yayınladı; YouTube'a göre aynı anda 8 milyondan fazla kişi izledi.",
+      "mechanism_lines": [
+        "Sonucu belirsiz gerçek zamanlı bir olay, kaçırmama isteği yarattı.",
+        "Marka ürünü değil, bir hikâyeyi sahiplendi."
+      ],
+      "action": [
+        "Kampanya gününde önceden duyurulmuş 20 dakikalık bir canlı yayın yap.",
+        "Yayında yalnızca canlıya özel, gerçek ve süreli bir indirim kodu ver."
+      ],
+      "insight": "İnsanlar reklamı geçer, hikâyeyi izler.",
+      "question": "Senin markanın canlı izlenecek hikâyesi ne olurdu? 👇",
+      "tags": [
+        "#redbull",
+        "#canlıyayın"
+      ],
+      "facts": [
+        {
+          "text": "14 Ekim 2012'deki Red Bull Stratos yayını, YouTube verisine göre atlayıştan hemen önce aynı anda 8 milyondan fazla izleyiciye ulaştı.",
+          "source_label": "Tubefilter (2012)",
+          "source_url": "https://tubefilter.com/2012/10/14/red-bull-stratos-live-streaming-record/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Eş zamanlı izleyici; YouTube beyanı."
+        },
+        {
+          "text": "Red Bull'a göre atlayışı YouTube'da toplam 9,5 milyon kişi canlı izledi.",
+          "source_label": "Red Bull, Best of 2012",
+          "source_url": "https://www.redbull.com/int-en/best-of-2012-red-bull-stratos",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı; eş zamanlı rakamla karıştırılmaz."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Canlı",
+        "pattern": "olay",
+        "headline": "Red Bull neden reklam çekmedi?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Red Bull reklam yerine stratosferden atlayış yayınladı.",
+            "show": {
+              "type": "title",
+              "text": "Reklam yok.",
+              "sub": "Canlı atlayış."
+            }
+          },
+          {
+            "say": "14 Ekim 2012. Felix Baumgartner, bir balonla stratosfere çıkıyor ve oradan aşağı atlayacak. YouTube'da canlı.",
+            "show": {
+              "type": "phone",
+              "app": "Canlı yayın",
+              "title": "CANLI · Red Bull Stratos",
+              "body": "Atlayışa dakikalar kaldı.",
+              "time": "20:08"
+            }
+          },
+          {
+            "say": "YouTube'un verisine göre atlayıştan hemen önce aynı anda 8 milyondan fazla kişi izliyordu.",
+            "show": {
+              "type": "stat",
+              "value": "8 milyon+",
+              "label": "aynı anda izleyen · YouTube'a göre",
+              "note": "KAYNAK: TUBEFILTER (2012)"
+            }
+          },
+          {
+            "say": "Red Bull'un kendi hesabına göre toplamda 9,5 milyon kişi canlı izledi. Kutuyu kimse göstermedi, herkes markayı konuştu.",
+            "show": {
+              "type": "counter",
+              "value": 9.5,
+              "label": "milyon canlı izleyici · Red Bull'a göre"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Sonucu belli olmayan canlı bir an, kaçırma korkusu yaratır. Red Bull ürünü değil, hikâyeyi sahiplendi.",
+            "show": {
+              "type": "rule",
+              "strike": "Ürün reklamı",
+              "text": "Canlı izlenen hikâye."
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Kampanya gününden önce 20 dakikalık bir canlı yayın duyur. Yayında sadece canlıya özel, süreli bir kod ver.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bu akşam canlıdayız",
+              "body": "Yayına özel kod kısa süre geçerli.",
+              "time": "18:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "amazon-tek-tik",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Amazon",
+      "mechanism": "Sürtünmeyi azaltma",
+      "callypso_feature": "Ödeme sayfası (misafir ödeme)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Amazon tek bir tıklamanın patentini aldı",
+        "Apple, Amazon'un tek tık patentini lisansladı",
+        "Amazon satın almayı tek tıka indirdi"
+      ],
+      "cover": {
+        "line1": "Tek tık.",
+        "line2": "Patentli.",
+        "object": "satın al butonu",
+        "icon": "cursor",
+        "theme": "light",
+        "number": "1999"
+      },
+      "fact": "Amazon tek tıkla sipariş için 1997'de başvurdu, ABD patenti 1999'da verildi; Apple 2000'de bu patenti kendi mağazası için lisansladı.",
+      "mechanism_lines": [
+        "Karar ile ödeme arasındaki her adım, vazgeçme fırsatıdır.",
+        "Adım azaldıkça satın alma kolaylaşır."
+      ],
+      "action": [
+        "Ödeme sayfasında zorunlu üyeliği kaldırıp misafir ödemeyi aç ve alan sayısını azalt.",
+        "Kart saklamayı yalnızca lisanslı ödeme kuruluşunun özelliğiyle ve müşterinin açık onayıyla yap."
+      ],
+      "insight": "Her ekstra adım, müşteriye kapıyı gösterir.",
+      "question": "Senin ödeme sayfanda kaç adım var? 👇",
+      "tags": [
+        "#amazon",
+        "#ödemesayfası"
+      ],
+      "facts": [
+        {
+          "text": "Amazon'un tek tıkla sipariş patenti (US 5,960,411) için başvuru 12 Eylül 1997'de yapıldı, patent 28 Eylül 1999'da verildi.",
+          "source_label": "Google Patents US5960411A",
+          "source_url": "https://patents.google.com/patent/US5960411A/en",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Apple 18 Eylül 2000'de Amazon'un 1-Click patentini ve markasını Apple Online Store için lisansladı; anlaşma çapraz lisanstı, mali koşulları açıklanmadı.",
+          "source_label": "Apple Newsroom (2000)",
+          "source_url": "https://www.apple.com/newsroom/2000/09/18Apple-Licenses-Amazon-com-1-Click-Patent-and-Trademark/",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "ABD patenti, başvurudan 20 yıl sonra, Eylül 2017'de sona erdi.",
+          "source_label": "Retail Dive",
+          "source_url": "https://www.retaildive.com/news/amazons-one-click-patent-nearing-expiration-date/433251",
+          "source_type": "press",
+          "checked_at": "2026-11-10"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Tek tık",
+        "pattern": "olay",
+        "headline": "Amazon tek tıkın patentini neden aldı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Amazon tek bir tıklamanın patentini aldı.",
+            "show": {
+              "type": "title",
+              "text": "Tek tık.",
+              "sub": "Patentli."
+            }
+          },
+          {
+            "say": "1997. İnternetten alışveriş zahmetli: adres, kart, onay, bir sayfa daha. Her adımda müşteri vazgeçebiliyor.",
+            "show": {
+              "type": "chips",
+              "title": "Ödeme",
+              "items": [
+                "Adres",
+                "Kart",
+                "Onay",
+                "Bir sayfa daha"
+              ]
+            }
+          },
+          {
+            "say": "Amazon tek tıkla sipariş için başvurdu. 1999'da ABD patenti verildi. Bilgilerin kayıtlı, tek tık, sipariş tamam.",
+            "show": {
+              "type": "rule",
+              "strike": "Beş adım",
+              "text": "Tek tık."
+            }
+          },
+          {
+            "say": "Bir yıl sonra, 2000'de, Apple bile bu patenti kendi mağazası için lisansladı.",
+            "show": {
+              "type": "stat",
+              "value": "2000",
+              "label": "Apple lisansladı",
+              "note": "KAYNAK: APPLE NEWSROOM"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Fikir basit: karar ile ödeme arasındaki her adım, vazgeçme fırsatı. Adım azaldıkça satış kolaylaşıyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Adım sayısı",
+              "light": "Satın alma isteği",
+              "caption": "Ne kazanıyor?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ödeme sayfanda zorunlu üyeliği kaldır, misafir ödemeyi aç. Kart saklamayı sadece müşterinin onayıyla, ödeme kuruluşuyla yap.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Üye olmadan devam et",
+              "body": "Daha az alan, daha hızlı ödeme.",
+              "time": "13:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "haagen-dazs-uydurma-isim",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Häagen-Dazs",
+      "mechanism": "Menşe etkisi ve prestij çağrışımı",
+      "callypso_feature": "Ürün sayfası (köken hikâyesi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Häagen-Dazs aslında Danimarkalı değil, New Yorklu",
+        "Häagen-Dazs ismi tamamen uydurma",
+        "Bir dondurmacı anlamsız bir isim uydurdu"
+      ],
+      "cover": {
+        "line1": "Hiçbir şey",
+        "line2": "demek.",
+        "object": "dondurma külahı",
+        "icon": "icecream",
+        "theme": "warm",
+        "number": "1960"
+      },
+      "fact": "Häagen-Dazs 1960'tan beri dondurma yapıyor; kurucusu Reuben Mattus, markaya eski dünya zanaatı havası versin diye Danimarkaca gibi duran uydurma bir isim verdi.",
+      "mechanism_lines": [
+        "Yabancı ve zanaat çağrıştıran bir isim, kalite algısını yukarı çekti.",
+        "İsim, ürünün hikâyesini tek kelimede anlattı."
+      ],
+      "action": [
+        "Ürününe gerçek hikâyesine dayanan akılda kalıcı bir isim ve kısa bir köken anlatısı ver.",
+        "Sahte yabancı menşe ima etme; bu yanıltıcı reklam riski taşır."
+      ],
+      "insight": "İsim, ürünün ilk tadıdır.",
+      "question": "Senin ürününün adı ne çağrıştırıyor? 👇",
+      "tags": [
+        "#haagendazs",
+        "#markaismi"
+      ],
+      "facts": [
+        {
+          "text": "Häagen-Dazs 1960'tan beri dondurma üretiyor; kurucusu Reuben Mattus.",
+          "source_label": "Häagen-Dazs UK, Our Story",
+          "source_url": "https://www.haagen-dazs.co.uk/our-story",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "Mattus, eski dünya geleneği ve zanaat havası versin diye Danimarkaca gibi duran bir isim uydurdu ve Danca'da olmayan bir umlaut ekledi; şirket New York, Bronx'ta kuruldu.",
+          "source_label": "HuffPost (2015)",
+          "source_url": "https://www.huffpost.com/entry/haagen-dazs-comes-from_n_7266208",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Bronx kökeni basın kaynaklı; resmî sitede yok."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "İsim",
+        "pattern": "olay",
+        "headline": "Häagen-Dazs ne demek?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Häagen-Dazs aslında Danimarkalı değil, New Yorklu.",
+            "show": {
+              "type": "title",
+              "text": "Hiçbir şey",
+              "sub": "demek."
+            }
+          },
+          {
+            "say": "Reuben Mattus, New York Bronx'ta dondurma işi yapan bir adam. Ürünü iyi ama markette yüzlerce dondurma var.",
+            "show": {
+              "type": "chips",
+              "title": "Dondurma reyonu",
+              "items": [
+                "Yüzlerce marka",
+                "Benzer kutular",
+                "Benzer isimler"
+              ]
+            }
+          },
+          {
+            "say": "1960 civarı bir isim uydurdu: Häagen-Dazs. Hiçbir dilde anlamı yok, ama Danimarkaca gibi duruyor.",
+            "show": {
+              "type": "stat",
+              "value": "1960",
+              "label": "Häagen-Dazs doğdu",
+              "note": "KAYNAK: HÄAGEN-DAZS"
+            }
+          },
+          {
+            "say": "Danimarkacada olmayan bir harf işareti bile ekledi. Amaç eski dünya zanaatı havasıydı.",
+            "show": {
+              "type": "rule",
+              "strike": "Bronx dondurması",
+              "text": "Avrupa zanaatı havası."
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Yabancı ve zanaat çağrıştıran bir isim, kaliteyi ve fiyatı zihinde yukarı çekiyor. Ama burada ince bir çizgi var.",
+            "show": {
+              "type": "scale",
+              "heavy": "Algılanan kalite",
+              "light": "Gerçek köken",
+              "caption": "Ne ağır bastı?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürününe gerçek hikâyesine dayanan bir isim ve kısa bir köken yazısı ver. Sahte yabancı menşe ima etme.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bu ürünün hikâyesi",
+              "body": "Gerçek köken, kısa bir paragraf.",
+              "time": "11:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "thy-touristanbul",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Türk Hava Yolları",
+      "mechanism": "Karşılıklılık ve beklenmedik hediye",
+      "callypso_feature": "Hoş geldin akışı (ücretsiz rehber)",
+      "status": "dogrulandi",
+      "hooks": [
+        "THY aktarma yolcusuna İstanbul'u bedava gezdiriyor",
+        "Bir havayolu bekleyen yolcusuna ücretsiz şehir turu veriyor",
+        "THY aktarma beklemesini İstanbul turuna çevirdi"
+      ],
+      "cover": {
+        "line1": "Aktarma değil,",
+        "line2": "İstanbul turu.",
+        "object": "uçak",
+        "icon": "plane",
+        "theme": "dark",
+        "number": "585.455"
+      },
+      "fact": "THY 2009'dan bu yana Touristanbul ile 6–24 saat aktarması olan transit yolcuları ücretsiz İstanbul turuna çıkarıyor; şirkete göre 585.455 yolcu katıldı.",
+      "mechanism_lines": [
+        "Karşılık beklemeden verilen değerli bir deneyim minnet ve olumlu ağızdan ağıza yaratıyor.",
+        "Ölü bekleme zamanı markalı bir anıya dönüşüyor."
+      ],
+      "action": [
+        "Henüz satın almamış ziyaretçiye gerçekten faydalı ücretsiz bir PDF rehber ver.",
+        "E-posta karşılığında veriyorsan ticari ileti onayını ayrı ve isteğe bağlı al, İYS'ye kaydet."
+      ],
+      "insight": "Önce ver, sonra iste.",
+      "question": "Sen müşterine karşılıksız ne verebilirsin? 👇",
+      "tags": [
+        "#thy",
+        "#karşılıklılık"
+      ],
+      "facts": [
+        {
+          "text": "THY 2009'dan bu yana Touristanbul ile 585.455 (585 bin 455) transit yolcuyu ücretsiz turda ağırladı; 2024'te 100 binden fazla yolcuyla rekor kırıldı.",
+          "source_label": "Bigpara/Hürriyet (AA), 20.11.2024",
+          "source_url": "https://bigpara.hurriyet.com.tr/haberler/genel-haberler/thyden-ucretsiz-tur-imkani_ID1603524/",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Şirket rakamları, AA aracılığıyla."
+        },
+        {
+          "text": "İstanbul Havalimanı'nda 6 ile 24 saat arası aktarması olan uluslararası transit yolcular ücretsiz tura katılabiliyor.",
+          "source_label": "Daily Sabah (AA), 06.05.2019",
+          "source_url": "https://www.dailysabah.com/tourism/2019/05/06/turkish-airlines-offers-transit-passengers-free-istanbul-tour",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Koşullar yayından önce resmî sayfada yeniden kontrol edilmeli."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Hediye",
+        "pattern": "olay",
+        "headline": "THY neden bedava tur veriyor?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] THY aktarma yolcusuna İstanbul'u bedava gezdiriyor.",
+            "show": {
+              "type": "title",
+              "text": "Aktarma değil,",
+              "sub": "İstanbul turu."
+            }
+          },
+          {
+            "say": "Düşün: bir sonraki uçağın saatler sonra. Havalimanında oturup saat mi sayacaksın?",
+            "show": {
+              "type": "phone",
+              "app": "Biniş kartı",
+              "title": "Aktarma: saatler var",
+              "body": "Havalimanında bekleme.",
+              "time": "06:40"
+            }
+          },
+          {
+            "say": "THY şunu yapıyor: 6 ile 24 saat aktarması olan uluslararası yolcuyu ücretsiz İstanbul turuna çıkarıyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Kapıda bekleme",
+              "text": "Ücretsiz şehir turu."
+            }
+          },
+          {
+            "say": "Şirkete göre 2009'dan bu yana 585 bin 455 yolcu katıldı. Sadece 2024'te 100 binden fazla.",
+            "show": {
+              "type": "stat",
+              "value": "585.455",
+              "label": "yolcu · şirkete göre",
+              "note": "KAYNAK: AA (2024)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Karşılık beklemeden verilen bir hediye minnet yaratıyor. Ölü bekleme zamanı, markalı bir anıya dönüşüyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Minnet",
+              "light": "Turun maliyeti",
+              "caption": "Ne kazandı?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Henüz satın almamış ziyaretçine gerçekten işe yarar ücretsiz bir PDF rehber ver. E-posta istiyorsan onayı ayrı al.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ücretsiz bakım rehberi",
+              "body": "Satın almadan önce de işine yarasın.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "bim-900-urun",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "BİM",
+      "mechanism": "Seçim yükünü azaltma ve kıtlık",
+      "callypso_feature": "Ana sayfa (küçük seçki + haftanın ürünü)",
+      "status": "dogrulandi",
+      "hooks": [
+        "BİM bilerek daha az ürün satıyor",
+        "Türkiye'nin dev marketi yaklaşık 900 ürün satıyor",
+        "BİM sadakat kartı yerine düşük fiyat diyor"
+      ],
+      "cover": {
+        "line1": "Az ürün.",
+        "line2": "Dev market.",
+        "object": "alışveriş sepeti",
+        "icon": "basket",
+        "theme": "warm",
+        "number": "~900"
+      },
+      "fact": "BİM ürün yelpazesini bilerek yaklaşık 900 ürünle sınırlıyor; sadakat kartı ve kısa süreli indirim yerine her gün düşük fiyat uyguluyor.",
+      "mechanism_lines": [
+        "Az ve net seçenek karar vermeyi kolaylaştırıyor.",
+        "Haftalık sınırlı aktüel ürünler düzenli ziyaret alışkanlığı yaratıyor."
+      ],
+      "action": [
+        "Ana sayfada yüzlerce ürün yerine 'En çok tercih edilen 12 ürün' gibi küçük bir seçki göster.",
+        "Her hafta aynı gün, stoğu gerçekten sınırlı tek bir 'haftanın ürünü' çıkar; sahte geri sayım kullanma."
+      ],
+      "insight": "Az seçenek, hızlı karar.",
+      "question": "Senin ana sayfanda kaç ürün var? 👇",
+      "tags": [
+        "#bim",
+        "#seçimyükü"
+      ],
+      "facts": [
+        {
+          "text": "BİM ürün yelpazesini, bir hanenin günlük temel ihtiyaçlarının %80'ini karşılayacak şekilde yaklaşık 900 ürünle sınırlıyor.",
+          "source_label": "BİM 2024 Entegre Faaliyet Raporu",
+          "source_url": "https://english.bim.com.tr/AnnualReports/2024/2024%20Integrated%20Annual%20Report.pdf",
+          "source_type": "official",
+          "checked_at": "2026-11-10"
+        },
+        {
+          "text": "BİM kampanya, promosyon ve sadakat kartı yerine tüm müşterilerine her gün düşük fiyat politikası uyguluyor; haftalık sınırlı süreli aktüel ürünler mağaza ziyaretini artırıyor.",
+          "source_label": "BİM 2024 Entegre Faaliyet Raporu",
+          "source_url": "https://english.bim.com.tr/AnnualReports/2024/2024%20Integrated%20Annual%20Report.pdf",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı."
+        },
+        {
+          "text": "BİM 2024 sonunda toplam 13.583 mağazaya ulaştı.",
+          "source_label": "BİM 2024 Entegre Faaliyet Raporu",
+          "source_url": "https://english.bim.com.tr/AnnualReports/2024/2024%20Integrated%20Annual%20Report.pdf",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Fas, Mısır ve FİLE dahil."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Seçki",
+        "pattern": "olay",
+        "headline": "BİM neden az ürün satıyor?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Türkiye'nin dev marketi bilerek az ürün satıyor.",
+            "show": {
+              "type": "title",
+              "text": "Az ürün.",
+              "sub": "Dev market."
+            }
+          },
+          {
+            "say": "Büyük bir markete gir: on binlerce ürün, aynı şeyin yirmi markası. Ne alacağına karar veremiyorsun.",
+            "show": {
+              "type": "chips",
+              "title": "Raf",
+              "items": [
+                "Aynı ürün",
+                "Yirmi marka",
+                "Kararsızlık"
+              ]
+            }
+          },
+          {
+            "say": "BİM'in kendi raporuna göre ürün yelpazesi yaklaşık 900 ürün. Bir evin günlük temel ihtiyaçlarının yüzde 80'ini karşılayacak kadar.",
+            "show": {
+              "type": "stat",
+              "value": "~900",
+              "label": "ürün · BİM raporuna göre",
+              "note": "KAYNAK: BİM 2024 FAALİYET RAPORU"
+            }
+          },
+          {
+            "say": "Sadakat kartı ve kısa süreli indirim yerine her gün düşük fiyat. Üstüne her hafta sınırlı aktüel ürünler.",
+            "show": {
+              "type": "rule",
+              "strike": "Sadakat kartı",
+              "text": "Her gün düşük fiyat."
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Az seçenek kararı hızlandırıyor. Haftalık aktüel de kaçırmadan gideyim dedirtiyor. 2024 sonunda 13.583 mağaza.",
+            "show": {
+              "type": "counter",
+              "value": 13583,
+              "label": "mağaza · 2024 sonu"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ana sayfanda yüzlerce ürün yerine en çok tercih edilen 12 ürünü göster. Her hafta aynı gün tek bir haftanın ürünü çıkar.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Haftanın ürünü",
+              "body": "Her salı, stok gerçekten sınırlı.",
+              "time": "09:00"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "migros-kendi-kampanyan",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Migros",
+      "mechanism": "Özerklik ve sahiplenme etkisi",
+      "callypso_feature": "Segmentasyon (müşterinin seçtiği indirim)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Migros kampanyayı müşteriye kendi kurdurdu",
+        "Migros müşterisine indirimini kendin tasarla dedi",
+        "Bir market zinciri kampanya yapmayı müşteriye bıraktı"
+      ],
+      "cover": {
+        "line1": "Kampanyanı",
+        "line2": "kendin kur.",
+        "object": "üyelik kartı",
+        "icon": "member-card",
+        "theme": "green",
+        "number": "1,4 milyon"
+      },
+      "fact": "Migros, Money uygulamasında müşterinin harcama eşiğini ve kategorisini kendisi seçerek kampanya kurmasına izin verdi; ödül başvurusuna göre 342.637 müşteri 1,4 milyondan fazla kampanya oluşturdu.",
+      "mechanism_lines": [
+        "İnsanlar kendi kurdukları teklife daha çok değer veriyor.",
+        "Seçim hakkı, kampanyayı kullanma isteğini artırıyor."
+      ],
+      "action": [
+        "Üyelerine ayda bir 'Bu ay indirimin hangi kategoride olsun?' diye 3 seçenek sun.",
+        "Kişiselleştirme için KVKK açık rızası al; hatırlatmayı yalnızca İYS onayı olanlara gönder."
+      ],
+      "insight": "Kendi seçtiği teklifi insan kullanır.",
+      "question": "Müşterine hangi seçimi bırakabilirsin? 👇",
+      "tags": [
+        "#migros",
+        "#kişiselleştirme"
+      ],
+      "facts": [
+        {
+          "text": "Migros'un MMA Smarties Türkiye 2025 ödül başvurusuna göre Money uygulamasında 342.637 (342 bin 637) müşteri kendi harcama eşiğini ve kategorisini seçerek 1,4 milyondan fazla kişisel kampanya oluşturdu.",
+          "source_label": "WARC, MMA Smarties vaka özeti",
+          "source_url": "https://www.warc.com/content/article/MMA-Smarties/Migros_Ticaret_AS_Kendi_Kampanyan%C4%B1_Kendin_Yarat/159905",
+          "source_type": "press",
+          "checked_at": "2026-11-10",
+          "note": "Ödül başvurusu; denetlenmiş rakam değil. Gelir artışı rakamı kullanılmaz."
+        },
+        {
+          "text": "Migros Money'nin 14 milyon tekil aktif üyesi var.",
+          "source_label": "Migros 2025 Sürdürülebilirlik Raporu bölümü",
+          "source_url": "https://migroskurumsal.com/surdurulebilirlikfiles/pdf/2025-iyi-ve-guvenli-musteri-deneyimi.pdf",
+          "source_type": "official",
+          "checked_at": "2026-11-10",
+          "note": "Şirket beyanı."
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Seçim",
+        "pattern": "olay",
+        "headline": "Migros kampanyayı neden müşteriye bıraktı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Migros kampanyayı müşteriye kendi kurdurdu.",
+            "show": {
+              "type": "title",
+              "text": "Kampanyanı",
+              "sub": "kendin kur."
+            }
+          },
+          {
+            "say": "Market kampanyaları genelde aynıdır: şu kadar harca, şu kadar kazan. Kural marketin.",
+            "show": {
+              "type": "phone",
+              "app": "Kampanya",
+              "title": "Şu kadar harca, şu kadar kazan",
+              "body": "Kuralı market koyar.",
+              "time": "10:00"
+            }
+          },
+          {
+            "say": "Migros Money'de bunu tersine çevirdi. Harcama eşiğini ve kategoriyi müşteri seçiyor, kampanyayı kendisi kuruyor.",
+            "show": {
+              "type": "rule",
+              "strike": "Marketin kuralı",
+              "text": "Senin kurduğun kampanya."
+            }
+          },
+          {
+            "say": "Migros'un ödül başvurusuna göre 342 bin 637 müşteri, 1,4 milyondan fazla kişisel kampanya oluşturdu.",
+            "show": {
+              "type": "stat",
+              "value": "1,4 milyon+",
+              "label": "kişisel kampanya · Migros'a göre",
+              "note": "KAYNAK: WARC / MMA SMARTIES 2025"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İnsan kendi kurduğu teklife daha çok değer veriyor ve onu kullanmak istiyor. Seçim hakkı sahiplenme yaratıyor.",
+            "show": {
+              "type": "scale",
+              "heavy": "Kendi seçimim",
+              "light": "Hazır kampanya",
+              "caption": "Hangisi kullanılır?"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Üyelerine ayda bir sor: Bu ay indirimin hangi kategoride olsun? 3 seçenek ver. Kişiselleştirme için açık rıza al.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Bu ay indirimin nerede olsun?",
+              "body": "Ayakkabı · Çanta · Aksesuar",
+              "time": "12:00"
+            }
+          },
+          {
+            "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      }
     }
   ]
 }
