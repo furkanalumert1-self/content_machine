@@ -1,6 +1,8 @@
 // Günlük planlayıcı: ürün, içerik türü, fikir ve stil seçer; senaryoyu "planned" video olarak kaydeder.
 // Tekrar çalıştırılabilir: bugün için zaten yeterli otomatik video planlandıysa hiçbir şey yapmaz.
 // Çalıştırma: npx tsx src/jobs/planner.ts
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { activeStyles as listActiveStyles } from '../config/styles.ts';
 import { serviceClient } from '../lib/db.ts';
 import { setOutput } from '../lib/gha.ts';
@@ -21,11 +23,15 @@ const { data: settings, error: se } = await db.from('app_settings').select('*').
 if (se) throw se;
 
 const todayStart = startOfLocalDay(new Date(), settings.timezone);
+// Deneme dönemi üst sınırı (config/schedule.json): bitiş tarihine kadar panel ayarından düşük olan geçerli.
+const trial = JSON.parse(readFileSync(join(import.meta.dirname, '../../../config/schedule.json'), 'utf8')) as { daily_max: number; until: string };
+const dailyCount = new Date() <= new Date(`${trial.until}T23:59:59+03:00`) ? Math.min(trial.daily_max, settings.daily_video_count) : settings.daily_video_count;
+if (dailyCount < settings.daily_video_count) await log.info(`Deneme dönemi (${trial.until}'e kadar): günde ${dailyCount} video.`);
 const { count: plannedToday } = await db.from('videos').select('id', { count: 'exact', head: true })
   .eq('origin', 'auto').gte('created_at', todayStart.toISOString());
 setOutput('planned', false);
 setOutput('needs_research', false);
-if ((plannedToday ?? 0) >= settings.daily_video_count) {
+if ((plannedToday ?? 0) >= dailyCount) {
   setOutput('planned', true);
   await log.info(`Bugün için ${plannedToday} video zaten planlı; çıkılıyor.`);
   process.exit(0);
@@ -61,7 +67,7 @@ let recentForProduct = recent.filter((r) => r.product_id === p.id);
 const exploration = await recentExplorationFlags(db, p.id);
 const inputs = await scheduleInputs(db);
 const occupied = [...(inputs.occupied ?? [])];
-for (let n = plannedToday ?? 0; n < settings.daily_video_count; n++) {
+for (let n = plannedToday ?? 0; n < dailyCount; n++) {
   const result = planDay({
     brief: brief.brief, ideas, recent: recentForProduct, recentExploration: exploration, activeStyles,
     phase: (settings.content_phase ?? 1) as Phase, caseNo: await nextCaseNo(),

@@ -92,7 +92,7 @@ describe('Sepet Röntgeni senaryosu', () => {
     const manual: Idea = { id: 'm', product_id: 'p', used: false, last_used_at: null, idea: 'Sepet unutulmaz. Callypso ile hatırlat.', hook: 'Sepet unutulmaz.', content_type: 'marka_rontgeni', source: 'manual', source_ref: null, score: 75, is_exploration: false, why: '', funnel: 'TOF' };
     expect(buildForIdea(manual, { brief, phase: 1 }).problems).toContain('Faz 1: ürün adı hiçbir yerde geçmemeli.');
     const short = { ...manual, idea: 'Sepet unutulmaz. Bir hatırlatma yeter.' };
-    expect(buildForIdea(short, { brief, phase: 1 }).problems.join()).toMatch(/Süre .* 45–58/);
+    expect(buildForIdea(short, { brief, phase: 1 }).problems.join()).toMatch(/Süre .* 30–58/);
     const clean = { ...manual, idea: 'Sepet unutulmaz. Sepete ürün ekleyen müşteri aslında karar vermek üzereydi. Bir şey araya girdi ve sayfayı kapattı. Ona suçlama değil, hatırlatma gönder. Mesajda sepetteki ürünü göster. İlk hatırlatmayı aynı gün içinde gönder.' };
     expect(buildForIdea(clean, { brief, phase: 1 }).problems).toEqual([]);
   });

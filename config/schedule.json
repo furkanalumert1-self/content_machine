@@ -1,0 +1,5 @@
+{
+  "_aciklama": "Deneme dönemi: panel ayarından bağımsız günlük üst sınır. Bitiş tarihinden sonra panel ayarı (daily_video_count) geçerli olur. Karar 10.11: aynı gün ikinci video çoğu gün 3–300 izlenmede kaldı; bir hafta günde 1 video (öğle aralığı) denenecek.",
+  "daily_max": 1,
+  "until": "2026-11-17"
+}

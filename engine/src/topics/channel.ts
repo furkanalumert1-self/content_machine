@@ -8,7 +8,7 @@ export const CTA_LINES = ['Bunun gibi 25 taktiği PDF yaptım.', `Yorumlara ${CT
 export const CAPTION_CTA = `Bunun gibi 25 taktiği PDF yaptım → yorumlara ${CTA_KEYWORD} yaz, DM'den göndereyim.`;
 export const BASE_TAGS = ['#eticaret', '#müşterideneyimi', '#pazarlama'];
 
-export const MIN_SEC = 45;
+export const MIN_SEC = 30; // 10.11: rakiplerde en iyiler 25–45 sn; kısa metin kapanış kartıyla uzatılmaz
 export const MAX_SEC = 58;
 export const TARGET_SEC = 50;
 export const MAX_HOOK_WORDS = 8;
