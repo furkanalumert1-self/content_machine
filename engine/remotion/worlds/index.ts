@@ -4,6 +4,7 @@ import type { WorldProps } from './kit.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
 import { Isim } from './Isim.tsx';
 import { Piyano } from './Piyano.tsx';
+import { Raf } from './Raf.tsx';
 import { Recel } from './Recel.tsx';
 import { Stratos } from './Stratos.tsx';
 import { Tuzak } from './Tuzak.tsx';
@@ -15,4 +16,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   stratos: Stratos,
   piyano: Piyano,
   isim: Isim,
+  raf: Raf,
 };
