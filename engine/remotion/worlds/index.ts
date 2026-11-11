@@ -2,6 +2,7 @@
 import type { ComponentType } from 'react';
 import type { WorldProps } from './kit.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
+import { Piyano } from './Piyano.tsx';
 import { Recel } from './Recel.tsx';
 import { Stratos } from './Stratos.tsx';
 import { Tuzak } from './Tuzak.tsx';
@@ -11,4 +12,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   recel: Recel,
   fiyat9: Fiyat9,
   stratos: Stratos,
+  piyano: Piyano,
 };
