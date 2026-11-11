@@ -7313,7 +7313,8 @@
               "type": "title",
               "text": "Reklam yok.",
               "sub": "Canlı atlayış."
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "14 Ekim 2012. Felix Baumgartner, bir balonla stratosfere çıkıyor ve oradan aşağı atlayacak. YouTube'da canlı.",
@@ -7323,7 +7324,8 @@
               "title": "CANLI · Red Bull Stratos",
               "body": "Atlayışa dakikalar kaldı.",
               "time": "20:08"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "YouTube'un verisine göre atlayıştan hemen önce aynı anda 8 milyondan fazla kişi izliyordu.",
@@ -7332,7 +7334,8 @@
               "value": "8 milyon+",
               "label": "aynı anda izleyen",
               "note": "YOUTUBE VERİSİ · TUBEFILTER"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Red Bull'un kendi hesabına göre toplamda 9,5 milyon kişi canlı izledi. Kutuyu kimse göstermedi, herkes markayı konuştu.",
@@ -7340,7 +7343,8 @@
               "type": "stat",
               "value": "9,5 milyon",
               "label": "canlı izleyici · Red Bull'a göre"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -7377,7 +7381,8 @@
               "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
-        ]
+        ],
+        "world": "stratos"
       }
     },
     {
