@@ -10,6 +10,7 @@ import { Piyano } from './Piyano.tsx';
 import { Raf } from './Raf.tsx';
 import { Recel } from './Recel.tsx';
 import { Stratos } from './Stratos.tsx';
+import { Tugla } from './Tugla.tsx';
 import { Tuzak } from './Tuzak.tsx';
 
 export const WORLDS: Record<string, ComponentType<WorldProps>> = {
@@ -23,4 +24,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   detour: Detour,
   cukur: Cukur,
   ceket: Ceket,
+  tugla: Tugla,
 };
