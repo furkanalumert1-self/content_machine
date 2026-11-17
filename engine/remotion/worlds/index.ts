@@ -12,6 +12,7 @@ import { Recel } from './Recel.tsx';
 import { Stratos } from './Stratos.tsx';
 import { TekTik } from './TekTik.tsx';
 import { Tugla } from './Tugla.tsx';
+import { Zaman } from './Zaman.tsx';
 import { Tuzak } from './Tuzak.tsx';
 
 export const WORLDS: Record<string, ComponentType<WorldProps>> = {
@@ -27,4 +28,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   ceket: Ceket,
   tugla: Tugla,
   tektik: TekTik,
+  zaman: Zaman,
 };
