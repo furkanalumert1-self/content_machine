@@ -39,7 +39,7 @@ export function Ceket({ script }: WorldProps) {
 
   // ---- kanca: Kara Cuma vitrini, "alma" ile etiket
   const sale = 1 - gir(t, an(1, 5), 0.6);
-  const tag = gir(t, an(0, 5), 0.4);
+  const tag = 1; // ilk karede görünür (17.11 analizi: ilk kare dolu olmalı)
   // ---- 1: gazete tam sayfa
   const paper = gir(t, an(1, 5), 0.8) * (1 - gir(t, bas(2), 0.6));
   const headline = gir(t, an(1, 12), 0.4);
@@ -84,7 +84,7 @@ export function Ceket({ script }: WorldProps) {
         {/* ceket */}
         {jacketO > 0 && (
           <g opacity={jacketO}>
-            <Jacket x={jacketX} y={900} s={jacketS} xr={xr} tag={Math.max(tag, xr)} />
+            <g transform={`rotate(${Math.sin(t * 1.6) * 2.5} ${jacketX} 640)`}><Jacket x={jacketX} y={900} s={jacketS} xr={xr} tag={Math.max(tag, xr)} /></g>
           </g>
         )}
 

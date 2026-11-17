@@ -6133,9 +6133,9 @@
       "callypso_feature": "Otomasyon akışları (gecikme telafisi)",
       "status": "dogrulandi",
       "hooks": [
+        "IKEA müşterisinden para istemedi. Zaman istedi",
         "IKEA müşterisinden para değil, zaman istedi",
-        "IKEA yolda geçen saatleri paraya çevirdi",
-        "IKEA kasada Google Maps geçmişini istedi"
+        "IKEA yolda geçen saatleri paraya çevirdi"
       ],
       "cover": {
         "line1": "Para değil,",
@@ -6185,7 +6185,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] IKEA müşterisinden para değil, zaman istedi.",
+            "say": "[warm, conversational, like telling a friend] IKEA müşterisinden para istemedi. Zaman istedi.",
             "show": {
               "type": "title",
               "text": "Para değil,",
@@ -6271,9 +6271,9 @@
       "callypso_feature": "Ürün sayfası (dürüst uyarı kutusu)",
       "status": "dogrulandi",
       "hooks": [
+        "Patagonia ceketini alma dedi. Hem de Kara Cuma'da",
         "Patagonia müşterisine ceketini alma dedi",
-        "Patagonia Kara Cuma'da satmamak için ilan verdi",
-        "Patagonia kendi ceketine almayın reklamı verdi"
+        "Patagonia Kara Cuma'da satmamak için ilan verdi"
       ],
       "cover": {
         "line1": "Bu ceketi",
@@ -6330,7 +6330,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Patagonia Kara Cuma günü müşterisine ceketini alma dedi.",
+            "say": "[warm, conversational, like telling a friend] Patagonia ceketini alma dedi. Hem de Kara Cuma'da.",
             "show": {
               "type": "title",
               "text": "Bu ceketi",
@@ -6553,9 +6553,9 @@
       "callypso_feature": "Segmentasyon (en çok satanlar)",
       "status": "dogrulandi",
       "hooks": [
+        "LEGO eğlence parklarını sattı. Hem de batmamak için",
         "LEGO batmamak için eğlence parklarını sattı",
-        "LEGO kurtulmak için büyümeyi durdurdu",
-        "LEGO daha azını yaparak geri döndü"
+        "LEGO kurtulmak için büyümeyi durdurdu"
       ],
       "cover": {
         "line1": "Daha az yaptı.",
@@ -6612,7 +6612,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] LEGO batmamak için kendi eğlence parklarını sattı.",
+            "say": "[warm, conversational, like telling a friend] LEGO eğlence parklarını sattı. Hem de batmamak için.",
             "show": {
               "type": "title",
               "text": "Daha az yaptı.",

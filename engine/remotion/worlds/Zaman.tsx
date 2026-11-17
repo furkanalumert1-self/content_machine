@@ -54,7 +54,7 @@ export function Zaman({ script }: WorldProps) {
 
   // ---- kanca: paralar kum saatine dönüşür
   const hook = 1 - gir(t, bas(1), 0.5);
-  const toGlass = gir(t, an(0, 4), 0.6);
+  const toGlass = gir(t, an(0, 4), 0.6); // "Zaman"
   // ---- 1: uzun yol, araba ilerler, saat döner
   const road = gir(t, bas(1), 0.6) * (1 - gir(t, bas(2), 0.6));
   const drive = gir(t, an(1, 7), Math.max(1.5, an(1, 13) - an(1, 7)));
@@ -84,9 +84,21 @@ export function Zaman({ script }: WorldProps) {
         {/* kanca: tezgâh, paralar kum saatine */}
         {hook > 0 && (
           <g opacity={hook}>
+            {/* mağaza: raflar ve yazar kasa (ilk kare dolu) */}
+            {[0, 1, 2].map((r) => (
+              <g key={r}>
+                <rect x={120} y={500 + r * 140} width={840} height={12} fill="#B9B3A8" />
+                {Array.from({ length: 7 }, (_, i) => <rect key={i} x={140 + i * 118} y={420 + r * 140} width={90} height={80} rx={8} fill={['#2E5E8C', '#F2C14E', '#E8402A', '#2E9E5B'][(i + r) % 4]} opacity={0.35 * (1 - toGlass)} />)}
+              </g>
+            ))}
+            <g transform="translate(820,1080)" opacity={1 - toGlass * 0.6}>
+              <rect x={-110} y={-90} width={220} height={110} rx={14} fill="#4B5560" stroke={L.ink} strokeWidth={5} />
+              <rect x={-80} y={-150} width={160} height={70} rx={10} fill="#1B2633" stroke={L.ink} strokeWidth={5} />
+              <text y={-104} textAnchor="middle" fontFamily="JetBrains Mono" fontSize={30} fill="#7EE08A">? ?</text>
+            </g>
             <rect x={140} y={1160} width={800} height={40} rx={10} fill="#B08A5A" />
             {[0, 1, 2, 3, 4].map((i) => (
-              <Coin key={i} x={karis(300 + i * 120, 540, toGlass)} y={karis(1130 - (i % 2) * 20, 860, toGlass)} r={50} o={1 - toGlass} xr={xr} />
+              <Coin key={i} x={karis(300 + i * 120, 540, toGlass)} y={karis(1110 - Math.abs(Math.sin(t * 4 + i)) * 60, 860, toGlass)} r={50} o={1 - toGlass} xr={xr} />
             ))}
             <g opacity={toGlass}><Hourglass x={540} y={900} s={karis(0.5, 1.1, toGlass)} flow={(t * 0.3) % 1} xr={xr} /></g>
           </g>

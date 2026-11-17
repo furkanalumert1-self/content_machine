@@ -67,7 +67,7 @@ export function Tugla({ script }: WorldProps) {
 
   // ---- kanca: dönme dolap + SATILDI
   const hook = 1 - gir(t, bas(1), 0.5);
-  const hookStamp = gir(t, an(0, 6), 0.3);
+  const hookStamp = gir(t, an(0, 3), 0.3); // "sattı"
   // ---- 1: her şey (park, oyun, giysi, parçalar)
   const all = [gir(t, an(1, 6), 0.4), gir(t, an(1, 7), 0.4), gir(t, an(1, 8), 0.4), gir(t, an(1, 9), 0.6)];
   const everything = (1 - gir(t, an(3, 8), 0.6));
@@ -102,7 +102,16 @@ export function Tugla({ script }: WorldProps) {
             {/* kanca: tuğla dönme dolap */}
             {hook > 0 && (
               <g opacity={hook}>
-                <Wheel x={540} y={780} s={1.5} t={t} xr={xr} />
+                <rect x={90} y={1040} width={900} height={60} rx={12} fill="#7FB069" />
+                <path d={`M90 520 ${Array.from({ length: 12 }, (_, i) => `Q${135 + i * 75} ${560 + Math.sin(t * 2 + i) * 6} ${165 + i * 75} 520`).join(' ')}`} fill="none" stroke={L.ink} strokeWidth={3} />
+                {Array.from({ length: 12 }, (_, i) => <path key={i} d={`M${105 + i * 75} 528 l30 0 l-15 34 z`} fill={COLORS[i % 4]} />)}
+                {[200, 880].map((x, i) => (
+                  <g key={x} transform={`translate(${x},1040)`}>
+                    <rect x={-50} y={-150} width={100} height={150} fill={COLORS[(i + 2) % 4]} stroke={L.ink} strokeWidth={4} />
+                    <path d="M-70 -150 L0 -220 L70 -150 z" fill={COLORS[(i + 1) % 4]} stroke={L.ink} strokeWidth={4} />
+                  </g>
+                ))}
+                <Wheel x={540} y={800} s={1.45} t={t} xr={xr} />
                 <Stamp x={540} y={1120} o={hookStamp} />
               </g>
             )}
