@@ -5302,9 +5302,9 @@
       "callypso_feature": "Kampanyalar (ürün hikâyesi)",
       "status": "dogrulandi",
       "hooks": [
+        "Burger King burgerini küflendirdi. Hem de reklam için",
         "Burger King küflü hamburgerini reklam yaptı",
-        "Burger King ürününü çürürken gösterdi",
-        "Burger King kendi burgerini küflendirdi"
+        "Burger King ürününü çürürken gösterdi"
       ],
       "cover": {
         "line1": "Küflü burger",
@@ -5354,12 +5354,13 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Burger King kendi hamburgerini küflendirdi. Ve bunu reklam yaptı.",
+            "say": "[warm, conversational, like telling a friend] Burger King burgerini küflendirdi. Hem de reklam için.",
             "show": {
               "type": "title",
               "text": "Küflü burger.",
               "sub": "Reklam oldu."
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "2020'de bir Whopper'ı kameranın önüne koydu ve günlerce çekti.",
@@ -5367,7 +5368,8 @@
               "type": "counter",
               "value": 34,
               "label": "gün"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "34 günde hamburger yavaş yavaş küflendi. Reklam bunu baştan sona gösterdi.",
@@ -5376,7 +5378,8 @@
               "value": "34 gün",
               "label": "küflenme süresi",
               "note": "KAYNAK: THE MOTLEY FOOL (2020)"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Ödül başvurusuna göre kampanya 8,4 milyar gösterim ve %14 satış artışı bildirdi.",
@@ -5386,7 +5389,8 @@
               "label": "satış artışı · marka beyanı",
               "bar": 0.14,
               "note": "KAYNAK: EUROBEST 2020"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -5403,7 +5407,7 @@
               "strike": "Yapay koruyucu yok",
               "text": "Gösterdi, yazmadı."
             },
-            "mode": "light"
+            "mode": "xray"
           },
           {
             "say": "Ürününün katkısız gibi bir iddiası varsa, test raporuyla ya da üretim videosuyla kanıtla. Ama iddia gerçekten doğru olsun.",
@@ -5413,7 +5417,8 @@
               "title": "Üretimden bir gün",
               "body": "İddiamızın kanıtı bu video.",
               "time": "11:00"
-            }
+            },
+            "mode": "light"
           },
           {
             "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
@@ -5421,9 +5426,11 @@
               "type": "outro",
               "caseNo": 0,
               "cta": "Kaydet · Yorumlara REHBER yaz"
-            }
+            },
+            "mode": "light"
           }
-        ]
+        ],
+        "world": "kuf"
       },
       "big_number": "34 gün"
     },
@@ -5436,9 +5443,9 @@
       "callypso_feature": "Kampanyalar (ortak indirim kodu)",
       "status": "dogrulandi",
       "hooks": [
+        "Google, Android'e çikolata adı verdi. Hem de bedavaya",
         "Google işletim sistemine çikolata adı verdi",
-        "KitKat Android'in adı oldu",
-        "Nestlé çikolatasını Google'a isim yaptı"
+        "KitKat Android'in adı oldu"
       ],
       "cover": {
         "line1": "Telefonun adı:",
@@ -5488,7 +5495,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Google telefonların işletim sistemine bir çikolatanın adını verdi.",
+            "say": "[warm, conversational, like telling a friend] Google, Android'e çikolata adı verdi. Hem de bedavaya.",
             "show": {
               "type": "title",
               "text": "Telefonun adı:",
@@ -5573,9 +5580,9 @@
       "callypso_feature": "Kampanyalar (gündem gönderisi)",
       "status": "dogrulandi",
       "hooks": [
+        "Oreo karanlığı reklama çevirdi. Hem de Super Bowl'da",
         "Oreo elektrik kesintisini reklama çevirdi",
-        "Işıklar gitti, Oreo hemen tweet attı",
-        "Oreo tek tweet'le Super Bowl'u kazandı"
+        "Işıklar gitti, Oreo hemen tweet attı"
       ],
       "cover": {
         "line1": "Işıklar gitti.",
@@ -5624,7 +5631,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Oreo bir elektrik kesintisini reklama çevirdi.",
+            "say": "[warm, conversational, like telling a friend] Oreo karanlığı reklama çevirdi. Hem de Super Bowl'da.",
             "show": {
               "type": "title",
               "text": "Işıklar gitti.",
@@ -5708,9 +5715,9 @@
       "callypso_feature": "Formlar (kullanıcı içeriği)",
       "status": "dogrulandi",
       "hooks": [
+        "Heinz sadece ketçap çiz dedi. Herkes Heinz çizdi",
         "Heinz insanlara sadece ketçap çizin dedi",
-        "Heinz reklamını müşterilerine çizdirdi",
-        "Heinz yapay zekâya ketçap çizdirdi"
+        "Heinz reklamını müşterilerine çizdirdi"
       ],
       "cover": {
         "line1": "Ketçap çiz.",
@@ -5767,7 +5774,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Heinz insanlara sadece şunu söyledi: ketçap çiz.",
+            "say": "[warm, conversational, like telling a friend] Heinz sadece ketçap çiz dedi. Herkes Heinz çizdi.",
             "show": {
               "type": "title",
               "text": "Ketçap çiz.",
@@ -5992,9 +5999,9 @@
       "callypso_feature": "Otomasyon akışları (isimli not)",
       "status": "dogrulandi",
       "hooks": [
+        "Coca-Cola logosunu şişeden sildi. Yerine senin adını yazdı",
         "Coca-Cola logosunu şişeden kaldırdı",
-        "Coca-Cola şişelere senin adını yazdı",
-        "Coca-Cola markası yerine isim yazdı"
+        "Coca-Cola şişelere senin adını yazdı"
       ],
       "cover": {
         "line1": "Logo yerine",
@@ -6045,7 +6052,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Coca-Cola dünyanın en tanınan logosunu şişeden kaldırdı.",
+            "say": "[warm, conversational, like telling a friend] Coca-Cola logosunu şişeden sildi. Yerine senin adını yazdı.",
             "show": {
               "type": "title",
               "text": "Logo yok.",
@@ -6840,9 +6847,9 @@
       "callypso_feature": "Kampanyalar (sınırlı özel ambalaj)",
       "status": "dogrulandi",
       "hooks": [
+        "Airbnb mısır gevreği sattı. Hem de batmamak için",
         "Airbnb batmamak için mısır gevreği sattı",
-        "Airbnb'yi bir mısır gevreği kutusu kurtardı",
-        "Airbnb kurucuları gevrek kutusu tasarladı"
+        "Airbnb'yi bir mısır gevreği kutusu kurtardı"
       ],
       "cover": {
         "line1": "Şirketi bir",
@@ -6892,7 +6899,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Airbnb batmamak için mısır gevreği sattı.",
+            "say": "[warm, conversational, like telling a friend] Airbnb mısır gevreği sattı. Hem de batmamak için.",
             "show": {
               "type": "title",
               "text": "Şirketi bir",
@@ -6978,9 +6985,9 @@
       "callypso_feature": "Segmentasyon (alıcı kim?)",
       "status": "dogrulandi",
       "hooks": [
+        "Old Spice erkek reklamını kadınlara yaptı. Bilerek",
         "Old Spice erkek reklamını kadınlara yaptı",
-        "Old Spice yorumlara tek tek videoyla cevap verdi",
-        "Old Spice iki günde 186 video çekti"
+        "Old Spice yorumlara tek tek videoyla cevap verdi"
       ],
       "cover": {
         "line1": "Erkek ürünü,",
@@ -7031,7 +7038,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Old Spice erkek ürününün reklamını kadınlara yaptı.",
+            "say": "[warm, conversational, like telling a friend] Old Spice erkek reklamını kadınlara yaptı. Bilerek.",
             "show": {
               "type": "title",
               "text": "Erkek ürünü,",
@@ -7681,9 +7688,9 @@
       "callypso_feature": "Hoş geldin akışı (ücretsiz rehber)",
       "status": "dogrulandi",
       "hooks": [
+        "THY yolcusuna İstanbul'u bedava gezdiriyor. Hem de aktarmada",
         "THY aktarma yolcusuna İstanbul'u bedava gezdiriyor",
-        "Bir havayolu bekleyen yolcusuna ücretsiz şehir turu veriyor",
-        "THY aktarma beklemesini İstanbul turuna çevirdi"
+        "Bir havayolu bekleyen yolcusuna ücretsiz şehir turu veriyor"
       ],
       "cover": {
         "line1": "Aktarma değil,",
@@ -7734,7 +7741,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] THY aktarma yolcusuna İstanbul'u bedava gezdiriyor.",
+            "say": "[warm, conversational, like telling a friend] THY yolcusuna İstanbul'u bedava gezdiriyor. Hem de aktarmada.",
             "show": {
               "type": "title",
               "text": "Aktarma değil,",
