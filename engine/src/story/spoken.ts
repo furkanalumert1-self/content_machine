@@ -17,13 +17,25 @@ const DECIMAL = /(%?)(\d{1,3}),(\d{1,2})(?!\d)/g;
 
 export interface Replacement { from: number; to: number; original: string }
 
+/** Kısaltmaların okunuşu (altyazıda özgün hâli kalır). "CEO'suna" → "si-i-o'suna": ek olduğu gibi kalır. */
+const ABBR: Record<string, string> = { CEO: 'si-i-o' };
+const ABBR_RE = new RegExp(`(?<![\\p{L}\\d])(${Object.keys(ABBR).join('|')})(?![\\p{L}\\d])`, 'gu');
+
+function decimalWords(pct: string, a: string, b: string) {
+  return `${pct ? 'yüzde ' : ''}${intToTr(Number(a))} virgül ${b.split('').length === 2 && b[0] !== '0' ? intToTr(Number(b)) : b.split('').map((d) => ONES[Number(d)]).join(' ')}`;
+}
+
 export function spoken(text: string): { text: string; replacements: Replacement[] } {
   const replacements: Replacement[] = [];
   let out = '';
   let last = 0;
-  for (const m of text.matchAll(DECIMAL)) {
-    const [all, pct, a, b] = m;
-    const words = `${pct ? 'yüzde ' : ''}${intToTr(Number(a))} virgül ${b.split('').length === 2 && b[0] !== '0' ? intToTr(Number(b)) : b.split('').map((d) => ONES[Number(d)]).join(' ')}`;
+  const matches = [
+    ...[...text.matchAll(DECIMAL)].map((m) => ({ index: m.index!, all: m[0], words: decimalWords(m[1], m[2], m[3]) })),
+    ...[...text.matchAll(ABBR_RE)].map((m) => ({ index: m.index!, all: m[0], words: ABBR[m[1]] })),
+  ].sort((x, y) => x.index - y.index);
+  for (const m of matches) {
+    if (m.index < last) continue;
+    const { all, words } = m;
     out += text.slice(last, m.index);
     replacements.push({ from: out.length, to: out.length + words.length, original: all });
     out += words;
