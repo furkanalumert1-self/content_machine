@@ -5636,7 +5636,8 @@
               "type": "title",
               "text": "Işıklar gitti.",
               "sub": "Oreo hazırdı."
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "2013 Super Bowl. Maçın ortasında stadyumun ışıkları gidiyor.",
@@ -5646,7 +5647,8 @@
               "title": "Stadyumda elektrik kesildi",
               "body": "Maç durdu.",
               "time": "20:38"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Dakikalar içinde Oreo bir tweet atıyor: Karanlıkta da batırabilirsin.",
@@ -5656,7 +5658,8 @@
               "title": "Karanlıkta da batırabilirsin.",
               "body": "Tek bir bisküvi, karanlık bir zemin.",
               "time": "20:48"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Ajansa göre görsel bir dakikadan kısa sürede hazırlandı. Tweet 15.000'den fazla retweet aldı.",
@@ -5665,7 +5668,8 @@
               "value": "15.000+",
               "label": "retweet",
               "note": "KAYNAK: DIGIDAY"
-            }
+            },
+            "mode": "xray"
           },
           {
             "say": "Hadi röntgenini çekelim.",
@@ -5682,7 +5686,7 @@
               "strike": "Büyük bütçe",
               "text": "Doğru an."
             },
-            "mode": "light"
+            "mode": "xray"
           },
           {
             "say": "Haftada bir gündem saati belirle. Hazır bir ürün şablonuyla, zararsız bir ana 30 dakika içinde esprili bir gönderi at.",
@@ -5692,7 +5696,8 @@
               "title": "Gündem saati",
               "body": "Hazır şablon, 30 dakika.",
               "time": "15:00"
-            }
+            },
+            "mode": "light"
           },
           {
             "say": "Bunu kaydet, mağazanda dene. 25 taktiklik rehber için yorumlara REHBER yaz.",
@@ -5700,9 +5705,11 @@
               "type": "outro",
               "caseNo": 0,
               "cta": "Kaydet · Yorumlara REHBER yaz"
-            }
+            },
+            "mode": "light"
           }
-        ]
+        ],
+        "world": "karanlik"
       },
       "big_number": "15.000"
     },

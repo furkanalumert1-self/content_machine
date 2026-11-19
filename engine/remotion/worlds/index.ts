@@ -6,6 +6,7 @@ import { Cukur } from './Cukur.tsx';
 import { Detour } from './Detour.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
 import { Isim } from './Isim.tsx';
+import { Karanlik } from './Karanlik.tsx';
 import { Kuf } from './Kuf.tsx';
 import { Piyano } from './Piyano.tsx';
 import { Raf } from './Raf.tsx';
@@ -31,4 +32,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   tektik: TekTik,
   zaman: Zaman,
   kuf: Kuf,
+  karanlik: Karanlik,
 };
