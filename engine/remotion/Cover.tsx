@@ -9,7 +9,7 @@ import { FONT, H, W } from './theme.ts';
 export type CoverIcon =
   | 'stamp-card' | 'phone-streak' | 'hourglass' | 'parcel' | 'coffee' | 'music-cards' | 'cart' | 'cookie-jar'
   | 'ruler' | 'gift' | 'tag' | 'hanger' | 'remote' | 'flatpack' | 'basket' | 'credit-card' | 'stars' | 'member-card'
-  | 'burger' | 'bottle' | 'cookie' | 'pizza' | 'brick' | 'razor' | 'cereal' | 'price-trap' | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car' | 'stairs' | 'balloon' | 'cursor' | 'icecream' | 'plane';
+  | 'burger' | 'bottle' | 'cookie' | 'pizza' | 'brick' | 'razor' | 'cereal' | 'price-trap' | 'newspaper' | 'jars' | 'candy' | 'wheel' | 'hotdog' | 'chocolate' | 'tracker' | 'mail' | 'towel' | 'mug' | 'checkbox' | 'car' | 'stairs' | 'balloon' | 'cursor' | 'icecream' | 'plane' | 'play';
 export type CoverTheme = 'light' | 'dark' | 'warm' | 'green';
 
 export interface CoverSpec { line1: string; line2: string; icon: CoverIcon; number?: string; theme: CoverTheme }
@@ -329,6 +329,15 @@ const ICONS: Record<CoverIcon, (t: T) => ReactNode> = {
         <path d="M86 190 l-30 -60 h26 l40 60 z" fill={t.accent} />
         <circle cx="318" cy="202" r="10" fill={t.ink} />
       </g>
+    </Svg>
+  ),
+  play: (t) => (
+    <Svg t={t}>
+      <rect x={40} y={90} width={320} height={220} rx={28} fill={t.obj} stroke={t.obj2} strokeWidth={5} />
+      <circle cx={200} cy={200} r={70} fill={t.accent} />
+      <path d="M180 165 L240 200 L180 235 z" fill="#fff" />
+      <rect x={70} y={330} width={260} height={12} rx={6} fill={t.obj2} />
+      <rect x={70} y={330} width={170} height={12} rx={6} fill={t.accent} />
     </Svg>
   ),
   cereal: (t) => (

@@ -8099,6 +8099,159 @@
           }
         ]
       }
+    },
+    {
+      "key": "gta-fragman-sizdi",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Rockstar Games (GTA VI)",
+      "mechanism": "Sızıntıyı sahiplenmek ve resmi kaynağı en hızlı yer yapmak",
+      "callypso_feature": "Duyuru akışı (bekleme listesi)",
+      "status": "dogrulandi",
+      "hooks": [
+        "GTA 6 fragmanı sızdı. Rockstar beklemedi",
+        "Rockstar en büyük sırrı sızınca ne yaptı",
+        "GTA 6 fragmanı bir gün erken sızdı"
+      ],
+      "cover": {
+        "line1": "Fragman sızdı.",
+        "line2": "Beklemedi.",
+        "object": "oynat düğmesi",
+        "icon": "play",
+        "theme": "dark",
+        "number": "90 milyon+"
+      },
+      "fact": "GTA VI'nın ilk fragmanı planlanandan bir gün önce sızdı; Rockstar beklemeden gerçeğini yayınladı ve fragman Guinness'e göre 24 saatte 90 milyondan fazla izlendi.",
+      "mechanism_lines": [
+        "Merak zaten vardı; sızıntı onu büyüttü.",
+        "Rockstar sızıntıyla savaşmak yerine resmi kaynağı en hızlı yer yaptı."
+      ],
+      "action": [
+        "Yeni ürünün görselleri erken yayılırsa saklamaya çalışma; resmi duyuruyu hemen yap.",
+        "Duyuruyla birlikte onaylı bir bekleme listesi aç; bildirimleri yalnızca izin verenlere gönder."
+      ],
+      "insight": "Merakı durduramazsın; nereye akacağını seçebilirsin.",
+      "question": "Senin ürünün sızsa ne yapardın? 👇",
+      "tags": [
+        "#gta6",
+        "#lansman"
+      ],
+      "facts": [
+        {
+          "text": "Rockstar GTA VI'nın ilk fragmanını 5 Aralık 2023 salı sabahı yayınlamayı planlıyordu; fragman bir gün önce X'te sızdı ve Rockstar fragmanı hemen yayınladı.",
+          "source_label": "TechCrunch (5.12.2023)",
+          "source_url": "https://techcrunch.com/2023/12/05/grand-theft-auto-vi-trailer-breaks-mrbeasts-record-for-most-youtube-views-in-24-hours/",
+          "source_type": "press",
+          "checked_at": "2026-11-20"
+        },
+        {
+          "text": "Rockstar'ın X paylaşımı: 'Our trailer has leaked so please watch the real thing on YouTube' (Fragmanımız sızdı, lütfen gerçeğini YouTube'da izleyin).",
+          "source_label": "TechCrunch (5.12.2023)",
+          "source_url": "https://techcrunch.com/2023/12/05/grand-theft-auto-vi-trailer-breaks-mrbeasts-record-for-most-youtube-views-in-24-hours/",
+          "source_type": "press",
+          "checked_at": "2026-11-20"
+        },
+        {
+          "text": "Guinness'e göre fragman 24 saatte 90.421.491 (90 milyondan fazla) izlenmeyle YouTube'da 24 saatte en çok izlenen video oyunu fragmanı oldu; müzik dışı rekor MrBeast'in 59,4 milyonunu geçti.",
+          "source_label": "Guinness World Records (6.12.2023)",
+          "source_url": "https://www.guinnessworldrecords.com/news/2023/12/grand-theft-auto-vi-first-look-becomes-most-viewed-videogame-trailer-in-24-hours-762030",
+          "source_type": "official",
+          "checked_at": "2026-11-20"
+        },
+        {
+          "text": "GTA VI (GTA 6) 19 Kasım 2026'da PlayStation 5 ve Xbox Series X/S için dünya çapında çıktı.",
+          "source_label": "CBS News (19.11.2026)",
+          "source_url": "https://www.cbsnews.com/news/grand-theft-auto-6-release-date-price-what-to-know/",
+          "source_type": "press",
+          "checked_at": "2026-11-20"
+        }
+      ],
+      "score": 88,
+      "story": {
+        "label": "Sızıntı",
+        "pattern": "olay",
+        "headline": "GTA 6 fragmanı sızınca Rockstar ne yaptı?",
+        "voice_model": "eleven_v4",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] GTA 6 fragmanı sızdı. Rockstar beklemedi.",
+            "show": {
+              "type": "title",
+              "text": "Fragman sızdı.",
+              "sub": "Beklemedi."
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Aralık 2023. Fragman salı sabahı çıkacak. Ama bir gün önce sosyal medyada sızıyor.",
+            "show": {
+              "type": "phone",
+              "app": "Sosyal medya",
+              "title": "SIZDI",
+              "body": "Fragman bir gün erken yayıldı.",
+              "time": "23:00"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Rockstar planı bozdu ve gerçeğini hemen yayınladı: Fragmanımız sızdı, gerçeğini YouTube'da izleyin.",
+            "show": {
+              "type": "rule",
+              "strike": "Planlanan saat",
+              "text": "Hemen, resmi kanaldan."
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Guinness'e göre 24 saatte 90 milyondan fazla izlendi. MrBeast'in 59,4 milyonluk rekoru geçildi. Oyun da 19 Kasım'da çıktı.",
+            "show": {
+              "type": "stat",
+              "value": "90 milyon+",
+              "label": "24 saatte · Guinness'e göre"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Merak zaten vardı. Rockstar sızıntıyla savaşmadı. Resmi kaynağı en hızlı yer yaptı, merak oraya aktı.",
+            "show": {
+              "type": "scale",
+              "heavy": "Resmi kaynak",
+              "light": "Sızıntı",
+              "caption": "Merak nereye aktı?"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Yeni ürünün görselleri erken yayılırsa saklama. Resmi duyuruyu hemen yap, onaylı bir bekleme listesi aç.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Yeni ürün geliyor",
+              "body": "Bekleme listesine katıl.",
+              "time": "12:00"
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Kaydet, işletmesi olan bir arkadaşına gönder. Rehberi isteyen yorumlara REHBER yazsın.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            },
+            "mode": "light"
+          }
+        ],
+        "world": "fragman"
+      }
     }
   ]
 }
