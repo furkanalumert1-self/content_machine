@@ -9,6 +9,7 @@ import { Fiyat9 } from './Fiyat9.tsx';
 import { Fragman } from './Fragman.tsx';
 import { Isim } from './Isim.tsx';
 import { Karanlik } from './Karanlik.tsx';
+import { Isimli } from './Isimli.tsx';
 import { Kuf } from './Kuf.tsx';
 import { Piyano } from './Piyano.tsx';
 import { Raf } from './Raf.tsx';
@@ -37,4 +38,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   karanlik: Karanlik,
   fragman: Fragman,
   alici: Alici,
+  isimli: Isimli,
 };
