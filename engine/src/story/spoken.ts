@@ -18,7 +18,7 @@ const DECIMAL = /(%?)(\d{1,3}),(\d{1,2})(?!\d)/g;
 export interface Replacement { from: number; to: number; original: string }
 
 /** Kısaltmaların okunuşu (altyazıda özgün hâli kalır). "CEO'suna" → "si-i-o'suna": ek olduğu gibi kalır. */
-const ABBR: Record<string, string> = { CEO: 'si-i-o', GTA: 'ci-ti-ey' };
+const ABBR: Record<string, string> = { CEO: 'si-i-o', GTA: 'Geta' };
 const ABBR_RE = new RegExp(`(?<![\\p{L}\\d])(${Object.keys(ABBR).join('|')})(?![\\p{L}\\d])`, 'gu');
 
 function decimalWords(pct: string, a: string, b: string) {
