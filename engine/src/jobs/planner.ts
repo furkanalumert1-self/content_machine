@@ -27,8 +27,10 @@ const todayStart = startOfLocalDay(new Date(), settings.timezone);
 const trial = JSON.parse(readFileSync(join(import.meta.dirname, '../../../config/schedule.json'), 'utf8')) as { daily_max: number; until: string };
 const dailyCount = new Date() <= new Date(`${trial.until}T23:59:59+03:00`) ? Math.min(trial.daily_max, settings.daily_video_count) : settings.daily_video_count;
 if (dailyCount < settings.daily_video_count) await log.info(`Deneme dönemi (${trial.until}'e kadar): günde ${dailyCount} video.`);
+// Bugün yayınlanacak/yayınlanmış her video sayılır (elle planlanan ya da bugüne taşınan dahil); yalnız reddedilenler hariç.
+const todayEnd = new Date(todayStart.getTime() + 86_400_000);
 const { count: plannedToday } = await db.from('videos').select('id', { count: 'exact', head: true })
-  .eq('origin', 'auto').gte('created_at', todayStart.toISOString());
+  .neq('status', 'rejected').gte('publish_at', todayStart.toISOString()).lt('publish_at', todayEnd.toISOString());
 setOutput('planned', false);
 setOutput('needs_research', false);
 if ((plannedToday ?? 0) >= dailyCount) {
