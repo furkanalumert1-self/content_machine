@@ -4,6 +4,7 @@ import type { WorldProps } from './kit.tsx';
 import { Ceket } from './Ceket.tsx';
 import { Cukur } from './Cukur.tsx';
 import { Alici } from './Alici.tsx';
+import { Cizim } from './Cizim.tsx';
 import { Detour } from './Detour.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
 import { Fragman } from './Fragman.tsx';
@@ -39,4 +40,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   fragman: Fragman,
   alici: Alici,
   isimli: Isimli,
+  cizim: Cizim,
 };
