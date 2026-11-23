@@ -12,6 +12,7 @@ import { Isim } from './Isim.tsx';
 import { Karanlik } from './Karanlik.tsx';
 import { Isimli } from './Isimli.tsx';
 import { Kuf } from './Kuf.tsx';
+import { Ortak } from './Ortak.tsx';
 import { Piyano } from './Piyano.tsx';
 import { Raf } from './Raf.tsx';
 import { Recel } from './Recel.tsx';
@@ -41,4 +42,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   alici: Alici,
   isimli: Isimli,
   cizim: Cizim,
+  ortak: Ortak,
 };
