@@ -8,6 +8,7 @@ import { Cizim } from './Cizim.tsx';
 import { Detour } from './Detour.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
 import { Fragman } from './Fragman.tsx';
+import { Gevrek } from './Gevrek.tsx';
 import { Isim } from './Isim.tsx';
 import { Karanlik } from './Karanlik.tsx';
 import { Isimli } from './Isimli.tsx';
@@ -43,4 +44,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   isimli: Isimli,
   cizim: Cizim,
   ortak: Ortak,
+  gevrek: Gevrek,
 };
