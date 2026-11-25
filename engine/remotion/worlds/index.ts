@@ -5,6 +5,7 @@ import { Ceket } from './Ceket.tsx';
 import { Cukur } from './Cukur.tsx';
 import { Alici } from './Alici.tsx';
 import { Cizim } from './Cizim.tsx';
+import { Depo } from './Depo.tsx';
 import { Detour } from './Detour.tsx';
 import { Fiyat9 } from './Fiyat9.tsx';
 import { Fragman } from './Fragman.tsx';
@@ -45,4 +46,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   cizim: Cizim,
   ortak: Ortak,
   gevrek: Gevrek,
+  depo: Depo,
 };
