@@ -1,5 +1,5 @@
 {
-  "_aciklama": "Günlük üst sınır (panel ayarından bağımsız). Bitiş tarihinden sonra panel ayarı (daily_video_count) geçerli olur. 10.11: aynı gün ikinci video çoğu gün 3–300 izlenmede kaldı, bir hafta günde 1 denendi. 17.11: deneme haftasında çizimli videolar 118–5.169 izlenme aldı (Burger King 5.169, en yüksek); her çizim elle yapıldığı için günde 1 sürdürülebilir. Kullanıcı karar verene kadar günde 1 uzatıldı.",
+  "_aciklama": "Günlük üst sınır (panel ayarından bağımsız). Bitiş tarihinden sonra panel ayarı (daily_video_count) geçerli olur. 10.11: aynı gün ikinci video çoğu gün 3–300 izlenmede kaldı, bir hafta günde 1 denendi. 17.11: deneme haftasında çizimli videolar 118–5.169 izlenme aldı (Burger King 5.169, en yüksek); her çizim elle yapıldığı için günde 1 sürdürülebilir. Kullanıcı karar verene kadar günde 1 uzatıldı. 25.11: kullanıcı onayıyla günde 1, 08.12'ye uzatıldı.",
   "daily_max": 1,
-  "until": "2026-12-01"
+  "until": "2026-12-08"
 }
