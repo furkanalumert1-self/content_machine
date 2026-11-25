@@ -30,12 +30,14 @@ export function TekTik({ script }: WorldProps) {
 
   // ---- kanca: dev düğme, imleç gelir ve tıklar
   const hook = 1 - gir(t, bas(1), 0.5);
-  const curIn = gir(t, an(0, 1), 1.0);
-  const click = gir(t, an(0, 3), 0.15) * (1 - gir(t, an(0, 3) + 0.25, 0.15));
+  // 25.11: ilk kare dolu — kancada ödeme adımları ve düşen müşteriler; "tek" ile tek düğme
+  const hookBtn = gir(t, an(0, 5), 0.4);
+  const curIn = gir(t, an(0, 5), 0.6);
+  const click = gir(t, an(0, 6), 0.15) * (1 - gir(t, an(0, 6) + 0.25, 0.15));
   // ---- 1: dört adım; her adımda bazıları düşer
-  const steps = STEPS.map((_, i) => gir(t, an(1, 4 + i), 0.35));
+  const steps = STEPS.map((_, i) => (t < bas(1) ? 1 : gir(t, an(1, 4 + i), 0.35)));
   const leak = gir(t, an(1, 10), 1.2);
-  const stepsO = gir(t, bas(1), 0.4) * (1 - gir(t, an(2, 10), 0.6));
+  const stepsO = t < bas(1) ? 1 - hookBtn : gir(t, bas(1), 0.4) * (1 - gir(t, an(2, 10), 0.6));
   // ---- 2: adımlar tek düğmeye çöker; patent 1999
   const collapse = gir(t, an(2, 10), 0.8);
   const patent = gir(t, an(2, 6), 0.5) * (1 - gir(t, an(2, 10), 0.5));
@@ -61,7 +63,7 @@ export function TekTik({ script }: WorldProps) {
 
         {/* kanca */}
         {hook > 0 && (
-          <g opacity={hook}>
+          <g opacity={hook * hookBtn}>
             <Button x={540} y={820} s={1.2} label="SATIN AL" xr={xr} press={click} />
             <Cursor x={karis(900, 600, curIn)} y={karis(1250, 840, curIn)} s={1.3} />
             <text x={540} y={1060} textAnchor="middle" fontFamily="JetBrains Mono" fontSize={32} letterSpacing={6} fill={L.muted} opacity={curIn}>TEK TIK</text>
@@ -84,7 +86,7 @@ export function TekTik({ script }: WorldProps) {
             {/* düşen müşteriler: her adımın kenarından dışarı */}
             {DROP.map((i) => {
               const step = i % 4;
-              const u = gir(t, an(1, 10) + i * 0.05, 0.8) * leak;
+              const u = t < bas(1) ? ((t * 0.6 + i * 0.043) % 1) : gir(t, an(1, 10) + i * 0.05, 0.8) * leak;
               const y0 = 520 + step * 170;
               return (
                 <circle key={i} cx={karis(860 + (i % 3) * 20, 1040 + (i % 4) * 10, u)} cy={karis(y0, y0 + 300, u * u)} r={14}
@@ -176,8 +178,8 @@ export function TekTik({ script }: WorldProps) {
 
       <WorldQc script={script} style={{ position: 'absolute', left: 90, right: W - 990, top: 262, height: 150 }}>
         <Headline show={hook}>
-          <span>Tek bir tıklamanın</span>
-          <span style={{ display: 'block', color: L.accent }}>patentini aldı.</span>
+          <span>Senin ödeme sayfan kaç adım?</span>
+          <span style={{ display: 'block', color: L.accent }}>Amazon'unki tek.</span>
         </Headline>
         <Headline show={lesson}>
           <span>Adım azaldıkça</span>

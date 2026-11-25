@@ -6429,9 +6429,9 @@
       "callypso_feature": "Kargo (hasar garantisi)",
       "status": "dogrulandi",
       "hooks": [
+        "Pizzan neden ezik geliyor? Cevap: yol",
         "Domino's pizza için yol asfaltladı",
-        "Domino's şehirlerin çukurlarını kapattı",
-        "Domino's pizzayı korumak için yol tamir etti"
+        "Domino's şehirlerin çukurlarını kapattı"
       ],
       "cover": {
         "line1": "Pizza için",
@@ -6484,11 +6484,11 @@
       "story": {
         "label": "Yol",
         "pattern": "olay",
-        "headline": "Domino's neden yol tamir etti?",
+        "headline": "Pizzan neden ezik geliyor?",
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Domino's pizza satmak için yol asfaltladı.",
+            "say": "[warm, conversational, like telling a friend] Pizzan neden ezik geliyor? Cevap: yol.",
             "show": {
               "type": "title",
               "text": "Pizza için",
@@ -6570,9 +6570,9 @@
       "callypso_feature": "Segmentasyon (en çok satanlar)",
       "status": "dogrulandi",
       "hooks": [
+        "LEGO neden batıyordu? Her şeyi yapıyordu",
         "LEGO eğlence parklarını sattı. Hem de batmamak için",
-        "LEGO batmamak için eğlence parklarını sattı",
-        "LEGO kurtulmak için büyümeyi durdurdu"
+        "LEGO batmamak için eğlence parklarını sattı"
       ],
       "cover": {
         "line1": "Daha az yaptı.",
@@ -6625,11 +6625,11 @@
       "story": {
         "label": "Odak",
         "pattern": "olay",
-        "headline": "LEGO iflastan nasıl döndü?",
+        "headline": "LEGO neden batıyordu?",
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] LEGO eğlence parklarını sattı. Hem de batmamak için.",
+            "say": "[warm, conversational, like telling a friend] LEGO neden batıyordu? Her şeyi yapıyordu.",
             "show": {
               "type": "title",
               "text": "Daha az yaptı.",
@@ -6637,7 +6637,7 @@
             }
           },
           {
-            "say": "Bir dönem LEGO her şeyi yapıyordu: parklar, oyunlar, giysiler, binlerce farklı parça.",
+            "say": "Bir dönem parklar, oyunlar, giysiler, binlerce farklı parça üretiyordu.",
             "show": {
               "type": "chips",
               "title": "Her şey",
@@ -6722,9 +6722,9 @@
       "callypso_feature": "Kampanyalar (kurucu videosu)",
       "status": "dogrulandi",
       "hooks": [
+        "4.500 dolarlık bir video. 1 milyar dolarlık şirket",
         "Bir kurucu deposunda çektiği videoyla patladı",
-        "Dollar Shave Club 4.500 dolarlık videoyla tanındı",
-        "Kurucu kendi reklamında başrol oynadı"
+        "Dollar Shave Club 4.500 dolarlık videoyla tanındı"
       ],
       "cover": {
         "line1": "Tek video,",
@@ -6775,7 +6775,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Bir kurucu deposunda bir video çekti. Şirket milyar dolarlık oldu.",
+            "say": "[warm, conversational, like telling a friend] 4.500 dolarlık bir video. 1 milyar dolarlık şirket.",
             "show": {
               "type": "title",
               "text": "Tek video,",
@@ -7420,9 +7420,9 @@
       "callypso_feature": "Ödeme sayfası (misafir ödeme)",
       "status": "dogrulandi",
       "hooks": [
+        "Senin ödeme sayfan kaç adım? Amazon'unki tek",
         "Amazon tek bir tıklamanın patentini aldı",
-        "Apple, Amazon'un tek tık patentini lisansladı",
-        "Amazon satın almayı tek tıka indirdi"
+        "Apple, Amazon'un tek tık patentini lisansladı"
       ],
       "cover": {
         "line1": "Tek tık.",
@@ -7474,11 +7474,11 @@
       "story": {
         "label": "Tek tık",
         "pattern": "olay",
-        "headline": "Amazon tek tıkın patentini neden aldı?",
+        "headline": "Senin ödeme sayfan kaç adım?",
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Amazon tek bir tıklamanın patentini aldı.",
+            "say": "[warm, conversational, like telling a friend] Senin ödeme sayfan kaç adım? Amazon'unki tek.",
             "show": {
               "type": "title",
               "text": "Tek tık.",

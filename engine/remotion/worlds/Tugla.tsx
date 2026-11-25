@@ -66,10 +66,11 @@ export function Tugla({ script }: WorldProps) {
   const ink = mix(L.ink, X.cyan, xr);
 
   // ---- kanca: dönme dolap + SATILDI
-  const hook = 1 - gir(t, bas(1), 0.5);
+  // 25.11: ilk karede tuğla ve dağınık her şey görünür; eski dönme dolap kancası kapalı
+  const hook = 0;
   const hookStamp = gir(t, an(0, 3), 0.3); // "sattı"
   // ---- 1: her şey (park, oyun, giysi, parçalar)
-  const all = [gir(t, an(1, 6), 0.4), gir(t, an(1, 7), 0.4), gir(t, an(1, 8), 0.4), gir(t, an(1, 9), 0.6)];
+  const all = t < bas(1) ? [1, 1, 1, 1] : [1, 1, 1, 1];
   const everything = (1 - gir(t, an(3, 8), 0.6));
   // ---- 2: zarar, kule devriliyor
   const loss = gir(t, an(2, 1), 0.5) * (1 - gir(t, bas(3), 0.5));
@@ -117,7 +118,7 @@ export function Tugla({ script }: WorldProps) {
             )}
 
             {/* 1: her şey */}
-            {t >= bas(1) && everything > 0 && (
+            {everything > 0 && (
               <g opacity={everything * (1 - cut) * (1 - parks * 0.85)}>
                 <g opacity={all[0]}><Wheel x={240} y={600} s={0.55} t={t} xr={xr} /></g>
                 <g opacity={all[1]} transform="translate(840,600)">
@@ -130,7 +131,7 @@ export function Tugla({ script }: WorldProps) {
                   <path d="M-90 -90 l-60 40 l30 50 l30 -16 v126 h180 v-126 l30 16 l30 -50 l-60 -40 q-30 26 -60 0 z" fill={xr > 0.5 ? 'none' : '#F2C14E'} stroke={ink} strokeWidth={5} transform="translate(30,0)" />
                 </g>
                 {PIECES.map((p, i) => (
-                  <g key={i} opacity={all[3] * gir(t, an(1, 9) + i * 0.02, 0.2)} transform={`rotate(${p.r} ${p.x} ${p.y})`}>
+                  <g key={i} opacity={all[3] * gir(t, i * 0.03, 0.2)} transform={`rotate(${p.r} ${p.x} ${p.y})`}>
                     <Brick x={p.x} y={p.y} w={p.w} h={30} c={p.c} xr={xr} />
                   </g>
                 ))}
@@ -138,7 +139,8 @@ export function Tugla({ script }: WorldProps) {
             )}
 
             {/* 2: zarar — kule uçurum kenarında */}
-            {t >= bas(1) && (
+            {(
+
               <g transform={`rotate(${towerRot} 680 1180)`} opacity={1 - cut * 0}>
                 {[0, 1, 2, 3].map((i) => (
                   <Brick key={i} x={540} y={1130 - i * 110} c={COLORS[i % 4]} xr={xr} o={t < bas(3) ? 1 : 1 - cut} />
@@ -214,9 +216,9 @@ export function Tugla({ script }: WorldProps) {
       </svg>
 
       <WorldQc script={script} style={{ position: 'absolute', left: 90, right: W - 990, top: 262, height: 150 }}>
-        <Headline show={hook}>
-          <span>Batmamak için</span>
-          <span style={{ display: 'block', color: L.accent }}>parklarını sattı.</span>
+        <Headline show={1 - gir(t, bas(1), 0.4)}>
+          <span>LEGO neden batıyordu?</span>
+          <span style={{ display: 'block', color: L.accent }}>Her şeyi yapıyordu.</span>
         </Headline>
         <Headline show={lesson}>
           <span>Daha az şey,</span>

@@ -48,15 +48,16 @@ export function Cukur({ script }: WorldProps) {
   const bg = mix(L.bg, X.bg, xr);
 
   // ---- kanca: yeni asfalt soldan sağa serilir; "Sorun" ile çukurlar geri gelir (geçmişe dönüş)
-  const pave = gir(t, an(0, 3), 1.6) * (1 - gir(t, bas(1), 0.4));
+  // 25.11: ilk karede ürün görünür olsun — kanca da kurye + kutu kesitiyle açılır (asfaltlama yok)
+  const pave = 0;
   // ---- 1: kurye çukurlardan geçer, pizza kayar
-  const ride = gir(t, an(1, 2), Math.max(1.5, an(1, 11) - an(1, 2)));
-  const sx = karis(-150, 1230, ride);
+  const ride = gir(t, 0, Math.max(3, an(1, 11)));
+  const sx = karis(160, 1230, ride);
   const nearHole = HOLES.reduce((m, h) => Math.max(m, Math.max(0, 1 - Math.abs(sx - h) / 90)), 0);
-  const bump = t >= bas(1) && t < bas(2) ? -nearHole * 40 : 0;
-  const slide = t >= bas(1) && t < bas(2) ? Math.sin(ride * Math.PI * 6) * Math.min(1, ride * 3) : 0;
-  const stuck = gir(t, an(1, 8), 0.6) * (1 - gir(t, bas(2), 0.4));
-  const cut = gir(t, an(1, 4), 0.5) * (1 - gir(t, bas(2), 0.5));
+  const bump = t < bas(2) ? -nearHole * 40 : 0;
+  const slide = t < bas(2) ? Math.sin(ride * Math.PI * 8) * Math.min(1, ride * 6) : 0;
+  const stuck = gir(t, an(0, 2), 0.6) * (1 - gir(t, bas(2), 0.4));
+  const cut = gir(t, 0.05, 0.3) * (1 - gir(t, bas(2), 0.5));
   // ---- 2: çukurlar kapanır; ilk 4 kasaba
   const fill = HOLES.map((_, i) => gir(t, an(2, 5) + i * 0.25, 0.5));
   const towns = gir(t, an(2, 8), 0.5) * (1 - gir(t, bas(3), 0.4));
@@ -109,7 +110,7 @@ export function Cukur({ script }: WorldProps) {
               </g>
             )}
             {/* kurye */}
-            {t >= bas(1) && t < bas(2) && <g transform={`translate(${sx},${ROAD_Y + bump}) scale(1.6) translate(${-sx},${-(ROAD_Y + bump)})`}><Scooter x={sx} y={ROAD_Y + bump} tilt={bump * 0.2} xr={xr} /></g>}
+            {t < bas(2) && <g transform={`translate(${sx},${ROAD_Y + bump}) scale(1.6) translate(${-sx},${-(ROAD_Y + bump)})`}><Scooter x={sx} y={ROAD_Y + bump} tilt={bump * 0.2} xr={xr} /></g>}
             {/* ilk 4 kasaba */}
             {towns > 0 && [180, 420, 660, 900].map((x, i) => (
               <g key={x} transform={`translate(${x},${ROAD_Y - 330})`} opacity={gir(t, an(2, 8) + i * 0.2, 0.3) * towns}>
@@ -194,8 +195,8 @@ export function Cukur({ script }: WorldProps) {
 
       <WorldQc script={script} style={{ position: 'absolute', left: 90, right: W - 990, top: 262, height: 150 }}>
         <Headline show={1 - gir(t, bas(1), 0.4)}>
-          <span>Pizza satmak için</span>
-          <span style={{ display: 'block', color: L.accent }}>yol asfaltladı.</span>
+          <span>Pizzan neden ezik geliyor?</span>
+          <span style={{ display: 'block', color: L.accent }}>Cevap: yol.</span>
         </Headline>
         <Headline show={lesson}>
           <span style={{ color: X.cyan }}>Gerçek bir sorunu</span>

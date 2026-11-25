@@ -45,7 +45,7 @@ export function Depo({ script }: WorldProps) {
 
   // ---- kanca: depo sahnesi; "milyar dolarlık" ile değer çubuğu yükselir
   const hook = 1 - gir(t, bas(1), 0.4);
-  const value = gir(t, an(0, 7), 0.9);
+  const value = gir(t, an(0, 4), 0.9); // "1 milyar"
   const sceneO = (1 - gir(t, bas(2), 0.4)) + gir(t, bas(4), 0.5) * (1 - gir(t, bas(6), 0.5));
   // ---- 1: 2012, espri
   const joke = gir(t, an(1, 12), 0.4) * (1 - gir(t, bas(2), 0.3));
@@ -181,8 +181,8 @@ export function Depo({ script }: WorldProps) {
 
       <WorldQc script={script} style={{ position: 'absolute', left: 90, right: W - 990, top: 262, height: 150 }}>
         <Headline show={hook}>
-          <span>Depoda bir video.</span>
-          <span style={{ display: 'block', color: L.accent }}>Şirket milyar dolarlık.</span>
+          <span>4.500 dolarlık bir video.</span>
+          <span style={{ display: 'block', color: L.accent }}>1 milyar dolarlık şirket.</span>
         </Headline>
         <Headline show={line}>
           <span>Bizden biri gibi</span>
