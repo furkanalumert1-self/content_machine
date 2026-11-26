@@ -10,7 +10,7 @@ on:
       mode:
         description: 'plan_and_render: planla ve üret · render_only: yalnızca bekleyen videoları üret'
         type: choice
-        options: [plan_and_render, render_only, konu, yeniden, tasi]
+        options: [plan_and_render, render_only, konu, yeniden, tasi, iptal]
         default: plan_and_render
       konu:
         description: 'mode=konu/yeniden: konunun anahtarı (yeniden: yayınlanmamış videosu aynı saatle yeniden üretilir) (config/topics/sepet-rontgeni.json, ör. economist-tuzak-secenek)'
@@ -48,12 +48,12 @@ jobs:
           ffmpeg: 'true'
 
       - name: Brief senkronu (onay durumu dahil)
-        if: inputs.mode != 'render_only' && inputs.mode != 'konu' && inputs.mode != 'yeniden' && inputs.mode != 'tasi'
+        if: inputs.mode != 'render_only' && inputs.mode != 'konu' && inputs.mode != 'yeniden' && inputs.mode != 'tasi' && inputs.mode != 'iptal'
         run: npx tsx src/jobs/brief-sync.ts
 
       - name: Planlama
         id: plan
-        if: inputs.mode != 'render_only' && inputs.mode != 'konu' && inputs.mode != 'yeniden' && inputs.mode != 'tasi'
+        if: inputs.mode != 'render_only' && inputs.mode != 'konu' && inputs.mode != 'yeniden' && inputs.mode != 'tasi' && inputs.mode != 'iptal'
         run: npx tsx src/jobs/planner.ts
 
       - name: Konuyu planla (elle seçilen konu)
@@ -74,6 +74,12 @@ jobs:
           KONU: ${{ inputs.konu }}
           ZAMAN: ${{ inputs.zaman }}
         run: npx tsx src/jobs/move-video.ts "$KONU" "$ZAMAN"
+
+      - name: Videoyu iptal et (yayınlanmamış)
+        if: inputs.mode == 'iptal'
+        env:
+          KONU: ${{ inputs.konu }}
+        run: npx tsx src/jobs/cancel-video.ts "$KONU"
 
       - name: Acil fikir araştırması
         if: steps.plan.outputs.needs_research == 'true'
