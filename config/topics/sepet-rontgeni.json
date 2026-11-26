@@ -8259,6 +8259,137 @@
         ],
         "world": "fragman"
       }
+    },
+    {
+      "key": "eker-seffaf-kutu",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Eker",
+      "mechanism": "Görünürlük (belirsizliği azaltma)",
+      "callypso_feature": "Ürün sayfası (görsel)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Eker kutuyu şeffaf yaptı. Hem de kaşığıyla",
+        "Eker tatlıyı kutudan çıkardı",
+        "Eker müşteriye tatlının içini gösterdi"
+      ],
+      "cover": {
+        "line1": "Kutuyu şeffaf yaptı,",
+        "line2": "satış ikiye katlandı.",
+        "object": "şeffaf tatlı kabı",
+        "icon": "jars",
+        "theme": "warm",
+        "number": "%100"
+      },
+      "fact": "Eker'in 2012'deki açıklamasına göre sütlü tatlılar 2010'da şeffaf kaba ve kaşıklı kapağa geçince satışlar %100 arttı.",
+      "mechanism_lines": [
+        "Müşteri ürünü kutuyu açmadan gördü.",
+        "Kaşık da 'hemen yenir' dedi; görmek tereddüdü azalttı."
+      ],
+      "action": [
+        "Ürün sayfana gerçek bir 'kutu açılınca' fotoğrafı ekle.",
+        "Ürünün içini ve dokusunu yakın çekimle göster."
+      ],
+      "insight": "Müşteri göremediğine tereddütle bakar.",
+      "question": "Senin ürün sayfan ürünün içini gösteriyor mu? 👇",
+      "tags": [
+        "#eker",
+        "#ambalaj"
+      ],
+      "facts": [
+        {
+          "text": "Eker yöneticisinin 2012'de Capital'e anlattığına göre sütlü tatlılar 2007'de karton ambalajla çıktı; 2010'da şeffaf kaba ve kapağa monte kaşığa geçince satışlar %100 arttı.",
+          "source_label": "Capital, 'Yenileme mucizesi' (2012)",
+          "source_url": "https://www.capital.com.tr/sektorler/diger-sektorler/yenileme-mucizesi",
+          "source_type": "press",
+          "checked_at": "2026-11-26",
+          "note": "Şirket beyanı (röportaj); dönem ve baz belirtilmemiş."
+        }
+      ],
+      "score": 86,
+      "story": {
+        "label": "Şeffaf kutu",
+        "pattern": "olay",
+        "headline": "Eker kutuyu neden şeffaf yaptı?",
+        "voice_model": "eleven_v4",
+        "world": "seffaf",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Eker kutuyu şeffaf yaptı. Hem de kaşığıyla.",
+            "show": {
+              "type": "title",
+              "text": "Şeffaf kutu,",
+              "sub": "üstünde kaşık."
+            }
+          },
+          {
+            "say": "2007. Eker'in sütlü tatlıları rafta karton kutudaydı. Müşteri içini göremiyordu.",
+            "show": {
+              "type": "rule",
+              "strike": "İçini görmeden",
+              "text": "Karton kutu."
+            }
+          },
+          {
+            "say": "2010'da Eker kabı şeffaf yaptı. Kapağın üstüne de bir kaşık taktı.",
+            "show": {
+              "type": "rule",
+              "strike": "Karton",
+              "text": "Şeffaf kap ve kaşık."
+            }
+          },
+          {
+            "say": "Şirketin 2012'deki açıklamasına göre bu küçük değişiklik satışları yüzde 100 artırdı.",
+            "show": {
+              "type": "stat",
+              "value": "%100",
+              "label": "satış artışı · şirket açıklaması",
+              "bar": 1,
+              "note": "KAYNAK: Capital (2012)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Müşteri tatlıyı kutuyu açmadan gördü. Kaşık da hemen yenir dedi. Görmek, tereddüdü bitirdi.",
+            "show": {
+              "type": "chips",
+              "title": "Satan şey",
+              "items": [
+                "Gördü",
+                "Hemen yenir",
+                "Tereddüt yok"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürün sayfana kutu açılınca çekilmiş gerçek bir fotoğraf ekle. İçini ve dokusunu yakın çekimle göster.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Kutu açılınca böyle geliyor.",
+              "body": "Gerçek fotoğraf · yakın çekim",
+              "time": "13:30"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "%100"
     }
   ]
 }
