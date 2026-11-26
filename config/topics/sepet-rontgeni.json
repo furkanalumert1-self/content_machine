@@ -8528,6 +8528,144 @@
         ]
       },
       "big_number": "7 milyon"
+    },
+    {
+      "key": "warby-parker-evde-dene",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Warby Parker",
+      "mechanism": "Risk tersine çevirme (satın almadan dene)",
+      "callypso_feature": "Ürün sayfası (güven unsurları)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Warby Parker beş gözlüğü bedava yolladı. Deneyesin diye",
+        "Warby Parker gözlüğü satmadan önce eve yolladı",
+        "Warby Parker 'ya olmazsa' korkusunu sildi"
+      ],
+      "cover": {
+        "line1": "Beş gözlük, beş gün,",
+        "line2": "ücretsiz eve.",
+        "object": "gözlük kutusu",
+        "icon": "parcel",
+        "theme": "warm",
+        "number": "3 hafta"
+      },
+      "fact": "Warby Parker'ın halka arz belgesine göre müşteri beş çerçeveyi beş gün evde ücretsiz deniyor; şirket 2010'da ilk yıl satış hedefine üç haftada ulaştı.",
+      "mechanism_lines": [
+        "Online alışverişin en büyük korkusu 'ya bana olmazsa' idi.",
+        "Warby bu korkuyu satın almadan önce ortadan kaldırdı."
+      ],
+      "action": [
+        "Beden, renk ya da koku tereddüdü olan ürüne numune veya deneme seti koy.",
+        "Ya da ilk değişimi ücretsiz yap; maliyeti önce bir ay test et."
+      ],
+      "insight": "Satın almadan önce denetmek, en büyük itirazı siler.",
+      "question": "Senin müşterin en çok neyden çekiniyor? 👇",
+      "tags": [
+        "#warbyparker",
+        "#eticaret"
+      ],
+      "facts": [
+        {
+          "text": "Home Try-On ile müşteri sitede beş çerçeve seçip beş gün evde ücretsiz deniyor.",
+          "source_label": "Warby Parker Form S-1 (SEC, 2021)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1504776/000162828021017546/warbyparkerincs-1.htm",
+          "source_type": "official",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "text": "2010'daki lansmanda gözlüklerin %2,5'ten azı internetten satılıyordu; şirket ilk yıl satış hedefine 3 haftada ulaştı.",
+          "source_label": "Warby Parker Form S-1 (SEC, 2021)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1504776/000162828021017546/warbyparkerincs-1.htm",
+          "source_type": "official",
+          "checked_at": "2026-11-26",
+          "note": "Şirket beyanı; genel lansman için, yalnız evde denemeye ait değil."
+        }
+      ],
+      "score": 85,
+      "story": {
+        "label": "Evde dene",
+        "pattern": "olay",
+        "headline": "Warby Parker gözlüğü neden önce eve yolladı?",
+        "voice_model": "eleven_v4",
+        "world": "deneme",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Warby Parker beş gözlüğü bedava yolladı. Deneyesin diye.",
+            "show": {
+              "type": "title",
+              "text": "Beş gözlük,",
+              "sub": "beş gün, ücretsiz."
+            }
+          },
+          {
+            "say": "2010. Gözlüklerin yüzde 2,5'ten azı internetten satılıyordu. Kimse yüzünü görmeden gözlük almak istemiyordu.",
+            "show": {
+              "type": "rule",
+              "strike": "Görmeden almak",
+              "text": "Kimse istemiyor."
+            }
+          },
+          {
+            "say": "Warby Parker beş çerçeveyi beş günlüğüne ücretsiz eve gönderdi. Beğendiğini sipariş ediyordun.",
+            "show": {
+              "type": "rule",
+              "strike": "Önce öde",
+              "text": "Önce dene."
+            }
+          },
+          {
+            "say": "Şirketin halka arz belgesine göre ilk yılın satış hedefine 3 haftada ulaştı.",
+            "show": {
+              "type": "stat",
+              "value": "3 hafta",
+              "label": "ilk yıl hedefi · şirket beyanı",
+              "bar": 1,
+              "note": "KAYNAK: SEC S-1 (2021)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Online gözlüğün en büyük korkusu şuydu: ya yüzüme olmazsa? Warby bu korkuyu satın almadan önce sildi.",
+            "show": {
+              "type": "chips",
+              "title": "Silinen korku",
+              "items": [
+                "Ya olmazsa?",
+                "Evde dene",
+                "Sonra al"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Beden ya da renk tereddüdü olan ürününe numune veya deneme seti koy. Ya da ilk değişimi ücretsiz yap.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Önce dene, sonra karar ver.",
+              "body": "Deneme seti · ilk değişim ücretsiz",
+              "time": "13:30"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "3 hafta"
     }
   ]
 }

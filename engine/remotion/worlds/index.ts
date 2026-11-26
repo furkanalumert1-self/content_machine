@@ -6,6 +6,7 @@ import { Cukur } from './Cukur.tsx';
 import { Aclik } from './Aclik.tsx';
 import { Seffaf } from './Seffaf.tsx';
 import { Kavanoz } from './Kavanoz.tsx';
+import { Deneme } from './Deneme.tsx';
 import { Alici } from './Alici.tsx';
 import { Cizim } from './Cizim.tsx';
 import { Depo } from './Depo.tsx';
@@ -53,4 +54,5 @@ export const WORLDS: Record<string, ComponentType<WorldProps>> = {
   aclik: Aclik,
   seffaf: Seffaf,
   kavanoz: Kavanoz,
+  deneme: Deneme,
 };
