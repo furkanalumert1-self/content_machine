@@ -8390,6 +8390,144 @@
         ]
       },
       "big_number": "%100"
+    },
+    {
+      "key": "nutella-7-milyon-kavanoz",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "Nutella",
+      "mechanism": "Benzersizlik (koleksiyon etkisi)",
+      "callypso_feature": "Kampanyalar (sürpriz paket)",
+      "status": "dogrulandi",
+      "hooks": [
+        "Nutella her kavanozu farklı bastı. 7 milyon tane",
+        "Nutella aynı kavanozu iki kez basmadı",
+        "Nutella 7 milyon farklı etiket bastı"
+      ],
+      "cover": {
+        "line1": "7 milyon kavanoz,",
+        "line2": "hiçbiri aynı değil.",
+        "object": "desenli kavanozlar",
+        "icon": "jars",
+        "theme": "warm",
+        "number": "7 milyon"
+      },
+      "fact": "Dezeen'e göre 2017'de İtalya'da bir algoritmayla tasarlanan 7 milyon farklı kavanoz süpermarketlerde satıldı; ajansa göre bir ayda tükendi.",
+      "mechanism_lines": [
+        "Sıradan bir ürün 'benimki tek' duygusuyla koleksiyon objesine döndü.",
+        "Rafta kavanoz seçmek bir oyuna dönüştü."
+      ],
+      "action": [
+        "Aynı ürün için 4-5 farklı etiket ya da kutu deseni bastır, siparişlere rastgele gönder.",
+        "Müşteriden hangisinin geldiğini paylaşmasını iste; gerçekten sınırlı değilse 'sınırlı' deme."
+      ],
+      "insight": "Aynı ürün, farklı paket: müşteri kendininkini sahiplenir.",
+      "question": "Sen hangi deseni isterdin? 👇",
+      "tags": [
+        "#nutella",
+        "#ambalaj"
+      ],
+      "facts": [
+        {
+          "text": "2017'de İtalya'da bir algoritmayla tasarlanan 7 milyon farklı kavanoz İtalyan süpermarketlerinde satıldı.",
+          "source_label": "Dezeen (2017)",
+          "source_url": "https://www.dezeen.com/2017/06/01/algorithm-seven-million-different-jars-nutella-packaging-design/",
+          "source_type": "press",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "text": "Ajansın beyanına göre kavanozların hepsi 1 ay içinde tükendi.",
+          "source_label": "Food Dive",
+          "source_url": "https://www.fooddive.com/news/algorithm-designed-nutella-jars-cause-marketing-buzz-and-buying-frenzy/444372/",
+          "source_type": "press",
+          "checked_at": "2026-11-26",
+          "note": "Ajans beyanı; bağımsız satış verisi yok."
+        }
+      ],
+      "score": 85,
+      "story": {
+        "label": "7 milyon kavanoz",
+        "pattern": "olay",
+        "headline": "Nutella neden her kavanozu farklı yaptı?",
+        "voice_model": "eleven_v4",
+        "world": "kavanoz",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] Nutella her kavanozu farklı bastı. 7 milyon tane.",
+            "show": {
+              "type": "title",
+              "text": "7 milyon kavanoz,",
+              "sub": "hiçbiri aynı değil."
+            }
+          },
+          {
+            "say": "2017, İtalya. Bir algoritma onlarca desen ve binlerce renkten her kavanoza ayrı bir etiket çizdi.",
+            "show": {
+              "type": "rule",
+              "strike": "Tek etiket",
+              "text": "Her kavanoza ayrı desen."
+            }
+          },
+          {
+            "say": "7 milyon kavanoz süpermarket raflarına çıktı. Rafta iki tane aynısını bulamazdın.",
+            "show": {
+              "type": "rule",
+              "strike": "Aynı raf",
+              "text": "Her biri tek."
+            }
+          },
+          {
+            "say": "Ajansın açıklamasına göre hepsi 1 ay içinde tükendi.",
+            "show": {
+              "type": "stat",
+              "value": "1 ay",
+              "label": "hepsi tükendi · ajans beyanı",
+              "bar": 1,
+              "note": "KAYNAK: Food Dive"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "İçindeki krema aynıydı. Değişen tek şey şuydu: müşteri artık benimki tek diyordu. Kavanoz seçmek bir oyuna dönüştü.",
+            "show": {
+              "type": "chips",
+              "title": "Satan şey",
+              "items": [
+                "Aynı krema",
+                "Benimki tek",
+                "Seçme oyunu"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "Ürününe 4-5 farklı etiket bastır, siparişlere rastgele gönder. Müşteriden hangisinin geldiğini paylaşmasını iste.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Senin paketin hangi desen çıktı?",
+              "body": "5 desen · rastgele gönderim",
+              "time": "13:30"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "7 milyon"
     }
   ]
 }
