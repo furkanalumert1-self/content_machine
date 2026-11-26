@@ -5869,9 +5869,9 @@
       "callypso_feature": "Kampanyalar (an odaklı mesaj)",
       "status": "dogrulandi",
       "hooks": [
+        "Snickers çikolata değil, açlık sattı. Hem de bilerek",
         "Snickers ürününü değil, açlığı sattı",
-        "Snickers'a göre açken sen değilsin",
-        "Snickers huysuzluğu satmaya başladı"
+        "Snickers'a göre açken sen değilsin"
       ],
       "cover": {
         "line1": "Çikolata değil,",
@@ -5921,7 +5921,7 @@
         "voice_model": "eleven_v4",
         "segments": [
           {
-            "say": "[warm, conversational, like telling a friend] Snickers çikolatasını değil, açlığını satmaya başladı.",
+            "say": "[warm, conversational, like telling a friend] Snickers çikolata değil, açlık sattı. Hem de bilerek.",
             "show": {
               "type": "title",
               "text": "Çikolata değil,",
@@ -5995,7 +5995,8 @@
               "cta": "Kaydet · Yorumlara REHBER yaz"
             }
           }
-        ]
+        ],
+        "world": "aclik"
       },
       "big_number": "%15,9"
     },
