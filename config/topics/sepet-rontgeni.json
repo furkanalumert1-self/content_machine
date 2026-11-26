@@ -8666,6 +8666,152 @@
         ]
       },
       "big_number": "3 hafta"
+    },
+    {
+      "key": "penny-fiyat-paket",
+      "pillar": "A",
+      "funnel": "TOF",
+      "brand": "PENNY",
+      "mechanism": "Pahalı sinyal (geri alınamaz söz)",
+      "callypso_feature": "Ürün sayfası (fiyat sözü)",
+      "status": "dogrulandi",
+      "hooks": [
+        "PENNY fiyatı pakete bastı. Hem de tasarım diye",
+        "PENNY paketin üstüne sadece fiyatı yazdı",
+        "PENNY'nin paketinde logo yok, fiyat var"
+      ],
+      "cover": {
+        "line1": "Paketin tasarımı:",
+        "line2": "sadece fiyat.",
+        "object": "fiyat yazılı paket",
+        "icon": "tag",
+        "theme": "warm",
+        "number": "1,4 milyon"
+      },
+      "fact": "Ajansın Cannes 2025 sayfasına göre PENNY'nin fiyatı tasarım olarak basılan ürünleri Almanya'daki 2.150 mağazada satıldı; 4 haftada 1,4 milyon ürün satıldı.",
+      "mechanism_lines": [
+        "Pakete basılan fiyatı değiştirmek zor ve pahalı.",
+        "Bu yüzden müşteri fiyat sözüne inandı."
+      ],
+      "action": [
+        "En çok satan üç ürününe tarihli bir sabit fiyat sözü koy.",
+        "Tutamayacağın sözü verme; süre ve şartları ürün sayfasına yaz."
+      ],
+      "insight": "Geri alınamayan söz, inandırıcı sözdür.",
+      "question": "Sen hangi ürününe fiyat sözü verirdin? 👇",
+      "tags": [
+        "#penny",
+        "#fiyatlama"
+      ],
+      "facts": [
+        {
+          "text": "Price Packs'te paket tasarımı doğrudan fiyattı; ürünler Almanya'daki 2.150 PENNY mağazasının hepsinde satıldı.",
+          "source_label": "Serviceplan Cannes 2025 sayfası",
+          "source_url": "https://www.house-of-communication.com/de/en/brands/serviceplan/landingpages/cannes-2025.html",
+          "source_type": "official",
+          "checked_at": "2026-11-26",
+          "note": "Ajans beyanı."
+        },
+        {
+          "text": "Ajansa göre 4 haftada 1,4 milyon ürün satıldı.",
+          "source_label": "Serviceplan Cannes 2025 sayfası",
+          "source_url": "https://www.house-of-communication.com/de/en/brands/serviceplan/landingpages/cannes-2025.html",
+          "source_type": "official",
+          "checked_at": "2026-11-26",
+          "note": "Ajans / ödül başvurusu beyanı."
+        },
+        {
+          "text": "Örnek: yulaf paketinde 1,79 euro; kampanya Cannes Lions 2025 Print & Publishing Grand Prix kazandı.",
+          "source_label": "Storyboard18",
+          "source_url": "https://www.storyboard18.com/brand-marketing/cannes-lions-grand-prix-spotlight-how-penny-turned-price-into-packaging-and-won-big-73666.htm",
+          "source_type": "press",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "score": 84,
+      "story": {
+        "label": "Fiyat paketi",
+        "pattern": "olay",
+        "headline": "PENNY paketine neden sadece fiyat yazdı?",
+        "voice_model": "eleven_v4",
+        "world": "fiyatpaket",
+        "segments": [
+          {
+            "say": "[warm, conversational, like telling a friend] PENNY fiyatı pakete bastı. Hem de tasarım diye.",
+            "show": {
+              "type": "title",
+              "text": "Paketin tasarımı:",
+              "sub": "sadece fiyat."
+            }
+          },
+          {
+            "say": "Almanya'daki market zinciri PENNY, kendi ürünlerinin paketine logo yerine kocaman fiyatı yazdı. Yulaf paketi: 1,79 euro.",
+            "show": {
+              "type": "rule",
+              "strike": "Logo, desen",
+              "text": "Sadece fiyat."
+            }
+          },
+          {
+            "say": "Bu paketler Almanya'daki 2.150 PENNY mağazasının hepsinde rafa çıktı.",
+            "show": {
+              "type": "rule",
+              "strike": "Tek mağaza",
+              "text": "Hepsinde."
+            }
+          },
+          {
+            "say": "Ajansın açıklamasına göre 4 haftada 1,4 milyon ürün satıldı. Kampanya Cannes'da büyük ödülü aldı.",
+            "show": {
+              "type": "stat",
+              "value": "1,4 milyon",
+              "label": "ürün · 4 hafta · ajans beyanı",
+              "bar": 1,
+              "note": "KAYNAK: Serviceplan (2025)"
+            }
+          },
+          {
+            "say": "Hadi röntgenini çekelim.",
+            "show": {
+              "type": "xray",
+              "text": "Röntgen"
+            },
+            "mode": "xray"
+          },
+          {
+            "say": "Pakete basılmış fiyatı değiştirmek zor ve pahalı. Yani bu, geri alınamayan bir söz. Müşteri tam da bu yüzden inandı.",
+            "show": {
+              "type": "chips",
+              "title": "Satan şey",
+              "items": [
+                "Basılı fiyat",
+                "Geri alınamaz",
+                "İnandırıcı söz"
+              ]
+            },
+            "mode": "light"
+          },
+          {
+            "say": "En çok satan üç ürününe tarihli bir fiyat sözü koy: ay sonuna kadar bu fiyat. Tutamayacağın sözü ise hiç verme.",
+            "show": {
+              "type": "phone",
+              "app": "Senin mağazan",
+              "title": "Ay sonuna kadar bu fiyat.",
+              "body": "Tarihli fiyat sözü · şartlar sayfada",
+              "time": "13:30"
+            }
+          },
+          {
+            "say": "Lazım olacak, kaydet. Bunun gibi 25 taktik için yorumlara REHBER yaz.",
+            "show": {
+              "type": "outro",
+              "caseNo": 0,
+              "cta": "Kaydet · Yorumlara REHBER yaz"
+            }
+          }
+        ]
+      },
+      "big_number": "1,4 milyon"
     }
   ]
 }
